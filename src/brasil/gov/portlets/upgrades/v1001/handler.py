@@ -7,8 +7,8 @@ import logging
 
 
 def apply_profile(context):
-    """Atualiza perfil para versao 1010."""
+    """Atualiza perfil para versao 1001."""
     logger = logging.getLogger(PROJECTNAME)
-    profile = 'profile-brasil.gov.portlets.upgrades.v1010:default'
+    profile = 'profile-brasil.gov.portlets.upgrades.v1001:default'
     loadMigrationProfile(context, profile)
-    logger.info('Atualizado para versao 1010')
+    logger.info('Atualizado para versao 1001')

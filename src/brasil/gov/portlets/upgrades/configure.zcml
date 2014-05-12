@@ -4,6 +4,6 @@
     i18n_domain="brasil.gov.portlets">
 
   <!-- Passos de atualizacao -->
-  <include package=".v1010" />
+  <include package=".v1001" />
 
 </configure>

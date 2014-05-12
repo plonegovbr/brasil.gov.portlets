@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+    <div class="portlet portletSearch"
+         i18n:domain="secom.brasil.portal">
+        <div class="portal-padrao-collection-portlet">
+            <tal:results tal:define="results view/results|nothing">
+                <div tal:condition="not:results">
+                    <p i18n:translate="">
+                        A coleção não possui nenhum item.
+                    </p>
+                </div>
+                <div class="portletHeader">
+                    <span class="portletTopLeft" />
+                    <a href="${view/data/header_url}"
+                       tal:omit-tag="not:view/data/header_url">
+                        <span>${view/data/header}</span>
+                    </a>
+                    <span class="portletTopRight" />
+                </div>
+                <div class="portletItem"
+                     tal:repeat="item results">
+                    <tal:items tal:define="obj item/getObject;">
+                        <tal:image tal:define="thumbnail python:view.thumbnail(obj);"
+                                   tal:condition="view/data/show_image">
+                            <a tal:attributes="href obj/absolute_url;
+                                               title obj/Description">
+                                <img tal:attributes="src thumbnail/url;
+                                                     width thumbnail/width;
+                                                     height thumbnail/height;
+                                                     alt obj/Description|obj/Title" />
+                            </a>
+                        </tal:image>
+                        <tal:title content="structure python:view.title(obj)" />
+                        <p class="description">
+                            ${obj/Description}
+                        </p>
+                        <p tal:condition="view/data/show_date">
+                            ${python:view.date(obj)}
+                        </p>
+                    </tal:items>
+                    <div class="visualClear"><!-- --></div>
+                </div>
+                <div class="portletFooter">
+                    <a href="${view/data/footer_url}"
+                       tal:condition="view/data/show_footer"
+                       tal:omit-tag="not:view/data/footer_url">
+                        ${view/data/footer}
+                    </a>
+                </div>
+                <div class="visualClear"><!-- --></div>
+            </tal:results>
+        </div>
+    </div>
+</html>

@@ -14,4 +14,9 @@
   <!-- Suporte ao Generic Setup-->
   <include file="profiles.zcml" />
 
+  <browser:resourceDirectory
+      name="secom.brasil.portal"
+      directory="static"
+      />
+  
 </configure>

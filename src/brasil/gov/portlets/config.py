@@ -12,5 +12,5 @@ class HiddenProfiles(object):
     def getNonInstallableProfiles(self):
         return [
             u'brasil.gov.portlets:uninstall',
-            u'brasil.gov.portlets.upgrades.v1010:default'
+            u'brasil.gov.portlets.upgrades.v1001:default'
         ]
