@@ -18,8 +18,8 @@ class Fixture(PloneSandboxLayer):
         self.loadZCML(package=brasil.gov.portlets)
 
     def setUpPloneSite(self, portal):
-        self.applyProfile(
-            portal, 'brasil.gov.portlets:default')
+        self.applyProfile(portal, 'brasil.gov.portlets:default')
+        portal.portal_workflow.setDefaultChain('simple_publication_workflow')
 
 
 FIXTURE = Fixture()
