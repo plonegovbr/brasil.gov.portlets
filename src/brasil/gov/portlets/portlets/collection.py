@@ -182,7 +182,7 @@ class Renderer(base.Renderer):
 
     def _collection_type_criteria(self, collection):
         type_criteria = u''
-        for c in collection.getQuery():
+        for c in collection.query:
             if ((c[u'i'] == u'portal_type') and
                (c[u'o'] == u'plone.app.querystring.operation.selection.is')):
                 type_criteria = c[u'v']
@@ -201,12 +201,12 @@ class Renderer(base.Renderer):
             limit = self.data.limit
             if limit and limit > 0:
                 # pass on batching hints to the catalog
-                query['batch'] = True,
+                query['batch'] = True
                 query['b_size'] = limit
-                results = collection.queryCatalog(query)
+                results = collection.queryCatalog(**query)
                 results = results._sequence
             else:
-                results = collection.queryCatalog(query)
+                results = collection.queryCatalog(**query)
             if limit and limit > 0:
                 results = results[:limit]
         return results
@@ -255,7 +255,7 @@ class Renderer(base.Renderer):
         '''Generate html part with following structure
         <HX>
             <a href="${item/absolute_url}"
-               title="${item/Description}">
+               title="${item/Description|None}">
                 ${item/Title}
             </a>
         </HX>

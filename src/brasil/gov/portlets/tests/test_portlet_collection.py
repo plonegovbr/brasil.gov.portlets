@@ -2,7 +2,6 @@
 from brasil.gov.portlets.portlets import collection
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from DateTime import DateTime
-from datetime import datetime
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -27,29 +26,25 @@ class CollectionPortletTestCase(unittest.TestCase):
         self.request = self.layer['request']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
+        test_date_order = [3, 1, 2]
+
         news_folder = api.content.create(
             type='Folder',
             title='News Folder',
             container=self.portal
         )
-        api.content.create(
-            type='News Item',
-            title='New 1',
-            creation_date=DateTime('2014/05/03 14:23:38.334118 GMT-3'),
-            container=news_folder
-        )
-        api.content.create(
-            type='News Item',
-            title='New 2',
-            creation_date=DateTime('2014/05/01 14:23:38.334118 GMT-3'),
-            container=news_folder
-        )
-        api.content.create(
-            type='News Item',
-            title='New 3',
-            creation_date=DateTime('2014/05/02 14:23:38.334118 GMT-3'),
-            container=news_folder
-        )
+        for i in xrange(1, 4):
+            n = api.content.create(
+                type='News Item',
+                title='New {0}'.format(i),
+                container=news_folder
+            )
+            n.setCreationDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
+            ))
+            n.setModificationDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
+            ))
         self.news_collection = api.content.create(
             type='Collection',
             title='News Collection',
@@ -61,32 +56,30 @@ class CollectionPortletTestCase(unittest.TestCase):
             sort_on='created',
             container=news_folder
         )
+        self.news_collection_path = '/' + '/'.join(self.news_collection.getPhysicalPath()[2:])
+        self.news_collection_url = self.news_collection.absolute_url()
+
+        test_startdate_order = [3, 2, 1]
         events_folder = api.content.create(
             type='Folder',
             title='Events Folder',
             container=self.portal
         )
-        api.content.create(
-            type='Event',
-            title='Event 1',
-            creation_date=DateTime('2014/05/03 14:23:38.334118 GMT-3'),
-            startDate=datetime(2014, 5, 3, 15, 26, 18),
-            container=events_folder
-        )
-        api.content.create(
-            type='Event',
-            title='Event 2',
-            creation_date=DateTime('2014/05/01 14:23:38.334118 GMT-3'),
-            startDate=datetime(2014, 5, 2, 15, 26, 18),
-            container=events_folder
-        )
-        api.content.create(
-            type='Event',
-            title='Event 3',
-            creation_date=DateTime('2014/05/02 14:23:38.334118 GMT-3'),
-            startDate=datetime(2014, 5, 1, 15, 26, 18),
-            container=events_folder
-        )
+        for i in xrange(1, 4):
+            e = api.content.create(
+                type='Event',
+                title='Event {0}'.format(i),
+                container=news_folder
+            )
+            e.setCreationDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
+            ))
+            e.setModificationDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
+            ))
+            e.setStartDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_startdate_order[i - 1])
+            ))
         self.events_collection = api.content.create(
             type='Collection',
             title='Events Collection',
@@ -98,9 +91,11 @@ class CollectionPortletTestCase(unittest.TestCase):
             sort_on='created',
             container=events_folder
         )
+        self.events_collection_path = '/' + '/'.join(self.events_collection.getPhysicalPath()[2:])
+        self.events_collection_url = self.events_collection.absolute_url()
 
-    def renderer(self, context=None, request=None, view=None, manager=None,
-                 assignment=None):
+    def _renderer(self, context=None, request=None, view=None, manager=None,
+                  assignment=None):
         context = context or self.portal
         request = request or self.request
         view = view or self.portal.restrictedTraverse('@@plone')
@@ -109,6 +104,51 @@ class CollectionPortletTestCase(unittest.TestCase):
 
         return getMultiAdapter((context, request, view, manager, assignment),
                                IPortletRenderer)
+
+    def _assigned_renderers(self):
+        assgmnt1 = collection.Assignment(
+            header=u'Portal Padrão Coleção',
+            header_url=u'http://www.plone.org',
+            show_image=True,
+            image_size=u'large 768:768',
+            title_type=u'H4',
+            show_footer=True,
+            footer=u'Mais...',
+            footer_url=self.news_collection_url,
+            limit=3,
+            show_date=True,
+            date_format=u'curta: Data',
+            collection=self.news_collection_path
+        )
+
+        r1 = self._renderer(context=self.portal,
+                            assignment=assgmnt1)
+
+        r1 = r1.__of__(self.portal)
+        r1.update()
+
+        assgmnt2 = collection.Assignment(
+            header=u'Portal Padrão Coleção',
+            header_url=u'http://www.plone.org',
+            show_image=True,
+            image_size=u'large 768:768',
+            title_type=u'H4',
+            show_footer=True,
+            footer=u'Mais...',
+            footer_url=self.events_collection_url,
+            limit=3,
+            show_date=True,
+            date_format=u'longa: Data/Hora',
+            collection=self.events_collection_path
+        )
+
+        r2 = self._renderer(context=self.portal,
+                            assignment=assgmnt2)
+
+        r2 = r2.__of__(self.portal)
+        r2.update()
+
+        return (r1, r2)
 
     def test_portlet_type_registered(self):
         portlet = getUtility(IPortletType, name='brasil.gov.portlets.collection')
@@ -149,17 +189,124 @@ class CollectionPortletTestCase(unittest.TestCase):
         addview.createAndAdd(data={
             'header': u'Portal Padrão Coleção',
             'header_url': u'http://www.plone.org',
-            'title_type': u'H1',
-            'collection': self.news_collection
+            'show_image': True,
+            'image_size': u'large 768:768',
+            'title_type': u'H4',
+            'show_footer': True,
+            'footer': u'Mais...',
+            'footer_url': self.news_collection_url,
+            'limit': 2,
+            'show_date': True,
+            'date_format': u'longa: Data/Hora',
+            'collection': self.news_collection_path
         })
+
+        title = mapping.values()[0].title
+        self.assertEqual(title, u'Portal Padrão Coleção')
+
         header = mapping.values()[0].header
         self.assertEqual(header, u'Portal Padrão Coleção')
 
+        header_url = mapping.values()[0].header_url
+        self.assertEqual(header_url, u'http://www.plone.org')
+
+        show_image = mapping.values()[0].show_image
+        self.assertEqual(show_image, True)
+
+        image_size = mapping.values()[0].image_size
+        self.assertEqual(image_size, u'large 768:768')
+
+        title_type = mapping.values()[0].title_type
+        self.assertEqual(title_type, u'H4')
+
+        show_footer = mapping.values()[0].show_footer
+        self.assertEqual(show_footer, True)
+
+        footer = mapping.values()[0].footer
+        self.assertEqual(footer, u'Mais...')
+
+        footer_url = mapping.values()[0].footer_url
+        self.assertEqual(footer_url, self.news_collection_url)
+
+        limit = mapping.values()[0].limit
+        self.assertEqual(limit, 2)
+
+        show_date = mapping.values()[0].show_date
+        self.assertEqual(show_date, True)
+
+        date_format = mapping.values()[0].date_format
+        self.assertEqual(date_format, u'longa: Data/Hora')
+
+        collection = mapping.values()[0].collection
+        self.assertEqual(collection, self.news_collection_path)
+
     def test_renderer(self):
-        assgmnt1 = collection.Assignment()
+        r1, r2 = self._assigned_renderers()
 
-        r1 = self.renderer(context=self.portal,
-                           assignment=assgmnt1)
+        self.assertIsInstance(r1, collection.Renderer)
 
-        r1 = r1.__of__(self.portal)
-        r1.update()
+        self.assertIsInstance(r2, collection.Renderer)
+
+    def test_renderer_cssclass(self):
+        r1, r2 = self._assigned_renderers()
+
+        self.assertEqual(r1.css_class(),
+                         'brasil-gov-portlets-collection-portal-padrao-colecao')
+
+    def test_renderer_typecriteria(self):
+        r1, r2 = self._assigned_renderers()
+
+        type_criteria = r1._collection_type_criteria(self.news_collection)
+        self.assertEqual(type_criteria, u'News Item')
+
+        type_criteria = r2._collection_type_criteria(self.events_collection)
+        self.assertEqual(type_criteria, u'Event')
+
+    def test_renderer_results(self):
+        r1, r2 = self._assigned_renderers()
+
+        import ipdb
+        ipdb.set_trace()
+
+        results = [b.id for b in r1.results()]
+        self.assertEqual(results, ['new-2', 'new-3', 'new-1'])
+
+        results = [b.id for b in r2.results()]
+        self.assertEqual(results, ['event-3', 'event-2', 'event-1'])
+
+    def test_renderer_collection(self):
+        r1, r2 = self._assigned_renderers()
+
+        self.assertEqual(r1.collection(), self.news_collection)
+
+        self.assertEqual(r2.collection(), self.events_collection)
+
+    def test_renderer_thumbnail(self):
+        r1, r2 = self._assigned_renderers()
+        pass
+
+    def test_renderer_title(self):
+        r1, r2 = self._assigned_renderers()
+
+        titles = [r1.title(b.getObject()) for b in r1.results()]
+        self.assertEqual(titles, [
+            '<h4><a href="http://nohost/plone/news-folder/new-2" title="">New 2</a></h4>',
+            '<h4><a href="http://nohost/plone/news-folder/new-3" title="">New 3</a></h4>',
+            '<h4><a href="http://nohost/plone/news-folder/new-1" title="">New 1</a></h4>'
+        ])
+
+        titles = [r2.title(b.getObject()) for b in r2.results()]
+        self.assertEqual(titles, [
+            '<h4><a href="http://nohost/plone/events-folder/event-3" title="">Event 3</a></h4>',
+            '<h4><a href="http://nohost/plone/events-folder/event-2" title="">Event 2</a></h4>',
+            '<h4><a href="http://nohost/plone/events-folder/event-1" title="">Event 1</a></h4>'
+        ])
+
+    def test_renderer_date(self):
+        r1, r2 = self._assigned_renderers()
+
+        dates = [r1.date(b.getObject()) for b in r1.results()]
+        self.assertEqual(dates, ['03/05/2014', '01/05/2014', '02/05/2014'])
+
+        dates = [r2.date(b.getObject()) for b in r2.results()]
+        self.assertEqual(dates, ['03/05/2014 14:23', '02/05/2014 14:23', '01/05/2014 14:23'])
