@@ -14,11 +14,19 @@
   <!-- Suporte ao Generic Setup-->
   <include file="profiles.zcml" />
 
+  <!-- Registra traducoes -->
+  <i18n:registerTranslations directory="locales" />
+  
   <include package=".portlets" />
 
   <browser:resourceDirectory
-      name="secom.brasil.portal"
+      name="brasil.gov.portlets"
       directory="static"
       />
-  
+
+  <utility
+      component=".vocabulary.ImageScaleVocabularyFactory"
+      name="brasil.image.scales"
+      />
+
 </configure>

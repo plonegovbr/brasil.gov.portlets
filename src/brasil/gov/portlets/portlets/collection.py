@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from AccessControl import getSecurityManager
+from brasil.gov.portlets import _
 from DateTime import DateTime
 from lxml import html
 from lxml.html import builder as E
@@ -12,7 +13,6 @@ from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from secom.brasil.portal import _
 from zope import schema
 from zope.component import getMultiAdapter, getUtility
 from zope.formlib import form

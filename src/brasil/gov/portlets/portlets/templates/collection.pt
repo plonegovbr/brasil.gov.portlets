@@ -3,12 +3,12 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
     <div class="portlet portletSearch"
-         i18n:domain="secom.brasil.portal">
+         i18n:domain="brasil.gov.portlets">
         <div class="portal-padrao-collection-portlet">
             <tal:results tal:define="results view/results|nothing">
                 <div tal:condition="not:results">
                     <p i18n:translate="">
-                        A coleção não possui nenhum item.
+                        The collection don't have any item.
                     </p>
                 </div>
                 <div class="portletHeader">

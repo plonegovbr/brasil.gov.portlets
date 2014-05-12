@@ -1,0 +1,146 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: brasil.gov.portlets\n"
+"POT-Creation-Date: 2014-05-12 14:11+0000\n"
+"PO-Revision-Date: 2012-09-18 23:00+0000\n"
+"Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
+"Language-Team: PloneGov.Br <gov@plone.org.br>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: brasil.gov.portlets\n"
+
+#: ../portlets/collection.py:287
+msgid "Adicionar Portlet Portal Padrão Coleção"
+msgstr ""
+
+#: ../portlets/collection.py:114
+msgid "Coleção"
+msgstr ""
+
+#: ../portlets/collection.py:300
+msgid "Editar Portlet Portal Padrão Coleção"
+msgstr ""
+
+#: ../portlets/collection.py:288
+msgid "Este portlet mostra uma listagem de itens de uma Coleção."
+msgstr ""
+
+#: ../portlets/collection.py:98
+msgid "Exibir Datas"
+msgstr ""
+
+#: ../portlets/collection.py:105
+msgid "Formato de Data"
+msgstr ""
+
+#: ../portlets/collection.py:106
+msgid "Formato que a data será exibida."
+msgstr ""
+
+#: ../portlets/collection.py:50
+msgid "Imagem"
+msgstr ""
+
+#: ../portlets/collection.py:92
+msgid "Informe o total de itens que devem ser exibidos no portlet."
+msgstr ""
+
+#: ../portlets/collection.py:86
+msgid "Link do rodapé"
+msgstr ""
+
+#: ../portlets/collection.py:87
+msgid "Link do rodapé do portlet."
+msgstr ""
+
+#: ../portlets/collection.py:45
+msgid "Link do título"
+msgstr ""
+
+#: ../portlets/collection.py:46
+msgid "Link do título do portlet."
+msgstr ""
+
+#: ../portlets/collection.py:115
+msgid "Pesquisa a coleção utilizada no portlet."
+msgstr ""
+
+#: ../profiles/default/portlets.xml
+#: ../upgrades/v1001/profile/portlets.xml
+msgid "Portal Padrao Colecao"
+msgstr "Portal Padrão Coleção"
+
+#: ../profiles/default/portlets.xml
+#: ../upgrades/v1001/profile/portlets.xml
+msgid "Portal Padrao Colecao."
+msgstr "Portal Padrão Coleção."
+
+#: ../portlets/collection.py:91
+msgid "Quantidade de itens a exibir"
+msgstr ""
+
+#: ../portlets/collection.py:75
+msgid "Rodapé"
+msgstr ""
+
+#: ../portlets/collection.py:51
+msgid "Se habilitado pede as informações da imagem."
+msgstr ""
+
+#: ../portlets/collection.py:76
+msgid "Se habilitado pede as informações do rodapé."
+msgstr ""
+
+#: ../portlets/collection.py:99
+msgid "Se habilitado, será mostrado a data dos itens da coleção."
+msgstr ""
+
+#: ../portlets/collection.py:56
+msgid "Tamanho da imagem"
+msgstr ""
+
+#: ../portlets/collection.py:57
+msgid "Tamanho da imagem que será exibida."
+msgstr ""
+
+#: ../portlets/collection.py:81
+msgid "Texto do rodapé"
+msgstr ""
+
+#: ../portlets/collection.py:82
+msgid "Texto do rodapé do portlet."
+msgstr ""
+
+#: ../portlets/templates/collection.pt:10
+msgid "The collection don't have any item."
+msgstr "A coleção não possui nenhum item."
+
+#: ../portlets/collection.py:64
+msgid "Tipo de título"
+msgstr ""
+
+#: ../portlets/collection.py:65
+msgid "Tipo de título que será exibido."
+msgstr ""
+
+#: ../portlets/collection.py:40
+msgid "Título"
+msgstr ""
+
+#: ../portlets/collection.py:41
+msgid "Título do portlet."
+msgstr ""
+
+#: ../portlets/collection.py:107
+msgid "curta: Data"
+msgstr ""
+
+#: ../portlets/collection.py:108
+msgid "longa: Data/Hora"
+msgstr ""
+
