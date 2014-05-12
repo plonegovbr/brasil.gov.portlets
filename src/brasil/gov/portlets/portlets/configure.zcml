@@ -6,21 +6,6 @@
 
   <include package="plone.app.portlets" />
 
-  <include package="z3c.unconfigure" file="meta.zcml" />
-
-  <unconfigure>
-
-    <plone:portlet
-        name="brasil.gov.portlets.collection"
-        interface=".collection.ICollectionPortlet"
-        assignment=".collection.Assignment"
-        renderer=".collection.Renderer"
-        addview=".collection.AddForm"
-        editview=".collection.EditForm"
-        />
-
-  </unconfigure>
-
   <plone:portlet
       name="brasil.gov.portlets.collection"
       interface=".collection.ICollectionPortlet"
