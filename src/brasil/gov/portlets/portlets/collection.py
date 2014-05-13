@@ -189,6 +189,19 @@ class Renderer(base.Renderer):
                 break
         return type_criteria
 
+    def _has_image_field(self, obj):
+        """Return True if the object has an image field.
+
+        :param obj: [required]
+        :type obj: content object
+        """
+        if hasattr(obj, 'image'):  # Dexterity
+            return True
+        elif hasattr(obj, 'Schema'):  # Archetypes
+            return 'image' in obj.Schema().keys()
+        else:
+            return False
+
     @memoize
     def results(self):
         results = []
@@ -244,7 +257,7 @@ class Renderer(base.Renderer):
         :param item: [required]
         :type item: content object
         """
-        if self.data.show_image:
+        if self._has_image_field(item) and self.data.show_image:
             scaleconf = self.data.image_size
             # scale string is something like: 'mini 200:200'
             scale = scaleconf.split(' ')[0]  # we need the name only: 'mini'
