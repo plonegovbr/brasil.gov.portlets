@@ -48,10 +48,7 @@ Edit Left Portlet
 
 Edit Right Portlet
     [arguments]  ${portlet}
-    Open Action Menu
-    Click Link  css=a#delete
-    Click Button  Delete
-    Page Should Contain  Plone site
+    Click Link  ${portlet}
 
 Delete Left Portlet
     [arguments]  ${portlet}

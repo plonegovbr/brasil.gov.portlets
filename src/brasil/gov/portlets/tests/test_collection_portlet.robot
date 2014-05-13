@@ -17,7 +17,7 @@ ${title_other_sample}  This text should never be saved
 ${edit_link_selector}  a.edit-tile-link
 
 ${title_field_id}  form.header
-${title_sample}  Some text for title
+${title_sample}  Portal Padrao Colecao
 ${collection_field_id}  form.collection
 
 *** Test cases ***
@@ -25,6 +25,8 @@ ${collection_field_id}  form.collection
 Test Collection Portlet
     Enable Autologin as  Site Administrator
     Go to Homepage
+    Sleep  1s  Wait for overlay
+
     Manage Portlets
     Add Right Portlet  Portal Padrao Colecao
 
@@ -36,6 +38,13 @@ Test Collection Portlet
     Click Button  name=form.collection.search
     Wait Until Page Contains element  name=form.collection.update
     Click Element  css=#formfield-form-collection input[type=radio]
+
     Click Button  Save
+
     Wait Until Page Contains element  css=.portlets-manager
     Go to Homepage
+    Sleep  1s  Wait for overlay
+
+    Manage Portlets
+    Edit Right Portlet  Portal Padrao Colecao
+    Sleep  1s  Wait for overlay
