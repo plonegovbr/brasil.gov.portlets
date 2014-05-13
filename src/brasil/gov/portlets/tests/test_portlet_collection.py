@@ -37,11 +37,11 @@ class CollectionPortletTestCase(unittest.TestCase):
             n = api.content.create(
                 type='News Item',
                 title='New {0}'.format(i),
+                creation_date=DateTime(
+                    '2014/05/0{0} 14:23:38.334118 GMT-3'
+                    .format(test_date_order[i - 1])),
                 container=news_folder
             )
-            n.setCreationDate(DateTime(
-                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
-            ))
             n.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
             ))
@@ -69,16 +69,16 @@ class CollectionPortletTestCase(unittest.TestCase):
             e = api.content.create(
                 type='Event',
                 title='Event {0}'.format(i),
-                container=news_folder
+                creation_date=DateTime(
+                    '2014/05/0{0} 14:23:38.334118 GMT-3'
+                    .format(test_date_order[i - 1])),
+                startDate=DateTime(
+                    '2014/05/0{0} 14:23:38.334118 GMT-3'
+                    .format(test_startdate_order[i - 1])),
+                container=events_folder
             )
-            e.setCreationDate(DateTime(
-                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
-            ))
             e.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_date_order[i - 1])
-            ))
-            e.setStartDate(DateTime(
-                '2014/05/0{0} 14:23:38.334118 GMT-3'.format(test_startdate_order[i - 1])
             ))
         self.events_collection = api.content.create(
             type='Collection',
@@ -265,9 +265,6 @@ class CollectionPortletTestCase(unittest.TestCase):
     def test_renderer_results(self):
         r1, r2 = self._assigned_renderers()
 
-        import ipdb
-        ipdb.set_trace()
-
         results = [b.id for b in r1.results()]
         self.assertEqual(results, ['new-2', 'new-3', 'new-1'])
 
@@ -306,7 +303,7 @@ class CollectionPortletTestCase(unittest.TestCase):
         r1, r2 = self._assigned_renderers()
 
         dates = [r1.date(b.getObject()) for b in r1.results()]
-        self.assertEqual(dates, ['03/05/2014', '01/05/2014', '02/05/2014'])
+        self.assertEqual(dates, ['01/05/2014', '02/05/2014', '03/05/2014'])
 
         dates = [r2.date(b.getObject()) for b in r2.results()]
-        self.assertEqual(dates, ['03/05/2014 14:23', '02/05/2014 14:23', '01/05/2014 14:23'])
+        self.assertEqual(dates, ['01/05/2014 14:23', '02/05/2014 14:23', '03/05/2014 14:23'])
