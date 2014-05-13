@@ -3,6 +3,7 @@ from brasil.gov.portlets.portlets import collection
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from DateTime import DateTime
 from plone import api
+from plone.app.imaging.interfaces import IImageScale
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.portlets.interfaces import IPortletAssignment
@@ -13,6 +14,7 @@ from plone.portlets.interfaces import IPortletType
 from Products.GenericSetup.utils import _getDottedName
 from zope.component import getMultiAdapter
 from zope.component import getUtility
+
 
 import unittest
 
@@ -93,6 +95,20 @@ class CollectionPortletTestCase(unittest.TestCase):
         )
         self.events_collection_path = '/' + '/'.join(self.events_collection.getPhysicalPath()[2:])
         self.events_collection_url = self.events_collection.absolute_url()
+
+        self.images_collection = api.content.create(
+            type='Collection',
+            title='Images Collection',
+            query=[{
+                u'i': u'portal_type',
+                u'o': u'plone.app.querystring.operation.selection.is',
+                u'v': u'Image'
+            }],
+            sort_on='created',
+            container=self.portal
+        )
+        self.images_collection_path = '/' + '/'.join(self.images_collection.getPhysicalPath()[2:])
+        self.images_collection_url = self.images_collection.absolute_url()
 
     def _renderer(self, context=None, request=None, view=None, manager=None,
                   assignment=None):
@@ -280,7 +296,33 @@ class CollectionPortletTestCase(unittest.TestCase):
 
     def test_renderer_thumbnail(self):
         r1, r2 = self._assigned_renderers()
-        pass
+
+        assgmnt3 = collection.Assignment(
+            header=u'Portal Padrão Coleção',
+            header_url=u'http://www.plone.org',
+            show_image=True,
+            image_size=u'large 768:768',
+            title_type=u'H4',
+            show_footer=True,
+            footer=u'Mais...',
+            footer_url=self.images_collection_url,
+            limit=3,
+            show_date=True,
+            date_format=u'longa: Data/Hora',
+            collection=self.images_collection_path
+        )
+        r3 = self._renderer(context=self.portal,
+                            assignment=assgmnt3)
+        r3 = r3.__of__(self.portal)
+        r3.update()
+
+        images = [r1.thumbnail(b.getObject()) for b in r1.results()]
+        self.assertEqual(images, [None, None, None])
+
+        images = [r3.thumbnail(b.getObject()) for b in r3.results()]
+        for img in images:
+            self.assertTrue(img)
+            self.assertTrue(IImageScale.providedBy(img))
 
     def test_renderer_title(self):
         r1, r2 = self._assigned_renderers()
