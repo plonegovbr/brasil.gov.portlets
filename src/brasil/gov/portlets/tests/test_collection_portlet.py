@@ -228,16 +228,34 @@ class CollectionPortletTestCase(unittest.TestCase):
 
         titles = [r1.title(b.getObject()) for b in r1.results()]
         self.assertEqual(titles, [
-            '<h4><a href="http://nohost/plone/news-folder/new-2" title="">New 2</a></h4>',
-            '<h4><a href="http://nohost/plone/news-folder/new-3" title="">New 3</a></h4>',
-            '<h4><a href="http://nohost/plone/news-folder/new-1" title="">New 1</a></h4>'
+            ('<h4><a href="http://nohost/plone/news-folder/new-2" ' +
+             'title="New 2 description - Lorem ipsum dolor sit amet, ' +
+             'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+             'interdum.">New 2</a></h4>'),
+            ('<h4><a href="http://nohost/plone/news-folder/new-3" ' +
+             'title="New 3 description - Lorem ipsum dolor sit amet, ' +
+             'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+             'interdum.">New 3</a></h4>'),
+            ('<h4><a href="http://nohost/plone/news-folder/new-1" ' +
+             'title="New 1 description - Lorem ipsum dolor sit amet, ' +
+             'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+             'interdum.">New 1</a></h4>')
         ])
 
         titles = [r2.title(b.getObject()) for b in r2.results()]
         self.assertEqual(titles, [
-            '<h4><a href="http://nohost/plone/events-folder/event-3" title="">Event 3</a></h4>',
-            '<h4><a href="http://nohost/plone/events-folder/event-2" title="">Event 2</a></h4>',
-            '<h4><a href="http://nohost/plone/events-folder/event-1" title="">Event 1</a></h4>'
+            ('<h4><a href="http://nohost/plone/events-folder/event-3" ' +
+             'title="Event 3 description - Lorem ipsum dolor sit amet, ' +
+             'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+             'interdum.">Event 3</a></h4>'),
+            ('<h4><a href="http://nohost/plone/events-folder/event-2" ' +
+             'title="Event 2 description - Lorem ipsum dolor sit amet, ' +
+             'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+             'interdum.">Event 2</a></h4>'),
+            ('<h4><a href="http://nohost/plone/events-folder/event-1" ' +
+             'title="Event 1 description - Lorem ipsum dolor sit amet, ' +
+             'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+             'interdum.">Event 1</a></h4>')
         ])
 
     def test_renderer_date(self):

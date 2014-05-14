@@ -77,6 +77,10 @@ class CreateTestContent(object):
             n = api.content.create(
                 type='News Item',
                 title='New {0}'.format(i),
+                description=(
+                    'New {0} description - Lorem ipsum dolor sit amet, ' +
+                    'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+                    'interdum.').format(i),
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),
@@ -109,6 +113,10 @@ class CreateTestContent(object):
             e = api.content.create(
                 type='Event',
                 title='Event {0}'.format(i),
+                description=(
+                    'Event {0} description - Lorem ipsum dolor sit amet, ' +
+                    'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+                    'interdum.').format(i),
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),
@@ -143,6 +151,10 @@ class CreateTestContent(object):
             n = api.content.create(
                 type='Image',
                 title='Image {0}'.format(i),
+                description=(
+                    'Image {0} description - Lorem ipsum dolor sit amet, ' +
+                    'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+                    'interdum.').format(i),
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),
@@ -175,6 +187,10 @@ class CreateTestContent(object):
             n = api.content.create(
                 type='File',
                 title='File {0}'.format(i),
+                description=(
+                    'File {0} description - Lorem ipsum dolor sit amet, ' +
+                    'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+                    'interdum.').format(i),
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),

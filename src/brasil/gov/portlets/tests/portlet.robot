@@ -10,20 +10,6 @@ ${ZOPE_URL} =  http://localhost:${PORT}
 ${PLONE_URL} =  ${ZOPE_URL}/plone
 ${BROWSER} =  Firefox
 
-${title_selector} =  input#form-widgets-IBasic-title
-${description_selector} =  textarea#form-widgets-IBasic-description
-${layout_selector} =  select#form-widgets-template_layout
-
-${row_button_selector} =  a#btn-row
-${column_button_selector} =  a#btn-column
-${tile_button_selector} =  a#btn-tile
-${row_drop_area_selector} =  div.layout
-${column_drop_area_selector} =  div.cover-row
-${tile_drop_area_selector} =  div.cover-column
-${tile_cancel_area_selector} =  div.modal-backdrop
-${delete_tile_selector} =  button.close
-${CONTENT_CHOOSER_SELECTOR} =  div#contentchooser-content-search
-
 *** Keywords ***
 
 Manage Portlets
@@ -31,32 +17,56 @@ Manage Portlets
 
 Add Left Portlet
     [arguments]  ${portlet}
+    Manage Portlets
     Select from list  xpath=//div[@id="portletmanager-plone-leftcolumn"]//select  ${portlet}
     Wait Until Page Contains element  name=form.actions.save
 
 Add Right Portlet
     [arguments]  ${portlet}
+    Manage Portlets
     Select from list  xpath=//div[@id="portletmanager-plone-rightcolumn"]//select  ${portlet}
     Wait Until Page Contains element  name=form.actions.save
 
 Edit Left Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-leftcolumn .portletHeader>a
     Click Link  css=#portletmanager-plone-leftcolumn .portletHeader>a
     Wait Until Page Contains element  name=form.actions.save
 
 Edit Right Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-rightcolumn .portletHeader>a
     Click Link  css=#portletmanager-plone-rightcolumn .portletHeader>a
     Wait Until Page Contains element  name=form.actions.save
 
 Delete Left Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-leftcolumn .delete button
     Click Element  css=#portletmanager-plone-leftcolumn .delete button
 
 Delete Right Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-rightcolumn .delete button
     Click Element  css=#portletmanager-plone-rightcolumn .delete button
 
 Hide Left Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-leftcolumn .portlet-action:nth-child(1) button
     Click Element  css=#portletmanager-plone-leftcolumn .portlet-action:nth-child(1) button
 
 Hide Right Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-rightcolumn .portlet-action:nth-child(1) button
+    Click Element  css=#portletmanager-plone-rightcolumn .portlet-action:nth-child(1) button
+
+Show Left Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-leftcolumn .portlet-action:nth-child(1) button
+    Click Element  css=#portletmanager-plone-leftcolumn .portlet-action:nth-child(1) button
+
+Show Right Portlet
+    Manage Portlets
+    Page Should Contain Element  css=#portletmanager-plone-rightcolumn .portlet-action:nth-child(1) button
     Click Element  css=#portletmanager-plone-rightcolumn .portlet-action:nth-child(1) button
 
 Select Collection

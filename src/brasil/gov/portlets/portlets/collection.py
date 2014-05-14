@@ -268,7 +268,7 @@ class Renderer(base.Renderer):
         '''Generate html part with following structure
         <HX>
             <a href="${item/absolute_url}"
-               title="${item/Description|None}">
+               title="${item/Description}">
                 ${item/Title}
             </a>
         </HX>
