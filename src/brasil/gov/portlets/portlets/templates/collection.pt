@@ -36,7 +36,7 @@
                         <p class="description">
                             ${obj/Description}
                         </p>
-                        <p tal:condition="view/data/show_date">
+                        <p class="date" tal:condition="view/data/show_date">
                             ${python:view.date(obj)}
                         </p>
                     </tal:items>

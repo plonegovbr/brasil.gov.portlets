@@ -82,28 +82,34 @@ Test Collection Portlet
     Page Should Contain Element  id=${limit_field_id}
     Input Text  id=${limit_field_id}  ${limit_sample}
     Save Portlet
+    Xpath Should Match X Times  //div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']  ${limit_sample}
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${datecheck_field_id}
     Save Portlet
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']/p[@class='date']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select from list  id=${dateformat_field_id}  ${dateformat_sample}
     Save Portlet
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']/p[@class='date']
     Sleep  1s  Wait for overlay
 
     Hide Right Portlet
     Go to Homepage
+    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']
     Sleep  1s  Wait for overlay
 
     Show Right Portlet
     Go to Homepage
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']
     Sleep  1s  Wait for overlay
 
     Delete Right Portlet
     Go to Homepage
+    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']
     Sleep  1s  Wait for overlay
 
     # events collection should get order 3 2 1
@@ -112,8 +118,10 @@ Test Collection Portlet
     Input Text  id=${title_field_id}  ${portletname_sample}
     Select Collection  ${collection_field_id}  Events Collection
     Save Portlet
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']
     Sleep  1s  Wait for overlay
 
     Delete Left Portlet
     Go to Homepage
+    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']
     Sleep  1s  Wait for overlay
