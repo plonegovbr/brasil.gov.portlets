@@ -2,7 +2,6 @@
 
 from AccessControl import getSecurityManager
 from brasil.gov.portlets import _
-from DateTime import DateTime
 from lxml import html
 from lxml.html import builder as E
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
@@ -11,56 +10,31 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
-from zope.component import getMultiAdapter, getUtility
+from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.formlib import form
 from zope.interface import implements
-from zope.interface import provider
-from zope.schema.interfaces import IContextAwareDefaultFactory
-
-
-@provider(IContextAwareDefaultFactory)
-def default_image_scale(context):
-    image_scale = None
-    properties_tool = getToolByName(context, 'portal_properties')
-    imagescales_properties = getattr(properties_tool, 'imaging_properties', None)
-    raw_scales = getattr(imagescales_properties, 'allowed_sizes', None)
-    if (raw_scales):
-        image_scale = raw_scales[0]
-    return image_scale
 
 
 class IAudioGalleryPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de coleção.
+    '''Portal Padrão: Portlet de galeria de áudio.
     '''
 
-    header = schema.TextLine(
+    show_header = schema.Bool(
         title=_(u'Título'),
-        description=_(u'Título do portlet.'),
-        required=True)
-
-    header_url = schema.TextLine(
-        title=_(u'Link do título'),
-        description=_(u'Link do título do portlet.'),
-        required=False)
-
-    show_image = schema.Bool(
-        title=_(u'Imagem'),
-        description=_(u'Se habilitado pede as informações da imagem.'),
+        description=_(u'Se habilitado pede as informações do título.'),
         required=True,
         default=False)
 
-    image_size = schema.Choice(
-        title=_(u'Tamanho da imagem'),
-        description=_(u'Tamanho da imagem que será exibida.'),
-        vocabulary='brasil.image.scales',
+    header = schema.TextLine(
+        title=_(u'Texto do título'),
+        description=_(u'Texto do título do portlet.'),
         required=True,
-        defaultFactory=default_image_scale
-    )
+        default=_(u'Portal Padrão Galeria de Áudios'))
 
-    title_type = schema.Choice(
+    header_type = schema.Choice(
         title=_(u'Tipo de título'),
         description=_(u'Tipo de título que será exibido.'),
         values=(u'H1',
@@ -94,22 +68,6 @@ class IAudioGalleryPortlet(IPortletDataProvider):
         required=True,
         default=5)
 
-    show_date = schema.Bool(
-        title=_(u'Exibir Datas'),
-        description=_(u'Se habilitado, será mostrado a data dos itens da '
-                      u'coleção.'),
-        required=True,
-        default=False)
-
-    date_format = schema.Choice(
-        title=_(u'Formato de Data'),
-        description=_(u'Formato que a data será exibida.'),
-        values=(_(u'curta: Data'),
-                _(u'longa: Data/Hora')),
-        default=_(u'curta: Data'),
-        required=True,
-    )
-
     collection = schema.Choice(
         title=_(u'Coleção'),
         description=_(u'Pesquisa a coleção utilizada no portlet.'),
@@ -123,43 +81,31 @@ class Assignment(base.Assignment):
 
     implements(IAudioGalleryPortlet)
 
+    show_header = False
     header = u''
-    header_url = u''
-    show_image = False
-    image_size = None
-    title_type = u'H1'
+    header_type = u'H1'
     show_footer = False
     footer = u''
     footer_url = u''
     limit = 5
-    show_date = False
-    date_format = _(u'curta: Data')
     collection = None
 
     def __init__(self,
+                 show_header=False,
                  header=u'',
-                 header_url=u'',
-                 show_image=False,
-                 image_size=None,
-                 title_type=u'H1',
+                 header_type=u'H1',
                  show_footer=False,
                  footer=u'',
                  footer_url=u'',
                  limit=5,
-                 show_date=False,
-                 date_format=_(u'curta: Data'),
                  collection=None):
+        self.show_header = show_header
         self.header = header
-        self.header_url = header_url
-        self.show_image = show_image
-        self.image_size = image_size
-        self.title_type = title_type
+        self.header_type = header_type
         self.show_footer = show_footer
         self.footer = footer
         self.footer_url = footer_url
         self.limit = limit
-        self.show_date = show_date
-        self.date_format = date_format
         self.collection = collection
 
     @property
@@ -188,19 +134,6 @@ class Renderer(base.Renderer):
                 type_criteria = c[u'v']
                 break
         return type_criteria
-
-    def _has_image_field(self, obj):
-        """Return True if the object has an image field.
-
-        :param obj: [required]
-        :type obj: content object
-        """
-        if hasattr(obj, 'image'):  # Dexterity
-            return True
-        elif hasattr(obj, 'Schema'):  # Archetypes
-            return 'image' in obj.Schema().keys()
-        else:
-            return False
 
     @memoize
     def results(self):
@@ -250,46 +183,15 @@ class Renderer(base.Renderer):
                 result = None
         return result
 
-    def thumbnail(self, item):
-        """Return a thumbnail of an image if the item has an image field and
-        the field is visible in the portlet.
-
-        :param item: [required]
-        :type item: content object
-        """
-        if self._has_image_field(item) and self.data.show_image:
-            scaleconf = self.data.image_size
-            # scale string is something like: 'mini 200:200'
-            scale = scaleconf.split(' ')[0]  # we need the name only: 'mini'
-            scales = item.restrictedTraverse('@@images')
-            return scales.scale('image', scale)
-
-    def title(self, item):
+    def title(self):
         '''Generate html part with following structure
         <HX>
-            <a href="${item/absolute_url}"
-               title="${item/Description}">
-                ${item/Title}
-            </a>
+            ${Title}
         </HX>
         '''
-        hx = getattr(E, self.data.title_type)()
-        hx.append(
-            E.A(item.Title().decode('utf-8'),
-                href=item.absolute_url(),
-                title=item.Description().decode('utf-8'))
-        )
+        hx = getattr(E, self.data.header_type)
+        hx(self.data.header.decode('utf-8'))
         return html.tostring(hx)
-
-    def date(self, item):
-        dt = DateTime(item.Date())
-        if (item.portal_type in [u'Compromisso',
-                                 u'Event']):
-            dt = DateTime(item.start_date)
-        if (self.data.date_format == _(u'curta: Data')):
-            return dt.strftime('%d/%m/%Y')
-        else:
-            return dt.strftime('%d/%m/%Y %H:%M')
 
 
 class AddForm(base.AddForm):
@@ -298,8 +200,7 @@ class AddForm(base.AddForm):
     form_fields['collection'].custom_widget = UberSelectionWidget
 
     label = _(u'Adicionar Portlet Portal Padrão Audio Gallery')
-    description = _(u'Este portlet mostra uma listagem de itens de uma '
-                    u'Coleção.')
+    description = _(u'Este portlet mostra uma Galeria de Áudios.')
 
     def create(self, data):
         return Assignment(**data)
@@ -311,5 +212,4 @@ class EditForm(base.EditForm):
     form_fields['collection'].custom_widget = UberSelectionWidget
 
     label = _(u'Editar Portlet Portal Padrão Audio Gallery')
-    description = _(u'Este portlet mostra uma listagem de itens de uma '
-                    u'Coleção.')
+    description = _(u'Este portlet mostra uma Galeria de Áudios.')

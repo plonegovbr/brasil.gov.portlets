@@ -13,10 +13,9 @@
                 </div>
                 <div class="portletHeader">
                     <span class="portletTopLeft" />
-                    <a href="${view/data/header_url}"
-                       tal:omit-tag="not:view/data/header_url">
-                        <span>${view/data/header}</span>
-                    </a>
+                    <tal:header condition="view/data/show_header">
+                        <tal:title content="structure view/title" />
+                    </tal:header>
                     <span class="portletTopRight" />
                 </div>
                 <div class="portletItem"
@@ -32,7 +31,6 @@
                                                      alt obj/Description|obj/Title" />
                             </a>
                         </tal:image>
-                        <tal:title content="structure python:view.title(obj)" />
                         <p class="description">
                             ${obj/Description}
                         </p>
