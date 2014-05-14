@@ -29,22 +29,18 @@ Test Collection Portlet
 
     Manage Portlets
     Add Right Portlet  Portal Padrao Colecao
+    Sleep  1s  Wait for overlay
 
     Page Should Contain Element  id=${title_field_id}
     Input Text  id=${title_field_id}  ${title_sample}
 
-    Page Should Contain Element  id=${collection_field_id}
-    Input Text  id=${collection_field_id}  News Collection
-    Click Button  name=form.collection.search
-    Wait Until Page Contains element  name=form.collection.update
-    Click Element  css=#formfield-form-collection input[type=radio]
+    Select Collection  ${collection_field_id}  News Collection
 
-    Click Button  Save
+    Save Portlet
+    Sleep  1s  Wait for overlay
 
-    Wait Until Page Contains element  css=.portlets-manager
+    Hide Right Portlet
     Go to Homepage
     Sleep  1s  Wait for overlay
 
-    Manage Portlets
-    Edit Right Portlet  Portal Padrao Colecao
-    Sleep  1s  Wait for overlay
+        

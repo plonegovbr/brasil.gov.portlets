@@ -40,26 +40,39 @@ Add Right Portlet
     Wait Until Page Contains element  name=form.actions.save
 
 Edit Left Portlet
-    [arguments]  ${portlet}
-    Open Action Menu
-    Click Link  css=a#delete
-    Click Button  Delete
-    Page Should Contain  Plone site
+    Click Link  css=#portletmanager-plone-leftcolumn .portletHeader>a
+    Wait Until Page Contains element  name=form.actions.save
 
 Edit Right Portlet
-    [arguments]  ${portlet}
-    Click Link  ${portlet}
+    Click Link  css=#portletmanager-plone-rightcolumn .portletHeader>a
+    Wait Until Page Contains element  name=form.actions.save
 
 Delete Left Portlet
-    [arguments]  ${portlet}
-    Open Action Menu
-    Click Link  css=a#delete
-    Click Button  Delete
-    Page Should Contain  Plone site
+    Click Element  css=#portletmanager-plone-leftcolumn .delete button
 
 Delete Right Portlet
-    [arguments]  ${portlet}
-    Open Action Menu
-    Click Link  css=a#delete
-    Click Button  Delete
-    Page Should Contain  Plone site
+    Click Element  css=#portletmanager-plone-rightcolumn .delete button
+
+Hide Left Portlet
+    Click Element  css=#portletmanager-plone-leftcolumn .portlet-action:nth-child(1) button
+
+Hide Right Portlet
+    Click Element  css=#portletmanager-plone-rightcolumn .portlet-action:nth-child(1) button
+
+Select Collection
+    [arguments]  ${collection_field_id}  ${collection_name}
+    Page Should Contain Element  id=${collection_field_id}
+    Input Text  id=${collection_field_id}  ${collection_name}
+    Click Button  name=${collection_field_id}.search
+    Wait Until Page Contains element  name=${collection_field_id}.update
+    Click Element  xpath=//div[@data-fieldname='${collection_field_id}']//input[@type='radio'][@name='${collection_field_id}']
+    
+Save Portlet
+    Click Button  Save
+    Wait Until Page Contains element  css=.portlets-manager
+    Go to Homepage
+
+Cancel Portlet
+    Click Button  Cancel
+    Wait Until Page Contains element  css=.portlets-manager
+    Go to Homepage
