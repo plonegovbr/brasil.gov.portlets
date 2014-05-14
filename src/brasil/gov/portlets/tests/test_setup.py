@@ -49,14 +49,14 @@ class TestInstall(BaseTestCase):
 class TestUpgrade(BaseTestCase):
     """Ensure product upgrades work."""
 
-    def test_to1010_available(self):
+    def test_to1000_available(self):
 
         upgradeSteps = listUpgradeSteps(self.st,
                                         self.profile,
-                                        '1000')
+                                        'unknown')
         step = [step for step in upgradeSteps
-                if (step[0]['dest'] == ('1010',))
-                and (step[0]['source'] == ('1000',))]
+                if (step[0]['dest'] == ('1000',))
+                and (step[0]['source'] == ('unknown',))]
         self.assertEqual(len(step), 1)
 
 

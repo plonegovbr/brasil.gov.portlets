@@ -15,8 +15,6 @@ def test_suite():
         doc for doc in os.listdir(current_dir)
         if doc.startswith('test_') and doc.endswith('.robot')
     ]
-    # XXX: skip all RF tests meanwhile
-    tests = []
     suite.addTests([
         layered(robotsuite.RobotTestSuite(t), layer=ROBOT_TESTING)
         for t in tests

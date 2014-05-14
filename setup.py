@@ -4,7 +4,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 version = '0.1'
-description = 'FIXME'
+description = 'Portlets para Portal Padrão'
 long_description = (
     open('README.rst').read() + '\n' +
     open('CONTRIBUTORS.rst').read() + '\n' +
@@ -28,16 +28,18 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
-    keywords='FIXME',
-    author='FIXME',
-    author_email='FIXME',
+    keywords='plonegovbr portlets brasil plone',
+    author='PloneGovBr',
+    author_email='gov@plone.org.br',
     url='https://github.com/plonegovbr/brasil.gov.portlets',
+    license='GPLv2',
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['brasil', 'brasil.gov'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
+        'plone.api',
         'plone.app.upgrade',
         'Products.CMFPlone >=4.3',
         'Products.GenericSetup',
@@ -47,11 +49,11 @@ setup(
     ],
     extras_require={
         'test': [
+            'five.pt',
             'plone.app.robotframework',
             'plone.app.testing [robot] >=4.2.2',
             'plone.browserlayer',
             'plone.testing',
-            'robotsuite',
         ],
     },
     entry_points="""
