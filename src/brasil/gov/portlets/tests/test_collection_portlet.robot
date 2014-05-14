@@ -23,7 +23,7 @@ ${footer_sample}  More...
 ${footerurl_field_id}  form.footer_url
 ${footerurl_sample}  http://www.google.com
 ${limit_field_id}  form.limit
-${limit_sample}  5
+${limit_sample}  2
 ${datecheck_field_id}  form.show_date
 ${dateformat_field_id}  form.date_format
 ${dateformat_sample}  longa: Data/Hora
