@@ -5,61 +5,30 @@
     <div class="portlet portletVideo"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div id="${string:audio-portlet_id}"
+        <div id="${string:video-portlet_id}"
              class="portal-padrao-video-portlet">
-            <tal:audio tal:define="audio view/audio|nothing">
+            <tal:video tal:define="video view/video|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft" />
-                    <h3 class="title" tal:content="view/data/header"></h3>
                     <span class="portletTopRight" />
                 </div>
                 <div class="portletItem">
-                    <!-- Audio item player -->
-                    <div id="${string:audio_jplayer_$portlet_id}"
-                         class="jp-jplayer"
-                         data-audio-url="${view/url}"
-                         data-audio-title="${view/title}"
-                         data-audio-description="${view/description}"
-                         data-audio-credit="${view/rights}">
-                    </div>
-                    <div id="${string:audio_jpcontainer_$portlet_id}"
-                         class="jp-audio">
-                        <div class="jp-type-single">
-                            <div class="jp-gui jp-interface">
-                                <ul class="jp-controls">
-                                    <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                    <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-                                    <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-                                    <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
-                                </ul>
-                                <div class="jp-progress-time-wrapper">
-                                    <div class="jp-progress">
-                                        <div class="jp-seek-bar">
-                                            <div class="jp-play-bar"></div>
-                                        </div>
-                                    </div>
-                                    <div class="jp-time-holder">
-                                        <span class="jp-current-time"></span>/
-                                        <span class="jp-duration"></span>
-                                    </div>
-                                </div>
-                                <div class="jp-volume-bar">
-                                    <div class="jp-volume-bar-value"></div>
-                                </div>
-                            </div>
-                            <div class="jp-no-solution">
-                                <span>Update Required</span>
-                                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-                            </div>
+                    <div id="${string:video-$portlet_id}"
+                         class="video-portlet">
+                        <div class="video-container"
+                             tal:content="structure video/embed_html">
                         </div>
+                        <span>${view/data/header}</span>
                     </div>
+                    <noscript>
+                        <div class="error">Seu navegador de internet esta sem suporte a javascript, por esse motivo alguns funcionalidades do site podem não estar acessíveis.</div>
+                    </noscript>
                     <div class="visualClear"><!-- --></div>
                 </div>
                 <div class="portletFooter">
                 </div>
                 <div class="visualClear"><!-- --></div>
-            </tal:audio>
+            </tal:video>
         </div>
     </div>
 </html>

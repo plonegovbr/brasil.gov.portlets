@@ -101,36 +101,6 @@ class Renderer(base.Renderer):
                 result = None
         return result
 
-    def title(self):
-        audio = self.audio()
-        return audio.Title()
-
-    def description(self):
-        audio = self.audio()
-        return audio.Description()
-
-    def rights(self):
-        audio = self.audio()
-        return audio.Rights()
-
-    def url(self):
-        audio = self.audio()
-        mp3 = audio.return_mp3()
-        url = ''
-        if mp3:
-            url = mp3.absolute_url()
-        else:
-            url = audio.absolute_url()
-        return url
-
-    def content_type(self):
-        audio = self.audio()
-        mp3 = audio.return_mp3()
-        content_type = ''
-        if mp3:
-            content_type = 'audio/mp3'
-        return content_type
-
 
 class AddForm(base.AddForm):
 
