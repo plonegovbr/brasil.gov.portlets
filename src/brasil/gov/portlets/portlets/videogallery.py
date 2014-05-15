@@ -209,7 +209,7 @@ class Renderer(base.Renderer):
 class AddForm(base.AddForm):
 
     form_fields = form.Fields(IVideoGalleryPortlet)
-    form_fields['videogallery'].custom_widget = UberSelectionWidget
+    form_fields['collection'].custom_widget = UberSelectionWidget
 
     label = _(u'Adicionar Portlet Portal Padrão Vídeo')
     description = _(u'Este portlet mostra um Player de Vídeo.')
@@ -221,7 +221,7 @@ class AddForm(base.AddForm):
 class EditForm(base.EditForm):
 
     form_fields = form.Fields(IVideoGalleryPortlet)
-    form_fields['videogallery'].custom_widget = UberSelectionWidget
+    form_fields['collection'].custom_widget = UberSelectionWidget
 
     label = _(u'Editar Portlet Portal Padrão Vídeo')
     description = _(u'Este portlet mostra um Player de Vídeo.')
