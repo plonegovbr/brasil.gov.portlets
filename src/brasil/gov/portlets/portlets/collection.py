@@ -14,7 +14,8 @@ from plone.portlets.interfaces import IPortletDataProvider
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
-from zope.component import getMultiAdapter, getUtility
+from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.formlib import form
 from zope.interface import implements
 from zope.interface import provider
@@ -39,7 +40,8 @@ class ICollectionPortlet(IPortletDataProvider):
     header = schema.TextLine(
         title=_(u'Título'),
         description=_(u'Título do portlet.'),
-        required=True)
+        required=True,
+        default=_(u'Portal Padrão Coleção'))
 
     header_url = schema.TextLine(
         title=_(u'Link do título'),
@@ -67,7 +69,7 @@ class ICollectionPortlet(IPortletDataProvider):
                 u'H2',
                 u'H3',
                 u'H4'),
-        default=u'H1',
+        default=u'H2',
         required=True,
     )
 
@@ -127,7 +129,7 @@ class Assignment(base.Assignment):
     header_url = u''
     show_image = False
     image_size = None
-    title_type = u'H1'
+    title_type = u'H2'
     show_footer = False
     footer = u''
     footer_url = u''
@@ -141,7 +143,7 @@ class Assignment(base.Assignment):
                  header_url=u'',
                  show_image=False,
                  image_size=None,
-                 title_type=u'H1',
+                 title_type=u'H2',
                  show_footer=False,
                  footer=u'',
                  footer_url=u'',

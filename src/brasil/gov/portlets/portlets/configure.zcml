@@ -15,4 +15,13 @@
       editview=".collection.EditForm"
       />
 
+  <plone:portlet
+      name="brasil.gov.portlets.audiogallery"
+      interface=".audiogallery.IAudioGalleryPortlet"
+      assignment=".audiogallery.Assignment"
+      renderer=".audiogallery.Renderer"
+      addview=".audiogallery.AddForm"
+      editview=".audiogallery.EditForm"
+      />
+
 </configure>
