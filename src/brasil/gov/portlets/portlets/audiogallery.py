@@ -126,24 +126,12 @@ class Renderer(base.Renderer):
         normalizer = getUtility(IIDNormalizer)
         return 'brasil-gov-portlets-audiogallery-%s' % normalizer.normalize(header)
 
-    def _collection_type_criteria(self, collection):
-        type_criteria = u''
-        for c in collection.query:
-            if ((c[u'i'] == u'portal_type') and
-               (c[u'o'] == u'plone.app.querystring.operation.selection.is')):
-                type_criteria = c[u'v']
-                break
-        return type_criteria
-
     @memoize
     def results(self):
         results = []
         collection = self.collection()
         query = {}
         if collection is not None:
-            if (self._collection_type_criteria(collection) in [u'Compromisso',
-                                                               u'Event']):
-                query['sort_on'] = u'start'
             limit = self.data.limit
             if limit and limit > 0:
                 # pass on batching hints to the catalog
@@ -191,6 +179,20 @@ class Renderer(base.Renderer):
         '''
         hx = getattr(E, self.data.header_type)(self.data.header)
         return html.tostring(hx)
+
+    def get_item_url(self, item):
+        """
+        Return the audio file url
+        Arguments:
+        - `item`: audio item
+        """
+        url = ''
+
+        if (item.portal_type == 'Audio'):
+            url = ';'.join([a.absolute_url() for a in item.listFolderContents()])
+        else:
+            url = item.absolute_url()
+        return url
 
 
 class AddForm(base.AddForm):

@@ -2,11 +2,12 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-    <div class="portlet portletSearch"
+    <div class="portlet portletAudioGallery"
+         tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div class="portal-padrao-audiogallery-portlet">
-            <tal:results tal:define="results view/results|nothing;
-                                     portlet_id python:id(view)">
+        <div id="${string:audiogallery-portlet_id}"
+             class="portal-padrao-audiogallery-portlet">
+            <tal:results tal:define="results view/results|nothing">
                 <div tal:condition="not:results">
                     <p i18n:translate="">
                         The collection don't have any item.
@@ -22,10 +23,11 @@
                 <div class="portletItem">
                     <!-- Audio item player -->
                     <div class="audiogallery-player-container"
-                         tal:define="first_item python:results[0]">
+                         tal:define="first_item python:results[0].getObject()"
+                         tal:condition="results">
                         <div id="${string:audiogallery_jplayer_$portlet_id}"
                              class="jp-jplayer"
-                             data-audio-url="#"
+                             data-audio-url="${python:view.get_item_url(first_item)}"
                              data-audio-title="${first_item/title}">
                         </div>
                         <div id="${string:audiogallery_jpcontainer_$portlet_id}"
@@ -81,14 +83,16 @@
                             </h4>
                         </div>
                     </div>
-                    <div class="audiogallery-items-container">
+                    <div class="audiogallery-items-container"
+                         tal:condition="results">
                         <ul>
                             <tal:loop repeat="item results">
                                 <tal:items define="obj item/getObject">
                                     <li class="${python:'selected' if repeat['item'].start else ''}">
                                         <a class="audiogallery-item"
-                                           href="#"
-                                           title="${obj/description}">
+                                           href="${python:view.get_item_url(obj)}"
+                                           title="${obj/description}"
+                                           data-audio-url="${python:view.get_item_url(obj)}">
                                             ${obj/title}
                                         </a>
                                     </li>
