@@ -69,7 +69,7 @@ class ICollectionPortlet(IPortletDataProvider):
                 u'H2',
                 u'H3',
                 u'H4'),
-        default=u'H1',
+        default=u'H2',
         required=True,
     )
 
@@ -129,7 +129,7 @@ class Assignment(base.Assignment):
     header_url = u''
     show_image = False
     image_size = None
-    title_type = u'H1'
+    title_type = u'H2'
     show_footer = False
     footer = u''
     footer_url = u''
@@ -143,7 +143,7 @@ class Assignment(base.Assignment):
                  header_url=u'',
                  show_image=False,
                  image_size=None,
-                 title_type=u'H1',
+                 title_type=u'H2',
                  show_footer=False,
                  footer=u'',
                  footer_url=u'',

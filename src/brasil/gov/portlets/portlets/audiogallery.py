@@ -41,7 +41,7 @@ class IAudioGalleryPortlet(IPortletDataProvider):
                 u'H2',
                 u'H3',
                 u'H4'),
-        default=u'H1',
+        default=u'H2',
         required=True,
     )
 
@@ -73,7 +73,7 @@ class IAudioGalleryPortlet(IPortletDataProvider):
         description=_(u'Pesquisa a coleção utilizada no portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
-            {'portal_type': ('Topic', 'AudioGallery')},
+            {'portal_type': ('Topic', 'Collection')},
             default_query='path:'))
 
 
@@ -83,7 +83,7 @@ class Assignment(base.Assignment):
 
     show_header = False
     header = u''
-    header_type = u'H1'
+    header_type = u'H2'
     show_footer = False
     footer = u''
     footer_url = u''
@@ -93,7 +93,7 @@ class Assignment(base.Assignment):
     def __init__(self,
                  show_header=False,
                  header=u'',
-                 header_type=u'H1',
+                 header_type=u'H2',
                  show_footer=False,
                  footer=u'',
                  footer_url=u'',
@@ -189,8 +189,7 @@ class Renderer(base.Renderer):
             ${Title}
         </HX>
         '''
-        hx = getattr(E, self.data.header_type)
-        hx(self.data.header.decode('utf-8'))
+        hx = getattr(E, self.data.header_type)(self.data.header)
         return html.tostring(hx)
 
 
