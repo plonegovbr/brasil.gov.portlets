@@ -18,32 +18,48 @@ from zope.formlib import form
 from zope.interface import implements
 
 
-class IAudioGalleryPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de galeria de áudio.
+class IVideoGalleryPortlet(IPortletDataProvider):
+    '''Portal Padrão: Portlet de galeria de vídeos.
     '''
 
     show_header = schema.Bool(
-        title=_(u'Mostrar título'),
-        description=_(u'Se habilitado pede as informações do título.'),
+        title=_(u'Mostrar cabeçalho'),
+        description=_(u'Se habilitado pede as informações do cabeçalho.'),
         required=True,
         default=False)
 
     header = schema.TextLine(
-        title=_(u'Texto do título'),
-        description=_(u'Texto do título do portlet.'),
+        title=_(u'Texto do cabeçalho'),
+        description=_(u'Texto do cabeçalho do portlet.'),
         required=True,
-        default=_(u'Portal Padrão Galeria de Áudios'))
+        default=_(u'Portal Padrão Galeria de Vídeos'))
 
     header_type = schema.Choice(
-        title=_(u'Tipo de título'),
-        description=_(u'Tipo de título que será exibido.'),
+        title=_(u'Tipo de cabeçalho'),
+        description=_(u'Tipo de cabeçalho que será exibido.'),
         values=(u'H1',
                 u'H2',
                 u'H3',
                 u'H4'),
         default=u'H2',
+        required=True)
+
+    show_subtitle = schema.Bool(
+        title=_(u'Mostrar subtítulo'),
+        description=_(u'Se habilitado pede as informações do subtítulo.'),
         required=True,
-    )
+        default=False)
+
+    subtitle = schema.TextLine(
+        title=_(u'Texto do subtítulo'),
+        description=_(u'Texto do subtítulo do portlet.'),
+        required=False)
+
+    show_description = schema.Bool(
+        title=_(u'Mostrar descrição'),
+        description=_(u'Se habilitado pede as informações da descrição.'),
+        required=True,
+        default=False)
 
     show_footer = schema.Bool(
         title=_(u'Mostrar rodapé'),
@@ -66,7 +82,7 @@ class IAudioGalleryPortlet(IPortletDataProvider):
         description=_(u'Informe o total de itens que devem ser exibidos no '
                       u'portlet.'),
         required=True,
-        default=5)
+        default=6)
 
     collection = schema.Choice(
         title=_(u'Coleção'),
@@ -79,29 +95,38 @@ class IAudioGalleryPortlet(IPortletDataProvider):
 
 class Assignment(base.Assignment):
 
-    implements(IAudioGalleryPortlet)
+    implements(IVideoGalleryPortlet)
 
     show_header = False
-    header = u''
+    header = _(u'Portal Padrão Galeria de Vídeos')
     header_type = u'H2'
+    show_subtitle = False
+    subtitle = u''
+    show_description = False
     show_footer = False
     footer = u''
     footer_url = u''
-    limit = 5
+    limit = 6
     collection = None
 
     def __init__(self,
                  show_header=False,
-                 header=u'',
+                 header=_(u'Portal Padrão Galeria de Vídeos'),
                  header_type=u'H2',
+                 show_subtitle=False,
+                 subtitle=u'',
+                 show_description=False,
                  show_footer=False,
                  footer=u'',
                  footer_url=u'',
-                 limit=5,
+                 limit=6,
                  collection=None):
         self.show_header = show_header
         self.header = header
         self.header_type = header_type
+        self.show_subtitle = show_subtitle
+        self.subtitle = subtitle
+        self.show_description = show_description
         self.show_footer = show_footer
         self.footer = footer
         self.footer_url = footer_url
@@ -115,7 +140,7 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
 
-    _template = ViewPageTemplateFile('templates/audiogallery.pt')
+    _template = ViewPageTemplateFile('templates/videogallery.pt')
     render = _template
 
     def __init__(self, *args):
@@ -124,7 +149,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-audiogallery-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-videogallery-%s' % normalizer.normalize(header)
 
     @memoize
     def results(self):
@@ -171,37 +196,23 @@ class Renderer(base.Renderer):
                 result = None
         return result
 
-    def title(self):
+    def header(self):
         '''Generate html part with following structure
         <HX>
-            ${Title}
+            ${Header}
         </HX>
         '''
         hx = getattr(E, self.data.header_type)(self.data.header)
         return html.tostring(hx)
 
-    def get_item_url(self, item):
-        """
-        Return the audio file url
-        Arguments:
-        - `item`: audio item
-        """
-        url = ''
-
-        if (item.portal_type == 'Audio'):
-            url = ';'.join([a.absolute_url() for a in item.listFolderContents()])
-        else:
-            url = item.absolute_url()
-        return url
-
 
 class AddForm(base.AddForm):
 
-    form_fields = form.Fields(IAudioGalleryPortlet)
-    form_fields['collection'].custom_widget = UberSelectionWidget
+    form_fields = form.Fields(IVideoGalleryPortlet)
+    form_fields['video'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Audio Gallery')
-    description = _(u'Este portlet mostra uma Galeria de Áudios.')
+    label = _(u'Adicionar Portlet Portal Padrão Vídeo')
+    description = _(u'Este portlet mostra um Player de Vídeo.')
 
     def create(self, data):
         return Assignment(**data)
@@ -209,8 +220,8 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
 
-    form_fields = form.Fields(IAudioGalleryPortlet)
-    form_fields['collection'].custom_widget = UberSelectionWidget
+    form_fields = form.Fields(IVideoGalleryPortlet)
+    form_fields['video'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Audio Gallery')
-    description = _(u'Este portlet mostra uma Galeria de Áudios.')
+    label = _(u'Editar Portlet Portal Padrão Vídeo')
+    description = _(u'Este portlet mostra um Player de Vídeo.')
