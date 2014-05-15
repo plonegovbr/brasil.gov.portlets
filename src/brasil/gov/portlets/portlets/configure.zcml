@@ -24,4 +24,13 @@
       editview=".audiogallery.EditForm"
       />
 
+  <plone:portlet
+      name="brasil.gov.portlets.audio"
+      interface=".audio.IAudioPortlet"
+      assignment=".audio.Assignment"
+      renderer=".audio.Renderer"
+      addview=".audio.AddForm"
+      editview=".audio.EditForm"
+      />
+
 </configure>
