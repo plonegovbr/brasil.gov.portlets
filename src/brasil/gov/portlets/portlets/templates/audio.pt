@@ -5,7 +5,7 @@
     <div class="portlet portletAudio"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div id="${string:audio-portlet_id}"
+        <div id="${string:audio-$portlet_id}"
              class="portal-padrao-audio-portlet">
             <tal:audio tal:define="audio view/audio|nothing">
                 <div class="portletHeader">

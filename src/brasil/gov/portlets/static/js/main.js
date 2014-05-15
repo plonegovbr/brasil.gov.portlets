@@ -9,6 +9,7 @@ var portletsManager = {
     init: function() {
         this.collection();
         this.audiogallery();
+        this.video();
     },
     collection: function() {
         if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Coleção') > 0) {
@@ -78,6 +79,19 @@ var portletsManager = {
             update_footer();
         }
     },
+    video: function() {
+        if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Vídeo') > 0) {
+            var update_title = function() {
+                if ($('#form\\.show_header').is(':checked')) {
+                    $('#formfield-form-header').show();
+                } else {
+                    $('#formfield-form-header').hide();
+                }
+            };
+            $('#form\\.show_header').on('click', update_title);
+            update_title();
+        }
+    },
 };
 
 var portlets = {
@@ -87,12 +101,14 @@ var portlets = {
     },
     audiogallery: function() {
         $('.portal-padrao-audiogallery-portlet').each(function(){
-            $("#"+this.id).audiogallery();
+            $('#'+this.id).audiogallery();
         });
     },
     audio: function() {
         $('.portal-padrao-audio-portlet').each(function(){
-            $("#"+this.id).audiogallery();
+            var playerid = $('#'+this.id+' .jp-jplayer')[0].id;
+            var containerid = $('#'+this.id+' .jp-audio')[0].id;
+            $('#'+playerid).audio_player({'cssSelectorAncestor':'#'+containerid});
         });
     },
 };

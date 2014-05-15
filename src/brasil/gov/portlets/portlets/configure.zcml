@@ -33,4 +33,13 @@
       editview=".audio.EditForm"
       />
 
+  <plone:portlet
+      name="brasil.gov.portlets.video"
+      interface=".video.IVideoPortlet"
+      assignment=".video.Assignment"
+      renderer=".video.Renderer"
+      addview=".video.AddForm"
+      editview=".video.EditForm"
+      />
+
 </configure>

@@ -16,37 +16,46 @@ from zope.formlib import form
 from zope.interface import implements
 
 
-class IAudioPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de áudio.
+class IVideoPortlet(IPortletDataProvider):
+    '''Portal Padrão: Portlet de vídeo.
     '''
+
+    show_header = schema.Bool(
+        title=_(u'Título'),
+        description=_(u'Se habilitado pede as informações do título.'),
+        required=True,
+        default=False)
 
     header = schema.TextLine(
         title=_(u'Texto do título'),
         description=_(u'Texto do título do portlet.'),
         required=True,
-        default=_(u'Portal Padrão Áudio'))
+        default=_(u'Portal Padrão Vídeo'))
 
-    audio = schema.Choice(
-        title=_(u'Áudio'),
-        description=_(u'Pesquisa o audio utilizado no portlet.'),
+    video = schema.Choice(
+        title=_(u'Vídeo'),
+        description=_(u'Pesquisa o vídeo utilizado no portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
-            {'portal_type': ('Audio')},
+            {'portal_type': ('sc.embedder')},
             default_query='path:'))
 
 
 class Assignment(base.Assignment):
 
-    implements(IAudioPortlet)
+    implements(IVideoPortlet)
 
-    header = u''
-    audio = None
+    show_header = False
+    header = _(u'Portal Padrão Vídeo')
+    video = None
 
     def __init__(self,
-                 header=u'',
-                 audio=None):
+                 show_header=False,
+                 header=_(u'Portal Padrão Vídeo'),
+                 video=None):
+        self.show_header = show_header
         self.header = header
-        self.audio = audio
+        self.video = video
 
     @property
     def title(self):
@@ -55,7 +64,7 @@ class Assignment(base.Assignment):
 
 class Renderer(base.Renderer):
 
-    _template = ViewPageTemplateFile('templates/audio.pt')
+    _template = ViewPageTemplateFile('templates/video.pt')
     render = _template
 
     def __init__(self, *args):
@@ -67,69 +76,39 @@ class Renderer(base.Renderer):
         return 'brasil-gov-portlets-audio-%s' % normalizer.normalize(header)
 
     @memoize
-    def audio(self):
-        audio_path = self.data.audio
-        if not audio_path:
+    def video(self):
+        video_path = self.data.video
+        if not video_path:
             return None
 
-        if audio_path.startswith('/'):
-            audio_path = audio_path[1:]
+        if video_path.startswith('/'):
+            video_path = video_path[1:]
 
-        if not audio_path:
+        if not video_path:
             return None
 
         portal_state = getMultiAdapter((self.context, self.request),
                                        name=u'plone_portal_state')
         portal = portal_state.portal()
-        if isinstance(audio_path, unicode):
+        if isinstance(video_path, unicode):
             # restrictedTraverse accepts only strings
-            audio_path = str(audio_path)
+            video_path = str(video_path)
 
-        result = portal.unrestrictedTraverse(audio_path, default=None)
+        result = portal.unrestrictedTraverse(video_path, default=None)
         if result is not None:
             sm = getSecurityManager()
             if not sm.checkPermission('View', result):
                 result = None
         return result
 
-    def title(self):
-        audio = self.audio()
-        return audio.Title()
-
-    def description(self):
-        audio = self.audio()
-        return audio.Description()
-
-    def rights(self):
-        audio = self.audio()
-        return audio.Rights()
-
-    def url(self):
-        audio = self.audio()
-        mp3 = audio.return_mp3()
-        url = ''
-        if mp3:
-            url = mp3.absolute_url()
-        else:
-            url = audio.absolute_url()
-        return url
-
-    def content_type(self):
-        audio = self.audio()
-        mp3 = audio.return_mp3()
-        content_type = ''
-        if mp3:
-            content_type = 'audio/mp3'
-        return content_type
-
 
 class AddForm(base.AddForm):
 
-    form_fields = form.Fields(IAudioPortlet)
-    form_fields['audio'].custom_widget = UberSelectionWidget
+    form_fields = form.Fields(IVideoPortlet)
+    form_fields['video'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Audio')
-    description = _(u'Este portlet mostra um Player de Áudio.')
+    label = _(u'Adicionar Portlet Portal Padrão Vídeo')
+    description = _(u'Este portlet mostra um Player de Vídeo.')
 
     def create(self, data):
         return Assignment(**data)
@@ -137,8 +116,8 @@ class AddForm(base.AddForm):
 
 class EditForm(base.EditForm):
 
-    form_fields = form.Fields(IAudioPortlet)
-    form_fields['audio'].custom_widget = UberSelectionWidget
+    form_fields = form.Fields(IVideoPortlet)
+    form_fields['video'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Audio')
-    description = _(u'Este portlet mostra um Player de Áudio.')
+    label = _(u'Editar Portlet Portal Padrão Vídeo')
+    description = _(u'Este portlet mostra um Player de Vídeo.')

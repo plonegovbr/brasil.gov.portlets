@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+    <div class="portlet portletVideo"
+         tal:define="portlet_id python:id(view)"
+         i18n:domain="brasil.gov.portlets">
+        <div class="portal-padrao-video-portlet">
+            <tal:video tal:define="video view/video|nothing">
+                <div class="portletHeader">
+                    <span class="portletTopLeft" />
+                    <span class="portletTopRight" />
+                </div>
+                <div class="portletItem">
+                    <div id="${string:video-$portlet_id}"
+                         class="video-portlet">
+                        <div class="video-container"
+                             tal:content="structure video/embed_html">
+                        </div>
+                        <span tal:condition="view/data/show_header">
+                            ${view/data/header}
+                        </span>
+                    </div>
+                    <noscript>
+                        <div class="error">Seu navegador de internet esta sem suporte a javascript, por esse motivo alguns funcionalidades do site podem não estar acessíveis.</div>
+                    </noscript>
+                    <div class="visualClear"><!-- --></div>
+                </div>
+                <div class="portletFooter">
+                </div>
+                <div class="visualClear"><!-- --></div>
+            </tal:video>
+        </div>
+    </div>
+</html>
