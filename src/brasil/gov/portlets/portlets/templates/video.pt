@@ -2,11 +2,11 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-    <div class="portlet portletAudio"
+    <div class="portlet portletVideo"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div id="${string:audio-$portlet_id}"
-             class="portal-padrao-audio-portlet">
+        <div id="${string:audio-portlet_id}"
+             class="portal-padrao-video-portlet">
             <tal:audio tal:define="audio view/audio|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft" />
