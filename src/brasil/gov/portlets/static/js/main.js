@@ -83,11 +83,16 @@ var portletsManager = {
 var portlets = {
     init: function() {
         this.audiogallery();
+        this.audio();
     },
     audiogallery: function() {
         $('.portal-padrao-audiogallery-portlet').each(function(){
-            var $this = $(this);
-            $("#"+$this[0].id).audiogallery();
+            $("#"+this.id).audiogallery();
+        });
+    },
+    audio: function() {
+        $('.portal-padrao-audio-portlet').each(function(){
+            $("#"+this.id).audiogallery();
         });
     },
 };
