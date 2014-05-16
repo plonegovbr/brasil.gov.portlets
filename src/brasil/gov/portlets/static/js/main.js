@@ -104,15 +104,6 @@ var portletsManager = {
                     $('#formfield-form-header_type').hide();
                 }
             };
-            var update_subtitle = function() {
-                if ($('#form\\.show_subtitle').is(':checked')) {
-                    $('#formfield-form-subtitle').show();
-                    $('#formfield-form-subtitle_type').show();
-                } else {
-                    $('#formfield-form-subtitle').hide();
-                    $('#formfield-form-subtitle_type').hide();
-                }
-            };
             var update_footer = function() {
                 if ($('#form\\.show_footer').is(':checked')) {
                     $('#formfield-form-footer').show();
@@ -123,10 +114,8 @@ var portletsManager = {
                 }
             };
             $('#form\\.show_header').on('click', update_header);
-            $('#form\\.show_subtitle').on('click', update_subtitle);
             $('#form\\.show_footer').on('click', update_footer);
             update_header();
-            update_subtitle();
             update_footer();
         }
     },

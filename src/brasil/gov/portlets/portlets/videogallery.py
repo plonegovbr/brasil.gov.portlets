@@ -51,17 +51,6 @@ class IVideoGalleryPortlet(IPortletDataProvider):
         required=True,
         default=False)
 
-    show_subtitle = schema.Bool(
-        title=_(u'Mostrar subtítulo'),
-        description=_(u'Se habilitado mostra o subtítulo.'),
-        required=True,
-        default=False)
-
-    subtitle = schema.TextLine(
-        title=_(u'Texto do subtítulo'),
-        description=_(u'Texto do subtítulo do portlet.'),
-        required=False)
-
     show_description = schema.Bool(
         title=_(u'Mostrar descrição'),
         description=_(u'Se habilitado mostra a descrição.'),
@@ -108,8 +97,6 @@ class Assignment(base.Assignment):
     header = _(u'Portal Padrão Galeria de Vídeos')
     header_type = u'H2'
     show_title = False
-    show_subtitle = False
-    subtitle = u''
     show_description = False
     show_footer = False
     footer = u''
@@ -122,8 +109,6 @@ class Assignment(base.Assignment):
                  header=_(u'Portal Padrão Galeria de Vídeos'),
                  header_type=u'H2',
                  show_title=False,
-                 show_subtitle=False,
-                 subtitle=u'',
                  show_description=False,
                  show_footer=False,
                  footer=u'',
@@ -134,8 +119,6 @@ class Assignment(base.Assignment):
         self.header = header
         self.header_type = header_type
         self.show_title = show_title
-        self.show_subtitle = show_subtitle
-        self.subtitle = subtitle
         self.show_description = show_description
         self.show_footer = show_footer
         self.footer = footer

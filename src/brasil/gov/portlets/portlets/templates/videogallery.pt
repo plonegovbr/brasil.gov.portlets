@@ -24,10 +24,6 @@
                             </div>
                             <div class="player-metadata">
                                 <div class="player-metadata-wrapper">
-                                    <span class="subtitle"
-                                          tal:condition="view/data/show_subtitle">
-                                        ${view/data/subtitle}
-                                    </span>
                                     <h3 class="title"
                                         tal:condition="view/data/show_title">
                                         ${first_item/title}
