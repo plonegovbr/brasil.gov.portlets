@@ -14,8 +14,7 @@
                     </tal:header>
                     <span class="portletTopRight" />
                 </div>
-                <div class="portletItem"
-                     tal:condition="results">
+                <div class="portletItem">
                     <div class="player-holder"
                          tal:condition="results">
                         <tal:firstitem define="first_item python:results[0]">

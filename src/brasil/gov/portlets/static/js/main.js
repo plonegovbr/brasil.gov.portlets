@@ -11,6 +11,7 @@ var portletsManager = {
         this.audiogallery();
         this.video();
         this.videogallery();
+        this.mediacarousel();
     },
     collection: function() {
         if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Coleção') > 0) {
@@ -119,12 +120,39 @@ var portletsManager = {
             update_footer();
         }
     },
+    mediacarousel: function() {
+        if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Carrossel de Imagens') > 0) {
+            var update_header = function() {
+                if ($('#form\\.show_header').is(':checked')) {
+                    $('#formfield-form-header').show();
+                    $('#formfield-form-header_type').show();
+                } else {
+                    $('#formfield-form-header').hide();
+                    $('#formfield-form-header_type').hide();
+                }
+            };
+            var update_footer = function() {
+                if ($('#form\\.show_footer').is(':checked')) {
+                    $('#formfield-form-footer').show();
+                    $('#formfield-form-footer_url').show();
+                } else {
+                    $('#formfield-form-footer').hide();
+                    $('#formfield-form-footer_url').hide();
+                }
+            };
+            $('#form\\.show_header').on('click', update_header);
+            $('#form\\.show_footer').on('click', update_footer);
+            update_header();
+            update_footer();
+        }
+    },
 };
 
 var portlets = {
     init: function() {
         this.audiogallery();
         this.audio();
+        this.mediacarousel();
     },
     audiogallery: function() {
         $('.portal-padrao-audiogallery-portlet').each(function(){
@@ -136,6 +164,11 @@ var portlets = {
             var playerid = $('#'+this.id+' .jp-jplayer')[0].id;
             var containerid = $('#'+this.id+' .jp-audio')[0].id;
             $('#'+playerid).audio_player({'cssSelectorAncestor':'#'+containerid});
+        });
+    },
+    mediacarousel: function() {
+        $('.portal-padrao-mediacarousel-portlet .portletItem>div:first').each(function(){
+            $('#'+this.id).mediacarousel();
         });
     },
 };
