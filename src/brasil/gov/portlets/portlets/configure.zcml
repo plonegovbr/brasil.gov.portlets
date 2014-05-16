@@ -51,4 +51,13 @@
       editview=".videogallery.EditForm"
       />
 
+  <plone:portlet
+      name="brasil.gov.portlets.mediacarousel"
+      interface=".mediacarousel.IMediaCarouselPortlet"
+      assignment=".mediacarousel.Assignment"
+      renderer=".mediacarousel.Renderer"
+      addview=".mediacarousel.AddForm"
+      editview=".mediacarousel.EditForm"
+      />
+
 </configure>

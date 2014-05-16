@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+    <div class="portlet portletMediaCarousel"
+         tal:define="portlet_id python:id(view)"
+         i18n:domain="brasil.gov.portlets">
+        <div class="portal-padrao-mediacarousel-portlet">
+            <tal:results tal:define="results view/results|nothing">
+                <div class="portletHeader">
+                    <span class="portletTopLeft" />
+                    <tal:header condition="view/data/show_header">
+                        <tal:title content="structure view/header" />
+                    </tal:header>
+                    <span class="portletTopRight" />
+                </div>
+                <div class="portletItem">
+                    <div tal:condition="not:results">
+                        Arraste uma pasta ou coleção para popular o tile.
+                    </div>
+                    <div id="${string:mediacarousel-gallerie-$portlet_id}"
+                         tal:condition="results">
+                        <tal:items tal:repeat="item results">
+                            <a href="${python:view.get_media_url(item)}">
+                                <img alt="${python:view.get_description(item)}"
+                                     src="${thumbnail/url}"
+                                     width="${thumbnail/width}"
+                                     height="${thumbnail/height}"
+                                     data-uid="${uid}"
+                                     data-title="${python:view.get_title(item)}"
+                                     data-description="${python:view.get_description(item)}"
+                                     data-layer="${string:<div class='rights' style='display:none' data-index='${repeat/item/index}'>$rights</div>"
+                                     tal:define="thumbnail python:view.thumbnail(item);
+                                                 uid python:view.get_uid(item);
+                                                 rights python:view.get_rights(item);"
+                                     tal:condition="python:thumbnail and uid" />
+                            </a>
+                        </tal:items>
+                    </div>
+                    <div class="visualClear"><!-- --></div>
+                </div>
+                <div class="portletFooter">
+                    <a href="${view/data/footer_url}"
+                       tal:condition="view/data/show_footer"
+                       tal:omit-tag="not:view/data/footer_url">
+                        ${view/data/footer}
+                    </a>
+                </div>
+                <div class="visualClear"><!-- --></div>
+            </tal:results>
+        </div>
+    </div>
+</html>
