@@ -3,6 +3,8 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* Backend portlet de carrossel de imagens. (closes `#t_59`_).
+  [rodfersou]
 * Backend portlet de galeria de vídeos. (closes `#t_62`_).
   [rodfersou]
 * Backend portlet de video. (closes `#t_71`_).
@@ -15,6 +17,7 @@ Changelog
   [rodfersou]
 
 .. _`#t_56`: https://grupotv1.codebasehq.com/projects/secom/tickets/56
+.. _`#t_59`: https://grupotv1.codebasehq.com/projects/secom/tickets/59
 .. _`#t_62`: https://grupotv1.codebasehq.com/projects/secom/tickets/62
 .. _`#t_65`: https://grupotv1.codebasehq.com/projects/secom/tickets/65
 .. _`#t_68`: https://grupotv1.codebasehq.com/projects/secom/tickets/68
