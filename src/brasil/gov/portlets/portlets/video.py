@@ -21,8 +21,8 @@ class IVideoPortlet(IPortletDataProvider):
     '''
 
     show_header = schema.Bool(
-        title=_(u'Título'),
-        description=_(u'Se habilitado pede as informações do título.'),
+        title=_(u'Mostrra título'),
+        description=_(u'Se habilitado mostra o título.'),
         required=True,
         default=False)
 
@@ -73,7 +73,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-audio-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-video-%s' % normalizer.normalize(header)
 
     @memoize
     def video(self):

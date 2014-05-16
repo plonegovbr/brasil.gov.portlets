@@ -42,4 +42,13 @@
       editview=".video.EditForm"
       />
 
+  <plone:portlet
+      name="brasil.gov.portlets.videogallery"
+      interface=".videogallery.IVideoGalleryPortlet"
+      assignment=".videogallery.Assignment"
+      renderer=".videogallery.Renderer"
+      addview=".videogallery.AddForm"
+      editview=".videogallery.EditForm"
+      />
+
 </configure>
