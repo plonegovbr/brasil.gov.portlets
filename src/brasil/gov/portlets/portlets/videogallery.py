@@ -194,7 +194,7 @@ class Renderer(base.Renderer):
                 results = collection.queryCatalog(**query)
             if limit and limit > 0:
                 results = results[:limit]
-        return results
+        return [b.getObject() for b in results]
 
     @memoize
     def collection(self):

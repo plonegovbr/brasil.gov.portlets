@@ -14,71 +14,72 @@
                     </tal:header>
                     <span class="portletTopRight" />
                 </div>
-                <div class="portletItem">
+                <div class="portletItem"
+                     tal:condition="results">
                     <div class="player-holder"
-                         tal:define="first_item python:results[0].getObject()"
                          tal:condition="results">
-                        <div class="player-video">
-                            <tal:block tal:replace="structure first_item/embed_html"></tal:block>
-                        </div>
-                        <div class="player-metadata">
-                            <div class="player-metadata-wrapper">
-                                <span class="subtitle"
-                                      tal:condition="view/data/show_subtitle">
-                                    ${view/data/subtitle}
-                                </span>
-                                <h3 class="title"
-                                    tal:condition="view/data/show_title">
-                                    ${first_item/title}
-                                </h3>
-                                <p class="description"
-                                   tal:condition="view/data/show_description">
-                                    ${first_item/description}
-                                </p>
+                        <tal:firstitem define="first_item python:results[0]">
+                            <div class="player-video">
+                                <tal:block tal:replace="structure first_item/embed_html"></tal:block>
                             </div>
-                        </div>
+                            <div class="player-metadata">
+                                <div class="player-metadata-wrapper">
+                                    <span class="subtitle"
+                                          tal:condition="view/data/show_subtitle">
+                                        ${view/data/subtitle}
+                                    </span>
+                                    <h3 class="title"
+                                        tal:condition="view/data/show_title">
+                                        ${first_item/title}
+                                    </h3>
+                                    <p class="description"
+                                       tal:condition="view/data/show_description">
+                                        ${first_item/description}
+                                    </p>
+                                </div>
+                            </div>
+                        </tal:firstitem>
                         <div class="visualClear"></div>
                     </div>
                     <div class="galery-items"
-                         tal:define="last_item python:results[-1]"
                          tal:condition="results">
-                        <div class="galery-items-wrapper">
-                            <tal:loop repeat="item results">
-                                <tal:items define="obj item/getObject">
+                        <tal:lastitem define="last_item python:results[-1]">
+                            <div class="galery-items-wrapper">
+                                <tal:loop repeat="item results">
                                     <div class="${python:'gallery-element' + (' selected' if repeat['item'].start else '') + (' last' if item == last_item else '')}">
                                         <div class="gallery-element-wrapper">
-                                            <a id="${python: 'gallerylink-' + str(portlet_id) + '-' + str(view.get_uid(obj))}"
+                                            <a id="${python: 'gallerylink-' + str(portlet_id) + '-' + str(view.get_uid(item))}"
                                                class="gallery-element-link"
-                                               href="${obj/absolute_url}"
-                                               data-player-dom="${obj/embed_html}">
-                                                <tal:image define="thumbnail python:view.thumbnail(obj);"
+                                               href="${item/absolute_url}"
+                                               data-player-dom="${item/embed_html}">
+                                                <tal:image define="thumbnail python:view.thumbnail(item);"
                                                            condition="thumbnail">
-                                                    <img tal:define="uid python:view.get_uid(obj)"
+                                                    <img tal:define="uid python:view.get_uid(item)"
                                                          tal:condition="python:thumbnail and uid"
                                                          src="${thumbnail/url}"
                                                          width="${thumbnail/width}"
                                                          height="${thumbnail/height}"
-                                                         data-title="${string:<a href='${obj/absolute_url}/view'>${obj/title}</a>}"
-                                                         data-description="${obj/Description}"
-                                                         data-link="${string:${obj/absolute_url}/view}"
+                                                         data-title="${string:<a href='${item/absolute_url}/view'>${item/title}</a>}"
+                                                         data-description="${item/Description}"
+                                                         data-link="${string:${item/absolute_url}/view}"
                                                          data-uid="${uid}"
                                                          alt="${python: thumbnail.context.Title()" />
                                                 </tal:image>
                                             </a>
                                             <div class="gallery-element-metadata">
                                                 <span class="title">
-                                                    ${obj/title}
+                                                    ${item/title}
                                                 </span>
                                                 <p class="description"
                                                    tal:condition="view/data/show_description">
-                                                    ${obj/description}
+                                                    ${item/description}
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                </tal:items>
-                            </tal:loop>
-                        </div>
+                                </tal:loop>
+                            </div>
+                        </tal:lastitem>
                         <div class="visualClear"><!-- --></div>
                     </div>
                     <div class="visualClear"><!-- --></div>
