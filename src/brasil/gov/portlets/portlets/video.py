@@ -22,7 +22,7 @@ class IVideoPortlet(IPortletDataProvider):
 
     show_header = schema.Bool(
         title=_(u'Mostrra título'),
-        description=_(u'Se habilitado pede as informações do título.'),
+        description=_(u'Se habilitado mostra o título.'),
         required=True,
         default=False)
 

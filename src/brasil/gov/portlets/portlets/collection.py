@@ -50,7 +50,7 @@ class ICollectionPortlet(IPortletDataProvider):
 
     show_image = schema.Bool(
         title=_(u'Mostrar imagem'),
-        description=_(u'Se habilitado pede as informações da imagem.'),
+        description=_(u'Se habilitado mostra a imagem.'),
         required=True,
         default=False)
 
@@ -75,7 +75,7 @@ class ICollectionPortlet(IPortletDataProvider):
 
     show_footer = schema.Bool(
         title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado pede as informações do rodapé.'),
+        description=_(u'Se habilitado mostra o rodapé.'),
         required=True,
         default=False)
 
@@ -98,7 +98,7 @@ class ICollectionPortlet(IPortletDataProvider):
 
     show_date = schema.Bool(
         title=_(u'Mostrar datas'),
-        description=_(u'Se habilitado, será mostrado a data dos itens da '
+        description=_(u'Se habilitado, mostra a data.'
                       u'coleção.'),
         required=True,
         default=False)

@@ -27,10 +27,12 @@
                                       tal:condition="view/data/show_subtitle">
                                     ${view/data/subtitle}
                                 </span>
-                                <h3 class="title">
+                                <h3 class="title"
+                                    tal:condition="view/data/show_title">
                                     ${first_item/title}
                                 </h3>
-                                <p class="description">
+                                <p class="description"
+                                   tal:condition="view/data/show_description">
                                     ${first_item/description}
                                 </p>
                             </div>
@@ -38,14 +40,14 @@
                         <div class="visualClear"></div>
                     </div>
                     <div class="galery-items"
-                         tal:define="last_item python:items[-1]"
+                         tal:define="last_item python:results[-1]"
                          tal:condition="results">
                         <div class="galery-items-wrapper">
                             <tal:loop repeat="item results">
                                 <tal:items define="obj item/getObject">
                                     <div class="${python:'gallery-element' + (' selected' if repeat['item'].start else '') + (' last' if item == last_item else '')}">
                                         <div class="gallery-element-wrapper">
-                                            <a id="${python: 'gallerylink-' + portlet_id + '-' + str(view.get_uid(obj))}"
+                                            <a id="${python: 'gallerylink-' + str(portlet_id) + '-' + str(view.get_uid(obj))}"
                                                class="gallery-element-link"
                                                href="${obj/absolute_url}"
                                                data-player-dom="${obj/embed_html}">
@@ -83,7 +85,8 @@
                 </div>
                 <div class="portletFooter">
                     <a href="${view/data/footer_url}"
-                       tal:condition="view/data/show_footer">
+                       tal:condition="view/data/show_footer"
+                       tal:omit-tag="not:view/data/footer_url">
                         ${view/data/footer}
                     </a>
                 </div>

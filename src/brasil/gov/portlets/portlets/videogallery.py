@@ -16,6 +16,7 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
 from zope.interface import implements
+from plone.uuid.interfaces import IUUID
 
 
 class IVideoGalleryPortlet(IPortletDataProvider):
@@ -24,7 +25,7 @@ class IVideoGalleryPortlet(IPortletDataProvider):
 
     show_header = schema.Bool(
         title=_(u'Mostrar cabeçalho'),
-        description=_(u'Se habilitado pede as informações do cabeçalho.'),
+        description=_(u'Se habilitado mostra o cabeçalho.'),
         required=True,
         default=False)
 
@@ -44,9 +45,15 @@ class IVideoGalleryPortlet(IPortletDataProvider):
         default=u'H2',
         required=True)
 
+    show_title = schema.Bool(
+        title=_(u'Mostrar título'),
+        description=_(u'Se habilitado mostra o título.'),
+        required=True,
+        default=False)
+
     show_subtitle = schema.Bool(
         title=_(u'Mostrar subtítulo'),
-        description=_(u'Se habilitado pede as informações do subtítulo.'),
+        description=_(u'Se habilitado mostra o subtítulo.'),
         required=True,
         default=False)
 
@@ -57,13 +64,13 @@ class IVideoGalleryPortlet(IPortletDataProvider):
 
     show_description = schema.Bool(
         title=_(u'Mostrar descrição'),
-        description=_(u'Se habilitado pede as informações da descrição.'),
+        description=_(u'Se habilitado mostra a descrição.'),
         required=True,
         default=False)
 
     show_footer = schema.Bool(
         title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado pede as informações do rodapé.'),
+        description=_(u'Se habilitado mostra o rodapé.'),
         required=True,
         default=False)
 
@@ -100,6 +107,7 @@ class Assignment(base.Assignment):
     show_header = False
     header = _(u'Portal Padrão Galeria de Vídeos')
     header_type = u'H2'
+    show_title = False
     show_subtitle = False
     subtitle = u''
     show_description = False
@@ -113,6 +121,7 @@ class Assignment(base.Assignment):
                  show_header=False,
                  header=_(u'Portal Padrão Galeria de Vídeos'),
                  header_type=u'H2',
+                 show_title=False,
                  show_subtitle=False,
                  subtitle=u'',
                  show_description=False,
@@ -124,6 +133,7 @@ class Assignment(base.Assignment):
         self.show_header = show_header
         self.header = header
         self.header_type = header_type
+        self.show_title = show_title
         self.show_subtitle = show_subtitle
         self.subtitle = subtitle
         self.show_description = show_description
@@ -146,10 +156,26 @@ class Renderer(base.Renderer):
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
 
+    def _has_image_field(self, obj):
+        """Return True if the object has an image field.
+
+        :param obj: [required]
+        :type obj: content object
+        """
+        if hasattr(obj, 'image'):  # Dexterity
+            return True
+        elif hasattr(obj, 'Schema'):  # Archetypes
+            return 'image' in obj.Schema().keys()
+        else:
+            return False
+
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
         return 'brasil-gov-portlets-videogallery-%s' % normalizer.normalize(header)
+
+    def get_uid(self, obj):
+        return IUUID(obj)
 
     @memoize
     def results(self):
@@ -205,14 +231,19 @@ class Renderer(base.Renderer):
         hx = getattr(E, self.data.header_type)(self.data.header)
         return html.tostring(hx)
 
+    def thumbnail(self, item):
+        if self._has_image_field(item):
+            scales = item.restrictedTraverse('@@images')
+            return scales.scale('image', width=80, height=60)
+
 
 class AddForm(base.AddForm):
 
     form_fields = form.Fields(IVideoGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Vídeo')
-    description = _(u'Este portlet mostra um Player de Vídeo.')
+    label = _(u'Adicionar Portlet Portal Padrão Galeria de Vídeo')
+    description = _(u'Este portlet mostra uma Galeria de Vídeos.')
 
     def create(self, data):
         return Assignment(**data)
@@ -223,5 +254,5 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IVideoGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Vídeo')
-    description = _(u'Este portlet mostra um Player de Vídeo.')
+    label = _(u'Editar Portlet Portal Padrão Galeria de Vídeo')
+    description = _(u'Este portlet mostra uma Galeria de Vídeos.')

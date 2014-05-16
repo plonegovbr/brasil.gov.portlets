@@ -24,7 +24,7 @@ class IAudioGalleryPortlet(IPortletDataProvider):
 
     show_header = schema.Bool(
         title=_(u'Mostrar título'),
-        description=_(u'Se habilitado pede as informações do título.'),
+        description=_(u'Se habilitado mostra o título.'),
         required=True,
         default=False)
 
@@ -47,7 +47,7 @@ class IAudioGalleryPortlet(IPortletDataProvider):
 
     show_footer = schema.Bool(
         title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado pede as informações do rodapé.'),
+        description=_(u'Se habilitado mostra o rodapé.'),
         required=True,
         default=False)
 
@@ -200,7 +200,7 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IAudioGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Audio Gallery')
+    label = _(u'Adicionar Portlet Portal Padrão Galeria de Áudio')
     description = _(u'Este portlet mostra uma Galeria de Áudios.')
 
     def create(self, data):
@@ -212,5 +212,5 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IAudioGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Audio Gallery')
+    label = _(u'Editar Portlet Portal Padrão Galeria de Áudio')
     description = _(u'Este portlet mostra uma Galeria de Áudios.')
