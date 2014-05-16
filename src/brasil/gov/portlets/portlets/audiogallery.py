@@ -200,7 +200,7 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IAudioGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Galeria de Áudio')
+    label = _(u'Adicionar Portlet Portal Padrão Galeria de Áudios')
     description = _(u'Este portlet mostra uma Galeria de Áudios.')
 
     def create(self, data):
@@ -212,5 +212,5 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IAudioGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Galeria de Áudio')
+    label = _(u'Editar Portlet Portal Padrão Galeria de Áudios')
     description = _(u'Este portlet mostra uma Galeria de Áudios.')

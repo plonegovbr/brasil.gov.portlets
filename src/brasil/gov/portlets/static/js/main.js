@@ -55,7 +55,7 @@ var portletsManager = {
         }
     },
     audiogallery: function() {
-        if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Galeria de Áudio') > 0) {
+        if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Galeria de Áudios') > 0) {
             var update_title = function() {
                 if ($('#form\\.show_header').is(':checked')) {
                     $('#formfield-form-header').show();
@@ -94,7 +94,7 @@ var portletsManager = {
         }
     },
     videogallery: function() {
-        if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Galeria de Vídeo') > 0) {
+        if ($('h1.documentFirstHeading').text().indexOf('Portal Padrão Galeria de Vídeos') > 0) {
             var update_header = function() {
                 if ($('#form\\.show_header').is(':checked')) {
                     $('#formfield-form-header').show();
