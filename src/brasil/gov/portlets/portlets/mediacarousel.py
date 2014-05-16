@@ -256,7 +256,9 @@ class Renderer(base.Renderer):
         return url
 
     def get_rights(self, obj):
-        rights = obj.Rights() if hasattr(obj, 'Rights') else None
+        rights = ''
+        if self.data.show_rights:
+            rights = obj.Rights() if hasattr(obj, 'Rights') else None
         return rights
 
     def get_title(self, item):
