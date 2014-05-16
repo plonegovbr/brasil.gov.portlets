@@ -50,8 +50,8 @@
   </portlet>
   <portlet
       addview="brasil.gov.portlets.mediacarousel"
-      title="Portal Padrao Galeria de Imagens"
-      description="Portal Padrao Galeria de Imagens."
+      title="Portal Padrao Carrossel de Imagens"
+      description="Portal Padrao Carrossel de Imagens."
       i18n:attributes="title;
                        description">
     <for interface="plone.app.portlets.interfaces.IColumn" />
