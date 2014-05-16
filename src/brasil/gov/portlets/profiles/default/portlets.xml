@@ -14,8 +14,8 @@
   </portlet>
   <portlet
       addview="brasil.gov.portlets.audiogallery"
-      title="Portal Padrao Galeria de Audio"
-      description="Portal Padrao Galeria de Audio."
+      title="Portal Padrao Galeria de Audios"
+      description="Portal Padrao Galeria de Audios."
       i18n:attributes="title;
                        description">
     <for interface="plone.app.portlets.interfaces.IColumn" />
@@ -41,8 +41,8 @@
   </portlet>
   <portlet
       addview="brasil.gov.portlets.videogallery"
-      title="Portal Padrao Galeria de Video"
-      description="Portal Padrao Galeria de Video."
+      title="Portal Padrao Galeria de Videos"
+      description="Portal Padrao Galeria de Videos."
       i18n:attributes="title;
                        description">
     <for interface="plone.app.portlets.interfaces.IColumn" />
