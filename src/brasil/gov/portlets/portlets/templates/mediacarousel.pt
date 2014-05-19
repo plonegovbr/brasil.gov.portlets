@@ -5,7 +5,8 @@
     <div class="portlet portletMediaCarousel"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div class="portal-padrao-mediacarousel-portlet">
+        <div id="portlet-mediacarousel-${portlet_id}"
+             class="portal-padrao-mediacarousel-portlet">
             <tal:results tal:define="results view/results|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft" />
@@ -15,27 +16,70 @@
                     <span class="portletTopRight" />
                 </div>
                 <div class="portletItem">
-                    <div tal:condition="not:results">
-                        Arraste uma pasta ou coleção para popular o tile.
-                    </div>
-                    <div id="${string:mediacarousel-gallerie-$portlet_id}"
-                         tal:condition="results">
-                        <tal:items tal:repeat="item results">
-                            <a href="${python:view.get_media_url(item)}">
-                                <img alt="${python:view.get_description(item)}"
-                                     src="${thumbnail/url}"
-                                     width="${thumbnail/width}"
-                                     height="${thumbnail/height}"
-                                     data-uid="${uid}"
-                                     data-title="${python:view.get_title(item)}"
-                                     data-description="${python:view.get_description(item)}"
-                                     data-layer="${string:<div class='rights' style='display:none' data-index='${repeat/item/index}'>$rights</div>"
-                                     tal:define="thumbnail python:view.thumbnail(item);
-                                                 uid python:view.get_uid(item);
-                                                 rights python:view.get_rights(item);"
-                                     tal:condition="python:thumbnail and uid" />
-                            </a>
-                        </tal:items>
+                    <tal:player condition="results">
+                        <div class="player">
+                            <div class="cycle-player cycle-slideshow"
+                                 data-cycle-slides="> div"
+                                 data-cycle-timeout="0"
+                                 data-allow-wrap="false"
+                                 data-cycle-prev="#portlet-mediacarousel-${portlet_id} .player .cycle-prev"
+                                 data-cycle-next="#portlet-mediacarousel-${portlet_id} .player .cycle-next"
+                                 data-cycle-fx="fade">
+                                <div tal:repeat="item results">
+                                    <tal:image define="scale python:view.scale(item);"
+                                               condition="item">
+                                        <a href="${item/absolute_url}">
+                                            <img src="${scale/src}" alt="${scale/alt}">
+                                        </a>
+                                        <div class="title"
+                                             tal:condition="view/data/show_title">
+                                            ${item/Title}
+                                        </div>
+                                        <div class="description"
+                                             tal:condition="view/data/show_description">
+                                            ${item/Description}
+                                        </div>
+                                        <div class="rights"
+                                             tal:condition="view/data/show_rights">
+                                            ${item/Rights}
+                                        </div>
+                                    </tal:image>
+                                </div>
+                            </div><!-- cycle-1 -->
+                            <div class="cycle-hover">
+                                <a href="#" class="cycle-prev">&laquo; Anterior</a>
+                                <a href="#" class="cycle-next">Próximo &raquo;</a>
+                            </div>
+                        </div><!-- player -->
+                    </tal:player>
+                    <tal:carrossel condition="results">
+                        <div class="carousel">
+                            <div class="cycle-carrossel cycle-slideshow"
+                                 data-cycle-slides="> div"
+                                 data-cycle-timeout="0"
+                                 data-cycle-fx="carousel"
+                                 data-cycle-carousel-fluid="true"
+                                 data-cycle-prev="#portlet-mediacarousel-${portlet_id} .player .cycle-prev"
+                                 data-cycle-next="#portlet-mediacarousel-${portlet_id} .player .cycle-next"
+                                 data-allow-wrap="false">
+                                <div class="thumb-itens" tal:repeat="item results">
+                                    <tal:image define="thumbnail python:view.thumbnail(item);"
+                                               condition="thumbnail">
+                                        <div class="table-align">
+                                            <img src="${thumbnail/src}" alt="${thumbnail/alt}">
+                                        </div>
+                                    </tal:image>
+                                </div>
+                            </div><!-- cycle-2 -->
+                            <div class="cycle-nagivation">
+                                <a href="#" class="cycle-prev">&laquo; Anterior</a>
+                                <a href="#" class="cycle-next">Próximo &raquo;</a>
+                            </div>
+                        </div><!-- carrossel -->
+                    </tal:carrossel>
+                    <div tal:condition="not:results"
+                         class="no-albums">
+                        Selecione uma coleção para o portlet.
                     </div>
                     <div class="visualClear"><!-- --></div>
                 </div>
