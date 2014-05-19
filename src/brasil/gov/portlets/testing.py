@@ -229,6 +229,7 @@ class CreateTestContent(object):
                     'Video {0} description - Lorem ipsum dolor sit amet, ' +
                     'consectetur adipiscing elit. Donec eleifend hendrerit ' +
                     'interdum.').format(i),
+                url='http://www.youtube.com/watch?v=d8bEU80gIzQ',
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),
