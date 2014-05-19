@@ -22,13 +22,8 @@ ${footer_sample}  More...
 ${footerurl_field_id}  form.footer_url
 ${footerurl_sample}  http://www.google.com
 ${rightscheck_field_id}  form.show_rights
-
 ${limit_field_id}  form.limit
 ${limit_sample}  2
-${datecheck_field_id}  form.show_date
-${dateformat_field_id}  form.date_format
-${dateformat_sample}  longa: Data/Hora
-${titletype_field_id}  form.title_type
 ${collection_field_id}  form.collection
 
 *** Test cases ***
