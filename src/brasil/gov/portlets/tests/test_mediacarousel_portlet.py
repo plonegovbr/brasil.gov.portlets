@@ -139,12 +139,6 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         show_footer = mapping.values()[0].show_footer
         self.assertEqual(show_footer, True)
 
-        image_size = mapping.values()[0].image_size
-        self.assertEqual(image_size, u'large 768:768')
-
-        show_footer = mapping.values()[0].show_footer
-        self.assertEqual(show_footer, True)
-
         footer = mapping.values()[0].footer
         self.assertEqual(footer, u'Mais...')
 
@@ -166,7 +160,7 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         r1 = self._assigned_renderer(self.images)
 
         self.assertEqual(r1.css_class(),
-                         'brasil-gov-portlets-mediacarousel-portal-padrao-galeria-de-imagens')
+                         'brasil-gov-portlets-mediacarousel-portal-padrao-carrossel-de-imagens')
 
     def test_renderer_results(self):
         r = self._assigned_renderer(self.images)
@@ -182,14 +176,42 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
     def test_renderer_header(self):
         r = self._assigned_renderer(self.images)
 
-        self.assertEqual(r.header(), u'')
+        self.assertEqual(r.header(), u'<h2>Portal Padr&#227;o Carrossel de Imagens</h2>')
 
     def test_renderer_thumbnail(self):
         r1 = self._assigned_renderer(self.files)
         r2 = self._assigned_renderer(self.images)
 
-        images = [r1.thumbnail(b.getObject()) for b in r1.results()]
+        images = [r1.thumbnail(o) for o in r1.results()]
         self.assertEqual(images, [None, None, None])
 
-        images = [r2.thumbnail(b.getObject()) for b in r2.results()]
+        images = [r2.thumbnail(o) for o in r2.results()]
+        img_order = [2, 3, 1]
+        for i, img in enumerate(images):
+            self.assertIn('src', img)
+            self.assertTrue(img['src'])
+            self.assertIn('alt', img)
+            self.assertEqual(img['alt'],
+                             ('Image {0} description - Lorem ipsum dolor sit ' +
+                              'amet, consectetur adipiscing elit. Donec ' +
+                              'eleifend hendrerit interdum.')
+                             .format(img_order[i]))
+
+    def test_renderer_scale(self):
+        r1 = self._assigned_renderer(self.files)
+        r2 = self._assigned_renderer(self.images)
+
+        images = [r1.scale(o) for o in r1.results()]
         self.assertEqual(images, [None, None, None])
+
+        images = [r2.scale(o) for o in r2.results()]
+        img_order = [2, 3, 1]
+        for i, img in enumerate(images):
+            self.assertIn('src', img)
+            self.assertTrue(img['src'])
+            self.assertIn('alt', img)
+            self.assertEqual(img['alt'],
+                             ('Image {0} description - Lorem ipsum dolor sit ' +
+                              'amet, consectetur adipiscing elit. Donec ' +
+                              'eleifend hendrerit interdum.')
+                             .format(img_order[i]))
