@@ -25,7 +25,7 @@
       />
 
   <gs:importStep
-      name="setup_site"
+      name="brasil.gov.portlets_setup_site"
       handler="brasil.gov.portlets.setuphandlers.setup_site"
       title="Configura Brasil.gov.portlets"
       description="Finaliza configuracao do produto de portlets">

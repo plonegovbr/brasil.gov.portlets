@@ -19,6 +19,11 @@ import random
 class CreateTestContent(object):
     test_date_order = [3, 1, 2]
     test_startdate_order = [3, 2, 1]
+    YOUTUBE_EMBED = """
+<iframe width="459" height="344" \
+src="http://www.youtube.com/embed/d8bEU80gIzQ?feature=oembed" \
+frameborder="0" allowfullscreen></iframe>
+""".strip('\n')
 
     def __init__(self, portal):
         self.portal = portal
@@ -230,6 +235,7 @@ class CreateTestContent(object):
                     'consectetur adipiscing elit. Donec eleifend hendrerit ' +
                     'interdum.').format(i),
                 url='http://www.youtube.com/watch?v=d8bEU80gIzQ',
+                embed_html=self.YOUTUBE_EMBED,
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),
