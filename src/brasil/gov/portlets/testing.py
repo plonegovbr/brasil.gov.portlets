@@ -158,6 +158,7 @@ class CreateTestContent(object):
                 creation_date=DateTime(
                     '2014/05/0{0} 14:23:38.334118 GMT-3'
                     .format(self.test_date_order[i - 1])),
+                rights='Image rights',
                 container=images_folder
             )
             n.setModificationDate(DateTime(

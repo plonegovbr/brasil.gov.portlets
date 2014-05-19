@@ -24,6 +24,14 @@
       i18n:attributes="title; description"
       />
 
+  <gs:importStep
+      name="setup_site"
+      handler="brasil.gov.portlets.setuphandlers.setup_site"
+      title="Configura Brasil.gov.portlets"
+      description="Finaliza configuracao do produto de portlets">
+    <depends name="typeinfo"/>
+  </gs:importStep>
+  
   <!-- Oculta products -->
   <utility
       factory=".config.HiddenProducts"
