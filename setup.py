@@ -46,6 +46,7 @@ setup(
         'setuptools',
         'zope.i18nmessageid',
         'zope.interface',
+        'sc.embedder',
     ],
     extras_require={
         'test': [
