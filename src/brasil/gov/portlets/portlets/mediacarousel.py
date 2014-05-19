@@ -16,7 +16,6 @@ from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
 from zope.interface import implements
-from plone.uuid.interfaces import IUUID
 
 
 class IMediaCarouselPortlet(IPortletDataProvider):
@@ -175,9 +174,6 @@ class Renderer(base.Renderer):
         normalizer = getUtility(IIDNormalizer)
         return 'brasil-gov-portlets-mediacarousel-%s' % normalizer.normalize(header)
 
-    def get_uid(self, obj):
-        return IUUID(obj)
-
     @memoize
     def results(self):
         results = []
@@ -235,43 +231,20 @@ class Renderer(base.Renderer):
     def thumbnail(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            return scales.scale('image', width=80, height=60)
+            thumb = scales.scale('image', width=80, height=60)
+            return {
+                'src': thumb.url,
+                'alt': item.Description(),
+            }
 
     def scale(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            return scales.scale('image', width=692, height=433)
-
-    def get_media_url(self, obj):
-        portal_type = obj.getPortalTypeName()
-        url = ''
-        if portal_type == "sc.embedder":
-            url = obj.url
-        elif portal_type == 'Image':
-            url = obj.absolute_url() + '/@@images/image'
-        elif portal_type == 'collective.nitf.content':
-            scale = self.scale(obj)
-            url = scale.url
-
-        return url
-
-    def get_rights(self, obj):
-        rights = ''
-        if self.data.show_rights:
-            rights = obj.Rights() if hasattr(obj, 'Rights') else None
-        return rights
-
-    def get_title(self, item):
-        title = ''
-        if self.data.show_title:
-            title = '<a href="' + item.absolute_url() + '/view">' + item.title + '</a>'
-        return title
-
-    def get_description(self, item):
-        description = ''
-        if self.data.show_description:
-            description = item.Description()
-        return description
+            thumb = scales.scale('image', width=692, height=433)
+            return {
+                'src': thumb.url,
+                'alt': item.Description(),
+            }
 
 
 class AddForm(base.AddForm):
