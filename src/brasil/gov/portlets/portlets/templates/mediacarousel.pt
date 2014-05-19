@@ -27,7 +27,7 @@
                                  data-cycle-fx="fade">
                                 <div tal:repeat="item results">
                                     <tal:image define="scale python:view.scale(item);"
-                                               condition="item">
+                                               condition="scale">
                                         <a href="${item/absolute_url}">
                                             <img src="${scale/src}" alt="${scale/alt}">
                                         </a>
