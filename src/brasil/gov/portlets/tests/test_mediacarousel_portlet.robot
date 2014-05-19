@@ -94,8 +94,8 @@ Test MediaCarousel Portlet
     Page Should Contain Element  id=${limit_field_id}
     Input Text  id=${limit_field_id}  ${limit_sample}
     Save Portlet
-    Xpath Should Match X Times  //div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]/div  ${limit_sample}
-    Xpath Should Match X Times  //div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]/div  ${limit_sample}
+    Xpath Should Match X Times  //div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]/div[not(contains(@class, 'cycle-sentinel'))]  ${limit_sample}
+    Xpath Should Match X Times  //div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-carousel-wrap')]/div  ${limit_sample}
     Sleep  1s  Wait for overlay
 
     Hide Right Portlet
