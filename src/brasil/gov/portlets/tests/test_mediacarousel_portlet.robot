@@ -15,7 +15,6 @@ ${headertype_field_id}  form.header_type
 ${headertype_sample}  H4
 ${titlecheck_field_id}  form.show_title
 ${descriptioncheck_field_id}  form.show_description
-${datecheck_field_id}  form.show_date
 ${footercheck_field_id}  form.show_footer
 ${footer_field_id}  form.footer
 ${footer_sample}  More...
@@ -59,12 +58,6 @@ Test MediaCarousel Portlet
     Select Checkbox  id=${descriptioncheck_field_id}
     Save Portlet
     Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='description']
-    Sleep  1s  Wait for overlay
-
-    Edit Right Portlet
-    Select Checkbox  id=${datecheck_field_id}
-    Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='date']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet

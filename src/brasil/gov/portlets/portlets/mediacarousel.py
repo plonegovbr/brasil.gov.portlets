@@ -56,12 +56,6 @@ class IMediaCarouselPortlet(IPortletDataProvider):
         required=True,
         default=False)
 
-    show_date = schema.Bool(
-        title=_(u'Mostrar data'),
-        description=_(u'Se habilitado mostra a data.'),
-        required=True,
-        default=False)
-
     show_footer = schema.Bool(
         title=_(u'Mostrar rodapé'),
         description=_(u'Se habilitado mostra o rodapé.'),
@@ -109,7 +103,6 @@ class Assignment(base.Assignment):
     header_type = u'H2'
     show_title = False
     show_description = False
-    show_date = False
     show_footer = False
     footer = u''
     footer_url = u''
@@ -123,7 +116,6 @@ class Assignment(base.Assignment):
                  header_type=u'H2',
                  show_title=False,
                  show_description=False,
-                 show_date=False,
                  show_footer=False,
                  footer=u'',
                  footer_url=u'',
@@ -135,7 +127,6 @@ class Assignment(base.Assignment):
         self.header_type = header_type
         self.show_title = show_title
         self.show_description = show_description
-        self.show_date = show_date
         self.show_footer = show_footer
         self.footer = footer
         self.footer_url = footer_url

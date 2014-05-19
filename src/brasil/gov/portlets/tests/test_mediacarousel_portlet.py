@@ -53,7 +53,6 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
             header_type=u'H2',
             show_title=True,
             show_description=True,
-            show_date=True,
             show_footer=True,
             footer=u'Mais...',
             footer_url=col['url'],
@@ -109,7 +108,6 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
             'header_type': u'H4',
             'show_title': True,
             'show_description': True,
-            'show_date': True,
             'show_footer': True,
             'footer': u'Mais...',
             'footer_url': self.images['url'],
@@ -132,9 +130,6 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
 
         show_description = mapping.values()[0].show_description
         self.assertEqual(show_description, True)
-
-        show_date = mapping.values()[0].show_date
-        self.assertEqual(show_date, True)
 
         show_footer = mapping.values()[0].show_footer
         self.assertEqual(show_footer, True)

@@ -39,10 +39,6 @@
                                              tal:condition="view/data/show_description">
                                             ${item/Description}
                                         </div>
-                                        <div class="date"
-                                             tal:condition="view/data/show_date">
-                                            ${item/Date}
-                                        </div>
                                         <div class="rights"
                                              tal:condition="view/data/show_rights">
                                             ${item/Rights}
