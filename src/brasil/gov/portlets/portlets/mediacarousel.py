@@ -156,19 +156,6 @@ class Renderer(base.Renderer):
     def __init__(self, *args):
         base.Renderer.__init__(self, *args)
 
-    def _has_image_field(self, obj):
-        """Return True if the object has an image field.
-
-        :param obj: [required]
-        :type obj: content object
-        """
-        if hasattr(obj, 'image'):  # Dexterity
-            return True
-        elif hasattr(obj, 'Schema'):  # Archetypes
-            return 'image' in obj.Schema().keys()
-        else:
-            return False
-
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
