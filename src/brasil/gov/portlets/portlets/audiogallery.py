@@ -82,7 +82,7 @@ class Assignment(base.Assignment):
     implements(IAudioGalleryPortlet)
 
     show_header = False
-    header = u''
+    header = _(u'Portal Padrão Galeria de Áudios')
     header_type = u'H2'
     show_footer = False
     footer = u''
@@ -92,7 +92,7 @@ class Assignment(base.Assignment):
 
     def __init__(self,
                  show_header=False,
-                 header=u'',
+                 header=_(u'Portal Padrão Galeria de Áudios'),
                  header_type=u'H2',
                  show_footer=False,
                  footer=u'',
