@@ -32,7 +32,7 @@
                                             <img src="${scale/src}" alt="${scale/alt}">
                                         </a>
                                         <div class="title"
-                                             tal:condition="view/data/show_title">
+                                             tal:condition="view/data/show_active_title">
                                             ${item/Title}
                                         </div>
                                         <div class="description"
@@ -64,6 +64,10 @@
                                                condition="thumbnail">
                                         <div class="table-align">
                                             <img src="${thumbnail/src}" alt="${thumbnail/alt}">
+                                            <div class="title"
+                                                 tal:condition="view/data/show_inactive_title">
+                                                ${item/Title}
+                                            </div>
                                         </div>
                                     </tal:image>
                                 </div>

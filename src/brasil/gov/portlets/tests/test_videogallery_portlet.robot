@@ -13,7 +13,8 @@ ${headercheck_field_id}  form.show_header
 ${header_field_id}  form.header
 ${headertype_field_id}  form.header_type
 ${headertype_sample}  H4
-${titlecheck_field_id}  form.show_title
+${activetitlecheck_field_id}  form.show_active_title
+${inactivetitlecheck_field_id}  form.show_inactive_title
 ${descriptioncheck_field_id}  form.show_description
 ${footercheck_field_id}  form.show_footer
 ${footer_field_id}  form.footer
@@ -47,9 +48,15 @@ Test VideoGallery Portlet
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
-    Select Checkbox  id=${titlecheck_field_id}
+    Select Checkbox  id=${activetitlecheck_field_id}
     Save Portlet
     Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='title']
+    Sleep  1s  Wait for overlay
+
+    Edit Right Portlet
+    Select Checkbox  id=${inactivetitlecheck_field_id}
+    Save Portlet
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-carousel')]//div[@class='title']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet

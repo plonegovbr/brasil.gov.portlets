@@ -51,7 +51,8 @@ class VideoGalleryPortletTestCase(unittest.TestCase):
             show_header=True,
             header=u'Portal Padrão Galeria de Vídeos',
             header_type=u'H2',
-            show_title=True,
+            show_active_title=True,
+            show_inactive_title=True,
             show_description=True,
             show_footer=True,
             footer=u'Mais...',
@@ -105,7 +106,8 @@ class VideoGalleryPortletTestCase(unittest.TestCase):
             'show_header': True,
             'header': u'Portal Padrão Galeria de Vídeos',
             'header_type': u'H4',
-            'show_title': True,
+            'show_active_title': True,
+            'show_inactive_title': True,
             'show_description': True,
             'show_footer': True,
             'footer': u'Mais...',
@@ -123,8 +125,11 @@ class VideoGalleryPortletTestCase(unittest.TestCase):
         header_type = mapping.values()[0].header_type
         self.assertEqual(header_type, u'H4')
 
-        show_title = mapping.values()[0].show_title
-        self.assertEqual(show_title, True)
+        show_active_title = mapping.values()[0].show_active_title
+        self.assertEqual(show_active_title, True)
+
+        show_inactive_title = mapping.values()[0].show_inactive_title
+        self.assertEqual(show_inactive_title, True)
 
         show_description = mapping.values()[0].show_description
         self.assertEqual(show_description, True)
