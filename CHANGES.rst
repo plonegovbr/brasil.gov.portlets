@@ -3,6 +3,8 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* Testes portlet de audio. (closes `#t_69`_).
+  [rodfersou]
 * Testes portlet de galeria de videos. (closes `#t_63`_).
   [rodfersou]
 * Testes portlet de video. (closes `#t_72`_).
@@ -29,5 +31,6 @@ Changelog
 .. _`#t_63`: https://grupotv1.codebasehq.com/projects/secom/tickets/63
 .. _`#t_65`: https://grupotv1.codebasehq.com/projects/secom/tickets/65
 .. _`#t_68`: https://grupotv1.codebasehq.com/projects/secom/tickets/68
+.. _`#t_69`: https://grupotv1.codebasehq.com/projects/secom/tickets/69
 .. _`#t_71`: https://grupotv1.codebasehq.com/projects/secom/tickets/71
 .. _`#t_72`: https://grupotv1.codebasehq.com/projects/secom/tickets/72
