@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from brasil.gov.portlets.portlets import mediacarousel
+from brasil.gov.portlets.portlets import videogallery
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -16,7 +16,7 @@ from zope.component import getUtility
 import unittest
 
 
-class MediaCarouselPortletTestCase(unittest.TestCase):
+class VideoGalleryPortletTestCase(unittest.TestCase):
 
     layer = INTEGRATION_TESTING
 
@@ -25,10 +25,10 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         self.request = self.layer['request']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
-        self.images = {}
-        self.images['collection'] = self.portal['images-folder']['images-collection']
-        self.images['path'] = '/' + '/'.join(self.images['collection'].getPhysicalPath()[2:])
-        self.images['url'] = self.images['collection'].absolute_url()
+        self.videos = {}
+        self.videos['collection'] = self.portal['videos-folder']['videos-collection']
+        self.videos['path'] = '/' + '/'.join(self.videos['collection'].getPhysicalPath()[2:])
+        self.videos['url'] = self.videos['collection'].absolute_url()
 
         self.files = {}
         self.files['collection'] = self.portal['files-folder']['files-collection']
@@ -47,16 +47,15 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
                                IPortletRenderer)
 
     def _assigned_renderer(self, col):
-        assgmnt = mediacarousel.Assignment(
+        assgmnt = videogallery.Assignment(
             show_header=True,
-            header=u'Portal Padrão Carrossel de Imagens',
+            header=u'Portal Padrão Galeria de Vídeos',
             header_type=u'H2',
             show_title=True,
             show_description=True,
             show_footer=True,
             footer=u'Mais...',
             footer_url=col['url'],
-            show_rights=True,
             limit=3,
             collection=col['path']
         )
@@ -67,11 +66,11 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         return r
 
     def test_portlet_type_registered(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
-        self.assertEqual(portlet.addview, 'brasil.gov.portlets.mediacarousel')
+        portlet = getUtility(IPortletType, name='brasil.gov.portlets.videogallery')
+        self.assertEqual(portlet.addview, 'brasil.gov.portlets.videogallery')
 
     def test_registered_interfaces(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
+        portlet = getUtility(IPortletType, name='brasil.gov.portlets.videogallery')
         registered_interfaces = [_getDottedName(i) for i in portlet.for_]
         registered_interfaces.sort()
         self.assertEqual(
@@ -81,12 +80,12 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         )
 
     def test_interfaces(self):
-        portlet = mediacarousel.Assignment()
+        portlet = videogallery.Assignment()
         self.assertTrue(IPortletAssignment.providedBy(portlet))
         self.assertTrue(IPortletDataProvider.providedBy(portlet.data))
 
     def test_invoke_addview(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
+        portlet = getUtility(IPortletType, name='brasil.gov.portlets.videogallery')
         mapping = self.portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
             del mapping[m]
@@ -94,33 +93,32 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         addview.createAndAdd(data={})
 
         self.assertEqual(len(mapping), 1)
-        self.assertTrue(isinstance(mapping.values()[0], mediacarousel.Assignment))
+        self.assertTrue(isinstance(mapping.values()[0], videogallery.Assignment))
 
     def test_portlet_properties(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
+        portlet = getUtility(IPortletType, name='brasil.gov.portlets.videogallery')
         mapping = self.portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
             del mapping[m]
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
         addview.createAndAdd(data={
             'show_header': True,
-            'header': u'Portal Padrão Carrossel de Imagens',
+            'header': u'Portal Padrão Galeria de Vídeos',
             'header_type': u'H4',
             'show_title': True,
             'show_description': True,
             'show_footer': True,
             'footer': u'Mais...',
-            'footer_url': self.images['url'],
-            'show_rights': True,
+            'footer_url': self.videos['url'],
             'limit': 2,
-            'collection': self.images['path']
+            'collection': self.videos['path']
         })
 
         title = mapping.values()[0].title
-        self.assertEqual(title, u'Portal Padrão Carrossel de Imagens')
+        self.assertEqual(title, u'Portal Padrão Galeria de Vídeos')
 
         header = mapping.values()[0].header
-        self.assertEqual(header, u'Portal Padrão Carrossel de Imagens')
+        self.assertEqual(header, u'Portal Padrão Galeria de Vídeos')
 
         header_type = mapping.values()[0].header_type
         self.assertEqual(header_type, u'H4')
@@ -138,78 +136,57 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         self.assertEqual(footer, u'Mais...')
 
         footer_url = mapping.values()[0].footer_url
-        self.assertEqual(footer_url, self.images['url'])
-
-        show_rights = mapping.values()[0].show_rights
-        self.assertEqual(show_rights, True)
+        self.assertEqual(footer_url, self.videos['url'])
 
         limit = mapping.values()[0].limit
         self.assertEqual(limit, 2)
 
         collection = mapping.values()[0].collection
-        self.assertEqual(collection, self.images['path'])
+        self.assertEqual(collection, self.videos['path'])
 
     def test_renderer(self):
-        r = self._assigned_renderer(self.images)
+        r = self._assigned_renderer(self.videos)
 
-        self.assertIsInstance(r, mediacarousel.Renderer)
+        self.assertIsInstance(r, videogallery.Renderer)
 
     def test_renderer_cssclass(self):
-        r1 = self._assigned_renderer(self.images)
+        r1 = self._assigned_renderer(self.videos)
 
         self.assertEqual(r1.css_class(),
-                         'brasil-gov-portlets-mediacarousel-portal-padrao-carrossel-de-imagens')
+                         'brasil-gov-portlets-videogallery-portal-padrao-galeria-de-videos')
 
     def test_renderer_results(self):
-        r = self._assigned_renderer(self.images)
+        r = self._assigned_renderer(self.videos)
 
         results = [b.id for b in r.results()]
-        self.assertEqual(results, ['image-2', 'image-3', 'image-1'])
+        self.assertEqual(results, ['video-2', 'video-3', 'video-1'])
 
     def test_renderer_collection(self):
-        r = self._assigned_renderer(self.images)
+        r = self._assigned_renderer(self.videos)
 
-        self.assertEqual(r.collection(), self.images['collection'])
+        self.assertEqual(r.collection(), self.videos['collection'])
 
     def test_renderer_header(self):
-        r = self._assigned_renderer(self.images)
+        r = self._assigned_renderer(self.videos)
 
-        self.assertEqual(r.header(), u'<h2>Portal Padr&#227;o Carrossel de Imagens</h2>')
+        self.assertEqual(r.header(), u'<h2>Portal Padr&#227;o Galeria de V&#237;deos</h2>')
 
     def test_renderer_thumbnail(self):
         r1 = self._assigned_renderer(self.files)
-        r2 = self._assigned_renderer(self.images)
+        r2 = self._assigned_renderer(self.videos)
 
-        images = [r1.thumbnail(o) for o in r1.results()]
-        self.assertEqual(images, [None, None, None])
+        videos = [r1.thumbnail(o) for o in r1.results()]
+        self.assertEqual(videos, [None, None, None])
 
-        images = [r2.thumbnail(o) for o in r2.results()]
-        img_order = [2, 3, 1]
-        for i, img in enumerate(images):
-            self.assertIn('src', img)
-            self.assertTrue(img['src'])
-            self.assertIn('alt', img)
-            self.assertEqual(img['alt'],
-                             ('Image {0} description - Lorem ipsum dolor sit ' +
-                              'amet, consectetur adipiscing elit. Donec ' +
-                              'eleifend hendrerit interdum.')
-                             .format(img_order[i]))
+        videos = [r2.thumbnail(o) for o in r2.results()]
+        video_order = [2, 3, 1]
+        for i, video in enumerate(videos):
+            self.assertTrue(video)
 
-    def test_renderer_scale(self):
-        r1 = self._assigned_renderer(self.files)
-        r2 = self._assigned_renderer(self.images)
+            expected = (u'<img src="http://nohost/plone/videos-folder/' +
+                        u'video-{0}/@@images').format(video_order[i])
+            self.assertTrue(video.tag().startswith(expected))
 
-        images = [r1.scale(o) for o in r1.results()]
-        self.assertEqual(images, [None, None, None])
-
-        images = [r2.scale(o) for o in r2.results()]
-        img_order = [2, 3, 1]
-        for i, img in enumerate(images):
-            self.assertIn('src', img)
-            self.assertTrue(img['src'])
-            self.assertIn('alt', img)
-            self.assertEqual(img['alt'],
-                             ('Image {0} description - Lorem ipsum dolor sit ' +
-                              'amet, consectetur adipiscing elit. Donec ' +
-                              'eleifend hendrerit interdum.')
-                             .format(img_order[i]))
+            expected = (u'alt="Video {0}" title="Video {0}" ' +
+                        u'height="50" width="50" />').format(video_order[i])
+            self.assertTrue(video.tag().endswith(expected))

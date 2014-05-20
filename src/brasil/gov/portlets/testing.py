@@ -9,6 +9,7 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
+from plone.namedfile.file import NamedBlobImage
 from plone.testing import z2
 from StringIO import StringIO
 
@@ -79,7 +80,7 @@ frameborder="0" allowfullscreen></iframe>
             container=self.portal
         )
         for i in xrange(1, 4):
-            n = api.content.create(
+            o = api.content.create(
                 type='News Item',
                 title='New {0}'.format(i),
                 description=(
@@ -91,11 +92,11 @@ frameborder="0" allowfullscreen></iframe>
                     .format(self.test_date_order[i - 1])),
                 container=news_folder
             )
-            n.setModificationDate(DateTime(
+            o.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'
                 .format(self.test_date_order[i - 1])
             ))
-            n.setImage(self._generate_jpeg(50, 50))
+            o.setImage(self._generate_jpeg(50, 50))
         api.content.create(
             type='Collection',
             title='News Collection',
@@ -115,7 +116,7 @@ frameborder="0" allowfullscreen></iframe>
             container=self.portal
         )
         for i in xrange(1, 4):
-            e = api.content.create(
+            o = api.content.create(
                 type='Event',
                 title='Event {0}'.format(i),
                 description=(
@@ -130,7 +131,7 @@ frameborder="0" allowfullscreen></iframe>
                     .format(self.test_startdate_order[i - 1])),
                 container=events_folder
             )
-            e.setModificationDate(DateTime(
+            o.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'
                 .format(self.test_date_order[i - 1])
             ))
@@ -153,7 +154,7 @@ frameborder="0" allowfullscreen></iframe>
             container=self.portal
         )
         for i in xrange(1, 4):
-            n = api.content.create(
+            o = api.content.create(
                 type='Image',
                 title='Image {0}'.format(i),
                 description=(
@@ -166,11 +167,11 @@ frameborder="0" allowfullscreen></iframe>
                 rights='Image rights',
                 container=images_folder
             )
-            n.setModificationDate(DateTime(
+            o.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'
                 .format(self.test_date_order[i - 1])
             ))
-            n.setImage(self._generate_jpeg(50, 50))
+            o.setImage(self._generate_jpeg(50, 50))
         api.content.create(
             type='Collection',
             title='Images Collection',
@@ -190,7 +191,7 @@ frameborder="0" allowfullscreen></iframe>
             container=self.portal
         )
         for i in xrange(1, 4):
-            n = api.content.create(
+            o = api.content.create(
                 type='File',
                 title='File {0}'.format(i),
                 description=(
@@ -202,12 +203,12 @@ frameborder="0" allowfullscreen></iframe>
                     .format(self.test_date_order[i - 1])),
                 container=files_folder
             )
-            n.setModificationDate(DateTime(
+            o.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'
                 .format(self.test_date_order[i - 1])
             ))
-            n.setFile(self._loadFile('lorem_ipsum.txt'))
-            n.reindexObject()
+            o.setFile(self._loadFile('lorem_ipsum.txt'))
+            o.reindexObject()
         api.content.create(
             type='Collection',
             title='Files Collection',
@@ -227,7 +228,7 @@ frameborder="0" allowfullscreen></iframe>
             container=self.portal
         )
         for i in xrange(1, 4):
-            n = api.content.create(
+            o = api.content.create(
                 type='sc.embedder',
                 title='Video {0}'.format(i),
                 description=(
@@ -241,10 +242,13 @@ frameborder="0" allowfullscreen></iframe>
                     .format(self.test_date_order[i - 1])),
                 container=videos_folder
             )
-            n.setModificationDate(DateTime(
+            o.setModificationDate(DateTime(
                 '2014/05/0{0} 14:23:38.334118 GMT-3'
                 .format(self.test_date_order[i - 1])
             ))
+            o.image = NamedBlobImage(self._generate_jpeg(50, 50),
+                                     'image/jpeg', u'image.jpg')
+            o.reindexObject()
         api.content.create(
             type='Collection',
             title='Videos Collection',
