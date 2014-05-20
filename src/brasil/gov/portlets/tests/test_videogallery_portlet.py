@@ -181,12 +181,30 @@ class VideoGalleryPortletTestCase(unittest.TestCase):
         videos = [r2.thumbnail(o) for o in r2.results()]
         video_order = [2, 3, 1]
         for i, video in enumerate(videos):
-            self.assertTrue(video)
+            self.assertIn('src', video)
+            self.assertTrue(video['src'])
+            self.assertIn('alt', video)
+            self.assertEqual(video['alt'],
+                             ('Video {0} description - Lorem ipsum dolor sit ' +
+                              'amet, consectetur adipiscing elit. Donec ' +
+                              'eleifend hendrerit interdum.')
+                             .format(video_order[i]))
 
-            expected = (u'<img src="http://nohost/plone/videos-folder/' +
-                        u'video-{0}/@@images').format(video_order[i])
-            self.assertTrue(video.tag().startswith(expected))
+    def test_renderer_scale(self):
+        r1 = self._assigned_renderer(self.files)
+        r2 = self._assigned_renderer(self.videos)
 
-            expected = (u'alt="Video {0}" title="Video {0}" ' +
-                        u'height="50" width="50" />').format(video_order[i])
-            self.assertTrue(video.tag().endswith(expected))
+        videos = [r1.scale(o) for o in r1.results()]
+        self.assertEqual(videos, [None, None, None])
+
+        videos = [r2.scale(o) for o in r2.results()]
+        video_order = [2, 3, 1]
+        for i, video in enumerate(videos):
+            self.assertIn('src', video)
+            self.assertTrue(video['src'])
+            self.assertIn('alt', video)
+            self.assertEqual(video['alt'],
+                             ('Video {0} description - Lorem ipsum dolor sit ' +
+                              'amet, consectetur adipiscing elit. Donec ' +
+                              'eleifend hendrerit interdum.')
+                             .format(video_order[i]))
