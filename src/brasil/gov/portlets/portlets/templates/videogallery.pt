@@ -5,77 +5,82 @@
     <div class="portlet portletVideoGallery"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div class="portal-padrao-videogallery-portlet">
+        <div id="portlet-videogallery-${portlet_id}"
+             class="portal-padrao-videogallery-portlet">
             <tal:results tal:define="results view/results|nothing">
                 <div class="portletHeader">
-                    <span class="portletTopLeft" />
+                    <span class="portletTopLeft"></span>
                     <tal:header condition="view/data/show_header">
                         <tal:title content="structure view/header" />
                     </tal:header>
-                    <span class="portletTopRight" />
+                    <span class="portletTopRight"></span>
                 </div>
                 <div class="portletItem">
-                    <div class="player-holder"
-                         tal:condition="results">
-                        <tal:firstitem define="first_item python:results[0]">
-                            <div class="player-video">
-                                <tal:block tal:replace="structure first_item/embed_html"></tal:block>
-                            </div>
-                            <div class="player-metadata">
-                                <div class="player-metadata-wrapper">
-                                    <h3 class="title"
-                                        tal:condition="view/data/show_title">
-                                        ${first_item/title}
-                                    </h3>
-                                    <p class="description"
-                                       tal:condition="view/data/show_description">
-                                        ${first_item/description}
-                                    </p>
+                    <tal:player condition="results">
+                        <div class="player">
+                            <div class="cycle-player cycle-slideshow"
+                                 data-cycle-slides="> div"
+                                 data-cycle-timeout="0"
+                                 data-allow-wrap="false"
+                                 data-cycle-prev="#portlet-videogallery-${portlet_id} .player .cycle-prev"
+                                 data-cycle-next="#portlet-videogallery-${portlet_id} .player .cycle-next"
+                                 data-cycle-fx="fade">
+                                <div tal:repeat="item results">
+                                    <tal:image define="scale python:view.scale(item);"
+                                               condition="scale">
+                                        <a href="${item/absolute_url}">
+                                            <img src="${scale/src}" alt="${scale/alt}">
+                                        </a>
+                                        <div class="title"
+                                             tal:condition="view/data/show_active_title">
+                                            ${item/Title}
+                                        </div>
+                                        <div class="description"
+                                             tal:condition="view/data/show_description">
+                                            ${item/Description}
+                                        </div>
+                                    </tal:image>
                                 </div>
+                            </div><!-- cycle-1 -->
+                            <div class="cycle-hover">
+                                <a href="#" class="cycle-prev">&laquo; Anterior</a>
+                                <a href="#" class="cycle-next">Próximo &raquo;</a>
                             </div>
-                        </tal:firstitem>
-                        <div class="visualClear"></div>
-                    </div>
-                    <div class="galery-items"
-                         tal:condition="results">
-                        <tal:lastitem define="last_item python:results[-1]">
-                            <div class="galery-items-wrapper">
-                                <tal:loop repeat="item results">
-                                    <div class="${python:'gallery-element' + (' selected' if repeat['item'].start else '') + (' last' if item == last_item else '')}">
-                                        <div class="gallery-element-wrapper">
-                                            <a id="${python: 'gallerylink-' + str(portlet_id) + '-' + str(view.get_uid(item))}"
-                                               class="gallery-element-link"
-                                               href="${item/absolute_url}"
-                                               data-player-dom="${item/embed_html}">
-                                                <tal:image define="thumbnail python:view.thumbnail(item);"
-                                                           condition="thumbnail">
-                                                    <img tal:define="uid python:view.get_uid(item)"
-                                                         tal:condition="python:thumbnail and uid"
-                                                         src="${thumbnail/url}"
-                                                         width="${thumbnail/width}"
-                                                         height="${thumbnail/height}"
-                                                         data-title="${string:<a href='${item/absolute_url}/view'>${item/title}</a>}"
-                                                         data-description="${item/Description}"
-                                                         data-link="${string:${item/absolute_url}/view}"
-                                                         data-uid="${uid}"
-                                                         alt="${python: thumbnail.context.Title()" />
-                                                </tal:image>
-                                            </a>
-                                            <div class="gallery-element-metadata">
-                                                <span class="title">
-                                                    ${item/title}
-                                                </span>
-                                                <p class="description"
-                                                   tal:condition="view/data/show_description">
-                                                    ${item/description}
-                                                </p>
+                        </div><!-- player -->
+                    </tal:player>
+                    <tal:carrossel condition="results">
+                        <div class="carousel">
+                            <div class="cycle-carrossel cycle-slideshow"
+                                 data-cycle-slides="> div"
+                                 data-cycle-timeout="0"
+                                 data-cycle-fx="carousel"
+                                 data-cycle-carousel-fluid="true"
+                                 data-cycle-carousel-vertical="true"
+                                 data-cycle-prev="#portlet-videogallery-${portlet_id} .carousel .cycle-prev"
+                                 data-cycle-next="#portlet-videogallery-${portlet_id} .carousel .cycle-next"
+                                 data-allow-wrap="false">
+                                <div class="thumb-itens" tal:repeat="item results">
+                                    <tal:image define="thumbnail python:view.thumbnail(item);"
+                                               condition="thumbnail">
+                                        <div class="table-align">
+                                            <img src="${thumbnail/src}" alt="${thumbnail/alt}">
+                                            <div class="title"
+                                                 tal:condition="view/data/show_inactive_title">
+                                                ${item/Title}
                                             </div>
                                         </div>
-                                    </div>
-                                </tal:loop>
+                                    </tal:image>
+                                </div>
+                            </div><!-- cycle-2 -->
+                            <div class="cycle-nagivation">
+                                <a href="#" class="cycle-prev">&laquo; Anterior</a>
+                                <a href="#" class="cycle-next">Próximo &raquo;</a>
                             </div>
-                        </tal:lastitem>
-                        <div class="visualClear"><!-- --></div>
+                        </div><!-- carrossel -->
+                    </tal:carrossel>
+                    <div tal:condition="not:results"
+                         class="no-albums">
+                        Selecione uma coleção para o portlet.
                     </div>
                     <div class="visualClear"><!-- --></div>
                 </div>

@@ -45,9 +45,15 @@ class IVideoGalleryPortlet(IPortletDataProvider):
         default=u'H2',
         required=True)
 
-    show_title = schema.Bool(
-        title=_(u'Mostrar título'),
-        description=_(u'Se habilitado mostra o título.'),
+    show_active_title = schema.Bool(
+        title=_(u'Mostrar título ativo'),
+        description=_(u'Se habilitado mostra o título ativo.'),
+        required=True,
+        default=False)
+
+    show_inactive_title = schema.Bool(
+        title=_(u'Mostrar título inativo'),
+        description=_(u'Se habilitado mostra o título inativo.'),
         required=True,
         default=False)
 
@@ -96,7 +102,8 @@ class Assignment(base.Assignment):
     show_header = False
     header = _(u'Portal Padrão Galeria de Vídeos')
     header_type = u'H2'
-    show_title = False
+    show_active_title = False
+    show_inactive_title = False
     show_description = False
     show_footer = False
     footer = u''
@@ -108,7 +115,8 @@ class Assignment(base.Assignment):
                  show_header=False,
                  header=_(u'Portal Padrão Galeria de Vídeos'),
                  header_type=u'H2',
-                 show_title=False,
+                 show_active_title=False,
+                 show_inactive_title=False,
                  show_description=False,
                  show_footer=False,
                  footer=u'',
@@ -118,7 +126,8 @@ class Assignment(base.Assignment):
         self.show_header = show_header
         self.header = header
         self.header_type = header_type
-        self.show_title = show_title
+        self.show_active_title = show_active_title
+        self.show_inactive_title = show_inactive_title
         self.show_description = show_description
         self.show_footer = show_footer
         self.footer = footer
@@ -204,7 +213,20 @@ class Renderer(base.Renderer):
     def thumbnail(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            return scales.scale('image', width=80, height=60)
+            thumb = scales.scale('image', width=80, height=60)
+            return {
+                'src': thumb.url,
+                'alt': item.Description(),
+            }
+
+    def scale(self, item):
+        if self._has_image_field(item):
+            scales = item.restrictedTraverse('@@images')
+            thumb = scales.scale('image', width=692, height=433)
+            return {
+                'src': thumb.url,
+                'alt': item.Description(),
+            }
 
 
 class AddForm(base.AddForm):
