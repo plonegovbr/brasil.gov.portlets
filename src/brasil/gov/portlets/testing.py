@@ -9,6 +9,7 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import PloneSandboxLayer
+from plone.namedfile.file import NamedBlobFile
 from plone.namedfile.file import NamedBlobImage
 from plone.testing import z2
 from StringIO import StringIO
@@ -259,6 +260,49 @@ frameborder="0" allowfullscreen></iframe>
             }],
             sort_on='created',
             container=videos_folder
+        )
+
+    def create_audios(self):
+        audios_folder = api.content.create(
+            type='Folder',
+            title='Audios Folder',
+            container=self.portal
+        )
+        for i in xrange(1, 4):
+            o = api.content.create(
+                type='Audio',
+                title='Audio {0}'.format(i),
+                description=(
+                    'Audio {0} description - Lorem ipsum dolor sit amet, ' +
+                    'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+                    'interdum.').format(i),
+                creation_date=DateTime(
+                    '2014/05/0{0} 14:23:38.334118 GMT-3'
+                    .format(self.test_date_order[i - 1])),
+                rights='Audio rights',
+                container=audios_folder
+            )
+            o.setModificationDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'
+                .format(self.test_date_order[i - 1])
+            ))
+            mp3_file = api.content.create(
+                type='MPEG Audio File',
+                title='file.mp3',
+                container=o
+            )
+            mp3_file.file = NamedBlobFile(self._loadFile('file.mp3'),
+                                          'audio/mp3', u'file.mp3')
+        api.content.create(
+            type='Collection',
+            title='Audios Collection',
+            query=[{
+                u'i': u'portal_type',
+                u'o': u'plone.app.querystring.operation.selection.is',
+                u'v': u'Audio'
+            }],
+            sort_on='created',
+            container=audios_folder
         )
 
 
