@@ -19,6 +19,11 @@ import random
 class CreateTestContent(object):
     test_date_order = [3, 1, 2]
     test_startdate_order = [3, 2, 1]
+    YOUTUBE_EMBED = """
+<iframe width="459" height="344" \
+src="http://www.youtube.com/embed/d8bEU80gIzQ?feature=oembed" \
+frameborder="0" allowfullscreen></iframe>
+""".strip('\n')
 
     def __init__(self, portal):
         self.portal = portal
@@ -215,6 +220,43 @@ class CreateTestContent(object):
             container=files_folder
         )
 
+    def create_videos(self):
+        videos_folder = api.content.create(
+            type='Folder',
+            title='Videos Folder',
+            container=self.portal
+        )
+        for i in xrange(1, 4):
+            n = api.content.create(
+                type='sc.embedder',
+                title='Video {0}'.format(i),
+                description=(
+                    'Video {0} description - Lorem ipsum dolor sit amet, ' +
+                    'consectetur adipiscing elit. Donec eleifend hendrerit ' +
+                    'interdum.').format(i),
+                url='http://www.youtube.com/watch?v=d8bEU80gIzQ',
+                embed_html=self.YOUTUBE_EMBED,
+                creation_date=DateTime(
+                    '2014/05/0{0} 14:23:38.334118 GMT-3'
+                    .format(self.test_date_order[i - 1])),
+                container=videos_folder
+            )
+            n.setModificationDate(DateTime(
+                '2014/05/0{0} 14:23:38.334118 GMT-3'
+                .format(self.test_date_order[i - 1])
+            ))
+        api.content.create(
+            type='Collection',
+            title='Videos Collection',
+            query=[{
+                u'i': u'portal_type',
+                u'o': u'plone.app.querystring.operation.selection.is',
+                u'v': u'sc.embedder'
+            }],
+            sort_on='created',
+            container=videos_folder
+        )
+
 
 class Fixture(PloneSandboxLayer):
 
@@ -226,6 +268,7 @@ class Fixture(PloneSandboxLayer):
         self.loadZCML(package=brasil.gov.portlets)
 
     def setUpPloneSite(self, portal):
+        self.applyProfile(portal, 'sc.embedder:default')
         self.applyProfile(portal, 'brasil.gov.portlets:default')
         CreateTestContent(portal)
         portal.portal_workflow.setDefaultChain('simple_publication_workflow')

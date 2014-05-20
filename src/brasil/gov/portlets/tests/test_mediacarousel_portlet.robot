@@ -32,7 +32,6 @@ Test MediaCarousel Portlet
     Go to Homepage
     Sleep  1s  Wait for overlay
 
-    # news collection should get order 2 3 1
     Add Right Portlet  ${portletname_sample}
     Select Collection  ${collection_field_id}  Images Collection
     Save Portlet

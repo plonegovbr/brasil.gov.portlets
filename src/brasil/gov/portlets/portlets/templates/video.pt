@@ -17,7 +17,8 @@
                         <div class="video-container"
                              tal:content="structure video/embed_html">
                         </div>
-                        <span tal:condition="view/data/show_header">
+                        <span class="title"
+                              tal:condition="view/data/show_header">
                             ${view/data/header}
                         </span>
                     </div>
