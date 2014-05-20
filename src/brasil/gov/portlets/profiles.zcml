@@ -24,6 +24,14 @@
       i18n:attributes="title; description"
       />
 
+  <gs:registerProfile
+      name="testfixture"
+      title="brasil.gov.portlets tests"
+      directory="profiles/testfixture"
+      description="Steps to ease tests of brasil.gov.portlets"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
   <gs:importStep
       name="brasil.gov.portlets_setup_site"
       handler="brasil.gov.portlets.setuphandlers.setup_site"

@@ -268,12 +268,13 @@ class Fixture(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
+        import plone.app.dexterity
+        self.loadZCML(package=plone.app.dexterity)
         import brasil.gov.portlets
         self.loadZCML(package=brasil.gov.portlets)
 
     def setUpPloneSite(self, portal):
-        self.applyProfile(portal, 'sc.embedder:default')
-        self.applyProfile(portal, 'brasil.gov.portlets:default')
+        self.applyProfile(portal, 'brasil.gov.portlets:testfixture')
         CreateTestContent(portal)
         portal.portal_workflow.setDefaultChain('simple_publication_workflow')
 
