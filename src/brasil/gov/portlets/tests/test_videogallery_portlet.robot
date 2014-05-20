@@ -8,7 +8,7 @@ Suite Teardown  Close all browsers
 
 *** Variables ***
 
-${portletname_sample}  Portal Padrao Galeria de Vídeos
+${portletname_sample}  Portal Padrao Galeria de Videos
 ${headercheck_field_id}  form.show_header
 ${header_field_id}  form.header
 ${headertype_field_id}  form.header_type
@@ -32,9 +32,9 @@ Test VideoGallery Portlet
     Sleep  1s  Wait for overlay
 
     Add Right Portlet  ${portletname_sample}
-    Select Collection  ${collection_field_id}  Images Collection
+    Select Collection  ${collection_field_id}  Videos Collection
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
@@ -43,19 +43,19 @@ Test VideoGallery Portlet
     Input Text  id=${header_field_id}  ${portletname_sample}
     Select from list  id=${headertype_field_id}  ${headertype_sample}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[@class='portletHeader']/h4
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[@class='portletHeader']/h4
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${titlecheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='title']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='title']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${descriptioncheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='description']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='description']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
@@ -67,40 +67,40 @@ Test VideoGallery Portlet
     Page Should Contain Element  id=${footerurl_field_id}
     Input Text  id=${footerurl_field_id}  ${footerurl_sample}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[@class='portletFooter']/a[@href='${footerurl_sample}']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[@class='portletFooter']/a[@href='${footerurl_sample}']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Page Should Contain Element  id=${limit_field_id}
     Input Text  id=${limit_field_id}  ${limit_sample}
     Save Portlet
-    Xpath Should Match X Times  //div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]/div[not(contains(@class, 'cycle-sentinel'))]  ${limit_sample}
-    Xpath Should Match X Times  //div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-carousel-wrap')]/div  ${limit_sample}
+    Xpath Should Match X Times  //div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]/div[not(contains(@class, 'cycle-sentinel'))]  ${limit_sample}
+    Xpath Should Match X Times  //div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-carousel-wrap')]/div  ${limit_sample}
     Sleep  1s  Wait for overlay
 
     Hide Right Portlet
     Go to Homepage
-    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']
+    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']
     Sleep  1s  Wait for overlay
 
     Show Right Portlet
     Go to Homepage
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']
     Sleep  1s  Wait for overlay
 
     Delete Right Portlet
     Go to Homepage
-    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']
+    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']
     Sleep  1s  Wait for overlay
 
     # Test add in the left side    
     Add Left Portlet  ${portletname_sample}
-    Select Collection  ${collection_field_id}  Images Collection
+    Select Collection  ${collection_field_id}  Videos Collection
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']
     Sleep  1s  Wait for overlay
 
     Delete Left Portlet
     Go to Homepage
-    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']
+    Page Should Not Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']
     Sleep  1s  Wait for overlay

@@ -9,11 +9,11 @@
              class="portal-padrao-videogallery-portlet">
             <tal:results tal:define="results view/results|nothing">
                 <div class="portletHeader">
-                    <span class="portletTopLeft" />
+                    <span class="portletTopLeft"></span>
                     <tal:header condition="view/data/show_header">
                         <tal:title content="structure view/header" />
                     </tal:header>
-                    <span class="portletTopRight" />
+                    <span class="portletTopRight"></span>
                 </div>
                 <div class="portletItem">
                     <tal:player condition="results">
