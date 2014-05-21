@@ -10,7 +10,7 @@
             <tal:audio tal:define="audio view/audio|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft" />
-                    <h3 class="title" tal:content="view/data/header"></h3>
+                    <h3 class="portlet-audio-title" tal:content="view/data/header"></h3>
                     <span class="portletTopRight" />
                 </div>
                 <div class="portletItem">
@@ -27,11 +27,11 @@
                         <div class="jp-type-single">
                             <div class="jp-gui jp-interface">
                                 <ul class="jp-controls">
-                                    <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-                                    <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-                                    <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-                                    <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-                                    <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                                    <li><a href="#" class="jp-play" title="Iniciar">Iniciar</a></li>
+                                    <li><a href="#" class="jp-pause" title="Parar">Parar</a></li>
+                                    <li><a href="#" class="jp-mute" title="Ativar mudo">Ativar mudo</a></li>
+                                    <li><a href="#" class="jp-unmute" title="Desativar mudo">Desativar mudo</a></li>
+                                    <li><a href="#" class="jp-volume-max" title="Volume máximo">Volume máximo</a></li>
                                 </ul>
                                 <div class="jp-progress-time-wrapper">
                                     <div class="jp-progress">
@@ -49,16 +49,18 @@
                                 </div>
                             </div>
                             <div class="jp-no-solution">
-                                <span>Update Required</span>
-                                To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                                <span>Atualização Necessária</span>
+                                Para iniciar o conteúdo com som é necessário atualizar o navegar
+                                para a versão mais recente do plugin do
+                                <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash</a>.
                             </div>
                         </div>
                     </div>
-                    <div class="visualClear"><!-- --></div>
+
                 </div>
                 <div class="portletFooter">
                 </div>
-                <div class="visualClear"><!-- --></div>
+
             </tal:audio>
         </div>
     </div>
