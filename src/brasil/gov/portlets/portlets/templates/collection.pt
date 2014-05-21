@@ -23,7 +23,7 @@
                      tal:repeat="item results">
                     <tal:items tal:define="obj item/getObject;">
                         <tal:image tal:define="thumbnail python:view.thumbnail(obj);"
-                                   tal:condition="view/data/show_image">
+                                   tal:condition="python:view.data.show_image and thumbnail">
                             <a tal:attributes="href obj/absolute_url;
                                                title obj/Description">
                                 <img tal:attributes="src thumbnail/url;
