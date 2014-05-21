@@ -19,24 +19,29 @@ from zope.interface import implements
 
 
 class IAudioGalleryPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de galeria de áudio.
+    '''Portal Padrao: Audio Gallery Portlet.
     '''
 
     show_header = schema.Bool(
-        title=_(u'Mostrar título'),
-        description=_(u'Se habilitado mostra o título.'),
+        title=_('show_title', u'Show title'),
+        description=_('show_title_description',
+                      u'If enabled, shows the title.'),
         required=True,
         default=False)
 
     header = schema.TextLine(
-        title=_(u'Texto do título'),
-        description=_(u'Texto do título do portlet.'),
+        title=_('title_text',
+                u'Title text'),
+        description=_('title_text_description',
+                      u'Portlet title text.'),
         required=True,
-        default=_(u'Portal Padrão Galeria de Áudios'))
+        default=_('title_portlet_audiogallery',
+                  u'Portal Padrao Audio Gallery'))
 
     header_type = schema.Choice(
-        title=_(u'Tipo de título'),
-        description=_(u'Tipo de título que será exibido.'),
+        title=_('title_type', u'Title type'),
+        description=_('title_type_description',
+                      u'Title type that will be shown.'),
         values=(u'H1',
                 u'H2',
                 u'H3',
@@ -46,31 +51,42 @@ class IAudioGalleryPortlet(IPortletDataProvider):
     )
 
     show_footer = schema.Bool(
-        title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado mostra o rodapé.'),
+        title=_('show_footer',
+                u'Show footer'),
+        description=_('show_footer_description',
+                      u'If enabled, shows the footer.'),
         required=True,
         default=False)
 
     footer = schema.TextLine(
-        title=_(u'Texto do rodapé'),
-        description=_(u'Texto do rodapé do portlet.'),
+        title=_('footer_text',
+                u'Footer text'),
+        description=_('footer_text_description',
+                      u'Portlet footer text.'),
         required=False)
 
     footer_url = schema.TextLine(
-        title=_(u'Link do rodapé'),
-        description=_(u'Link do rodapé do portlet.'),
+        title=_('footer_url',
+                u'Footer URL'),
+        description=_('footer_url_description',
+                      u'Portlet footer URL.'),
         required=False)
 
     limit = schema.Int(
-        title=_(u'Quantidade de itens a exibir'),
-        description=_(u'Informe o total de itens que devem ser exibidos no '
+        title=_('limit',
+                u'Number of items to show'),
+        description=_('limit_description',
+                      u'Total itens that should be displayed in the '
                       u'portlet.'),
         required=True,
         default=5)
 
     collection = schema.Choice(
-        title=_(u'Coleção'),
-        description=_(u'Pesquisa a coleção utilizada no portlet.'),
+        title=_('collection',
+                u'Collection'),
+        description=_('collection_description',
+                      u'Searchs the collection that will be used in the '
+                      u'portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('Topic', 'Collection')},
@@ -82,7 +98,7 @@ class Assignment(base.Assignment):
     implements(IAudioGalleryPortlet)
 
     show_header = False
-    header = _(u'Portal Padrão Galeria de Áudios')
+    header = _('title_portlet_audiogallery')
     header_type = u'H2'
     show_footer = False
     footer = u''
@@ -92,7 +108,7 @@ class Assignment(base.Assignment):
 
     def __init__(self,
                  show_header=False,
-                 header=_(u'Portal Padrão Galeria de Áudios'),
+                 header=_('title_portlet_audiogallery'),
                  header_type=u'H2',
                  show_footer=False,
                  footer=u'',
@@ -200,8 +216,9 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IAudioGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Galeria de Áudios')
-    description = _(u'Este portlet mostra uma Galeria de Áudios.')
+    label = _(u'Add Portlet Portal Padrao Audio Gallery')
+    description = _('audiogallery_portlet_description',
+                    u'This portlet shows an Audio Gallery.')
 
     def create(self, data):
         return Assignment(**data)
@@ -212,5 +229,5 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IAudioGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Galeria de Áudios')
-    description = _(u'Este portlet mostra uma Galeria de Áudios.')
+    label = _(u'Edit Portlet Portal Padrao Audio Gallery')
+    description = _('audiogallery_portlet_description')
