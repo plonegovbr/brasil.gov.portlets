@@ -93,7 +93,7 @@
                                        href="${python:view.get_item_url(item)}"
                                        title="${item/description}"
                                        data-audio-url="${python:view.get_item_url(item)}">
-                                        ${item/title}
+                                        ${item/Title}
                                     </a>
                                 </li>
                             </tal:loop>

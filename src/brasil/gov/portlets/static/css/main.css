@@ -29,7 +29,14 @@
    Portlet de galeria de audio
    ========================================================================== */
 
-
+.portlet .audiogallery-title {
+    font-size: 16px;
+    font-size: 1rem;
+    color: #454545;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
 
 /* ==========================================================================
    Portlet de video
