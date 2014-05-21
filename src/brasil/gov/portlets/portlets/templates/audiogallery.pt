@@ -14,11 +14,11 @@
                     </p>
                 </div>
                 <div class="portletHeader">
-                    <span class="portletTopLeft" />
+                    <span class="portletTopLeft"></span>
                     <tal:header condition="view/data/show_header">
                         <tal:title content="structure view/title" />
                     </tal:header>
-                    <span class="portletTopRight" />
+                    <span class="portletTopRight"></span>
                 </div>
                 <div class="portletItem">
                     <!-- Audio item player -->
