@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-22 13:02+0000\n"
+"POT-Creation-Date: 2014-05-22 13:17+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -26,9 +26,9 @@ msgstr "Adicionar Portlet Portal Padrão Galeria de Áudios"
 msgid "Add Portlet Portal Padrao Collection"
 msgstr "Adicionar Portlet Portal Padrão Coleção"
 
-#: ../portlets/mediacarousel.py:233
-msgid "Adicionar Portlet Portal Padrão Carrossel de Imagens"
-msgstr ""
+#: ../portlets/mediacarousel.py:259
+msgid "Add Portlet Portal Padrao Media Carousel"
+msgstr "Adicionar Portlet Portal Padrão Carrossel de Imagens"
 
 #: ../portlets/videogallery.py:237
 msgid "Adicionar Portlet Portal Padrão Galeria de Vídeos"
@@ -42,7 +42,6 @@ msgstr ""
 msgid "Audio"
 msgstr "Áudio"
 
-#: ../portlets/mediacarousel.py:89
 #: ../portlets/videogallery.py:90
 msgid "Coleção"
 msgstr ""
@@ -59,8 +58,8 @@ msgstr "Este portlet mostra uma Galeria de Áudios."
 msgid "Edit Portlet Portal Padrao Collection"
 msgstr "Editar Portlet Portal Padrão Coleção"
 
-#: ../portlets/mediacarousel.py:245
-msgid "Editar Portlet Portal Padrão Carrossel de Imagens"
+#: ../portlets/mediacarousel.py:272
+msgid "Edit Portlet Portal Padrao Media Carousel"
 msgstr ""
 
 #: ../portlets/videogallery.py:249
@@ -69,56 +68,38 @@ msgstr ""
 
 #: ../portlets/video.py:122
 msgid "Editar Portlet Portal Padrão Vídeo"
-msgstr ""
+msgstr "Editar Portlet Portal Padrão Carrossel de Imagens"
 
 #: ../portlets/video.py:111
 msgid "Este portlet mostra um Player de Vídeo."
-msgstr ""
-
-#: ../portlets/mediacarousel.py:234
-msgid "Este portlet mostra uma Carrossel de Imagens."
 msgstr ""
 
 #: ../portlets/videogallery.py:238
 msgid "Este portlet mostra uma Galeria de Vídeos."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:83
 #: ../portlets/videogallery.py:84
 msgid "Informe o total de itens que devem ser exibidos no portlet."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:71
 #: ../portlets/videogallery.py:78
 msgid "Link do rodapé"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:72
 #: ../portlets/videogallery.py:79
 msgid "Link do rodapé do portlet."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:26
 #: ../portlets/videogallery.py:27
 msgid "Mostrar cabeçalho"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:76
-msgid "Mostrar crédito"
-msgstr ""
-
-#: ../portlets/mediacarousel.py:54
 #: ../portlets/videogallery.py:61
 msgid "Mostrar descrição"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:60
 #: ../portlets/videogallery.py:67
 msgid "Mostrar rodapé"
-msgstr ""
-
-#: ../portlets/mediacarousel.py:48
-msgid "Mostrar título"
 msgstr ""
 
 #: ../portlets/videogallery.py:49
@@ -133,7 +114,6 @@ msgstr ""
 msgid "Mostrra título"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:90
 #: ../portlets/videogallery.py:91
 msgid "Pesquisa a coleção utilizada no portlet."
 msgstr ""
@@ -202,10 +182,6 @@ msgstr ""
 msgid "Portal Padrao Video."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:35
-msgid "Portal Padrão Carrossel de Imagens"
-msgstr ""
-
 #: ../portlets/videogallery.py:36
 msgid "Portal Padrão Galeria de Vídeos"
 msgstr ""
@@ -214,26 +190,18 @@ msgstr ""
 msgid "Portal Padrão Vídeo"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:82
 #: ../portlets/videogallery.py:83
 msgid "Quantidade de itens a exibir"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:55
 #: ../portlets/videogallery.py:62
 msgid "Se habilitado mostra a descrição."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:27
 #: ../portlets/videogallery.py:28
 msgid "Se habilitado mostra o cabeçalho."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:77
-msgid "Se habilitado mostra o crédito."
-msgstr ""
-
-#: ../portlets/mediacarousel.py:61
 #: ../portlets/videogallery.py:68
 msgid "Se habilitado mostra o rodapé."
 msgstr ""
@@ -246,7 +214,6 @@ msgstr ""
 msgid "Se habilitado mostra o título inativo."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:49
 #: ../portlets/video.py:25
 msgid "Se habilitado mostra o título."
 msgstr ""
@@ -255,22 +222,18 @@ msgstr ""
 msgid "Search the audio used into the portlet."
 msgstr "Pesquisa o audio utilizado no portlet."
 
-#: ../portlets/mediacarousel.py:32
 #: ../portlets/videogallery.py:33
 msgid "Texto do cabeçalho"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:33
 #: ../portlets/videogallery.py:34
 msgid "Texto do cabeçalho do portlet."
 msgstr ""
 
-#: ../portlets/mediacarousel.py:66
 #: ../portlets/videogallery.py:73
 msgid "Texto do rodapé"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:67
 #: ../portlets/videogallery.py:74
 msgid "Texto do rodapé do portlet."
 msgstr ""
@@ -288,12 +251,10 @@ msgstr ""
 msgid "The collection don't have any item."
 msgstr "A coleção não possui nenhum item."
 
-#: ../portlets/mediacarousel.py:38
 #: ../portlets/videogallery.py:39
 msgid "Tipo de cabeçalho"
 msgstr ""
 
-#: ../portlets/mediacarousel.py:39
 #: ../portlets/videogallery.py:40
 msgid "Tipo de cabeçalho que será exibido."
 msgstr ""
@@ -315,12 +276,14 @@ msgstr "Este portlet mostra uma Galeria de Áudios."
 #. Default: "Collection"
 #: ../portlets/audiogallery.py:87
 #: ../portlets/collection.py:143
+#: ../portlets/mediacarousel.py:110
 msgid "collection"
 msgstr "Coleção"
 
 #. Default: "Searchs the collection that will be used in the portlet."
 #: ../portlets/audiogallery.py:89
 #: ../portlets/collection.py:145
+#: ../portlets/mediacarousel.py:112
 msgid "collection_description"
 msgstr "Pesquisa a coleção utilizada no portlet."
 
@@ -342,26 +305,50 @@ msgstr "Formato que a data será exibida."
 #. Default: "Footer text"
 #: ../portlets/audiogallery.py:64
 #: ../portlets/collection.py:98
+#: ../portlets/mediacarousel.py:79
 msgid "footer_text"
 msgstr "Texto do rodapé"
 
 #. Default: "Portlet footer text."
 #: ../portlets/audiogallery.py:66
 #: ../portlets/collection.py:100
+#: ../portlets/mediacarousel.py:81
 msgid "footer_text_description"
 msgstr "Texto do rodapé do portlet."
 
 #. Default: "Footer URL"
 #: ../portlets/audiogallery.py:71
 #: ../portlets/collection.py:105
+#: ../portlets/mediacarousel.py:86
 msgid "footer_url"
 msgstr "Link do rodapé"
 
 #. Default: "Portlet footer URL."
 #: ../portlets/audiogallery.py:73
 #: ../portlets/collection.py:107
+#: ../portlets/mediacarousel.py:88
 msgid "footer_url_description"
 msgstr "Link do rodapé do portlet."
+
+#. Default: "Header text"
+#: ../portlets/mediacarousel.py:34
+msgid "header_text"
+msgstr "Texto do cabeçalho"
+
+#. Default: "Portlet text of the header."
+#: ../portlets/mediacarousel.py:36
+msgid "header_text_description"
+msgstr "Texto do cabeçalho do portlet."
+
+#. Default: "Header type"
+#: ../portlets/mediacarousel.py:43
+msgid "header_type"
+msgstr "Tipo de cabeçalho"
+
+#. Default: "Header type that will be shown."
+#: ../portlets/mediacarousel.py:45
+msgid "header_type_description"
+msgstr "Tipo de cabeçalho que será exibido."
 
 #. Default: "Image size"
 #: ../portlets/collection.py:67
@@ -376,12 +363,14 @@ msgstr "Tamanho da imagem que será exibida."
 #. Default: "Number of items to show"
 #: ../portlets/audiogallery.py:78
 #: ../portlets/collection.py:112
+#: ../portlets/mediacarousel.py:101
 msgid "limit"
 msgstr "Quantidade de itens a exibir"
 
 #. Default: "Total itens that should be displayed in the portlet."
 #: ../portlets/audiogallery.py:80
 #: ../portlets/collection.py:114
+#: ../portlets/mediacarousel.py:103
 msgid "limit_description"
 msgstr "Informe o total de itens que devem ser exibidos no portlet."
 
@@ -389,6 +378,11 @@ msgstr "Informe o total de itens que devem ser exibidos no portlet."
 #: ../portlets/collection.py:135
 msgid "long_date"
 msgstr "longa: Data/Hora"
+
+#. Default: "This portlet shows an Carousel of Images."
+#: ../portlets/mediacarousel.py:260
+msgid "mediacarousel_portlet_description"
+msgstr "Este portlet mostra uma Carrossel de Imagens."
 
 #. Default: "short: Date"
 #: ../portlets/collection.py:133
@@ -405,17 +399,39 @@ msgstr "Mostrar datas"
 msgid "show_date_description"
 msgstr "Se habilitado, mostra a data."
 
+#. Default: "Show description"
+#: ../portlets/mediacarousel.py:63
+msgid "show_description"
+msgstr "Mostrar descrição"
+
+#. Default: "If enabled, shows the description."
+#: ../portlets/mediacarousel.py:65
+msgid "show_description_description"
+msgstr "Se habilitado mostra a descrição."
+
 #. Default: "Show footer"
 #: ../portlets/audiogallery.py:56
 #: ../portlets/collection.py:90
+#: ../portlets/mediacarousel.py:71
 msgid "show_footer"
 msgstr "Mostrar rodapé"
 
 #. Default: "If enabled, shows the footer."
 #: ../portlets/audiogallery.py:58
 #: ../portlets/collection.py:92
+#: ../portlets/mediacarousel.py:73
 msgid "show_footer_description"
 msgstr "Se habilitado mostra o rodapé."
+
+#. Default: "Show header"
+#: ../portlets/mediacarousel.py:26
+msgid "show_header"
+msgstr "Mostrar cabeçalho"
+
+#. Default: "If enabled, shows the header."
+#: ../portlets/mediacarousel.py:28
+msgid "show_header_description"
+msgstr "Se habilitado mostra o cabeçalho."
 
 #. Default: "Show Image"
 #: ../portlets/collection.py:59
@@ -427,13 +443,25 @@ msgstr "Mostrar imagem"
 msgid "show_image_description"
 msgstr "Se habilitado mostra a imagem."
 
+#. Default: "Show rights"
+#: ../portlets/mediacarousel.py:93
+msgid "show_rights"
+msgstr "Mostrar crédito"
+
+#. Default: "If enabled, shows the rights."
+#: ../portlets/mediacarousel.py:95
+msgid "show_rights_description"
+msgstr "Se habilitado mostra o crédito."
+
 #. Default: "Show title"
 #: ../portlets/audiogallery.py:26
+#: ../portlets/mediacarousel.py:55
 msgid "show_title"
 msgstr "Mostrar título"
 
 #. Default: "If enabled, shows the title."
 #: ../portlets/audiogallery.py:28
+#: ../portlets/mediacarousel.py:57
 msgid "show_title_description"
 msgstr "Se habilitado mostra o título."
 
@@ -451,6 +479,11 @@ msgstr "Portal Padrão Galeria de Áudios"
 #: ../portlets/collection.py:48
 msgid "title_portlet_collection"
 msgstr "Portal Padrão Coleção"
+
+#. Default: "Portal Padrao Media Carousel"
+#: ../portlets/mediacarousel.py:39
+msgid "title_portlet_mediacarousel"
+msgstr "Portal Padrão Carrossel de Imagens"
 
 #. Default: "Title text"
 #: ../portlets/audio.py:24
