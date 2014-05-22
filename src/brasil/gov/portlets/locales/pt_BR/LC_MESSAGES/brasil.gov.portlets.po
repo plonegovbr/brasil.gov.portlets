@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-22 13:30+0000\n"
+"POT-Creation-Date: 2014-05-22 18:31+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -22,7 +22,7 @@ msgstr "Adicionar Portlet Portal Padrão Audio"
 msgid "Add Portlet Portal Padrao Audio Gallery"
 msgstr "Adicionar Portlet Portal Padrão Galeria de Áudios"
 
-#: ../portlets/collection.py:324
+#: ../portlets/collection.py:326
 msgid "Add Portlet Portal Padrao Collection"
 msgstr "Adicionar Portlet Portal Padrão Coleção"
 
@@ -34,17 +34,13 @@ msgstr "Adicionar Portlet Portal Padrão Carrossel de Imagens"
 msgid "Add Portlet Portal Padrao Video"
 msgstr "Adicionar Portlet Portal Padrão Vídeo"
 
-#: ../portlets/videogallery.py:237
-msgid "Adicionar Portlet Portal Padrão Galeria de Vídeos"
-msgstr ""
+#: ../portlets/videogallery.py:263
+msgid "Add Portlet Portal Padrao Video Gallery"
+msgstr "Adicionar Portlet Portal Padrão Galeria de Vídeos"
 
 #: ../portlets/audio.py:33
 msgid "Audio"
 msgstr "Áudio"
-
-#: ../portlets/videogallery.py:90
-msgid "Coleção"
-msgstr ""
 
 #: ../portlets/audio.py:149
 msgid "Edit Portlet Portal Padrao Audio"
@@ -54,61 +50,21 @@ msgstr "Editar Portlet Portal Padrão Audio"
 msgid "Edit Portlet Portal Padrao Audio Gallery"
 msgstr "Este portlet mostra uma Galeria de Áudios."
 
-#: ../portlets/collection.py:338
+#: ../portlets/collection.py:340
 msgid "Edit Portlet Portal Padrao Collection"
 msgstr "Editar Portlet Portal Padrão Coleção"
 
 #: ../portlets/mediacarousel.py:272
 msgid "Edit Portlet Portal Padrao Media Carousel"
-msgstr ""
+msgstr "Editar Portlet Portal Padrão Carrossel de Imagens"
 
 #: ../portlets/video.py:130
 msgid "Edit Portlet Portal Padrao Video"
 msgstr "Editar Portlet Portal Padrão Vídeo"
 
-#: ../portlets/videogallery.py:249
-msgid "Editar Portlet Portal Padrão Galeria de Vídeos"
-msgstr ""
-
-#: ../portlets/videogallery.py:238
-msgid "Este portlet mostra uma Galeria de Vídeos."
-msgstr ""
-
-#: ../portlets/videogallery.py:84
-msgid "Informe o total de itens que devem ser exibidos no portlet."
-msgstr ""
-
-#: ../portlets/videogallery.py:78
-msgid "Link do rodapé"
-msgstr ""
-
-#: ../portlets/videogallery.py:79
-msgid "Link do rodapé do portlet."
-msgstr ""
-
-#: ../portlets/videogallery.py:27
-msgid "Mostrar cabeçalho"
-msgstr ""
-
-#: ../portlets/videogallery.py:61
-msgid "Mostrar descrição"
-msgstr ""
-
-#: ../portlets/videogallery.py:67
-msgid "Mostrar rodapé"
-msgstr ""
-
-#: ../portlets/videogallery.py:49
-msgid "Mostrar título ativo"
-msgstr ""
-
-#: ../portlets/videogallery.py:55
-msgid "Mostrar título inativo"
-msgstr ""
-
-#: ../portlets/videogallery.py:91
-msgid "Pesquisa a coleção utilizada no portlet."
-msgstr ""
+#: ../portlets/videogallery.py:276
+msgid "Edit Portlet Portal Padrao Video Gallery"
+msgstr "Editar Portlet Portal Padrão Galeria de Vídeos"
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
@@ -118,17 +74,17 @@ msgstr "Portal Padrão Áudio"
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Audio."
-msgstr ""
+msgstr "Portal Padrão Áudio."
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Carrossel de Imagens"
-msgstr ""
+msgstr "Portal Padrão Carrossel de Imagens"
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Carrossel de Imagens."
-msgstr ""
+msgstr "Portal Padrão Carrossel de Imagens."
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
@@ -143,60 +99,32 @@ msgstr "Portal Padrão Coleção."
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Galeria de Audios"
-msgstr ""
+msgstr "Portal Padrão Galeria de Áudios"
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Galeria de Audios."
-msgstr ""
+msgstr "Portal Padrão Galeria de Áurios."
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Galeria de Videos"
-msgstr ""
+msgstr "Portal Padrão Galeria de Vídeos"
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Galeria de Videos."
-msgstr ""
+msgstr "Portal Padrão Galeria de Vídeos"
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Video"
-msgstr ""
+msgstr "Portal Padrão Vídeo"
 
 #: ../profiles/default/portlets.xml
 #: ../upgrades/v1000/profile/portlets.xml
 msgid "Portal Padrao Video."
-msgstr ""
-
-#: ../portlets/videogallery.py:36
-msgid "Portal Padrão Galeria de Vídeos"
-msgstr ""
-
-#: ../portlets/videogallery.py:83
-msgid "Quantidade de itens a exibir"
-msgstr ""
-
-#: ../portlets/videogallery.py:62
-msgid "Se habilitado mostra a descrição."
-msgstr ""
-
-#: ../portlets/videogallery.py:28
-msgid "Se habilitado mostra o cabeçalho."
-msgstr ""
-
-#: ../portlets/videogallery.py:68
-msgid "Se habilitado mostra o rodapé."
-msgstr ""
-
-#: ../portlets/videogallery.py:50
-msgid "Se habilitado mostra o título ativo."
-msgstr ""
-
-#: ../portlets/videogallery.py:56
-msgid "Se habilitado mostra o título inativo."
-msgstr ""
+msgstr "Portal Padrão Vídeo."
 
 #: ../portlets/audio.py:34
 msgid "Search the audio used into the portlet."
@@ -206,34 +134,10 @@ msgstr "Pesquisa o audio utilizado no portlet."
 msgid "Search the video used into the portlet."
 msgstr "Pesquisa o vídeo utilizado no portlet."
 
-#: ../portlets/videogallery.py:33
-msgid "Texto do cabeçalho"
-msgstr ""
-
-#: ../portlets/videogallery.py:34
-msgid "Texto do cabeçalho do portlet."
-msgstr ""
-
-#: ../portlets/videogallery.py:73
-msgid "Texto do rodapé"
-msgstr ""
-
-#: ../portlets/videogallery.py:74
-msgid "Texto do rodapé do portlet."
-msgstr ""
-
 #: ../portlets/templates/audiogallery.pt:12
 #: ../portlets/templates/collection.pt:10
 msgid "The collection don't have any item."
 msgstr "A coleção não possui nenhum item."
-
-#: ../portlets/videogallery.py:39
-msgid "Tipo de cabeçalho"
-msgstr ""
-
-#: ../portlets/videogallery.py:40
-msgid "Tipo de cabeçalho que será exibido."
-msgstr ""
 
 #: ../portlets/video.py:41
 msgid "Video"
@@ -264,7 +168,7 @@ msgid "collection_description"
 msgstr "Pesquisa a coleção utilizada no portlet."
 
 #. Default: "This portlet shows an item list of one Collection"
-#: ../portlets/collection.py:325
+#: ../portlets/collection.py:327
 msgid "collection_portlet_description"
 msgstr "Este portlet mostra uma listagem de itens de uma Coleção."
 
@@ -308,21 +212,25 @@ msgstr "Link do rodapé do portlet."
 
 #. Default: "Header text"
 #: ../portlets/mediacarousel.py:34
+#: ../portlets/videogallery.py:35
 msgid "header_text"
 msgstr "Texto do cabeçalho"
 
 #. Default: "Portlet text of the header."
 #: ../portlets/mediacarousel.py:36
+#: ../portlets/videogallery.py:37
 msgid "header_text_description"
 msgstr "Texto do cabeçalho do portlet."
 
 #. Default: "Header type"
 #: ../portlets/mediacarousel.py:43
+#: ../portlets/videogallery.py:44
 msgid "header_type"
 msgstr "Tipo de cabeçalho"
 
 #. Default: "Header type that will be shown."
 #: ../portlets/mediacarousel.py:45
+#: ../portlets/videogallery.py:46
 msgid "header_type_description"
 msgstr "Tipo de cabeçalho que será exibido."
 
@@ -365,6 +273,16 @@ msgstr "Este portlet mostra uma Carrossel de Imagens."
 msgid "short_date"
 msgstr "curta: Data"
 
+#. Default: "Show active title"
+#: ../portlets/videogallery.py:56
+msgid "show_active_title"
+msgstr "Mostrar título ativo"
+
+#. Default: "If enabled, shows the active title."
+#: ../portlets/videogallery.py:58
+msgid "show_active_title_description"
+msgstr "Se habilitado mostra o título ativo."
+
 #. Default: "Show date"
 #: ../portlets/collection.py:121
 msgid "show_date"
@@ -377,11 +295,13 @@ msgstr "Se habilitado, mostra a data."
 
 #. Default: "Show description"
 #: ../portlets/mediacarousel.py:63
+#: ../portlets/videogallery.py:72
 msgid "show_description"
 msgstr "Mostrar descrição"
 
 #. Default: "If enabled, shows the description."
 #: ../portlets/mediacarousel.py:65
+#: ../portlets/videogallery.py:74
 msgid "show_description_description"
 msgstr "Se habilitado mostra a descrição."
 
@@ -401,11 +321,13 @@ msgstr "Se habilitado mostra o rodapé."
 
 #. Default: "Show header"
 #: ../portlets/mediacarousel.py:26
+#: ../portlets/videogallery.py:27
 msgid "show_header"
 msgstr "Mostrar cabeçalho"
 
 #. Default: "If enabled, shows the header."
 #: ../portlets/mediacarousel.py:28
+#: ../portlets/videogallery.py:29
 msgid "show_header_description"
 msgstr "Se habilitado mostra o cabeçalho."
 
@@ -418,6 +340,16 @@ msgstr "Mostrar imagem"
 #: ../portlets/collection.py:61
 msgid "show_image_description"
 msgstr "Se habilitado mostra a imagem."
+
+#. Default: "Show inactive title"
+#: ../portlets/videogallery.py:64
+msgid "show_inactive_title"
+msgstr "Mostrar título inativo"
+
+#. Default: "If enabled, shows the inactive title."
+#: ../portlets/videogallery.py:66
+msgid "show_inactive_title_description"
+msgstr "Se habilitado mostra o título inativo."
 
 #. Default: "Show rights"
 #: ../portlets/mediacarousel.py:93
@@ -460,6 +392,7 @@ msgstr "Portal Padrão Coleção"
 
 #. Default: "Portal Padrao Media Carousel"
 #: ../portlets/mediacarousel.py:39
+#, fuzzy
 msgid "title_portlet_mediacarousel"
 msgstr "Portal Padrão Carrossel de Imagens"
 
@@ -467,6 +400,11 @@ msgstr "Portal Padrão Carrossel de Imagens"
 #: ../portlets/video.py:37
 msgid "title_portlet_video"
 msgstr "Portal Padrão Vídeo"
+
+#. Default: "Portal Padrao Video Gallery"
+#: ../portlets/videogallery.py:40
+msgid "title_portlet_videogallery"
+msgstr "Portal Padrão Galeria de Vídeos"
 
 #. Default: "Title text"
 #: ../portlets/audio.py:24
@@ -510,4 +448,9 @@ msgstr "Link do título do portlet."
 #: ../portlets/video.py:118
 msgid "video_portlet_description"
 msgstr "Este portlet mostra um Player de Vídeo."
+
+#. Default: "This portlet shows an Video Gallery."
+#: ../portlets/videogallery.py:264
+msgid "videogallery_portlet_description"
+msgstr "Este portlet mostra uma Galeria de Vídeos."
 

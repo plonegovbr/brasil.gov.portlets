@@ -309,8 +309,10 @@ class Renderer(base.Renderer):
         if (item.portal_type in [u'Compromisso',
                                  u'Event']):
             dt = DateTime(item.start_date)
-        if (self.data.date_format == _(u'short_date',
-                                       default=u'short: Date')):
+        # TODO: I tried without success to translate this text
+        # to the current language, need to review it later
+        if (self.data.date_format in [u'curta: Data',
+                                      u'short_date']):
             return dt.strftime('%d/%m/%Y')
         else:
             return dt.strftime('%d/%m/%Y %H:%M')

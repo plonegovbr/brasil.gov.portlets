@@ -26,7 +26,7 @@ ${limit_field_id}  form.limit
 ${limit_sample}  2
 ${datecheck_field_id}  form.show_date
 ${dateformat_field_id}  form.date_format
-${dateformat_sample}  longa: Data/Hora
+${dateformat_sample}  long_date
 ${titletype_field_id}  form.title_type
 ${collection_field_id}  form.collection
 
