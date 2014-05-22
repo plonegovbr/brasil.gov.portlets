@@ -23,25 +23,27 @@ class IAudioGalleryPortlet(IPortletDataProvider):
     '''
 
     show_header = schema.Bool(
-        title=_('show_title', u'Show title'),
-        description=_('show_title_description',
-                      u'If enabled, shows the title.'),
+        title=_(u'show_title',
+                default=u'Show title'),
+        description=_(u'show_title_description',
+                      default=u'If enabled, shows the title.'),
         required=True,
         default=False)
 
     header = schema.TextLine(
-        title=_('title_text',
-                u'Title text'),
-        description=_('title_text_description',
-                      u'Portlet title text.'),
+        title=_(u'title_text',
+                default=u'Title text'),
+        description=_(u'title_text_description',
+                      default=u'Portlet text of the title.'),
         required=True,
-        default=_('title_portlet_audiogallery',
-                  u'Portal Padrao Audio Gallery'))
+        default=_(u'title_portlet_audiogallery',
+                  default=u'Portal Padrao Audio Gallery'))
 
     header_type = schema.Choice(
-        title=_('title_type', u'Title type'),
-        description=_('title_type_description',
-                      u'Title type that will be shown.'),
+        title=_(u'title_type',
+                default=u'Title type'),
+        description=_(u'title_type_description',
+                      default=u'Title type that will be shown.'),
         values=(u'H1',
                 u'H2',
                 u'H3',
@@ -51,42 +53,42 @@ class IAudioGalleryPortlet(IPortletDataProvider):
     )
 
     show_footer = schema.Bool(
-        title=_('show_footer',
-                u'Show footer'),
-        description=_('show_footer_description',
-                      u'If enabled, shows the footer.'),
+        title=_(u'show_footer',
+                default=u'Show footer'),
+        description=_(u'show_footer_description',
+                      default=u'If enabled, shows the footer.'),
         required=True,
         default=False)
 
     footer = schema.TextLine(
-        title=_('footer_text',
-                u'Footer text'),
-        description=_('footer_text_description',
-                      u'Portlet footer text.'),
+        title=_(u'footer_text',
+                default=u'Footer text'),
+        description=_(u'footer_text_description',
+                      default=u'Portlet footer text.'),
         required=False)
 
     footer_url = schema.TextLine(
-        title=_('footer_url',
-                u'Footer URL'),
-        description=_('footer_url_description',
-                      u'Portlet footer URL.'),
+        title=_(u'footer_url',
+                default=u'Footer URL'),
+        description=_(u'footer_url_description',
+                      default=u'Portlet footer URL.'),
         required=False)
 
     limit = schema.Int(
-        title=_('limit',
-                u'Number of items to show'),
-        description=_('limit_description',
-                      u'Total itens that should be displayed in the '
-                      u'portlet.'),
+        title=_(u'limit',
+                default=u'Number of items to show'),
+        description=_(u'limit_description',
+                      default=u'Total itens that should be displayed in ' +
+                              u'the portlet.'),
         required=True,
         default=5)
 
     collection = schema.Choice(
-        title=_('collection',
-                u'Collection'),
-        description=_('collection_description',
-                      u'Searchs the collection that will be used in the '
-                      u'portlet.'),
+        title=_(u'collection',
+                default=u'Collection'),
+        description=_(u'collection_description',
+                      default=u'Searchs the collection that will be used ' +
+                              u'in the portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('Topic', 'Collection')},
@@ -98,7 +100,8 @@ class Assignment(base.Assignment):
     implements(IAudioGalleryPortlet)
 
     show_header = False
-    header = _('title_portlet_audiogallery')
+    header = _(u'title_portlet_audiogallery',
+               default=u'Portal Padrao Audio Gallery')
     header_type = u'H2'
     show_footer = False
     footer = u''
@@ -108,7 +111,8 @@ class Assignment(base.Assignment):
 
     def __init__(self,
                  show_header=False,
-                 header=_('title_portlet_audiogallery'),
+                 header=_(u'title_portlet_audiogallery',
+                          default=u'Portal Padrao Audio Gallery'),
                  header_type=u'H2',
                  show_footer=False,
                  footer=u'',
@@ -217,8 +221,8 @@ class AddForm(base.AddForm):
     form_fields['collection'].custom_widget = UberSelectionWidget
 
     label = _(u'Add Portlet Portal Padrao Audio Gallery')
-    description = _('audiogallery_portlet_description',
-                    u'This portlet shows an Audio Gallery.')
+    description = _(u'audiogallery_portlet_description',
+                    default=u'This portlet shows an Audio Gallery.')
 
     def create(self, data):
         return Assignment(**data)
@@ -230,4 +234,5 @@ class EditForm(base.EditForm):
     form_fields['collection'].custom_widget = UberSelectionWidget
 
     label = _(u'Edit Portlet Portal Padrao Audio Gallery')
-    description = _('audiogallery_portlet_description')
+    description = _(u'audiogallery_portlet_description',
+                    default=u'This portlet shows an Audio Gallery.')

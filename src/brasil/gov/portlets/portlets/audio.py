@@ -21,13 +21,13 @@ class IAudioPortlet(IPortletDataProvider):
     '''
 
     header = schema.TextLine(
-        title=_('title_text',
-                u'Title text'),
-        description=_('title_text_description',
-                      u'Portlet text of the title.'),
+        title=_(u'title_text',
+                default=u'Title text'),
+        description=_(u'title_text_description',
+                      default=u'Portlet text of the title.'),
         required=True,
-        default=_('title_portlet_audio',
-                  u'Portal Padrao Audio'))
+        default=_(u'title_portlet_audio',
+                  default=u'Portal Padrao Audio'))
 
     audio = schema.Choice(
         title=_(u'Audio'),
@@ -42,11 +42,13 @@ class Assignment(base.Assignment):
 
     implements(IAudioPortlet)
 
-    header = _('title_portlet_audio')
+    header = _(u'title_portlet_audio',
+               default=u'Portal Padrao Audio')
     audio = None
 
     def __init__(self,
-                 header=_('title_portlet_audio'),
+                 header=_(u'title_portlet_audio',
+                          default=u'Portal Padrao Audio'),
                  audio=None):
         self.header = header
         self.audio = audio
@@ -132,8 +134,8 @@ class AddForm(base.AddForm):
     form_fields['audio'].custom_widget = UberSelectionWidget
 
     label = _(u'Add Portlet Portal Padrao Audio')
-    description = _('audio_portlet_description',
-                    u'This portlet show an Audio Player.')
+    description = _(u'audio_portlet_description',
+                    default=u'This portlet show an Audio Player.')
 
     def create(self, data):
         return Assignment(**data)
@@ -145,4 +147,5 @@ class EditForm(base.EditForm):
     form_fields['audio'].custom_widget = UberSelectionWidget
 
     label = _(u'Edit Portlet Portal Padrao Audio')
-    description = _('audio_portlet_description')
+    description = _('audio_portlet_description',
+                    default=u'This portlet show an Audio Player.')

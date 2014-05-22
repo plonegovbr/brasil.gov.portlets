@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-21 21:12+0000\n"
+"POT-Creation-Date: 2014-05-22 13:02+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -14,20 +14,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: brasil.gov.portlets\n"
 
-#: ../portlets/audio.py:134
+#: ../portlets/audio.py:136
 msgid "Add Portlet Portal Padrao Audio"
 msgstr "Adicionar Portlet Portal Padrão Audio"
 
-#: ../portlets/audiogallery.py:219
+#: ../portlets/audiogallery.py:223
 msgid "Add Portlet Portal Padrao Audio Gallery"
 msgstr "Adicionar Portlet Portal Padrão Galeria de Áudios"
 
+#: ../portlets/collection.py:324
+msgid "Add Portlet Portal Padrao Collection"
+msgstr "Adicionar Portlet Portal Padrão Coleção"
+
 #: ../portlets/mediacarousel.py:233
 msgid "Adicionar Portlet Portal Padrão Carrossel de Imagens"
-msgstr ""
-
-#: ../portlets/collection.py:289
-msgid "Adicionar Portlet Portal Padrão Coleção"
 msgstr ""
 
 #: ../portlets/videogallery.py:237
@@ -42,26 +42,25 @@ msgstr ""
 msgid "Audio"
 msgstr "Áudio"
 
-#: ../portlets/collection.py:116
 #: ../portlets/mediacarousel.py:89
 #: ../portlets/videogallery.py:90
 msgid "Coleção"
 msgstr ""
 
-#: ../portlets/audio.py:147
+#: ../portlets/audio.py:149
 msgid "Edit Portlet Portal Padrao Audio"
 msgstr "Editar Portlet Portal Padrão Audio"
 
-#: ../portlets/audiogallery.py:232
+#: ../portlets/audiogallery.py:236
 msgid "Edit Portlet Portal Padrao Audio Gallery"
 msgstr "Este portlet mostra uma Galeria de Áudios."
 
+#: ../portlets/collection.py:338
+msgid "Edit Portlet Portal Padrao Collection"
+msgstr "Editar Portlet Portal Padrão Coleção"
+
 #: ../portlets/mediacarousel.py:245
 msgid "Editar Portlet Portal Padrão Carrossel de Imagens"
-msgstr ""
-
-#: ../portlets/collection.py:302
-msgid "Editar Portlet Portal Padrão Coleção"
 msgstr ""
 
 #: ../portlets/videogallery.py:249
@@ -84,42 +83,19 @@ msgstr ""
 msgid "Este portlet mostra uma Galeria de Vídeos."
 msgstr ""
 
-#: ../portlets/collection.py:290
-msgid "Este portlet mostra uma listagem de itens de uma Coleção."
-msgstr ""
-
-#: ../portlets/collection.py:107
-msgid "Formato de data"
-msgstr ""
-
-#: ../portlets/collection.py:108
-msgid "Formato que a data será exibida."
-msgstr ""
-
-#: ../portlets/collection.py:94
 #: ../portlets/mediacarousel.py:83
 #: ../portlets/videogallery.py:84
 msgid "Informe o total de itens que devem ser exibidos no portlet."
 msgstr ""
 
-#: ../portlets/collection.py:88
 #: ../portlets/mediacarousel.py:71
 #: ../portlets/videogallery.py:78
 msgid "Link do rodapé"
 msgstr ""
 
-#: ../portlets/collection.py:89
 #: ../portlets/mediacarousel.py:72
 #: ../portlets/videogallery.py:79
 msgid "Link do rodapé do portlet."
-msgstr ""
-
-#: ../portlets/collection.py:47
-msgid "Link do título"
-msgstr ""
-
-#: ../portlets/collection.py:48
-msgid "Link do título do portlet."
 msgstr ""
 
 #: ../portlets/mediacarousel.py:26
@@ -131,20 +107,11 @@ msgstr ""
 msgid "Mostrar crédito"
 msgstr ""
 
-#: ../portlets/collection.py:100
-msgid "Mostrar datas"
-msgstr ""
-
 #: ../portlets/mediacarousel.py:54
 #: ../portlets/videogallery.py:61
 msgid "Mostrar descrição"
 msgstr ""
 
-#: ../portlets/collection.py:52
-msgid "Mostrar imagem"
-msgstr ""
-
-#: ../portlets/collection.py:77
 #: ../portlets/mediacarousel.py:60
 #: ../portlets/videogallery.py:67
 msgid "Mostrar rodapé"
@@ -166,7 +133,6 @@ msgstr ""
 msgid "Mostrra título"
 msgstr ""
 
-#: ../portlets/collection.py:117
 #: ../portlets/mediacarousel.py:90
 #: ../portlets/videogallery.py:91
 msgid "Pesquisa a coleção utilizada no portlet."
@@ -240,10 +206,6 @@ msgstr ""
 msgid "Portal Padrão Carrossel de Imagens"
 msgstr ""
 
-#: ../portlets/collection.py:44
-msgid "Portal Padrão Coleção"
-msgstr ""
-
 #: ../portlets/videogallery.py:36
 msgid "Portal Padrão Galeria de Vídeos"
 msgstr ""
@@ -252,7 +214,6 @@ msgstr ""
 msgid "Portal Padrão Vídeo"
 msgstr ""
 
-#: ../portlets/collection.py:93
 #: ../portlets/mediacarousel.py:82
 #: ../portlets/videogallery.py:83
 msgid "Quantidade de itens a exibir"
@@ -261,10 +222,6 @@ msgstr ""
 #: ../portlets/mediacarousel.py:55
 #: ../portlets/videogallery.py:62
 msgid "Se habilitado mostra a descrição."
-msgstr ""
-
-#: ../portlets/collection.py:53
-msgid "Se habilitado mostra a imagem."
 msgstr ""
 
 #: ../portlets/mediacarousel.py:27
@@ -276,7 +233,6 @@ msgstr ""
 msgid "Se habilitado mostra o crédito."
 msgstr ""
 
-#: ../portlets/collection.py:78
 #: ../portlets/mediacarousel.py:61
 #: ../portlets/videogallery.py:68
 msgid "Se habilitado mostra o rodapé."
@@ -295,21 +251,9 @@ msgstr ""
 msgid "Se habilitado mostra o título."
 msgstr ""
 
-#: ../portlets/collection.py:101
-msgid "Se habilitado, mostra a data.coleção."
-msgstr ""
-
 #: ../portlets/audio.py:34
 msgid "Search the audio used into the portlet."
 msgstr "Pesquisa o audio utilizado no portlet."
-
-#: ../portlets/collection.py:58
-msgid "Tamanho da imagem"
-msgstr ""
-
-#: ../portlets/collection.py:59
-msgid "Tamanho da imagem que será exibida."
-msgstr ""
 
 #: ../portlets/mediacarousel.py:32
 #: ../portlets/videogallery.py:33
@@ -321,19 +265,16 @@ msgstr ""
 msgid "Texto do cabeçalho do portlet."
 msgstr ""
 
-#: ../portlets/collection.py:83
 #: ../portlets/mediacarousel.py:66
 #: ../portlets/videogallery.py:73
 msgid "Texto do rodapé"
 msgstr ""
 
-#: ../portlets/collection.py:84
 #: ../portlets/mediacarousel.py:67
 #: ../portlets/videogallery.py:74
 msgid "Texto do rodapé do portlet."
 msgstr ""
 
-#: ../portlets/collection.py:41
 #: ../portlets/video.py:30
 msgid "Texto do título"
 msgstr ""
@@ -357,89 +298,134 @@ msgstr ""
 msgid "Tipo de cabeçalho que será exibido."
 msgstr ""
 
-#: ../portlets/collection.py:66
-msgid "Tipo de título"
-msgstr ""
-
-#: ../portlets/collection.py:67
-msgid "Tipo de título que será exibido."
-msgstr ""
-
-#: ../portlets/collection.py:42
-msgid "Título do portlet."
-msgstr ""
-
 #: ../portlets/video.py:36
 msgid "Vídeo"
 msgstr ""
 
 #. Default: "This portlet show an Audio Player."
-#: ../portlets/audio.py:135
+#: ../portlets/audio.py:137
 msgid "audio_portlet_description"
 msgstr "Este portlet mostra um Player de Áudio."
 
 #. Default: "This portlet shows an Audio Gallery."
-#: ../portlets/audiogallery.py:220
+#: ../portlets/audiogallery.py:224
 msgid "audiogallery_portlet_description"
 msgstr "Este portlet mostra uma Galeria de Áudios."
 
 #. Default: "Collection"
-#: ../portlets/audiogallery.py:85
+#: ../portlets/audiogallery.py:87
+#: ../portlets/collection.py:143
 msgid "collection"
 msgstr "Coleção"
 
 #. Default: "Searchs the collection that will be used in the portlet."
-#: ../portlets/audiogallery.py:87
+#: ../portlets/audiogallery.py:89
+#: ../portlets/collection.py:145
 msgid "collection_description"
 msgstr "Pesquisa a coleção utilizada no portlet."
 
-#: ../portlets/collection.py:109
-msgid "curta: Data"
-msgstr ""
+#. Default: "This portlet shows an item list of one Collection"
+#: ../portlets/collection.py:325
+msgid "collection_portlet_description"
+msgstr "Este portlet mostra uma listagem de itens de uma Coleção."
+
+#. Default: "Date format"
+#: ../portlets/collection.py:129
+msgid "date_format"
+msgstr "Formato de data"
+
+#. Default: "Date format that will be shown."
+#: ../portlets/collection.py:131
+msgid "date_format_description"
+msgstr "Formato que a data será exibida."
 
 #. Default: "Footer text"
-#: ../portlets/audiogallery.py:62
+#: ../portlets/audiogallery.py:64
+#: ../portlets/collection.py:98
 msgid "footer_text"
 msgstr "Texto do rodapé"
 
 #. Default: "Portlet footer text."
-#: ../portlets/audiogallery.py:64
+#: ../portlets/audiogallery.py:66
+#: ../portlets/collection.py:100
 msgid "footer_text_description"
 msgstr "Texto do rodapé do portlet."
 
 #. Default: "Footer URL"
-#: ../portlets/audiogallery.py:69
+#: ../portlets/audiogallery.py:71
+#: ../portlets/collection.py:105
 msgid "footer_url"
 msgstr "Link do rodapé"
 
 #. Default: "Portlet footer URL."
-#: ../portlets/audiogallery.py:71
+#: ../portlets/audiogallery.py:73
+#: ../portlets/collection.py:107
 msgid "footer_url_description"
 msgstr "Link do rodapé do portlet."
 
+#. Default: "Image size"
+#: ../portlets/collection.py:67
+msgid "image_size"
+msgstr "Tamanho da imagem"
+
+#. Default: "Image size that will be shown."
+#: ../portlets/collection.py:69
+msgid "image_size_description"
+msgstr "Tamanho da imagem que será exibida."
+
 #. Default: "Number of items to show"
-#: ../portlets/audiogallery.py:76
+#: ../portlets/audiogallery.py:78
+#: ../portlets/collection.py:112
 msgid "limit"
 msgstr "Quantidade de itens a exibir"
 
 #. Default: "Total itens that should be displayed in the portlet."
-#: ../portlets/audiogallery.py:78
+#: ../portlets/audiogallery.py:80
+#: ../portlets/collection.py:114
 msgid "limit_description"
 msgstr "Informe o total de itens que devem ser exibidos no portlet."
 
-#: ../portlets/collection.py:110
-msgid "longa: Data/Hora"
-msgstr ""
+#. Default: "long: Date/Time"
+#: ../portlets/collection.py:135
+msgid "long_date"
+msgstr "longa: Data/Hora"
+
+#. Default: "short: Date"
+#: ../portlets/collection.py:133
+msgid "short_date"
+msgstr "curta: Data"
+
+#. Default: "Show date"
+#: ../portlets/collection.py:121
+msgid "show_date"
+msgstr "Mostrar datas"
+
+#. Default: "If enabled, shows the date."
+#: ../portlets/collection.py:123
+msgid "show_date_description"
+msgstr "Se habilitado, mostra a data."
 
 #. Default: "Show footer"
-#: ../portlets/audiogallery.py:54
+#: ../portlets/audiogallery.py:56
+#: ../portlets/collection.py:90
 msgid "show_footer"
 msgstr "Mostrar rodapé"
 
 #. Default: "If enabled, shows the footer."
-#: ../portlets/audiogallery.py:56
+#: ../portlets/audiogallery.py:58
+#: ../portlets/collection.py:92
 msgid "show_footer_description"
 msgstr "Se habilitado mostra o rodapé."
+
+#. Default: "Show Image"
+#: ../portlets/collection.py:59
+msgid "show_image"
+msgstr "Mostrar imagem"
+
+#. Default: "If enabled, shows the image."
+#: ../portlets/collection.py:61
+msgid "show_image_description"
+msgstr "Se habilitado mostra a imagem."
 
 #. Default: "Show title"
 #: ../portlets/audiogallery.py:26
@@ -447,7 +433,7 @@ msgid "show_title"
 msgstr "Mostrar título"
 
 #. Default: "If enabled, shows the title."
-#: ../portlets/audiogallery.py:27
+#: ../portlets/audiogallery.py:28
 msgid "show_title_description"
 msgstr "Se habilitado mostra o título."
 
@@ -457,30 +443,50 @@ msgid "title_portlet_audio"
 msgstr "Portal Padrão Áudio"
 
 #. Default: "Portal Padrao Audio Gallery"
-#: ../portlets/audiogallery.py:38
+#: ../portlets/audiogallery.py:39
 msgid "title_portlet_audiogallery"
 msgstr "Portal Padrão Galeria de Áudios"
 
+#. Default: "Portal Padrao Collection"
+#: ../portlets/collection.py:48
+msgid "title_portlet_collection"
+msgstr "Portal Padrão Coleção"
+
 #. Default: "Title text"
 #: ../portlets/audio.py:24
-#: ../portlets/audiogallery.py:33
+#: ../portlets/audiogallery.py:34
+#: ../portlets/collection.py:43
+#, fuzzy
 msgid "title_text"
 msgstr "Texto do título"
 
 #. Default: "Portlet text of the title."
 #: ../portlets/audio.py:26
-#: ../portlets/audiogallery.py:35
+#: ../portlets/audiogallery.py:36
+#: ../portlets/collection.py:45
 #, fuzzy
 msgid "title_text_description"
 msgstr "Texto do título do portlet."
 
 #. Default: "Title type"
-#: ../portlets/audiogallery.py:42
+#: ../portlets/audiogallery.py:43
+#: ../portlets/collection.py:77
 msgid "title_type"
 msgstr "Tipo de título"
 
 #. Default: "Title type that will be shown."
-#: ../portlets/audiogallery.py:43
+#: ../portlets/audiogallery.py:45
+#: ../portlets/collection.py:79
 msgid "title_type_description"
 msgstr "Tipo de título que será exibido."
+
+#. Default: "Title URL"
+#: ../portlets/collection.py:52
+msgid "title_url"
+msgstr "Link do título"
+
+#. Default: "Portlet title URL."
+#: ../portlets/collection.py:54
+msgid "title_url_description"
+msgstr "Link do título do portlet."
 
