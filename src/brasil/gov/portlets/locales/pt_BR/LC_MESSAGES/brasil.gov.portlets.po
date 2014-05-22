@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-22 13:17+0000\n"
+"POT-Creation-Date: 2014-05-22 13:30+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -30,12 +30,12 @@ msgstr "Adicionar Portlet Portal Padrão Coleção"
 msgid "Add Portlet Portal Padrao Media Carousel"
 msgstr "Adicionar Portlet Portal Padrão Carrossel de Imagens"
 
+#: ../portlets/video.py:117
+msgid "Add Portlet Portal Padrao Video"
+msgstr "Adicionar Portlet Portal Padrão Vídeo"
+
 #: ../portlets/videogallery.py:237
 msgid "Adicionar Portlet Portal Padrão Galeria de Vídeos"
-msgstr ""
-
-#: ../portlets/video.py:110
-msgid "Adicionar Portlet Portal Padrão Vídeo"
 msgstr ""
 
 #: ../portlets/audio.py:33
@@ -62,16 +62,12 @@ msgstr "Editar Portlet Portal Padrão Coleção"
 msgid "Edit Portlet Portal Padrao Media Carousel"
 msgstr ""
 
+#: ../portlets/video.py:130
+msgid "Edit Portlet Portal Padrao Video"
+msgstr "Editar Portlet Portal Padrão Vídeo"
+
 #: ../portlets/videogallery.py:249
 msgid "Editar Portlet Portal Padrão Galeria de Vídeos"
-msgstr ""
-
-#: ../portlets/video.py:122
-msgid "Editar Portlet Portal Padrão Vídeo"
-msgstr "Editar Portlet Portal Padrão Carrossel de Imagens"
-
-#: ../portlets/video.py:111
-msgid "Este portlet mostra um Player de Vídeo."
 msgstr ""
 
 #: ../portlets/videogallery.py:238
@@ -110,16 +106,8 @@ msgstr ""
 msgid "Mostrar título inativo"
 msgstr ""
 
-#: ../portlets/video.py:24
-msgid "Mostrra título"
-msgstr ""
-
 #: ../portlets/videogallery.py:91
 msgid "Pesquisa a coleção utilizada no portlet."
-msgstr ""
-
-#: ../portlets/video.py:37
-msgid "Pesquisa o vídeo utilizado no portlet."
 msgstr ""
 
 #: ../profiles/default/portlets.xml
@@ -186,10 +174,6 @@ msgstr ""
 msgid "Portal Padrão Galeria de Vídeos"
 msgstr ""
 
-#: ../portlets/video.py:33
-msgid "Portal Padrão Vídeo"
-msgstr ""
-
 #: ../portlets/videogallery.py:83
 msgid "Quantidade de itens a exibir"
 msgstr ""
@@ -214,13 +198,13 @@ msgstr ""
 msgid "Se habilitado mostra o título inativo."
 msgstr ""
 
-#: ../portlets/video.py:25
-msgid "Se habilitado mostra o título."
-msgstr ""
-
 #: ../portlets/audio.py:34
 msgid "Search the audio used into the portlet."
 msgstr "Pesquisa o audio utilizado no portlet."
+
+#: ../portlets/video.py:42
+msgid "Search the video used into the portlet."
+msgstr "Pesquisa o vídeo utilizado no portlet."
 
 #: ../portlets/videogallery.py:33
 msgid "Texto do cabeçalho"
@@ -238,14 +222,6 @@ msgstr ""
 msgid "Texto do rodapé do portlet."
 msgstr ""
 
-#: ../portlets/video.py:30
-msgid "Texto do título"
-msgstr ""
-
-#: ../portlets/video.py:31
-msgid "Texto do título do portlet."
-msgstr ""
-
 #: ../portlets/templates/audiogallery.pt:12
 #: ../portlets/templates/collection.pt:10
 msgid "The collection don't have any item."
@@ -259,9 +235,9 @@ msgstr ""
 msgid "Tipo de cabeçalho que será exibido."
 msgstr ""
 
-#: ../portlets/video.py:36
-msgid "Vídeo"
-msgstr ""
+#: ../portlets/video.py:41
+msgid "Video"
+msgstr "Vídeo"
 
 #. Default: "This portlet show an Audio Player."
 #: ../portlets/audio.py:137
@@ -456,12 +432,14 @@ msgstr "Se habilitado mostra o crédito."
 #. Default: "Show title"
 #: ../portlets/audiogallery.py:26
 #: ../portlets/mediacarousel.py:55
+#: ../portlets/video.py:24
 msgid "show_title"
 msgstr "Mostrar título"
 
 #. Default: "If enabled, shows the title."
 #: ../portlets/audiogallery.py:28
 #: ../portlets/mediacarousel.py:57
+#: ../portlets/video.py:26
 msgid "show_title_description"
 msgstr "Se habilitado mostra o título."
 
@@ -484,6 +462,11 @@ msgstr "Portal Padrão Coleção"
 #: ../portlets/mediacarousel.py:39
 msgid "title_portlet_mediacarousel"
 msgstr "Portal Padrão Carrossel de Imagens"
+
+#. Default: "Portal Padrão Video"
+#: ../portlets/video.py:37
+msgid "title_portlet_video"
+msgstr "Portal Padrão Vídeo"
 
 #. Default: "Title text"
 #: ../portlets/audio.py:24
@@ -522,4 +505,9 @@ msgstr "Link do título"
 #: ../portlets/collection.py:54
 msgid "title_url_description"
 msgstr "Link do título do portlet."
+
+#. Default: "This portlet show an Video Player."
+#: ../portlets/video.py:118
+msgid "video_portlet_description"
+msgstr "Este portlet mostra um Player de Vídeo."
 
