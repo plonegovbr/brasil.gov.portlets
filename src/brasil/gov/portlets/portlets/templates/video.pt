@@ -22,8 +22,8 @@
                             ${view/data/header}
                         </span>
                     </div>
-                    <noscript>
-                        <div class="error">Seu navegador de internet esta sem suporte a javascript, por esse motivo alguns funcionalidades do site podem não estar acessíveis.</div>
+                    <noscript class="error">
+                        Seu navegador de internet esta sem suporte a javascript, por esse motivo alguns funcionalidades do site podem não estar acessíveis.
                     </noscript>
                     <div class="visualClear"><!-- --></div>
                 </div>

@@ -34,7 +34,19 @@
 /* ==========================================================================
    Portlet de video
    ========================================================================== */
+.portal-padrao-video-portlet .video-container {
+  margin-bottom: 10px;
+}
 
+.portal-padrao-video-portlet .title {
+  font-size: 0.85em;
+  color: #454545;
+}
+
+/* Contraste */
+body.contraste .portal-padrao-video-portlet .title {
+  color: #fff;
+}
 
 
 /* ==========================================================================
