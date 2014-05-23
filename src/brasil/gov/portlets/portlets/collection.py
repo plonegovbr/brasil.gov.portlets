@@ -125,19 +125,13 @@ class ICollectionPortlet(IPortletDataProvider):
         required=True,
         default=False)
 
-    date_format = schema.Choice(
-        title=_(u'date_format',
-                default=u'Date format'),
-        description=_(u'date_format_description',
-                      default=u'Date format that will be shown.'),
-        values=(_(u'short_date',
-                  default=u'short: Date'),
-                _(u'long_date',
-                  u'long: Date/Time')),
-        default=_(u'short_date',
-                  default=u'short: Date'),
+    show_time = schema.Bool(
+        title=_(u'show_time',
+                default=u'Show time'),
+        description=_(u'show_time_description',
+                      default=u'If enabled, shows the time.'),
         required=True,
-    )
+        default=False)
 
     collection = schema.Choice(
         title=_(u'collection',
@@ -166,8 +160,7 @@ class Assignment(base.Assignment):
     footer_url = u''
     limit = 5
     show_date = False
-    date_format = _(u'short_date',
-                    default=u'short: Date')
+    show_time = False
     collection = None
 
     def __init__(self,
@@ -182,8 +175,7 @@ class Assignment(base.Assignment):
                  footer_url=u'',
                  limit=5,
                  show_date=False,
-                 date_format=_(u'short_date',
-                               default=u'short: Date'),
+                 show_time=False,
                  collection=None):
         self.header = header
         self.header_url = header_url
@@ -195,7 +187,7 @@ class Assignment(base.Assignment):
         self.footer_url = footer_url
         self.limit = limit
         self.show_date = show_date
-        self.date_format = date_format
+        self.show_time = show_time
         self.collection = collection
 
     @property
@@ -309,13 +301,10 @@ class Renderer(base.Renderer):
         if (item.portal_type in [u'Compromisso',
                                  u'Event']):
             dt = DateTime(item.start_date)
-        # TODO: I tried without success to translate this text
-        # to the current language, need to review it later
-        if (self.data.date_format in [u'curta: Data',
-                                      u'short_date']):
-            return dt.strftime('%d/%m/%Y')
-        else:
+        if self.data.show_time:
             return dt.strftime('%d/%m/%Y %H:%M')
+        else:
+            return dt.strftime('%d/%m/%Y')
 
 
 class AddForm(base.AddForm):

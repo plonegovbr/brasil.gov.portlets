@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-22 18:31+0000\n"
+"POT-Creation-Date: 2014-05-23 11:42+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Add Portlet Portal Padrao Audio Gallery"
 msgstr ""
 
-#: ../portlets/collection.py:326
+#: ../portlets/collection.py:315
 msgid "Add Portlet Portal Padrao Collection"
 msgstr ""
 
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Edit Portlet Portal Padrao Audio Gallery"
 msgstr ""
 
-#: ../portlets/collection.py:340
+#: ../portlets/collection.py:329
 msgid "Edit Portlet Portal Padrao Collection"
 msgstr ""
 
@@ -155,31 +155,21 @@ msgstr ""
 
 #. Default: "Collection"
 #: ../portlets/audiogallery.py:87
-#: ../portlets/collection.py:143
+#: ../portlets/collection.py:137
 #: ../portlets/mediacarousel.py:110
 msgid "collection"
 msgstr ""
 
 #. Default: "Searchs the collection that will be used in the portlet."
 #: ../portlets/audiogallery.py:89
-#: ../portlets/collection.py:145
+#: ../portlets/collection.py:139
 #: ../portlets/mediacarousel.py:112
 msgid "collection_description"
 msgstr ""
 
 #. Default: "This portlet shows an item list of one Collection"
-#: ../portlets/collection.py:327
+#: ../portlets/collection.py:316
 msgid "collection_portlet_description"
-msgstr ""
-
-#. Default: "Date format"
-#: ../portlets/collection.py:129
-msgid "date_format"
-msgstr ""
-
-#. Default: "Date format that will be shown."
-#: ../portlets/collection.py:131
-msgid "date_format_description"
 msgstr ""
 
 #. Default: "Footer text"
@@ -258,19 +248,9 @@ msgstr ""
 msgid "limit_description"
 msgstr ""
 
-#. Default: "long: Date/Time"
-#: ../portlets/collection.py:135
-msgid "long_date"
-msgstr ""
-
 #. Default: "This portlet shows an Carousel of Images."
 #: ../portlets/mediacarousel.py:260
 msgid "mediacarousel_portlet_description"
-msgstr ""
-
-#. Default: "short: Date"
-#: ../portlets/collection.py:133
-msgid "short_date"
 msgstr ""
 
 #. Default: "Show active title"
@@ -359,6 +339,16 @@ msgstr ""
 #. Default: "If enabled, shows the rights."
 #: ../portlets/mediacarousel.py:95
 msgid "show_rights_description"
+msgstr ""
+
+#. Default: "Show time"
+#: ../portlets/collection.py:129
+msgid "show_time"
+msgstr ""
+
+#. Default: "If enabled, shows the time."
+#: ../portlets/collection.py:131
+msgid "show_time_description"
 msgstr ""
 
 #. Default: "Show title"
