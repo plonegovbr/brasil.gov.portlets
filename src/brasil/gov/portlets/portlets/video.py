@@ -116,7 +116,7 @@ class AddForm(base.AddForm):
 
     label = _(u'Add Portlet Portal Padrao Video')
     description = _('video_portlet_description',
-                    default=u'This portlet show an Video Player.')
+                    default=u'This portlet show a Video Player.')
 
     def create(self, data):
         return Assignment(**data)
@@ -129,4 +129,4 @@ class EditForm(base.EditForm):
 
     label = _(u'Edit Portlet Portal Padrao Video')
     description = _('video_portlet_description',
-                    default=u'This portlet show an Video Player.')
+                    default=u'This portlet show a Video Player.')

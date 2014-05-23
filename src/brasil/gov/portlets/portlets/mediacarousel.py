@@ -258,7 +258,7 @@ class AddForm(base.AddForm):
 
     label = _(u'Add Portlet Portal Padrao Media Carousel')
     description = _(u'mediacarousel_portlet_description',
-                    default=u'This portlet shows an Carousel of Images.')
+                    default=u'This portlet shows a Carousel of Images.')
 
     def create(self, data):
         return Assignment(**data)
@@ -271,4 +271,4 @@ class EditForm(base.EditForm):
 
     label = _(u'Edit Portlet Portal Padrao Media Carousel')
     description = _(u'mediacarousel_portlet_description',
-                    default=u'This portlet shows an Carousel of Images.')
+                    default=u'This portlet shows a Carousel of Images.')

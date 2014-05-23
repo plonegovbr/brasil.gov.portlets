@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-23 11:42+0000\n"
+"POT-Creation-Date: 2014-05-23 12:14+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -248,8 +248,9 @@ msgstr "Quantidade de itens a exibir"
 msgid "limit_description"
 msgstr "Informe o total de itens que devem ser exibidos no portlet."
 
-#. Default: "This portlet shows an Carousel of Images."
+#. Default: "This portlet shows a Carousel of Images."
 #: ../portlets/mediacarousel.py:260
+#, fuzzy
 msgid "mediacarousel_portlet_description"
 msgstr "Este portlet mostra uma Carrossel de Imagens."
 
@@ -434,13 +435,15 @@ msgstr "Link do título"
 msgid "title_url_description"
 msgstr "Link do título do portlet."
 
-#. Default: "This portlet show an Video Player."
+#. Default: "This portlet show a Video Player."
 #: ../portlets/video.py:118
+#, fuzzy
 msgid "video_portlet_description"
 msgstr "Este portlet mostra um Player de Vídeo."
 
-#. Default: "This portlet shows an Video Gallery."
+#. Default: "This portlet shows a Video Gallery."
 #: ../portlets/videogallery.py:264
+#, fuzzy
 msgid "videogallery_portlet_description"
 msgstr "Este portlet mostra uma Galeria de Vídeos."
 
