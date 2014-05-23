@@ -7,7 +7,7 @@
          i18n:domain="brasil.gov.portlets">
         <div id="audiogallery-${portlet_id}"
              class="portal-padrao-audiogallery-portlet">
-            <tal:results tal:define="results view/results|nothing">
+            <tal:results define="results view/results|nothing">
                 <div tal:condition="not:results">
                     <p i18n:translate="">
                         The collection don't have any item.

@@ -302,7 +302,7 @@ class Renderer(base.Renderer):
                                  u'Event']):
             dt = DateTime(item.start_date)
         if self.data.show_time:
-            return dt.strftime('%d/%m/%Y %H:%M')
+            return dt.strftime('%d/%m/%Y | %H:%M')
         else:
             return dt.strftime('%d/%m/%Y')
 

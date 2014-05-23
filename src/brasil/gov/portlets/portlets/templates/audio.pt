@@ -7,7 +7,7 @@
          i18n:domain="brasil.gov.portlets">
         <div id="${string:audio-$portlet_id}"
              class="portal-padrao-audio-portlet">
-            <tal:audio tal:define="audio view/audio|nothing">
+            <tal:audio define="audio view/audio|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft"></span>
                     <h3 class="portlet-audio-title">
@@ -58,11 +58,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="portletFooter">
                 </div>
-
             </tal:audio>
         </div>
     </div>
