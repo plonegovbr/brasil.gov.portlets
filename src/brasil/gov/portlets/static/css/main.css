@@ -34,6 +34,37 @@
 /* ==========================================================================
    Portlet de video
    ========================================================================== */
+.portal-padrao-video-portlet .video-container {
+    margin-bottom: 10px;
+}
+
+.portal-padrao-video-portlet .title {
+    font-size: 0.85em;
+    color: #454545;
+}
+
+/* css responsivo */
+.portal-padrao-video-portlet .video-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 35px;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.portal-padrao-video-portlet .video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Contraste */
+body.contraste .portal-padrao-video-portlet .title {
+    color: #fff;
+}
+
 
 
 

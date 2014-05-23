@@ -3,6 +3,7 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* Frontend do portlet de video. (closes `#t_73`_). [felipeduardo]
 * Revisão da tradução dos portlets. (closes `#t_74`_).
   [rodfersou]
 * Frontend do portlet de audio. (closes `#t_70`_).
@@ -43,3 +44,4 @@ Changelog
 .. _`#t_71`: https://grupotv1.codebasehq.com/projects/secom/tickets/71
 .. _`#t_72`: https://grupotv1.codebasehq.com/projects/secom/tickets/72
 .. _`#t_74`: https://grupotv1.codebasehq.com/projects/secom/tickets/74
+.. _`#t_73`: https://grupotv1.codebasehq.com/projects/secom/tickets/73
