@@ -24,20 +24,27 @@ class IVideoGalleryPortlet(IPortletDataProvider):
     '''
 
     show_header = schema.Bool(
-        title=_(u'Mostrar cabeçalho'),
-        description=_(u'Se habilitado mostra o cabeçalho.'),
+        title=_(u'show_header',
+                default=u'Show header'),
+        description=_(u'show_header_description',
+                      default=u'If enabled, shows the header.'),
         required=True,
         default=False)
 
     header = schema.TextLine(
-        title=_(u'Texto do cabeçalho'),
-        description=_(u'Texto do cabeçalho do portlet.'),
+        title=_(u'header_text',
+                default=u'Header text'),
+        description=_(u'header_text_description',
+                      default=u'Portlet text of the header.'),
         required=True,
-        default=_(u'Portal Padrão Galeria de Vídeos'))
+        default=_(u'title_portlet_videogallery',
+                  default=u'Portal Padrao Video Gallery'))
 
     header_type = schema.Choice(
-        title=_(u'Tipo de cabeçalho'),
-        description=_(u'Tipo de cabeçalho que será exibido.'),
+        title=_(u'header_type',
+                default=u'Header type'),
+        description=_(u'header_type_description',
+                      default=u'Header type that will be shown.'),
         values=(u'H1',
                 u'H2',
                 u'H3',
@@ -46,49 +53,66 @@ class IVideoGalleryPortlet(IPortletDataProvider):
         required=True)
 
     show_active_title = schema.Bool(
-        title=_(u'Mostrar título ativo'),
-        description=_(u'Se habilitado mostra o título ativo.'),
+        title=_(u'show_active_title',
+                default=u'Show active title'),
+        description=_(u'show_active_title_description',
+                      default=u'If enabled, shows the active title.'),
         required=True,
         default=False)
 
     show_inactive_title = schema.Bool(
-        title=_(u'Mostrar título inativo'),
-        description=_(u'Se habilitado mostra o título inativo.'),
+        title=_(u'show_inactive_title',
+                default=u'Show inactive title'),
+        description=_(u'show_inactive_title_description',
+                      default=u'If enabled, shows the inactive title.'),
         required=True,
         default=False)
 
     show_description = schema.Bool(
-        title=_(u'Mostrar descrição'),
-        description=_(u'Se habilitado mostra a descrição.'),
+        title=_(u'show_description',
+                default=u'Show description'),
+        description=_(u'show_description_description',
+                      default=u'If enabled, shows the description.'),
         required=True,
         default=False)
 
     show_footer = schema.Bool(
-        title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado mostra o rodapé.'),
+        title=_(u'show_footer',
+                default=u'Show footer'),
+        description=_(u'show_footer_description',
+                      default=u'If enabled, shows the footer.'),
         required=True,
         default=False)
 
     footer = schema.TextLine(
-        title=_(u'Texto do rodapé'),
-        description=_(u'Texto do rodapé do portlet.'),
+        title=_(u'footer_text',
+                default=u'Footer text'),
+        description=_(u'footer_text_description',
+                      default=u'Portlet footer text.'),
         required=False)
 
     footer_url = schema.TextLine(
-        title=_(u'Link do rodapé'),
-        description=_(u'Link do rodapé do portlet.'),
+        title=_(u'footer_url',
+                default=u'Footer URL'),
+        description=_(u'footer_url_description',
+                      default=u'Portlet footer URL.'),
         required=False)
 
     limit = schema.Int(
-        title=_(u'Quantidade de itens a exibir'),
-        description=_(u'Informe o total de itens que devem ser exibidos no '
-                      u'portlet.'),
+        title=_(u'limit',
+                default=u'Number of items to show'),
+        description=_(u'limit_description',
+                      default=u'Total itens that should be displayed in ' +
+                              u'the portlet.'),
         required=True,
         default=6)
 
     collection = schema.Choice(
-        title=_(u'Coleção'),
-        description=_(u'Pesquisa a coleção utilizada no portlet.'),
+        title=_(u'collection',
+                default=u'Collection'),
+        description=_(u'collection_description',
+                      default=u'Searchs the collection that will be used ' +
+                              u'in the portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('Topic', 'Collection')},
@@ -100,7 +124,8 @@ class Assignment(base.Assignment):
     implements(IVideoGalleryPortlet)
 
     show_header = False
-    header = _(u'Portal Padrão Galeria de Vídeos')
+    header = _(u'title_portlet_videogallery',
+               default=u'Portal Padrao Video Gallery')
     header_type = u'H2'
     show_active_title = False
     show_inactive_title = False
@@ -113,7 +138,8 @@ class Assignment(base.Assignment):
 
     def __init__(self,
                  show_header=False,
-                 header=_(u'Portal Padrão Galeria de Vídeos'),
+                 header=_(u'title_portlet_videogallery',
+                          default=u'Portal Padrao Video Gallery'),
                  header_type=u'H2',
                  show_active_title=False,
                  show_inactive_title=False,
@@ -234,8 +260,9 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IVideoGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Galeria de Vídeos')
-    description = _(u'Este portlet mostra uma Galeria de Vídeos.')
+    label = _(u'Add Portlet Portal Padrao Video Gallery')
+    description = _(u'videogallery_portlet_description',
+                    default=u'This portlet shows a Video Gallery.')
 
     def create(self, data):
         return Assignment(**data)
@@ -246,5 +273,6 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IVideoGalleryPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Galeria de Vídeos')
-    description = _(u'Este portlet mostra uma Galeria de Vídeos.')
+    label = _(u'Edit Portlet Portal Padrao Video Gallery')
+    description = _(u'videogallery_portlet_description',
+                    default=u'This portlet shows a Video Gallery.')

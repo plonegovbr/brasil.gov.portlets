@@ -57,7 +57,7 @@ class CollectionPortletTestCase(unittest.TestCase):
         return getMultiAdapter((context, request, view, manager, assignment),
                                IPortletRenderer)
 
-    def _assigned_renderer(self, col, dateformat=u'curta: Data'):
+    def _assigned_renderer(self, col, showtime=False):
         assgmnt = collection.Assignment(
             header=u'Portal Padrão Coleção',
             header_url=u'http://www.plone.org',
@@ -69,7 +69,7 @@ class CollectionPortletTestCase(unittest.TestCase):
             footer_url=col['url'],
             limit=3,
             show_date=True,
-            date_format=dateformat,
+            show_time=showtime,
             collection=col['path']
         )
         r = self._renderer(context=self.portal,
@@ -125,7 +125,7 @@ class CollectionPortletTestCase(unittest.TestCase):
             'footer_url': self.news['url'],
             'limit': 2,
             'show_date': True,
-            'date_format': u'longa: Data/Hora',
+            'show_time': True,
             'collection': self.news['path']
         })
 
@@ -162,8 +162,8 @@ class CollectionPortletTestCase(unittest.TestCase):
         show_date = mapping.values()[0].show_date
         self.assertEqual(show_date, True)
 
-        date_format = mapping.values()[0].date_format
-        self.assertEqual(date_format, u'longa: Data/Hora')
+        show_time = mapping.values()[0].show_time
+        self.assertEqual(show_time, True)
 
         collection = mapping.values()[0].collection
         self.assertEqual(collection, self.news['path'])
@@ -260,7 +260,7 @@ class CollectionPortletTestCase(unittest.TestCase):
 
     def test_renderer_date(self):
         r1 = self._assigned_renderer(self.news)
-        r2 = self._assigned_renderer(self.events, dateformat=u'longa: Data/Hora')
+        r2 = self._assigned_renderer(self.events, showtime=True)
 
         dates = [r1.date(b.getObject()) for b in r1.results()]
         self.assertEqual(dates, ['01/05/2014', '02/05/2014', '03/05/2014'])

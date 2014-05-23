@@ -26,7 +26,9 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 def default_image_scale(context):
     image_scale = None
     properties_tool = getToolByName(context, 'portal_properties')
-    imagescales_properties = getattr(properties_tool, 'imaging_properties', None)
+    imagescales_properties = getattr(properties_tool,
+                                     'imaging_properties',
+                                     None)
     raw_scales = getattr(imagescales_properties, 'allowed_sizes', None)
     if (raw_scales):
         image_scale = raw_scales[0]
@@ -34,37 +36,48 @@ def default_image_scale(context):
 
 
 class ICollectionPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de coleção.
+    '''Portal Padrao: Collection Portlet.
     '''
 
     header = schema.TextLine(
-        title=_(u'Texto do título'),
-        description=_(u'Título do portlet.'),
+        title=_(u'title_text',
+                default=u'Title text'),
+        description=_(u'title_text_description',
+                      default=u'Portlet text of the title.'),
         required=True,
-        default=_(u'Portal Padrão Coleção'))
+        default=_(u'title_portlet_collection',
+                  default=u'Portal Padrao Collection'))
 
     header_url = schema.TextLine(
-        title=_(u'Link do título'),
-        description=_(u'Link do título do portlet.'),
+        title=_(u'title_url',
+                default=u'Title URL'),
+        description=_(u'title_url_description',
+                      default=u'Portlet title URL.'),
         required=False)
 
     show_image = schema.Bool(
-        title=_(u'Mostrar imagem'),
-        description=_(u'Se habilitado mostra a imagem.'),
+        title=_(u'show_image',
+                default=u'Show Image'),
+        description=_(u'show_image_description',
+                      default=u'If enabled, shows the image.'),
         required=True,
         default=False)
 
     image_size = schema.Choice(
-        title=_(u'Tamanho da imagem'),
-        description=_(u'Tamanho da imagem que será exibida.'),
+        title=_(u'image_size',
+                default=u'Image size'),
+        description=_(u'image_size_description',
+                      default=u'Image size that will be shown.'),
         vocabulary='brasil.image.scales',
         required=True,
         defaultFactory=default_image_scale
     )
 
     title_type = schema.Choice(
-        title=_(u'Tipo de título'),
-        description=_(u'Tipo de título que será exibido.'),
+        title=_(u'title_type',
+                default=u'Title type'),
+        description=_(u'title_type_description',
+                      default=u'Title type that will be shown.'),
         values=(u'H1',
                 u'H2',
                 u'H3',
@@ -74,47 +87,58 @@ class ICollectionPortlet(IPortletDataProvider):
     )
 
     show_footer = schema.Bool(
-        title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado mostra o rodapé.'),
+        title=_(u'show_footer',
+                default=u'Show footer'),
+        description=_(u'show_footer_description',
+                      default=u'If enabled, shows the footer.'),
         required=True,
         default=False)
 
     footer = schema.TextLine(
-        title=_(u'Texto do rodapé'),
-        description=_(u'Texto do rodapé do portlet.'),
+        title=_(u'footer_text',
+                default=u'Footer text'),
+        description=_(u'footer_text_description',
+                      default=u'Portlet footer text.'),
         required=False)
 
     footer_url = schema.TextLine(
-        title=_(u'Link do rodapé'),
-        description=_(u'Link do rodapé do portlet.'),
+        title=_(u'footer_url',
+                default=u'Footer URL'),
+        description=_(u'footer_url_description',
+                      default=u'Portlet footer URL.'),
         required=False)
 
     limit = schema.Int(
-        title=_(u'Quantidade de itens a exibir'),
-        description=_(u'Informe o total de itens que devem ser exibidos no '
-                      u'portlet.'),
+        title=_(u'limit',
+                default=u'Number of items to show'),
+        description=_(u'limit_description',
+                      default=u'Total itens that should be displayed in ' +
+                              u'the portlet.'),
         required=True,
         default=5)
 
     show_date = schema.Bool(
-        title=_(u'Mostrar datas'),
-        description=_(u'Se habilitado, mostra a data.'
-                      u'coleção.'),
+        title=_(u'show_date',
+                default=u'Show date'),
+        description=_(u'show_date_description',
+                      default=u'If enabled, shows the date.'),
         required=True,
         default=False)
 
-    date_format = schema.Choice(
-        title=_(u'Formato de data'),
-        description=_(u'Formato que a data será exibida.'),
-        values=(_(u'curta: Data'),
-                _(u'longa: Data/Hora')),
-        default=_(u'curta: Data'),
+    show_time = schema.Bool(
+        title=_(u'show_time',
+                default=u'Show time'),
+        description=_(u'show_time_description',
+                      default=u'If enabled, shows the time.'),
         required=True,
-    )
+        default=False)
 
     collection = schema.Choice(
-        title=_(u'Coleção'),
-        description=_(u'Pesquisa a coleção utilizada no portlet.'),
+        title=_(u'collection',
+                default=u'Collection'),
+        description=_(u'collection_description',
+                      default=u'Searchs the collection that will be used ' +
+                              u'in the portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('Topic', 'Collection')},
@@ -125,7 +149,8 @@ class Assignment(base.Assignment):
 
     implements(ICollectionPortlet)
 
-    header = u''
+    header = _(u'title_portlet_collection',
+               default=u'Portal Padrao Collection')
     header_url = u''
     show_image = False
     image_size = None
@@ -135,11 +160,12 @@ class Assignment(base.Assignment):
     footer_url = u''
     limit = 5
     show_date = False
-    date_format = _(u'curta: Data')
+    show_time = False
     collection = None
 
     def __init__(self,
-                 header=u'',
+                 header=_(u'title_portlet_collection',
+                          default=u'Portal Padrao Collection'),
                  header_url=u'',
                  show_image=False,
                  image_size=None,
@@ -149,7 +175,7 @@ class Assignment(base.Assignment):
                  footer_url=u'',
                  limit=5,
                  show_date=False,
-                 date_format=_(u'curta: Data'),
+                 show_time=False,
                  collection=None):
         self.header = header
         self.header_url = header_url
@@ -161,7 +187,7 @@ class Assignment(base.Assignment):
         self.footer_url = footer_url
         self.limit = limit
         self.show_date = show_date
-        self.date_format = date_format
+        self.show_time = show_time
         self.collection = collection
 
     @property
@@ -275,10 +301,10 @@ class Renderer(base.Renderer):
         if (item.portal_type in [u'Compromisso',
                                  u'Event']):
             dt = DateTime(item.start_date)
-        if (self.data.date_format == _(u'curta: Data')):
-            return dt.strftime('%d/%m/%Y')
-        else:
+        if self.data.show_time:
             return dt.strftime('%d/%m/%Y %H:%M')
+        else:
+            return dt.strftime('%d/%m/%Y')
 
 
 class AddForm(base.AddForm):
@@ -286,9 +312,10 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(ICollectionPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Coleção')
-    description = _(u'Este portlet mostra uma listagem de itens de uma '
-                    u'Coleção.')
+    label = _(u'Add Portlet Portal Padrao Collection')
+    description = _(u'collection_portlet_description',
+                    default=u'This portlet shows an item list of one ' +
+                            u'Collection')
 
     def create(self, data):
         return Assignment(**data)
@@ -299,6 +326,7 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(ICollectionPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Coleção')
-    description = _(u'Este portlet mostra uma listagem de itens de uma '
-                    u'Coleção.')
+    label = _(u'Edit Portlet Portal Padrao Collection')
+    description = _(u'collection_portlet_description',
+                    default=u'This portlet shows an item list of one ' +
+                            u'Collection')

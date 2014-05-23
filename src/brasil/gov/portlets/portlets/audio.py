@@ -17,18 +17,21 @@ from zope.interface import implements
 
 
 class IAudioPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de áudio.
+    '''Portal Padrao: Audio Portlet.
     '''
 
     header = schema.TextLine(
-        title=_(u'Texto do título'),
-        description=_(u'Texto do título do portlet.'),
+        title=_(u'title_text',
+                default=u'Title text'),
+        description=_(u'title_text_description',
+                      default=u'Portlet text of the title.'),
         required=True,
-        default=_(u'Portal Padrão Áudio'))
+        default=_(u'title_portlet_audio',
+                  default=u'Portal Padrao Audio'))
 
     audio = schema.Choice(
-        title=_(u'Áudio'),
-        description=_(u'Pesquisa o audio utilizado no portlet.'),
+        title=_(u'Audio'),
+        description=_(u'Search the audio used into the portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('Audio')},
@@ -39,11 +42,13 @@ class Assignment(base.Assignment):
 
     implements(IAudioPortlet)
 
-    header = u''
+    header = _(u'title_portlet_audio',
+               default=u'Portal Padrao Audio')
     audio = None
 
     def __init__(self,
-                 header=u'',
+                 header=_(u'title_portlet_audio',
+                          default=u'Portal Padrao Audio'),
                  audio=None):
         self.header = header
         self.audio = audio
@@ -128,8 +133,9 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IAudioPortlet)
     form_fields['audio'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Audio')
-    description = _(u'Este portlet mostra um Player de Áudio.')
+    label = _(u'Add Portlet Portal Padrao Audio')
+    description = _(u'audio_portlet_description',
+                    default=u'This portlet show an Audio Player.')
 
     def create(self, data):
         return Assignment(**data)
@@ -140,5 +146,6 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IAudioPortlet)
     form_fields['audio'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Audio')
-    description = _(u'Este portlet mostra um Player de Áudio.')
+    label = _(u'Edit Portlet Portal Padrao Audio')
+    description = _('audio_portlet_description',
+                    default=u'This portlet show an Audio Player.')
