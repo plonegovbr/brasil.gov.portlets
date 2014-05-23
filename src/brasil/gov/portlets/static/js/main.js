@@ -33,9 +33,9 @@ var portletsManager = {
             };
             var update_date = function() {
                 if ($('#form\\.show_date').is(':checked')) {
-                    $('#formfield-form-date_format').show();
+                    $('#formfield-form-show_time').show();
                 } else {
-                    $('#formfield-form-date_format').hide();
+                    $('#formfield-form-show_time').hide();
                 }
             }
             var insert_collection_warning = function() {

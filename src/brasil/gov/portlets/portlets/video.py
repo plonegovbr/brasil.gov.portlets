@@ -21,20 +21,25 @@ class IVideoPortlet(IPortletDataProvider):
     '''
 
     show_header = schema.Bool(
-        title=_(u'Mostrra título'),
-        description=_(u'Se habilitado mostra o título.'),
+        title=_(u'show_title',
+                default=u'Show title'),
+        description=_(u'show_title_description',
+                      default=u'If enabled, shows the title.'),
         required=True,
         default=False)
 
     header = schema.TextLine(
-        title=_(u'Texto do título'),
-        description=_(u'Texto do título do portlet.'),
+        title=_(u'title_text',
+                default=u'Title text'),
+        description=_(u'title_text_description',
+                      default=u'Portlet text of the title.'),
         required=True,
-        default=_(u'Portal Padrão Vídeo'))
+        default=_(u'title_portlet_video',
+                  default=u'Portal Padrão Video'))
 
     video = schema.Choice(
-        title=_(u'Vídeo'),
-        description=_(u'Pesquisa o vídeo utilizado no portlet.'),
+        title=_(u'Video'),
+        description=_(u'Search the video used into the portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('sc.embedder')},
@@ -46,12 +51,14 @@ class Assignment(base.Assignment):
     implements(IVideoPortlet)
 
     show_header = False
-    header = _(u'Portal Padrão Vídeo')
+    header = _(u'title_portlet_video',
+               default=u'Portal Padrão Video')
     video = None
 
     def __init__(self,
                  show_header=False,
-                 header=_(u'Portal Padrão Vídeo'),
+                 header=_(u'title_portlet_video',
+                          default=u'Portal Padrão Video'),
                  video=None):
         self.show_header = show_header
         self.header = header
@@ -107,8 +114,9 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IVideoPortlet)
     form_fields['video'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Vídeo')
-    description = _(u'Este portlet mostra um Player de Vídeo.')
+    label = _(u'Add Portlet Portal Padrao Video')
+    description = _('video_portlet_description',
+                    default=u'This portlet show a Video Player.')
 
     def create(self, data):
         return Assignment(**data)
@@ -119,5 +127,6 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IVideoPortlet)
     form_fields['video'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Vídeo')
-    description = _(u'Este portlet mostra um Player de Vídeo.')
+    label = _(u'Edit Portlet Portal Padrao Video')
+    description = _('video_portlet_description',
+                    default=u'This portlet show a Video Player.')
