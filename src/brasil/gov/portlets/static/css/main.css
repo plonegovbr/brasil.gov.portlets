@@ -46,10 +46,10 @@
 /* css responsivo */
 .portal-padrao-video-portlet .video-container {
     position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 35px;
-    height: 0;
     overflow: hidden;
+    padding-top: 35px;
+    padding-bottom: 56.25%;
+    height: 0;
 }
 
 .portal-padrao-video-portlet .video-container iframe {
