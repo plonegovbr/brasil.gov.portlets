@@ -237,7 +237,7 @@ class Renderer(base.Renderer):
                 results = collection.queryCatalog(**query)
             if limit and limit > 0:
                 results = results[:limit]
-        return results
+        return [b.getObject() for b in results]
 
     @memoize
     def collection(self):
@@ -288,7 +288,7 @@ class Renderer(base.Renderer):
             </a>
         </HX>
         '''
-        hx = getattr(E, self.data.title_type)()
+        hx = getattr(E, self.data.title_type)(E.CLASS('portlet-collection-title'))
         hx.append(
             E.A(item.Title().decode('utf-8'),
                 href=item.absolute_url(),
@@ -302,7 +302,7 @@ class Renderer(base.Renderer):
                                  u'Event']):
             dt = DateTime(item.start_date)
         if self.data.show_time:
-            return dt.strftime('%d/%m/%Y %H:%M')
+            return dt.strftime('%d/%m/%Y | %H:%M')
         else:
             return dt.strftime('%d/%m/%Y')
 

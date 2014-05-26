@@ -7,7 +7,7 @@
          i18n:domain="brasil.gov.portlets">
         <div id="portlet-mediacarousel-${portlet_id}"
              class="portal-padrao-mediacarousel-portlet">
-            <tal:results tal:define="results view/results|nothing">
+            <tal:results define="results view/results|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft"></span>
                     <tal:header condition="view/data/show_header">

@@ -3,7 +3,10 @@ Changelog
 
 0.1 (unreleased)
 ----------------
-* Frontend do portlet de video. (closes `#t_73`_). [felipeduardo]
+* Frontend do portlet de coleção. (closes `#t_58`_).
+  [rodfersou]
+* Frontend do portlet de video. (closes `#t_73`_).
+  [felipeduardo]
 * Revisão da tradução dos portlets. (closes `#t_74`_).
   [rodfersou]
 * Frontend do portlet de audio. (closes `#t_70`_).
@@ -32,6 +35,7 @@ Changelog
   [rodfersou]
 
 .. _`#t_56`: https://grupotv1.codebasehq.com/projects/secom/tickets/56
+.. _`#t_58`: https://grupotv1.codebasehq.com/projects/secom/tickets/58
 .. _`#t_59`: https://grupotv1.codebasehq.com/projects/secom/tickets/59
 .. _`#t_60`: https://grupotv1.codebasehq.com/projects/secom/tickets/60
 .. _`#t_62`: https://grupotv1.codebasehq.com/projects/secom/tickets/62

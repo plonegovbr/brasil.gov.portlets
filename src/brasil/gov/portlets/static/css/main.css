@@ -1,67 +1,81 @@
 ﻿/* ==========================================================================
-   Portlet de audio
+   Portlet Audio
    ========================================================================== */
-
-.portlet .portlet-audio-title {
+.portlet .portlet-audio-title
+{
     font-size: 13px;
-    font-size: 0.8125rem;
-    color: #454545;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 10px;
-    margin-bottom: 0.625rem;
+    font-size: .8125rem;
     font-weight: normal;
+
+    margin: 0;
+    margin-bottom: 10px;
+    margin-bottom: .625rem;
+    padding: 0;
+
+    color: #454545;
 }
 
-/* correcao de bug de largura no portlet lateral direito */
+/* fix bug in the width of right side portlet */
 
-#portal-column-one .jp-time-holder {
-    width: 70px;
+#portal-column-one .jp-time-holder
+{
     position: static;
-    clear: both;
+
     float: left;
+    clear: both;
+
+    width: 70px;
     margin-top: 17px;
     margin-left: -10px;
 }
 
 
 /* ==========================================================================
-   Portlet de galeria de audio
+   Portlet Audio Gallery
    ========================================================================== */
 
 
 
 /* ==========================================================================
-   Portlet de video
+   Portlet Video
    ========================================================================== */
-.portal-padrao-video-portlet .video-container {
+.portal-padrao-video-portlet .video-container
+{
     margin-bottom: 10px;
 }
 
-.portal-padrao-video-portlet .title {
-    font-size: 0.85em;
+.portal-padrao-video-portlet .title
+{
+    font-size: .85em;
+
     color: #454545;
 }
 
-/* css responsivo */
-.portal-padrao-video-portlet .video-container {
+/* responsive css */
+.portal-padrao-video-portlet .video-container
+{
     position: relative;
+
     overflow: hidden;
+
+    height: 0;
     padding-top: 35px;
     padding-bottom: 56.25%;
-    height: 0;
 }
 
-.portal-padrao-video-portlet .video-container iframe {
+.portal-padrao-video-portlet .video-container iframe
+{
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
 }
 
-/* Contraste */
-body.contraste .portal-padrao-video-portlet .title {
+/* Contrast */
+.contraste .portal-padrao-video-portlet .title
+{
     color: #fff;
 }
 
@@ -69,5 +83,140 @@ body.contraste .portal-padrao-video-portlet .title {
 
 
 /* ==========================================================================
-   Portlet de galeria de video
+   Portlet Video Gallery
    ========================================================================== */
+
+
+
+/* ==========================================================================
+   Portlet Collection
+   ========================================================================== */
+.portal-padrao-collection-portlet .portletHeader
+{
+    padding: .55em .9em;
+}
+
+.portal-padrao-collection-portlet .portletHeader a,
+.portal-padrao-collection-portlet .portletHeader a span
+{
+    font-family: open_sansbold, Arial, Helvetica, sans-serif;
+    font-size: .95em;
+    font-weight: normal;
+
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    color: #454545;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-item
+{
+    padding: 1em .52em;
+
+    border-bottom: 1px dotted #c1c2c2;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-image a
+{
+    float: none;
+
+    width: 100%;
+    margin: 0;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-image img
+{
+    width: 100%;
+
+    border-radius: 0;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-text
+{
+    padding: .6em .07em 0 .07em;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-date
+{
+    font-size: .7em;
+
+    margin: 0;
+
+    color: #335277;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-title
+{
+    margin-bottom: .36em;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-title a
+{
+    font-size: .65em;
+    line-height: 1.43em;
+
+    float: none;
+
+    width: 100%;
+    margin: 0;
+
+    color: #335277;
+}
+
+.portal-padrao-collection-portlet .portlet-collection-description
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .87em;
+    line-height: 1.32em;
+
+    margin: 0;
+
+    color: #46494e;
+}
+
+.portal-padrao-collection-portlet .portletFooter
+{
+    overflow: hidden;
+
+    padding: .71em .52em;
+
+    background: none;
+}
+
+.portal-padrao-collection-portlet .portletFooter a
+{
+    font-size: .7em;
+    line-height: 14px;
+
+    width: 100%;
+    padding-right: 1.4em;
+
+    color: #444a53;
+    background: url('++resource++brasil.gov.portlets/img/footer-arrow.png') no-repeat right 0;
+}
+
+/* contrast */
+.contraste .portletCollection
+{
+    border: 1px solid #fff;
+    background: #000 !important;
+}
+
+.contraste .portal-padrao-collection-portlet .portletHeader
+{
+    border-radius: 5px 5px 0 0;
+}
+
+.contraste .portal-padrao-collection-portlet .portletHeader a span,
+.contraste .portal-padrao-collection-portlet .portlet-collection-date,
+.contraste .portal-padrao-collection-portlet .portlet-collection-description
+{
+    color: #FFF !important;
+}
+
+.contraste .portal-padrao-collection-portlet .portletFooter a
+{
+    background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
+}

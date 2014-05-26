@@ -6,7 +6,7 @@
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
         <div class="portal-padrao-video-portlet">
-            <tal:video tal:define="video view/video|nothing">
+            <tal:video define="video view/video|nothing">
                 <div class="portletHeader">
                     <span class="portletTopLeft" />
                     <span class="portletTopRight" />
