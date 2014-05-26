@@ -19,29 +19,29 @@
                     </a>
                     <span class="portletTopRight"></span>
                 </div>
-                <div class="portletItem"
-                     tal:repeat="item results">
-                    <tal:items define="obj item/getObject;">
-                        <p class="portlet-collection-date"
-                           tal:condition="view/data/show_date">
-                            ${python:view.date(obj)}
-                        </p>
-                        <tal:image define="thumbnail python:view.thumbnail(obj);"
-                                   condition="python:view.data.show_image and thumbnail">
-                            <a tal:attributes="href obj/absolute_url;
-                                               title obj/Description">
-                                <img tal:attributes="src thumbnail/url;
-                                                     width thumbnail/width;
-                                                     height thumbnail/height;
-                                                     alt obj/Description|obj/Title" />
-                            </a>
-                        </tal:image>
-                        <tal:title content="structure python:view.title(obj)" />
-                        <p class="description">
-                            ${obj/Description}
-                        </p>
+                <div class="portletItem">
+                    <tal:items tal:repeat="item results">
+                        <div class="portlet-collection-item">
+                            <div class="portlet-collection-image"
+                                 tal:define="thumbnail python:view.thumbnail(item);"
+                                 tal:condition="python:view.data.show_image and thumbnail">
+                                <a href="${view/data/header_url}">
+                                    <img src="${thumbnail/url}"
+                                         alt="${item/Description|item/Title}" />
+                                </a>
+                            </div>
+                            <div class="portlet-collection-text">
+                                <p class="portlet-collection-date"
+                                   tal:condition="view/data/show_date">
+                                    ${python:view.date(item)}
+                                </p>
+                                <tal:title content="structure python:view.title(item)" />
+                                <p class="portlet-collection-description">
+                                    ${item/Description}
+                                </p>
+                            </div>
+                        </div>
                     </tal:items>
-                    <div class="visualClear"><!-- --></div>
                 </div>
                 <div class="portletFooter">
                     <a href="${view/data/footer_url}"
@@ -50,7 +50,6 @@
                         ${view/data/footer}
                     </a>
                 </div>
-                <div class="visualClear"><!-- --></div>
             </tal:results>
         </div>
     </div>
