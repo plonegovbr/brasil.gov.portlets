@@ -31,11 +31,11 @@
                                         <a href="${item/absolute_url}">
                                             <img src="${scale/src}" alt="${scale/alt}">
                                         </a>
-                                        <div class="portlet-collection-active-title"
+                                        <div class="portlet-videogallery-active-title"
                                               tal:condition="view/data/show_active_title">
                                             ${item/Title}
                                         </div>
-                                        <div class="portlet-collection-description"
+                                        <div class="portlet-videogallery-description"
                                              tal:condition="view/data/show_description">
                                             ${item/Description}
                                         </div>
@@ -48,11 +48,11 @@
                         <div class="pager cycle-pager">
                             <tal:items repeat="item results">
                                 <div class="thumb-itens"
-                                     data-slide-index="${python:repeat['item'].index}">
+                                     data-slide-index="${repeat/item/index}">
                                     <tal:image define="thumbnail python:view.thumbnail(item);"
                                                condition="thumbnail">
                                         <img src="${thumbnail/src}" alt="${thumbnail/alt}">
-                                        <div class="portlet-collection-inactivetitle"
+                                        <div class="portlet-videogallery-inactivetitle"
                                              tal:condition="view/data/show_inactive_title">
                                             ${item/Title}
                                         </div>
