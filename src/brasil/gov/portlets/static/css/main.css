@@ -80,12 +80,71 @@
 }
 
 
-
-
 /* ==========================================================================
    Portlet Video Gallery
    ========================================================================== */
+.portal-padrao-videogallery-portlet
+{
+    color: #fff;
+    border-radius: 5px;
+    background-color: #072d6d;
+}
 
+.portal-padrao-videogallery-portlet .portletHeader
+{
+    padding: .71em .65em .58em .65em;
+
+    border-bottom: 1px solid #305491;
+}
+
+.portal-padrao-videogallery-portlet h2,
+.portal-padrao-videogallery-portlet h3,
+.portal-padrao-videogallery-portlet h4,
+.portal-padrao-videogallery-portlet h5,
+.portal-padrao-videogallery-portlet h6
+{
+    font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+
+    text-transform: uppercase;
+
+    color: #fff;
+}
+
+.portal-padrao-videogallery-portlet .player
+{
+    padding: .58em .65em .9em .65em;
+
+    border-bottom: 1px solid #305491;
+}
+
+.portal-padrao-videogallery-portlet .cycle-slide-active a
+{
+    display: block;
+
+    margin-bottom: .9em;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-active-title
+{
+    font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
+    font-size: .95em;
+    line-height: 1.24em;
+
+    color: #d1e1ff;
+    margin-bottom: 0.3em;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-description
+{
+    color: #617cae;
+    font-size: 0.9em;
+    line-height: 1.16em;
+}
+
+.portal-padrao-videogallery-portlet .pager .cycle-pager-active
+{
+    display: none;
+}
 
 
 /* ==========================================================================
@@ -213,7 +272,7 @@
 .contraste .portal-padrao-collection-portlet .portlet-collection-date,
 .contraste .portal-padrao-collection-portlet .portlet-collection-description
 {
-    color: #FFF !important;
+    color: #fff !important;
 }
 
 .contraste .portal-padrao-collection-portlet .portletFooter a

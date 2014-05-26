@@ -189,6 +189,16 @@ var portlets = {
                 obj.layoutAdjustment($galeria, index);
             });
 
+            $('.cycle-pager .thumb-itens').click(function (e){
+                e.preventDefault();
+                var $thumbs = $(this).parent().parent();
+                var $galeria = $thumbs.parent().parent();
+                var $slideshows = $('.cycle-slideshow', $galeria);
+                var index = parseInt($(this).data('slide-index'));
+                $slideshows.cycle('goto', index);
+                obj.layoutAdjustment($galeria, index);
+            });
+
             // Adicionando navegação por teclado
             $(document.documentElement).keyup(function (event) {
                 if (event.keyCode == 37) {
@@ -217,11 +227,11 @@ var portlets = {
         novaaltura = $(elem).height();
         alturaimagem = $('.cycle-sentinel img', $galeria).height();
         larguracarosel = ($('.carousel', $galeria).width() -
-                          (36 * 2));             
+                          (36 * 2));
 
         $('.cycle-sentinel', $galeria).height(novaaltura);
         $('.cycle-hover', $galeria).height(alturaimagem);
-        $('.cycle-carrossel', $galeria).width(larguracarosel); 
+        $('.cycle-carrossel', $galeria).width(larguracarosel);
     },
 };
 
