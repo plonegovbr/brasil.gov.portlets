@@ -194,5 +194,29 @@
     padding-right: 1.4em;
 
     color: #444a53;
-    background: url('++resource++brasil.gov.tiles/footer-arrow.png') no-repeat scroll right 0 rgba(0, 0, 0, 0);
+    background: url('++resource++brasil.gov.portlets/img/footer-arrow.png') no-repeat right 0;
+}
+
+/* contrast */
+.contraste .portletCollection
+{
+    border: 1px solid #fff;
+    background: #000 !important;
+}
+
+.contraste .portal-padrao-collection-portlet .portletHeader
+{
+    border-radius: 5px 5px 0 0;
+}
+
+.contraste .portal-padrao-collection-portlet .portletHeader a span,
+.contraste .portal-padrao-collection-portlet .portlet-collection-date,
+.contraste .portal-padrao-collection-portlet .portlet-collection-description
+{
+    color: #FFF !important;
+}
+
+.contraste .portal-padrao-collection-portlet .portletFooter a
+{
+    background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
 }
