@@ -23,23 +23,21 @@
                                  data-cycle-timeout="0"
                                  data-allow-wrap="false"
                                  data-cycle-fx="fade"
+                                 data-cycle-youtube="true"
                                  data-cycle-pager="#portlet-videogallery-${portlet_id} .pager"
                                  data-cycle-pager-template="">
                                 <div tal:repeat="item results">
-                                    <tal:image define="scale python:view.scale(item);"
-                                               condition="scale">
-                                        <a href="${item/absolute_url}">
-                                            <img src="${scale/src}" alt="${scale/alt}">
-                                        </a>
-                                        <div class="portlet-videogallery-active-title"
-                                              tal:condition="view/data/show_active_title">
-                                            ${item/Title}
-                                        </div>
-                                        <div class="portlet-videogallery-description"
-                                             tal:condition="view/data/show_description">
-                                            ${item/Description}
-                                        </div>
-                                    </tal:image>
+                                    <div class="portlet-videogallery-player"
+                                         tal:content="structure item/embed_html">
+                                    </div>
+                                    <div class="portlet-videogallery-active-title"
+                                          tal:condition="view/data/show_active_title">
+                                        ${item/Title}
+                                    </div>
+                                    <div class="portlet-videogallery-description"
+                                         tal:condition="view/data/show_description">
+                                        ${item/Description}
+                                    </div>
                                 </div>
                             </div><!-- cycle-1 -->
                         </div><!-- player -->

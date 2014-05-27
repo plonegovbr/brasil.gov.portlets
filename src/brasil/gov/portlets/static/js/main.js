@@ -152,6 +152,7 @@ var portlets = {
     init: function() {
         this.audiogallery();
         this.audio();
+        this.videogallery();
         this.cycle2();
     },
     audiogallery: function() {
@@ -164,6 +165,17 @@ var portlets = {
             var playerid = $('#'+this.id+' .jp-jplayer')[0].id;
             var containerid = $('#'+this.id+' .jp-audio')[0].id;
             $('#'+playerid).audio_player({'cssSelectorAncestor':'#'+containerid});
+        });
+    },
+    videogallery: function() {
+        $('.portal-padrao-videogallery-portlet').each(function(){
+            var $portlet = $(this);
+            $('.portlet-videogallery-player', $portlet).each(function() {
+                var $container = $(this);
+                var $player = $('iframe', $container);
+                $player.width($container.width());
+                $player.height(parseInt($container.width() * 10 / 16));
+            });
         });
     },
     cycle2: function() {

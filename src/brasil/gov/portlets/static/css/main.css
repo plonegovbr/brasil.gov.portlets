@@ -100,6 +100,10 @@
     border-bottom: 1px solid #305491;
 }
 
+#portal-column-one .portal-padrao-videogallery-portlet .portletHeader {
+    padding: 0.58em .52em .58em 0.52em;
+}
+
 .portal-padrao-videogallery-portlet .portletHeader h2,
 .portal-padrao-videogallery-portlet .portletHeader h3,
 .portal-padrao-videogallery-portlet .portletHeader h4,
@@ -120,11 +124,22 @@
     border-bottom: 1px solid #305491;
 }
 
+#portal-column-one .portal-padrao-videogallery-portlet .player
+{
+    padding: .58em 0 .9em 0;
+}
+
 .portal-padrao-videogallery-portlet .cycle-slide-active a
 {
     display: block;
 
     margin-bottom: .9em;
+}
+
+/* responsive css */
+.portal-padrao-videogallery-portlet .portlet-videogallery-player
+{
+    width: 100%;
 }
 
 .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
@@ -133,6 +148,9 @@
     font-size: .95em;
     line-height: 1.24em;
 
+    overflow: hidden;
+
+    height: 2.48em;
     margin-bottom: .3em;
 
     color: #d1e1ff;
@@ -190,6 +208,7 @@
 
     background: #062457;
 }
+
 .portal-padrao-videogallery-portlet .portletFooter a
 {
     font-size: .73em;
@@ -205,6 +224,13 @@
     color: #d1e1ff;
     background: url('++resource++brasil.gov.tiles/footer-arrow.jpg') no-repeat scroll right 0 top 50% rgba(0, 0, 0, 0);
 }
+
+#portal-column-one .portal-padrao-videogallery-portlet .portletFooter a
+{
+    margin: 0 .62em;
+    padding-right: 26px;
+}
+
 
 /* ==========================================================================
    Portlet Collection
