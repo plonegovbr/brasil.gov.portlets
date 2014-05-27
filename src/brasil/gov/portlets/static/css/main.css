@@ -329,6 +329,11 @@
     border-bottom: 1px dotted #c1c2c2;
 }
 
+.portal-padrao-collection-portlet .portlet-collection-image
+{
+    margin-bottom: .6em;
+}
+
 .portal-padrao-collection-portlet .portlet-collection-image a
 {
     float: none;
@@ -346,7 +351,7 @@
 
 .portal-padrao-collection-portlet .portlet-collection-text
 {
-    padding: .6em .07em 0 .07em;
+    padding: 0 .07em;
 }
 
 .portal-padrao-collection-portlet .portlet-collection-date
