@@ -52,7 +52,7 @@
                                         <div class="portlet-videogallery-thumbnail">
                                             <img src="${thumbnail/src}" alt="${thumbnail/alt}">
                                         </div>
-                                        <div class="portlet-videogallery-inactivetitle"
+                                        <div class="portlet-videogallery-inactive-title"
                                              tal:condition="view/data/show_inactive_title">
                                             ${item/Title}
                                         </div>
