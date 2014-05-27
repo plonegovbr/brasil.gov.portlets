@@ -49,7 +49,9 @@
                                      data-slide-index="${repeat/item/index}">
                                     <tal:image define="thumbnail python:view.thumbnail(item);"
                                                condition="thumbnail">
-                                        <img src="${thumbnail/src}" alt="${thumbnail/alt}">
+                                        <div class="portlet-videogallery-thumbnail">
+                                            <img src="${thumbnail/src}" alt="${thumbnail/alt}">
+                                        </div>
                                         <div class="portlet-videogallery-inactivetitle"
                                              tal:condition="view/data/show_inactive_title">
                                             ${item/Title}

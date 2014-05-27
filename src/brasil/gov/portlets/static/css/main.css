@@ -100,17 +100,15 @@
     border-bottom: 1px solid #305491;
 }
 
-#portal-column-one .portal-padrao-videogallery-portlet .portletHeader {
-    padding: 0.58em .52em .58em 0.52em;
+#portal-column-one .portal-padrao-videogallery-portlet .portletHeader
+{
+    padding: .58em .52em .58em .52em;
 }
 
-.portal-padrao-videogallery-portlet .portletHeader h2,
-.portal-padrao-videogallery-portlet .portletHeader h3,
-.portal-padrao-videogallery-portlet .portletHeader h4,
-.portal-padrao-videogallery-portlet .portletHeader h5,
-.portal-padrao-videogallery-portlet .portletHeader h6
+.portal-padrao-videogallery-portlet .portlet-videogallery-header
 {
     font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+    line-height: 1.3em;
 
     text-transform: uppercase;
 
@@ -126,20 +124,19 @@
 
 #portal-column-one .portal-padrao-videogallery-portlet .player
 {
-    padding: .58em 0 .9em 0;
+    padding: .58em 0 .5em 0;
 }
 
-.portal-padrao-videogallery-portlet .cycle-slide-active a
-{
-    display: block;
-
-    margin-bottom: .9em;
-}
-
-/* responsive css */
 .portal-padrao-videogallery-portlet .portlet-videogallery-player
 {
     width: 100%;
+    margin-bottom: .9em;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-player
+{
+    margin-bottom: .35em;
+    padding: 0 .45em;
 }
 
 .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
@@ -156,12 +153,29 @@
     color: #d1e1ff;
 }
 
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
+{
+    font-size: .73em;
+    line-height: 1.22em;
+
+    height: inherit;
+    margin-bottom: .5em;
+    padding: 0 .71em .95em .71em;
+
+    border-bottom: 1px dotted #305491;
+}
+
 .portal-padrao-videogallery-portlet .portlet-videogallery-description
 {
     font-size: .9em;
     line-height: 1.16em;
 
     color: #617cae;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-description
+{
+    padding: 0 .72em;
 }
 
 .portal-padrao-videogallery-portlet .cycle-pager-active
@@ -177,14 +191,28 @@
     padding: .65em 0;
 
     border-bottom: 1px dotted #305491;
+    margin-bottom: 1px;
 }
 
-.portal-padrao-videogallery-portlet .thumb-itens img
+.portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail
 {
     float: left;
+    overflow: hidden;
 
+    max-width: 100px;
+    max-height: 70px;
     margin: 0 .7em 0 .9em;
+}
 
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail
+{
+    max-width: 43%;
+    max-height: 75px;
+    margin: 0 .45em 0 .71em;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail img
+{
     border-radius: 0;
 }
 
@@ -195,6 +223,12 @@
     padding-right: .9em;
 
     color: #d1e1ff;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-inactivetitle
+{
+    overflow: hidden;
+    height: 5.7em;
 }
 
 .portal-padrao-videogallery-portlet .portletFooter
@@ -227,7 +261,7 @@
 
 #portal-column-one .portal-padrao-videogallery-portlet .portletFooter a
 {
-    margin: 0 .62em;
+    margin: 0 .5em;
     padding-right: 26px;
 }
 

@@ -173,8 +173,10 @@ var portlets = {
             $('.portlet-videogallery-player', $portlet).each(function() {
                 var $container = $(this);
                 var $player = $('iframe', $container);
-                $player.width($container.width());
-                $player.height(parseInt($container.width() * 10 / 16));
+                var width = parseInt($container.width()) - (parseInt($container.css('padding-left')) * 2);
+                var height = parseInt(width * 10 / 16);
+                $player.width(width);
+                $player.height(height);
             });
         });
     },

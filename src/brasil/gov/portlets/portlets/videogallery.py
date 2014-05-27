@@ -233,7 +233,8 @@ class Renderer(base.Renderer):
             ${Header}
         </HX>
         '''
-        hx = getattr(E, self.data.header_type)(self.data.header)
+        hx = getattr(E, self.data.header_type)(E.CLASS('portlet-videogallery-header'),
+                                               self.data.header)
         return html.tostring(hx)
 
     def thumbnail(self, item):
