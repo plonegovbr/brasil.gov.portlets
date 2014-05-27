@@ -155,10 +155,10 @@
     float: left;
 
     width: 100%;
+    margin-bottom: 1px;
     padding: .65em 0;
 
     border-bottom: 1px dotted #305491;
-    margin-bottom: 1px;
 }
 
 .portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail
@@ -257,6 +257,7 @@
 #portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-inactive-title
 {
     overflow: hidden;
+
     height: 5.7em;
 }
 
@@ -287,12 +288,14 @@
     border-bottom: 1px dotted #fff;
 }
 
-.contraste .portal-padrao-videogallery-portlet .portletFooter {
+.contraste .portal-padrao-videogallery-portlet .portletFooter
+{
     background: #000;
 }
 
-.contraste .portal-padrao-videogallery-portlet .portletFooter a {
-    background-image: url("++resource++brasil.gov.portlets/img/seta_branca.png");
+.contraste .portal-padrao-videogallery-portlet .portletFooter a
+{
+    background-image: url('++resource++brasil.gov.portlets/img/seta_branca.png');
 }
 
 
