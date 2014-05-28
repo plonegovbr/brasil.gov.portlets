@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Portlet Audio
    ========================================================================== */
 .portlet .portlet-audio-title
@@ -80,12 +80,223 @@
 }
 
 
-
-
 /* ==========================================================================
    Portlet Video Gallery
    ========================================================================== */
+.portal-padrao-videogallery-portlet
+{
+    overflow: hidden;
 
+    color: #fff;
+    border: 1px solid #072d6d;
+    border-radius: 5px;
+    background-color: #072d6d;
+}
+
+.portal-padrao-videogallery-portlet .portletHeader
+{
+    padding: .71em .65em .58em .65em;
+
+    border-bottom: 1px solid #305491;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-header
+{
+    font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+    line-height: 1.3em;
+
+    text-transform: uppercase;
+
+    color: #fff;
+}
+
+.portal-padrao-videogallery-portlet .player
+{
+    padding: .58em .65em .9em .65em;
+
+    border-bottom: 1px solid #305491;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-player
+{
+    width: 100%;
+    margin-bottom: .9em;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-active-title
+{
+    font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
+    font-size: .95em;
+    line-height: 1.24em;
+
+    overflow: hidden;
+
+    height: 2.48em;
+    margin-bottom: .3em;
+
+    color: #d1e1ff;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-description
+{
+    font-size: .9em;
+    line-height: 1.16em;
+
+    color: #617cae;
+}
+
+.portal-padrao-videogallery-portlet .cycle-pager-active
+{
+    display: none;
+}
+
+.portal-padrao-videogallery-portlet .thumb-itens
+{
+    float: left;
+
+    width: 100%;
+    margin-bottom: 1px;
+    padding: .65em 0;
+
+    border-bottom: 1px dotted #305491;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail
+{
+    float: left;
+    overflow: hidden;
+
+    max-width: 100px;
+    max-height: 70px;
+    margin: 0 .7em 0 .9em;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail img
+{
+    border-radius: 0;
+}
+
+.portal-padrao-videogallery-portlet .portlet-videogallery-inactive-title
+{
+    font-size: .75em;
+
+    padding-right: .9em;
+
+    color: #d1e1ff;
+}
+
+.portal-padrao-videogallery-portlet .portletFooter
+{
+    float: left;
+
+    width: 100%;
+    padding: .52em 0 .39em 0;
+
+    text-align: right;
+
+    background: #062457;
+}
+
+.portal-padrao-videogallery-portlet .portletFooter a
+{
+    font-size: .73em;
+    line-height: 20px;
+
+    display: inline-block;
+
+    height: 20px;
+    height: 100%;
+    margin: 0 .71em;
+    padding-right: 28px;
+
+    color: #d1e1ff;
+    background: url('++resource++brasil.gov.portlets/img/footer-arrow.jpg') no-repeat scroll right 0 top 50% rgba(0, 0, 0, 0);
+}
+
+/* right portlet */
+#portal-column-one .portal-padrao-videogallery-portlet .portletHeader
+{
+    padding: .58em .52em .58em .52em;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .player
+{
+    padding: .58em 0 .5em 0;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-player
+{
+    margin-bottom: .35em;
+    padding: 0 .45em;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
+{
+    font-size: .73em;
+    line-height: 1.22em;
+
+    height: inherit;
+    margin-bottom: .5em;
+    padding: 0 .71em .95em .71em;
+
+    border-bottom: 1px dotted #305491;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-description
+{
+    padding: 0 .72em;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-thumbnail
+{
+    max-width: 43%;
+    max-height: 75px;
+    margin: 0 .45em 0 .71em;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-inactive-title
+{
+    overflow: hidden;
+
+    height: 5.7em;
+}
+
+#portal-column-one .portal-padrao-videogallery-portlet .portletFooter a
+{
+    margin: 0 .5em;
+    padding-right: 26px;
+}
+
+/* contrast */
+.contraste .portal-padrao-videogallery-portlet
+{
+    border: 1px solid #fff;
+    background: #000 !important;
+}
+
+.contraste .portal-padrao-videogallery-portlet .portlet-videogallery-active-title,
+.contraste .portal-padrao-videogallery-portlet .portlet-videogallery-description,
+.contraste .portal-padrao-videogallery-portlet .portlet-videogallery-inactive-title
+{
+    color: #fff !important;
+}
+
+.contraste .portal-padrao-videogallery-portlet .thumb-itens,
+.contraste .portal-padrao-videogallery-portlet .player,
+.contraste #portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
+{
+    border-bottom: 1px dotted #fff;
+}
+
+.contraste .portal-padrao-videogallery-portlet .portletFooter
+{
+    background: #000;
+}
+
+.contraste .portal-padrao-videogallery-portlet .portletFooter a
+{
+    background-image: url('++resource++brasil.gov.portlets/img/seta_branca.png');
+}
 
 
 /* ==========================================================================
@@ -218,7 +429,7 @@
 .contraste .portal-padrao-collection-portlet .portlet-collection-date,
 .contraste .portal-padrao-collection-portlet .portlet-collection-description
 {
-    color: #FFF !important;
+    color: #fff !important;
 }
 
 .contraste .portal-padrao-collection-portlet .portletFooter a

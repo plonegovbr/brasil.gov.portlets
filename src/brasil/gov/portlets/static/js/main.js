@@ -152,6 +152,7 @@ var portlets = {
     init: function() {
         this.audiogallery();
         this.audio();
+        this.videogallery();
         this.cycle2();
     },
     audiogallery: function() {
@@ -164,6 +165,19 @@ var portlets = {
             var playerid = $('#'+this.id+' .jp-jplayer')[0].id;
             var containerid = $('#'+this.id+' .jp-audio')[0].id;
             $('#'+playerid).audio_player({'cssSelectorAncestor':'#'+containerid});
+        });
+    },
+    videogallery: function() {
+        $('.portal-padrao-videogallery-portlet').each(function(){
+            var $portlet = $(this);
+            $('.portlet-videogallery-player', $portlet).each(function() {
+                var $container = $(this);
+                var $player = $('iframe', $container);
+                var width = parseInt($container.width()) - (parseInt($container.css('padding-left')) * 2);
+                var height = parseInt(width * 10 / 16);
+                $player.width(width);
+                $player.height(height);
+            });
         });
     },
     cycle2: function() {
@@ -185,6 +199,16 @@ var portlets = {
                 var $galeria = $thumbs.parent().parent();
                 var $slideshows = $('.cycle-slideshow', $galeria);
                 var index = $thumbs.data('cycle.API').getSlideIndex(this);
+                $slideshows.cycle('goto', index);
+                obj.layoutAdjustment($galeria, index);
+            });
+
+            $('.cycle-pager .thumb-itens').click(function (e){
+                e.preventDefault();
+                var $thumbs = $(this).parent().parent();
+                var $galeria = $thumbs.parent().parent();
+                var $slideshows = $('.cycle-slideshow', $galeria);
+                var index = parseInt($(this).data('slide-index'));
                 $slideshows.cycle('goto', index);
                 obj.layoutAdjustment($galeria, index);
             });
@@ -217,11 +241,11 @@ var portlets = {
         novaaltura = $(elem).height();
         alturaimagem = $('.cycle-sentinel img', $galeria).height();
         larguracarosel = ($('.carousel', $galeria).width() -
-                          (36 * 2));             
+                          (36 * 2));
 
         $('.cycle-sentinel', $galeria).height(novaaltura);
         $('.cycle-hover', $galeria).height(alturaimagem);
-        $('.cycle-carrossel', $galeria).width(larguracarosel); 
+        $('.cycle-carrossel', $galeria).width(larguracarosel);
     },
 };
 
