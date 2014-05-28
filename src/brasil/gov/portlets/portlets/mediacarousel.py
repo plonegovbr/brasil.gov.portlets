@@ -235,7 +235,7 @@ class Renderer(base.Renderer):
     def thumbnail(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            thumb = scales.scale('image', width=80, height=60)
+            thumb = scales.scale('image', width=45, height=36)
             return {
                 'src': thumb.url,
                 'alt': item.Description(),
@@ -244,7 +244,7 @@ class Renderer(base.Renderer):
     def scale(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            thumb = scales.scale('image', width=692, height=433)
+            thumb = scales.scale('image', width=242, height=166)
             return {
                 'src': thumb.url,
                 'alt': item.Description(),

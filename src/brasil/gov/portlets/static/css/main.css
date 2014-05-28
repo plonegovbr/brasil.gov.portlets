@@ -436,3 +436,68 @@
 {
     background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
 }
+
+/* ==========================================================================
+   Portlet Mediacarousel
+   ========================================================================== */
+.portal-padrao-mediacarousel-portlet
+{
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    background-color: #edeff1;
+}
+
+.portal-padrao-mediacarousel-portlet .portletHeader
+{
+    padding: .65em .6em 0 .6em;
+}
+
+.portal-padrao-mediacarousel-portlet .portletHeader h4
+{
+    font-size: .87em;
+
+    margin-bottom: .8em;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-player a
+{
+    padding: 0 .33em;
+}
+
+.portletMediaCarousel .portal-padrao-mediacarousel-portlet img
+{
+    margin-bottom: .5em;
+
+    border-radius: 0;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-title
+{
+    font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
+    font-size: .78em;
+
+    margin: 0 .5em .3em .5em;
+
+    color: #454545;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-description
+{
+    font-size: .8em;
+    line-height: 1.2em;
+
+    margin: 0 .5em .4em .5em;
+
+    color: #454545;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-rights
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .7em;
+    font-style: italic;
+
+    margin: 0 .5em;
+
+    color: #000;
+}
