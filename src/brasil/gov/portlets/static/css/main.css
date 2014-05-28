@@ -459,6 +459,11 @@
     margin-bottom: .8em;
 }
 
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-player
+{
+    position: relative;
+}
+
 .portal-padrao-mediacarousel-portlet .cycle-player a
 {
     padding: 0 .33em;
@@ -500,4 +505,68 @@
     margin: 0 .5em;
 
     color: #000;
+}
+
+.portal-padrao-mediacarousel-portlet  .portlet-mediacarousel-player .cycle-hover
+{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+
+    float: left;
+    overflow: hidden;
+
+    width: 100%;
+}
+
+.portal-padrao-mediacarousel-portlet  .portlet-mediacarousel-player .cycle-hover a
+{
+    position: absolute;
+    z-index: 100;
+    top: 41%;
+
+    display: none;
+    overflow: hidden;
+
+    width: 62px;
+    height: 62px;
+    margin-top: -20px;
+
+    white-space: nowrap;
+    text-indent: 100%;
+
+    background-image: url('++resource++brasil.gov.portlets/img/classic-map.png');
+    background-repeat: no-repeat;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-prev,
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-next
+{
+    display: block;
+
+    opacity: .5;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-prev:hover
+{
+    opacity: 1;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-next:hover
+{
+    opacity: 1;
+}
+
+.portal-padrao-mediacarousel-portlet  .portlet-mediacarousel-player .cycle-prev
+{
+    left: -10px;
+
+    background-position: 20px 16px;
+}
+
+.portal-padrao-mediacarousel-portlet  .portlet-mediacarousel-player .cycle-next
+{
+    right: -12px;
+
+    background-position: -276px 16px;
 }
