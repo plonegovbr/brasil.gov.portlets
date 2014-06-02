@@ -589,6 +589,21 @@ a.jp-shuffle-off:hover
     background: url('++resource++brasil.gov.portlets/img/footer-arrow.png') no-repeat scroll right 0 top 50% rgba(0, 0, 0, 0);
 }
 
+/* right side */
+#portal-column-one .portal-padrao-audiogallery-portlet .audiogallery-player-container {
+padding: .7em 0.65em;
+}
+
+#portal-column-one .portal-padrao-audiogallery-portlet .audiogallery-item-title {
+padding: .2em .25em 0 .25em;
+}
+
+#portal-column-one .portal-padrao-audiogallery-portlet .audiogallery-items-container .audiogallery-item {
+margin: 0 1.2em;
+padding-left: 22px;
+}
+
+
 /* ==========================================================================
    Portlet Video
    ========================================================================== */
