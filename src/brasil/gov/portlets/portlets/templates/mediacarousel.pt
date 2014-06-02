@@ -81,7 +81,6 @@
                          class="no-albums">
                         Selecione uma coleção para o portlet.
                     </div>
-                    <div class="visualClear"><!-- --></div>
                 </div>
                 <div class="portletFooter">
                     <a href="${view/data/footer_url}"
@@ -90,7 +89,6 @@
                         ${view/data/footer}
                     </a>
                 </div>
-                <div class="visualClear"><!-- --></div>
             </tal:results>
         </div>
     </div>
