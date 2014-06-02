@@ -5,7 +5,7 @@
     <div class="portlet portletAudioGallery"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
-        <div id="audiogallery-${portlet_id}"
+        <div id="portlet-audiogallery-${portlet_id}"
              class="portal-padrao-audiogallery-portlet">
             <tal:results define="results view/results|nothing">
                 <div tal:condition="not:results">
@@ -99,7 +99,6 @@
                             </tal:loop>
                         </ul>
                     </div>
-                    <div class="visualClear"><!-- --></div>
                 </div>
                 <div class="portletFooter">
                     <a href="${view/data/footer_url}"
@@ -108,7 +107,6 @@
                         ${view/data/footer}
                     </a>
                 </div>
-                <div class="visualClear"><!-- --></div>
             </tal:results>
         </div>
     </div>
