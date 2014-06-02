@@ -3,6 +3,8 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* Frontend do portlet de mediacarousel. (closes `#t_61`_).
+  [rodfersou]
 * Frontend do portlet de videogallery. (closes `#t_64`_).
   [rodfersou]
 * Frontend do portlet de coleção. (closes `#t_58`_).
@@ -40,6 +42,7 @@ Changelog
 .. _`#t_58`: https://grupotv1.codebasehq.com/projects/secom/tickets/58
 .. _`#t_59`: https://grupotv1.codebasehq.com/projects/secom/tickets/59
 .. _`#t_60`: https://grupotv1.codebasehq.com/projects/secom/tickets/60
+.. _`#t_61`: https://grupotv1.codebasehq.com/projects/secom/tickets/61
 .. _`#t_62`: https://grupotv1.codebasehq.com/projects/secom/tickets/62
 .. _`#t_63`: https://grupotv1.codebasehq.com/projects/secom/tickets/63
 .. _`#t_64`: https://grupotv1.codebasehq.com/projects/secom/tickets/64

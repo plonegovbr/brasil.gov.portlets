@@ -17,13 +17,13 @@
                 </div>
                 <div class="portletItem">
                     <tal:player condition="results">
-                        <div class="player">
+                        <div class="portlet-mediacarousel-player">
                             <div class="cycle-player cycle-slideshow"
                                  data-cycle-slides="> div"
                                  data-cycle-timeout="0"
                                  data-allow-wrap="false"
-                                 data-cycle-prev="#portlet-mediacarousel-${portlet_id} .player .cycle-prev"
-                                 data-cycle-next="#portlet-mediacarousel-${portlet_id} .player .cycle-next"
+                                 data-cycle-prev="#portlet-mediacarousel-${portlet_id} .portlet-mediacarousel-player .cycle-prev"
+                                 data-cycle-next="#portlet-mediacarousel-${portlet_id} .portlet-mediacarousel-player .cycle-next"
                                  data-cycle-fx="fade">
                                 <div tal:repeat="item results">
                                     <tal:image define="scale python:view.scale(item);"
@@ -31,15 +31,15 @@
                                         <a href="${item/absolute_url}">
                                             <img src="${scale/src}" alt="${scale/alt}">
                                         </a>
-                                        <div class="title"
+                                        <div class="portlet-mediacarousel-title"
                                              tal:condition="view/data/show_title">
                                             ${item/Title}
                                         </div>
-                                        <div class="description"
+                                        <div class="portlet-mediacarousel-description"
                                              tal:condition="view/data/show_description">
                                             ${item/Description}
                                         </div>
-                                        <div class="rights"
+                                        <div class="portlet-mediacarousel-rights"
                                              tal:condition="view/data/show_rights">
                                             ${item/Rights}
                                         </div>
@@ -53,14 +53,14 @@
                         </div><!-- player -->
                     </tal:player>
                     <tal:carrossel condition="results">
-                        <div class="carousel">
+                        <div class="portlet-mediacarousel-carousel">
                             <div class="cycle-carrossel cycle-slideshow"
                                  data-cycle-slides="> div"
                                  data-cycle-timeout="0"
                                  data-cycle-fx="carousel"
                                  data-cycle-carousel-fluid="true"
-                                 data-cycle-prev="#portlet-mediacarousel-${portlet_id} .carousel .cycle-prev"
-                                 data-cycle-next="#portlet-mediacarousel-${portlet_id} .carousel .cycle-next"
+                                 data-cycle-prev="#portlet-mediacarousel-${portlet_id} .portlet-mediacarousel-carousel .cycle-prev"
+                                 data-cycle-next="#portlet-mediacarousel-${portlet_id} .portlet-mediacarousel-carousel .cycle-next"
                                  data-allow-wrap="false">
                                 <div class="thumb-itens" tal:repeat="item results">
                                     <tal:image define="thumbnail python:view.thumbnail(item);"
@@ -81,7 +81,6 @@
                          class="no-albums">
                         Selecione uma coleção para o portlet.
                     </div>
-                    <div class="visualClear"><!-- --></div>
                 </div>
                 <div class="portletFooter">
                     <a href="${view/data/footer_url}"
@@ -90,7 +89,6 @@
                         ${view/data/footer}
                     </a>
                 </div>
-                <div class="visualClear"><!-- --></div>
             </tal:results>
         </div>
     </div>

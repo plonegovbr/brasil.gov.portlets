@@ -436,3 +436,274 @@
 {
     background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
 }
+
+/* ==========================================================================
+   Portlet Mediacarousel
+   ========================================================================== */
+.portal-padrao-mediacarousel-portlet
+{
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    background-color: #edeff1;
+    overflow: hidden;
+}
+
+.portal-padrao-mediacarousel-portlet .portletHeader
+{
+    padding: .65em .6em 0 .6em;
+}
+
+.portal-padrao-mediacarousel-portlet .portletHeader h4
+{
+    font-size: .87em;
+
+    margin-bottom: .8em;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-player
+{
+    position: relative;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-player a
+{
+    padding: 0 .33em;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-player img
+{
+    margin-bottom: .5em;
+
+    border-radius: 0;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-title
+{
+    font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
+    font-size: .78em;
+
+    margin: 0 .5em .3em .5em;
+
+    color: #454545;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-description
+{
+    font-size: .8em;
+    line-height: 1.2em;
+
+    margin: 0 .5em .4em .5em;
+
+    color: #454545;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-rights
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .7em;
+    font-style: italic;
+
+    margin: 0 .5em .65em .5em;
+
+    color: #000;
+}
+
+.portal-padrao-mediacarousel-portlet  .portlet-mediacarousel-player .cycle-hover
+{
+    position: absolute;
+    z-index: 100;
+    top: 0;
+
+    float: left;
+    overflow: hidden;
+
+    width: 100%;
+}
+
+.portal-padrao-mediacarousel-portlet  .portlet-mediacarousel-player .cycle-hover a
+{
+    position: absolute;
+    z-index: 100;
+    top: 41%;
+
+    display: none;
+    overflow: hidden;
+
+    width: 62px;
+    height: 62px;
+    margin-top: -20px;
+
+    white-space: nowrap;
+    text-indent: 100%;
+
+    background-image: url('++resource++brasil.gov.portlets/img/classic-map.png');
+    background-repeat: no-repeat;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-prev,
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-next
+{
+    display: block;
+
+    opacity: .5;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-prev:hover
+{
+    opacity: 1;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-hover:hover .cycle-next:hover
+{
+    opacity: 1;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-player .cycle-prev
+{
+    left: -10px;
+
+    background-position: 20px 16px;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-player .cycle-next
+{
+    right: -12px;
+
+    background-position: -276px 16px;
+}
+
+.portal-padrao-mediacarousel-portlet .portlet-mediacarousel-carousel
+{
+    position: relative;
+
+    height: 60px;
+
+    border-top: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
+    background-color: #fff;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-carrossel
+{
+    position: absolute !important;
+
+    margin: 0 32px !important;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-nagivation .cycle-prev,
+.portal-padrao-mediacarousel-portlet .cycle-nagivation .cycle-next
+{
+    position: absolute;
+    top: 50%;
+
+    display: block;
+    overflow: hidden;
+
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+
+    white-space: nowrap;
+    text-indent: 100%;
+
+    background: url('++resource++brasil.gov.portlets/img/icons-setas-min.png');
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-nagivation .cycle-prev
+{
+    left: 6px;
+}
+
+.portal-padrao-mediacarousel-portlet .cycle-nagivation .cycle-next
+{
+    right: 6px;
+
+    background-position: 22px 0;
+}
+
+.portal-padrao-mediacarousel-portlet .thumb-itens
+{
+    width: 45px;
+    height: 36px;
+    margin: 11px 4px 13px 0;
+
+    border: 1px solid #d5d5d5 !important;
+    border-radius: 0;
+}
+
+.portal-padrao-mediacarousel-portlet .thumb-itens .table-align
+{
+    display: table-cell;
+
+    height: 36px;
+
+    vertical-align: middle;
+}
+
+.portal-padrao-mediacarousel-portlet .thumb-itens img
+{
+    min-width: inherit;
+    min-height: inherit;
+
+    border-radius: 0;
+}
+
+.portal-padrao-mediacarousel-portlet .portletFooter
+{
+    padding: .2em 0 .4em 0;
+
+    text-align: right;
+
+    background: none;
+    float: left;
+    width: 100%;
+}
+
+.portal-padrao-mediacarousel-portlet .portletFooter a
+{
+    font-size: .7em;
+    line-height: 14px;
+
+    padding-right: 1.9em;
+    margin: 0 .52em;
+    display: inline-block;
+
+    color: #335277;
+    background: url('++resource++brasil.gov.portlets/img/footer-arrow.png') no-repeat scroll right 0 top 50% rgba(0, 0, 0, 0);
+}
+
+/* contrast */
+.contraste .portal-padrao-mediacarousel-portlet
+{
+    border: 1px solid #fff;
+    background: #000 !important;
+}
+
+.contraste .portal-padrao-mediacarousel-portlet .portletHeader
+{
+    border-radius: 5px 5px 0 0;
+}
+
+.contraste .portal-padrao-mediacarousel-portlet .portlet-mediacarousel-title,
+.contraste .portal-padrao-mediacarousel-portlet .portlet-mediacarousel-description,
+.contraste .portal-padrao-mediacarousel-portlet .portlet-mediacarousel-rights
+{
+    color: #fff !important;
+}
+
+.contraste .portal-padrao-mediacarousel-portlet .portlet-mediacarousel-carousel
+{
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background-color: #000;
+}
+
+.contraste .portal-padrao-mediacarousel-portlet .thumb-itens
+{
+    border: 1px solid #fff !important;
+}
+
+.contraste .portal-padrao-mediacarousel-portlet .portletFooter a
+{
+    background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
+}
