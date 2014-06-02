@@ -25,8 +25,7 @@ ${footerurl_sample}  http://www.google.com
 ${limit_field_id}  form.limit
 ${limit_sample}  2
 ${datecheck_field_id}  form.show_date
-${dateformat_field_id}  form.date_format
-${dateformat_sample}  longa: Data/Hora
+${timecheck_field_id}  form.show_time
 ${titletype_field_id}  form.title_type
 ${collection_field_id}  form.collection
 
@@ -92,7 +91,7 @@ Test Collection Portlet
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
-    Select from list  id=${dateformat_field_id}  ${dateformat_sample}
+    Select Checkbox  id=${timecheck_field_id}
     Save Portlet
     Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']/p[@class='date']
     Sleep  1s  Wait for overlay

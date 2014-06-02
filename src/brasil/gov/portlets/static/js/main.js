@@ -33,9 +33,9 @@ var portletsManager = {
             };
             var update_date = function() {
                 if ($('#form\\.show_date').is(':checked')) {
-                    $('#formfield-form-date_format').show();
+                    $('#formfield-form-show_time').show();
                 } else {
-                    $('#formfield-form-date_format').hide();
+                    $('#formfield-form-show_time').hide();
                 }
             }
             var insert_collection_warning = function() {
@@ -152,6 +152,8 @@ var portlets = {
     init: function() {
         this.audiogallery();
         this.audio();
+        this.videogallery();
+        this.mediacarousel();
         this.cycle2();
     },
     audiogallery: function() {
@@ -165,6 +167,39 @@ var portlets = {
             var containerid = $('#'+this.id+' .jp-audio')[0].id;
             $('#'+playerid).audio_player({'cssSelectorAncestor':'#'+containerid});
         });
+    },
+    videogallery: function() {
+        var fix_player_size = function() {
+            $('.portal-padrao-videogallery-portlet').each(function(){
+                var $portlet = $(this);
+                $('.portlet-videogallery-player', $portlet).each(function() {
+                    var $container = $(this);
+                    var $player = $('iframe', $container);
+                    var width = parseInt($container.width()) - (parseInt($container.css('padding-left')) * 2);
+                    var height = parseInt(width * 10 / 16);
+                    $player.width(width);
+                    $player.height(height);
+                });
+            });
+        };
+        $(window).resize(fix_player_size);
+        fix_player_size();
+    },
+    mediacarousel: function() {
+        var fix_player_size = function() {
+            $('.portal-padrao-mediacarousel-portlet').each(function(){
+                var $portlet = $(this);
+                $('.portlet-mediacarousel-player', $portlet).each(function() {
+                    var $container = $(this);
+                    var $player = $('img', $container);
+                    var $a = $player.parent();
+                    var width = parseInt($container.width()) - (parseInt($a.css('padding-left')) * 2);
+                    $player.css('max-width', width);
+                });
+            });
+        };
+        $(window).resize(fix_player_size);
+        fix_player_size();
     },
     cycle2: function() {
         if (!root.cycle2_loaded) {
@@ -185,6 +220,16 @@ var portlets = {
                 var $galeria = $thumbs.parent().parent();
                 var $slideshows = $('.cycle-slideshow', $galeria);
                 var index = $thumbs.data('cycle.API').getSlideIndex(this);
+                $slideshows.cycle('goto', index);
+                obj.layoutAdjustment($galeria, index);
+            });
+
+            $('.cycle-pager .thumb-itens').click(function (e){
+                e.preventDefault();
+                var $thumbs = $(this).parent().parent();
+                var $galeria = $thumbs.parent().parent();
+                var $slideshows = $('.cycle-slideshow', $galeria);
+                var index = parseInt($(this).data('slide-index'));
                 $slideshows.cycle('goto', index);
                 obj.layoutAdjustment($galeria, index);
             });
@@ -216,12 +261,18 @@ var portlets = {
         elem = aElem[index],
         novaaltura = $(elem).height();
         alturaimagem = $('.cycle-sentinel img', $galeria).height();
-        larguracarosel = ($('.carousel', $galeria).width() -
-                          (36 * 2));             
+        if ($('.carousel', $galeria).length != 0) {
+            larguracarosel = ($('.carousel', $galeria).width() -
+                              (36 * 2));
+        }
+        if ($('.portlet-mediacarousel-carousel', $galeria).length != 0) {
+            larguracarosel = ($('.portlet-mediacarousel-carousel', $galeria).width() -
+                              (32 * 2));
+        }
 
         $('.cycle-sentinel', $galeria).height(novaaltura);
         $('.cycle-hover', $galeria).height(alturaimagem);
-        $('.cycle-carrossel', $galeria).width(larguracarosel); 
+        $('.cycle-carrossel', $galeria).width(larguracarosel);
     },
 };
 

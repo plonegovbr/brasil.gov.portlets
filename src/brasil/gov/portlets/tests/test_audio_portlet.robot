@@ -29,7 +29,7 @@ Test Audio Portlet
     Page Should Contain Element  id=${header_field_id}
     Input Text  id=${header_field_id}  ${portletname_sample}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-audio-portlet']//div[@class='portletHeader']//h3[@class='title']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-audio-portlet']//div[@class='portletHeader']/h3[@class='portlet-audio-title']
     Sleep  1s  Wait for overlay
 
     Hide Right Portlet
@@ -47,7 +47,7 @@ Test Audio Portlet
     Page Should Not Contain Element  xpath=//div[@class='portal-padrao-audio-portlet']
     Sleep  1s  Wait for overlay
 
-    # Test add in the left side    
+    # Test add in the left side
     Add Left Portlet  ${portletname_sample}
     Select Collection  ${audio_field_id}  Audio 1
     Save Portlet

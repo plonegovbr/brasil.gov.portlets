@@ -23,20 +23,27 @@ class IMediaCarouselPortlet(IPortletDataProvider):
     '''
 
     show_header = schema.Bool(
-        title=_(u'Mostrar cabeçalho'),
-        description=_(u'Se habilitado mostra o cabeçalho.'),
+        title=_(u'show_header',
+                default=u'Show header'),
+        description=_(u'show_header_description',
+                      default=u'If enabled, shows the header.'),
         required=True,
         default=False)
 
     header = schema.TextLine(
-        title=_(u'Texto do cabeçalho'),
-        description=_(u'Texto do cabeçalho do portlet.'),
+        title=_(u'header_text',
+                default=u'Header text'),
+        description=_(u'header_text_description',
+                      default=u'Portlet text of the header.'),
         required=True,
-        default=_(u'Portal Padrão Carrossel de Imagens'))
+        default=_(u'title_portlet_mediacarousel',
+                  default=u'Portal Padrao Media Carousel'))
 
     header_type = schema.Choice(
-        title=_(u'Tipo de cabeçalho'),
-        description=_(u'Tipo de cabeçalho que será exibido.'),
+        title=_(u'header_type',
+                default=u'Header type'),
+        description=_(u'header_type_description',
+                      default=u'Header type that will be shown.'),
         values=(u'H1',
                 u'H2',
                 u'H3',
@@ -45,49 +52,66 @@ class IMediaCarouselPortlet(IPortletDataProvider):
         required=True)
 
     show_title = schema.Bool(
-        title=_(u'Mostrar título'),
-        description=_(u'Se habilitado mostra o título.'),
+        title=_(u'show_title',
+                default=u'Show title'),
+        description=_(u'show_title_description',
+                      default=u'If enabled, shows the title.'),
         required=True,
         default=False)
 
     show_description = schema.Bool(
-        title=_(u'Mostrar descrição'),
-        description=_(u'Se habilitado mostra a descrição.'),
+        title=_(u'show_description',
+                default=u'Show description'),
+        description=_(u'show_description_description',
+                      default=u'If enabled, shows the description.'),
         required=True,
         default=False)
 
     show_footer = schema.Bool(
-        title=_(u'Mostrar rodapé'),
-        description=_(u'Se habilitado mostra o rodapé.'),
+        title=_(u'show_footer',
+                default=u'Show footer'),
+        description=_(u'show_footer_description',
+                      default=u'If enabled, shows the footer.'),
         required=True,
         default=False)
 
     footer = schema.TextLine(
-        title=_(u'Texto do rodapé'),
-        description=_(u'Texto do rodapé do portlet.'),
+        title=_(u'footer_text',
+                default=u'Footer text'),
+        description=_(u'footer_text_description',
+                      default=u'Portlet footer text.'),
         required=False)
 
     footer_url = schema.TextLine(
-        title=_(u'Link do rodapé'),
-        description=_(u'Link do rodapé do portlet.'),
+        title=_(u'footer_url',
+                default=u'Footer URL'),
+        description=_(u'footer_url_description',
+                      default=u'Portlet footer URL.'),
         required=False)
 
     show_rights = schema.Bool(
-        title=_(u'Mostrar crédito'),
-        description=_(u'Se habilitado mostra o crédito.'),
+        title=_(u'show_rights',
+                default=u'Show rights'),
+        description=_(u'show_rights_description',
+                      default=u'If enabled, shows the rights.'),
         required=True,
         default=False)
 
     limit = schema.Int(
-        title=_(u'Quantidade de itens a exibir'),
-        description=_(u'Informe o total de itens que devem ser exibidos no '
-                      u'portlet.'),
+        title=_(u'limit',
+                default=u'Number of items to show'),
+        description=_(u'limit_description',
+                      default=u'Total itens that should be displayed in ' +
+                              u'the portlet.'),
         required=True,
         default=5)
 
     collection = schema.Choice(
-        title=_(u'Coleção'),
-        description=_(u'Pesquisa a coleção utilizada no portlet.'),
+        title=_(u'collection',
+                default=u'Collection'),
+        description=_(u'collection_description',
+                      default=u'Searchs the collection that will be used ' +
+                              u'in the portlet.'),
         required=True,
         source=SearchableTextSourceBinder(
             {'portal_type': ('Topic', 'Collection')},
@@ -99,7 +123,8 @@ class Assignment(base.Assignment):
     implements(IMediaCarouselPortlet)
 
     show_header = False
-    header = _(u'Portal Padrão Carrossel de Imagens')
+    header = _(u'title_portlet_mediacarousel',
+               default=u'Portal Padrao Media Carousel')
     header_type = u'H2'
     show_title = False
     show_description = False
@@ -112,7 +137,8 @@ class Assignment(base.Assignment):
 
     def __init__(self,
                  show_header=False,
-                 header=_(u'Portal Padrão Carrossel de Imagens'),
+                 header=_(u'title_portlet_mediacarousel',
+                          default=u'Portal Padrao Media Carousel'),
                  header_type=u'H2',
                  show_title=False,
                  show_description=False,
@@ -209,7 +235,7 @@ class Renderer(base.Renderer):
     def thumbnail(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            thumb = scales.scale('image', width=80, height=60)
+            thumb = scales.scale('image', width=45, height=36)
             return {
                 'src': thumb.url,
                 'alt': item.Description(),
@@ -218,7 +244,7 @@ class Renderer(base.Renderer):
     def scale(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
-            thumb = scales.scale('image', width=692, height=433)
+            thumb = scales.scale('image', width=242, height=166)
             return {
                 'src': thumb.url,
                 'alt': item.Description(),
@@ -230,8 +256,9 @@ class AddForm(base.AddForm):
     form_fields = form.Fields(IMediaCarouselPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Adicionar Portlet Portal Padrão Carrossel de Imagens')
-    description = _(u'Este portlet mostra uma Carrossel de Imagens.')
+    label = _(u'Add Portlet Portal Padrao Media Carousel')
+    description = _(u'mediacarousel_portlet_description',
+                    default=u'This portlet shows a Carousel of Images.')
 
     def create(self, data):
         return Assignment(**data)
@@ -242,5 +269,6 @@ class EditForm(base.EditForm):
     form_fields = form.Fields(IMediaCarouselPortlet)
     form_fields['collection'].custom_widget = UberSelectionWidget
 
-    label = _(u'Editar Portlet Portal Padrão Carrossel de Imagens')
-    description = _(u'Este portlet mostra uma Carrossel de Imagens.')
+    label = _(u'Edit Portlet Portal Padrao Media Carousel')
+    description = _(u'mediacarousel_portlet_description',
+                    default=u'This portlet shows a Carousel of Images.')
