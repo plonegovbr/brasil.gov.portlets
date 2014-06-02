@@ -606,6 +606,55 @@ a.jp-shuffle-off:hover
     padding-left: 22px;
 }
 
+/* contrast */
+.contraste a.jp-play,
+.contraste a.jp-play:hover,
+.contraste a.jp-pause,
+.contraste a.jp-pause:hover,
+.contraste a.jp-previous,
+.contraste a.jp-previous:hover,
+.contraste a.jp-next,
+.contraste a.jp-next:hover,
+.contraste div.jp-seek-bar,
+.contraste div.jp-play-bar,
+.contraste a.jp-mute,
+.contraste a.jp-mute:hover,
+.contraste a.jp-unmute,
+.contraste a.jp-unmute:hover,
+.contraste div.jp-volume-bar,
+.contraste div.jp-volume-bar-value,
+.contraste a.jp-full-screen,
+.contraste a.jp-full-screen:hover,
+.contraste a.jp-restore-screen,
+.contraste a.jp-restore-screen:hover,
+.contraste a.jp-shuffle,
+.contraste a.jp-shuffle:hover,
+.contraste a.jp-shuffle-off,
+.contraste a.jp-shuffle-off:hover
+{
+    background-image: url('++resource++brasil.gov.portlets/img/jplayer.blue.monday.contrast.jpg');
+}
+
+.contraste div.jp-seeking-bg
+{
+    background: url('++resource++brasil.gov.portlets/img/jplayer.blue.monday.seeking.contrast.gif');
+}
+
+.contraste .portal-padrao-audiogallery-portlet
+{
+    border: 1px solid #fff;
+    background: #000 !important;
+}
+
+.contraste .portal-padrao-audiogallery-portlet .portletFooter a
+{
+    background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
+}
+
+.contraste .portal-padrao-audiogallery-portlet .audiogallery-items-container .audiogallery-item {
+    background-image: url('++resource++brasil.gov.portlets/img/sound-icon-contrast.png');
+}
+
 
 /* ==========================================================================
    Portlet Video
@@ -644,11 +693,12 @@ a.jp-shuffle-off:hover
     height: 100%;
 }
 
-/* Contrast */
+/* contrast */
 .contraste .portal-padrao-video-portlet .title
 {
     color: #fff;
 }
+
 
 
 /* ==========================================================================
