@@ -261,8 +261,14 @@ var portlets = {
         elem = aElem[index],
         novaaltura = $(elem).height();
         alturaimagem = $('.cycle-sentinel img', $galeria).height();
-        larguracarosel = ($('.carousel', $galeria).width() -
-                          (36 * 2));
+        if ($('.carousel', $galeria).length != 0) {
+            larguracarosel = ($('.carousel', $galeria).width() -
+                              (36 * 2));
+        }
+        if ($('.portlet-mediacarousel-carousel', $galeria).length != 0) {
+            larguracarosel = ($('.portlet-mediacarousel-carousel', $galeria).width() -
+                              (32 * 2));
+        }
 
         $('.cycle-sentinel', $galeria).height(novaaltura);
         $('.cycle-hover', $galeria).height(alturaimagem);
