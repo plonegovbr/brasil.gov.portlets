@@ -59,8 +59,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="portletFooter">
-                </div>
             </tal:audio>
         </div>
     </div>

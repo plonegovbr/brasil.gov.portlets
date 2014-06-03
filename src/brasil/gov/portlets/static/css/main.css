@@ -748,6 +748,11 @@ a.jp-shuffle-off:hover
     margin-bottom: .9em;
 }
 
+.portal-padrao-videogallery-portlet .portlet-videogallery-player.no-title
+{
+    margin-bottom: 0;
+}
+
 .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
 {
     font-family: 'open_sansbold', Arial, Helvetica, sans-serif;

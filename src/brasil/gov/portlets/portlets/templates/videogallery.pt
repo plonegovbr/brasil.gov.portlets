@@ -8,13 +8,13 @@
         <div id="portlet-videogallery-${portlet_id}"
              class="portal-padrao-videogallery-portlet">
             <tal:results define="results view/results|nothing">
-                <div class="portletHeader">
-                    <span class="portletTopLeft"></span>
-                    <tal:header condition="view/data/show_header">
+                <tal:header condition="view/data/show_header">
+                    <div class="portletHeader">
+                        <span class="portletTopLeft"></span>
                         <tal:title content="structure view/header" />
-                    </tal:header>
-                    <span class="portletTopRight"></span>
-                </div>
+                        <span class="portletTopRight"></span>
+                    </div>
+                </tal:header>
                 <div class="portletItem">
                     <tal:player condition="results">
                         <div class="player">
@@ -27,7 +27,7 @@
                                  data-cycle-pager="#portlet-videogallery-${portlet_id} .pager"
                                  data-cycle-pager-template="">
                                 <div tal:repeat="item results">
-                                    <div class="portlet-videogallery-player"
+                                    <div class="${python:'portlet-videogallery-player' + ('' if (view.data.show_active_title) else ' no-title')}"
                                          tal:content="structure item/embed_html">
                                     </div>
                                     <div class="portlet-videogallery-active-title"
@@ -66,9 +66,9 @@
                         Selecione uma coleção para o portlet.
                     </div>
                 </div>
-                <div class="portletFooter">
+                <div class="portletFooter"
+                     tal:condition="view/data/show_footer">
                     <a href="${view/data/footer_url}"
-                       tal:condition="view/data/show_footer"
                        tal:omit-tag="not:view/data/footer_url">
                         ${view/data/footer}
                     </a>

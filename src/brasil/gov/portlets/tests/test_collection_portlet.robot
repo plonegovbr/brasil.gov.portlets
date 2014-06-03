@@ -81,19 +81,19 @@ Test Collection Portlet
     Page Should Contain Element  id=${limit_field_id}
     Input Text  id=${limit_field_id}  ${limit_sample}
     Save Portlet
-    Xpath Should Match X Times  //div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']  ${limit_sample}
+    Xpath Should Match X Times  //div[@class='portal-padrao-collection-portlet']//div[@class='portlet-collection-item']  ${limit_sample}
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${datecheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']/p[@class='date']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']//p[@class='portlet-collection-date']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${timecheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']/p[@class='date']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-collection-portlet']//div[@class='portletItem']//p[@class='portlet-collection-date']
     Sleep  1s  Wait for overlay
 
     Hide Right Portlet

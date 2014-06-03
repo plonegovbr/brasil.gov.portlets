@@ -154,7 +154,9 @@ class AudioGalleryPortletTestCase(unittest.TestCase):
     def test_renderer_title(self):
         r = self._assigned_renderer(self.audios)
 
-        self.assertEqual(r.title(), u'<h2>Portal Padr&#227;o Galeria de &#193;udios</h2>')
+        self.assertEqual(r.title(),
+                         u'<h2 class="portlet-audiogallery-title">Portal ' +
+                         u'Padr&#227;o Galeria de &#193;udios</h2>')
 
     def test_renderer_getitemurl(self):
         r = self._assigned_renderer(self.audios)

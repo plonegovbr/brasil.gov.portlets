@@ -43,9 +43,9 @@
                         </div>
                     </tal:items>
                 </div>
-                <div class="portletFooter">
+                <div class="portletFooter"
+                     tal:condition="view/data/show_footer">
                     <a href="${view/data/footer_url}"
-                       tal:condition="view/data/show_footer"
                        tal:omit-tag="not:view/data/footer_url">
                         ${view/data/footer}
                     </a>
