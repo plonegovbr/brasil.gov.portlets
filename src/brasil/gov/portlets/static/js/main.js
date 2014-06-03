@@ -370,10 +370,17 @@ var portlets = {
                 var $portlet = $(this);
                 $('.portlet-mediacarousel-player', $portlet).each(function() {
                     var $container = $(this);
-                    var $player = $('img', $container);
-                    var $a = $player.parent();
-                    var width = parseInt($container.width()) - (parseInt($a.css('padding-left')) * 2);
-                    $player.css('max-width', width);
+                    var $players = $('img', $container);
+                    $players.each(function() {
+                        var $player = $(this);
+                        $player.on('load', function() {
+                            var $player = $(this);
+                            var $a = $player.parent();
+                            var width = parseInt($container.width()) - (parseInt($a.css('padding-left')) * 2);
+                            var height = parseInt(width * 10 / 16);
+                            $player.css('max-height', height);
+                        });
+                    });
                 });
             });
         };

@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-    <div class="portlet portletCollection"
+    <div class="portlet portletPortalPadraoCollection"
          i18n:domain="brasil.gov.portlets">
         <div class="portal-padrao-collection-portlet">
             <tal:results define="results view/results|nothing">

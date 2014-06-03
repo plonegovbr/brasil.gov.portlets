@@ -3,6 +3,8 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* QA Frontend. (closes `#t_76`_).
+  [rodfersou]
 * Frontend do portlet de galeria de áudios. (closes `#t_67`_).
   [rodfersou]
 * Frontend do portlet de carrossel de imagens. (closes `#t_61`_).
@@ -56,5 +58,6 @@ Changelog
 .. _`#t_70`: https://grupotv1.codebasehq.com/projects/secom/tickets/70
 .. _`#t_71`: https://grupotv1.codebasehq.com/projects/secom/tickets/71
 .. _`#t_72`: https://grupotv1.codebasehq.com/projects/secom/tickets/72
-.. _`#t_74`: https://grupotv1.codebasehq.com/projects/secom/tickets/74
 .. _`#t_73`: https://grupotv1.codebasehq.com/projects/secom/tickets/73
+.. _`#t_74`: https://grupotv1.codebasehq.com/projects/secom/tickets/74
+.. _`#t_76`: https://grupotv1.codebasehq.com/projects/secom/tickets/76

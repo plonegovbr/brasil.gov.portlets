@@ -2,7 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-    <div class="portlet portletAudioGallery"
+    <div class="portlet portletPortalPadraoAudioGallery"
          tal:define="portlet_id python:id(view)"
          i18n:domain="brasil.gov.portlets">
         <div id="portlet-audiogallery-${portlet_id}"
