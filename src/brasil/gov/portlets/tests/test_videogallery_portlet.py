@@ -174,7 +174,9 @@ class VideoGalleryPortletTestCase(unittest.TestCase):
     def test_renderer_header(self):
         r = self._assigned_renderer(self.videos)
 
-        self.assertEqual(r.header(), u'<h2>Portal Padr&#227;o Galeria de V&#237;deos</h2>')
+        self.assertEqual(r.header(),
+                         u'<h2 class="portlet-videogallery-header">Portal ' +
+                         u'Padr&#227;o Galeria de V&#237;deos</h2>')
 
     def test_renderer_thumbnail(self):
         r1 = self._assigned_renderer(self.files)
