@@ -27,7 +27,7 @@
                                  data-cycle-pager="#portlet-videogallery-${portlet_id} .pager"
                                  data-cycle-pager-template="">
                                 <div tal:repeat="item results">
-                                    <div class="portlet-videogallery-player"
+                                    <div class="${python:'portlet-videogallery-player' + ('' if (view.data.show_active_title) else ' no-title')}"
                                          tal:content="structure item/embed_html">
                                     </div>
                                     <div class="portlet-videogallery-active-title"
