@@ -63,7 +63,15 @@
                     </tal:carrossel>
                     <div tal:condition="not:results"
                          class="no-albums">
-                        Selecione uma coleção para o portlet.
+                        <tal:select-collection i18n:translate="select-collection-1">
+                            Select one collection to use with
+                        </tal:select-collection>
+                        <tal:select-collection i18n:translate="videogallery">
+                            Video Gallery
+                        </tal:select-collection>
+                        <tal:select-collection i18n:translate="select-collection-2">
+                            portlet.
+                        </tal:select-collection>
                     </div>
                 </div>
                 <div class="portletFooter"
