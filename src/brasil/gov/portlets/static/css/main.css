@@ -555,13 +555,12 @@ a.jp-shuffle-off:hover
 
     display: block;
 
+    min-height: 1.9em;
     margin: 0 1.4em;
     padding-left: 22px;
 
     color: #454545;
     background: url('++resource++brasil.gov.portlets/img/sound-icon.png') no-repeat scroll left 0 top .4em rgba(0, 0, 0, 0);
-
-    min-height: 1.9em;
 }
 
 .portal-padrao-audiogallery-portlet .portletFooter
@@ -816,10 +815,12 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-videogallery-portlet .portlet-videogallery-inactive-title
 {
-font-size: .75em;
-padding-right: .9em;
-color: #D1E1FF;
-padding-left: 1.1em;
+    font-size: .75em;
+
+    padding-right: .9em;
+    padding-left: 1.1em;
+
+    color: #d1e1ff;
 }
 
 .portal-padrao-videogallery-portlet .portletFooter
@@ -893,8 +894,8 @@ padding-left: 1.1em;
 
 #portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-inactive-title
 {
-height: 5.7em;
-padding-left: 0.9em;
+    height: 5.7em;
+    padding-left: .9em;
 }
 
 #portal-column-one .portal-padrao-videogallery-portlet .portletFooter a
