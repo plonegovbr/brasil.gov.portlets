@@ -13,13 +13,13 @@
                         The collection don't have any item.
                     </p>
                 </div>
-                <div class="portletHeader">
-                    <span class="portletTopLeft"></span>
-                    <tal:header condition="view/data/show_header">
+                <tal:header condition="view/data/show_header">
+                    <div class="portletHeader">
+                        <span class="portletTopLeft"></span>
                         <tal:title content="structure view/title" />
-                    </tal:header>
-                    <span class="portletTopRight"></span>
-                </div>
+                        <span class="portletTopRight"></span>
+                    </div>
+                </tal:header>
                 <div class="portletItem">
                     <!-- Audio item player -->
                     <div class="audiogallery-player-container"
@@ -100,9 +100,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="portletFooter">
+                <div class="portletFooter"
+                     tal:condition="view/data/show_footer">
                     <a href="${view/data/footer_url}"
-                       tal:condition="view/data/show_footer"
                        tal:omit-tag="not:view/data/footer_url">
                         ${view/data/footer}
                     </a>

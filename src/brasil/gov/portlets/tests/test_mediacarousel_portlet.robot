@@ -50,13 +50,13 @@ Test MediaCarousel Portlet
     Edit Right Portlet
     Select Checkbox  id=${titlecheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='title']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='portlet-mediacarousel-title']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${descriptioncheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='description']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='portlet-mediacarousel-description']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
@@ -74,7 +74,7 @@ Test MediaCarousel Portlet
     Edit Right Portlet
     Select Checkbox  id=${rightscheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='rights']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-mediacarousel-portlet']//div[contains(@class, 'cycle-player')]//div[@class='portlet-mediacarousel-rights']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet

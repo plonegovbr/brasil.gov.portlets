@@ -50,19 +50,19 @@ Test VideoGallery Portlet
     Edit Right Portlet
     Select Checkbox  id=${activetitlecheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='title']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='portlet-videogallery-active-title']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${inactivetitlecheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-carousel')]//div[@class='title']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-pager')]//div[@class='portlet-videogallery-inactive-title']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
     Select Checkbox  id=${descriptioncheck_field_id}
     Save Portlet
-    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='description']
+    Page Should Contain Element  xpath=//div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]//div[@class='portlet-videogallery-description']
     Sleep  1s  Wait for overlay
 
     Edit Right Portlet
@@ -82,7 +82,7 @@ Test VideoGallery Portlet
     Input Text  id=${limit_field_id}  ${limit_sample}
     Save Portlet
     Xpath Should Match X Times  //div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-player')]/div[not(contains(@class, 'cycle-sentinel'))]  ${limit_sample}
-    Xpath Should Match X Times  //div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-carousel-wrap')]/div  ${limit_sample}
+    Xpath Should Match X Times  //div[@class='portal-padrao-videogallery-portlet']//div[contains(@class, 'cycle-pager')]/div[contains(@class, 'thumb-itens')]  ${limit_sample}
     Sleep  1s  Wait for overlay
 
     Hide Right Portlet
