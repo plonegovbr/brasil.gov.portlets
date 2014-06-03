@@ -3,9 +3,11 @@ Changelog
 
 0.1 (unreleased)
 ----------------
-* Frontend do portlet de mediacarousel. (closes `#t_61`_).
+* Frontend do portlet de galeria de áudios. (closes `#t_67`_).
   [rodfersou]
-* Frontend do portlet de videogallery. (closes `#t_64`_).
+* Frontend do portlet de carrossel de imagens. (closes `#t_61`_).
+  [rodfersou]
+* Frontend do portlet de galeria de vídeos. (closes `#t_64`_).
   [rodfersou]
 * Frontend do portlet de coleção. (closes `#t_58`_).
   [rodfersou]
@@ -15,7 +17,7 @@ Changelog
   [rodfersou]
 * Frontend do portlet de audio. (closes `#t_70`_).
   [rennanrodrigues]
-* Testes portlet de audiogallery. (closes `#t_66`_).
+* Testes portlet de galeria de áudios. (closes `#t_66`_).
   [rodfersou]
 * Testes portlet de audio. (closes `#t_69`_).
   [rodfersou]
@@ -48,6 +50,7 @@ Changelog
 .. _`#t_64`: https://grupotv1.codebasehq.com/projects/secom/tickets/64
 .. _`#t_65`: https://grupotv1.codebasehq.com/projects/secom/tickets/65
 .. _`#t_66`: https://grupotv1.codebasehq.com/projects/secom/tickets/66
+.. _`#t_67`: https://grupotv1.codebasehq.com/projects/secom/tickets/67
 .. _`#t_68`: https://grupotv1.codebasehq.com/projects/secom/tickets/68
 .. _`#t_69`: https://grupotv1.codebasehq.com/projects/secom/tickets/69
 .. _`#t_70`: https://grupotv1.codebasehq.com/projects/secom/tickets/70

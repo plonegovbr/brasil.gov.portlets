@@ -197,7 +197,8 @@ class Renderer(base.Renderer):
             ${Title}
         </HX>
         '''
-        hx = getattr(E, self.data.header_type)(self.data.header)
+        hx = getattr(E, self.data.header_type)(E.CLASS('portlet-audiogallery-title'),
+                                               self.data.header)
         return html.tostring(hx)
 
     def get_item_url(self, item):
