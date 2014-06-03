@@ -817,8 +817,7 @@ a.jp-shuffle-off:hover
 {
     font-size: .75em;
 
-    padding-right: .9em;
-    padding-left: 1.1em;
+    padding: 0 .9em 0 1.1em;
 
     color: #d1e1ff;
 }
