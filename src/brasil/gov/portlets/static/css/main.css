@@ -651,7 +651,8 @@ a.jp-shuffle-off:hover
     background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
 }
 
-.contraste .portal-padrao-audiogallery-portlet .audiogallery-items-container .audiogallery-item {
+.contraste .portal-padrao-audiogallery-portlet .audiogallery-items-container .audiogallery-item
+{
     background-image: url('++resource++brasil.gov.portlets/img/sound-icon-contrast.png');
 }
 
@@ -661,12 +662,15 @@ a.jp-shuffle-off:hover
    ========================================================================== */
 .portal-padrao-video-portlet .video-container
 {
-    margin-bottom: 10px;
+    margin-bottom: .5em;
 }
 
 .portal-padrao-video-portlet .title
 {
     font-size: .85em;
+    line-height: 1.25em;
+
+    display: block;
 
     color: #454545;
 }
