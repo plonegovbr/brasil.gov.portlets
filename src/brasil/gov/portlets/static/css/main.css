@@ -1122,7 +1122,11 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-mediacarousel-portlet .cycle-player a
 {
-    padding: 0 .33em;
+    margin: 0 .33em .5em .33em;
+
+    display: block;
+
+    background: #000;
 }
 
 .portal-padrao-mediacarousel-portlet .cycle-player img
@@ -1130,6 +1134,12 @@ a.jp-shuffle-off:hover
     margin-bottom: .5em;
 
     border-radius: 0;
+
+    width: auto;
+
+    margin: 0 auto;
+
+    display: block;
 }
 
 .portal-padrao-mediacarousel-portlet .portlet-mediacarousel-title
@@ -1278,7 +1288,7 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-mediacarousel-portlet .thumb-itens
 {
-    width: 45px;
+    width: auto;
     height: 36px;
     margin: 11px 4px 13px 0;
 
