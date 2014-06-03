@@ -172,7 +172,7 @@ var portlets = {
                             ready: function () {
                                 $(this).jPlayer("setMedia", media.media_urls);
                             },
-                            swfPath: "/++resource++brasil.gov.tiles",
+                            swfPath: "/++resource++brasil.gov.portlets/js",
                             supplied: media.supplied,
                             cssSelectorAncestor: cssSelectorAncestor,
                             solution:"html,flash",
@@ -249,7 +249,7 @@ var portlets = {
                         var media = self.get_media(audio_url);
 
                         ae.jPlayer( "clearMedia" );
-                        ae.jPlayer("option", 'swfPath', '/++resource++brasil.gov.tiles');
+                        ae.jPlayer("option", 'swfPath', '/++resource++brasil.gov.portlets/js');
 
                         ae.jPlayer("option", "supplied", media.supplied);
                         ae.jPlayer("setMedia", media.media_urls);
