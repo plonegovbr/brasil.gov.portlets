@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: brasil.gov.portlets\n"
-"POT-Creation-Date: 2014-05-23 12:14+0000\n"
+"POT-Creation-Date: 2014-06-03 20:06+0000\n"
 "PO-Revision-Date: 2012-09-18 23:00+0000\n"
 "Last-Translator: PloneGov.Br <gov@plone.org.br>\n"
 "Language-Team: PloneGov.Br <gov@plone.org.br>\n"
@@ -18,7 +18,7 @@ msgstr ""
 msgid "Add Portlet Portal Padrao Audio"
 msgstr ""
 
-#: ../portlets/audiogallery.py:223
+#: ../portlets/audiogallery.py:224
 msgid "Add Portlet Portal Padrao Audio Gallery"
 msgstr ""
 
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Add Portlet Portal Padrao Video"
 msgstr ""
 
-#: ../portlets/videogallery.py:263
+#: ../portlets/videogallery.py:255
 msgid "Add Portlet Portal Padrao Video Gallery"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Edit Portlet Portal Padrao Audio"
 msgstr ""
 
-#: ../portlets/audiogallery.py:236
+#: ../portlets/audiogallery.py:237
 msgid "Edit Portlet Portal Padrao Audio Gallery"
 msgstr ""
 
@@ -62,8 +62,18 @@ msgstr ""
 msgid "Edit Portlet Portal Padrao Video"
 msgstr ""
 
-#: ../portlets/videogallery.py:276
+#: ../portlets/videogallery.py:268
 msgid "Edit Portlet Portal Padrao Video Gallery"
+msgstr ""
+
+#: ../portlets/templates/audio.pt:68
+#: ../portlets/templates/audiogallery.pt:75
+msgid "Max volume"
+msgstr ""
+
+#: ../portlets/templates/audio.pt:50
+#: ../portlets/templates/audiogallery.pt:57
+msgid "Mute"
 msgstr ""
 
 #: ../profiles/default/portlets.xml
@@ -134,9 +144,19 @@ msgstr ""
 msgid "Search the video used into the portlet."
 msgstr ""
 
-#: ../portlets/templates/audiogallery.pt:12
-#: ../portlets/templates/collection.pt:10
-msgid "The collection don't have any item."
+#: ../portlets/templates/audio.pt:32
+#: ../portlets/templates/audiogallery.pt:39
+msgid "Start"
+msgstr ""
+
+#: ../portlets/templates/audio.pt:41
+#: ../portlets/templates/audiogallery.pt:48
+msgid "Stop"
+msgstr ""
+
+#: ../portlets/templates/audio.pt:59
+#: ../portlets/templates/audiogallery.pt:66
+msgid "Unmute"
 msgstr ""
 
 #: ../portlets/video.py:41
@@ -149,7 +169,7 @@ msgid "audio_portlet_description"
 msgstr ""
 
 #. Default: "This portlet shows an Audio Gallery."
-#: ../portlets/audiogallery.py:224
+#: ../portlets/audiogallery.py:225
 msgid "audiogallery_portlet_description"
 msgstr ""
 
@@ -158,6 +178,12 @@ msgstr ""
 #: ../portlets/collection.py:137
 #: ../portlets/mediacarousel.py:110
 msgid "collection"
+msgstr ""
+
+#. Default: "The collection don't have any item."
+#: ../portlets/templates/audiogallery.pt:12
+#: ../portlets/templates/collection.pt:10
+msgid "collection-empty"
 msgstr ""
 
 #. Default: "Searchs the collection that will be used in the portlet."
@@ -234,6 +260,36 @@ msgstr ""
 msgid "image_size_description"
 msgstr ""
 
+#. Default: "Mute"
+#: ../portlets/templates/audio.pt:50
+#: ../portlets/templates/audiogallery.pt:57
+msgid "jp-mute"
+msgstr ""
+
+#. Default: "Stop"
+#: ../portlets/templates/audio.pt:41
+#: ../portlets/templates/audiogallery.pt:48
+msgid "jp-pause"
+msgstr ""
+
+#. Default: "Start"
+#: ../portlets/templates/audio.pt:32
+#: ../portlets/templates/audiogallery.pt:39
+msgid "jp-play"
+msgstr ""
+
+#. Default: "Unmute"
+#: ../portlets/templates/audio.pt:59
+#: ../portlets/templates/audiogallery.pt:66
+msgid "jp-unmute"
+msgstr ""
+
+#. Default: "Max volume"
+#: ../portlets/templates/audio.pt:68
+#: ../portlets/templates/audiogallery.pt:75
+msgid "jp-volume-max"
+msgstr ""
+
 #. Default: "Number of items to show"
 #: ../portlets/audiogallery.py:78
 #: ../portlets/collection.py:112
@@ -248,9 +304,36 @@ msgstr ""
 msgid "limit_description"
 msgstr ""
 
+#. Default: "Media Carousel"
+#: ../portlets/templates/mediacarousel.pt:85
+msgid "mediacarousel"
+msgstr ""
+
 #. Default: "This portlet shows a Carousel of Images."
 #: ../portlets/mediacarousel.py:260
 msgid "mediacarousel_portlet_description"
+msgstr ""
+
+#. Default: "Next &raquo;"
+#: ../portlets/templates/mediacarousel.pt:51
+msgid "next"
+msgstr ""
+
+#. Default: "&laquo; Previous"
+#: ../portlets/templates/mediacarousel.pt:50
+msgid "previous"
+msgstr ""
+
+#. Default: "Select one collection to use with"
+#: ../portlets/templates/mediacarousel.pt:82
+#: ../portlets/templates/videogallery.pt:66
+msgid "select-collection-1"
+msgstr ""
+
+#. Default: "portlet."
+#: ../portlets/templates/mediacarousel.pt:88
+#: ../portlets/templates/videogallery.pt:72
+msgid "select-collection-2"
 msgstr ""
 
 #. Default: "Show active title"
@@ -431,13 +514,36 @@ msgstr ""
 msgid "title_url_description"
 msgstr ""
 
+#. Default: "Update required"
+#: ../portlets/templates/audio.pt:93
+#: ../portlets/templates/audiogallery.pt:100
+msgid "update-flash-1"
+msgstr ""
+
+#. Default: "To play the sound is necessary to update to the last version of"
+#: ../portlets/templates/audio.pt:94
+#: ../portlets/templates/audiogallery.pt:101
+msgid "update-flash-2"
+msgstr ""
+
+#. Default: "plugin."
+#: ../portlets/templates/audio.pt:98
+#: ../portlets/templates/audiogallery.pt:105
+msgid "update-flash-3"
+msgstr ""
+
 #. Default: "This portlet show a Video Player."
 #: ../portlets/video.py:118
 msgid "video_portlet_description"
 msgstr ""
 
+#. Default: "Video Gallery"
+#: ../portlets/templates/videogallery.pt:69
+msgid "videogallery"
+msgstr ""
+
 #. Default: "This portlet shows a Video Gallery."
-#: ../portlets/videogallery.py:264
+#: ../portlets/videogallery.py:256
 msgid "videogallery_portlet_description"
 msgstr ""
 

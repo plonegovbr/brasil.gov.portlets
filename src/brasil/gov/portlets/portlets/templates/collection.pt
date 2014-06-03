@@ -7,7 +7,7 @@
         <div class="portal-padrao-collection-portlet">
             <tal:results define="results view/results|nothing">
                 <div tal:condition="not:results">
-                    <p i18n:translate="">
+                    <p i18n:translate="collection-empty">
                         The collection don't have any item.
                     </p>
                 </div>

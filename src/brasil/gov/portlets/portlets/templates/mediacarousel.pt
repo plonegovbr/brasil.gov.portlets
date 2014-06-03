@@ -47,8 +47,8 @@
                                 </div>
                             </div><!-- cycle-1 -->
                             <div class="cycle-hover">
-                                <a href="#" class="cycle-prev">&laquo; Anterior</a>
-                                <a href="#" class="cycle-next">Próximo &raquo;</a>
+                                <a href="#" class="cycle-prev" i18n:translate="previous">&laquo; Previous</a>
+                                <a href="#" class="cycle-next" i18n:translate="next">Next &raquo;</a>
                             </div>
                         </div><!-- player -->
                     </tal:player>
@@ -72,14 +72,22 @@
                                 </div>
                             </div><!-- cycle-2 -->
                             <div class="cycle-nagivation">
-                                <a href="#" class="cycle-prev">&laquo; Anterior</a>
-                                <a href="#" class="cycle-next">Próximo &raquo;</a>
+                                <a href="#" class="cycle-prev" i18n:translate="previous">&laquo; Previous</a>
+                                <a href="#" class="cycle-next" i18n:translate="next">Next &raquo;</a>
                             </div>
                         </div><!-- carrossel -->
                     </tal:carrossel>
                     <div tal:condition="not:results"
                          class="no-albums">
-                        Selecione uma coleção para o portlet.
+                        <tal:select-collection i18n:translate="select-collection-1">
+                            Select one collection to use with
+                        </tal:select-collection>
+                        <tal:select-collection i18n:translate="mediacarousel">
+                            Media Carousel
+                        </tal:select-collection>
+                        <tal:select-collection i18n:translate="select-collection-2">
+                            portlet.
+                        </tal:select-collection>
                     </div>
                 </div>
                 <div class="portletFooter"
