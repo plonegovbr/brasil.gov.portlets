@@ -1147,7 +1147,7 @@ a.jp-shuffle-off:hover
 {
     display: block;
 
-    margin: 0 .33em .5em .33em;
+    margin-bottom: .5em;
 
     background: #000;
 }
