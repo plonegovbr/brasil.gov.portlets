@@ -978,6 +978,11 @@ a.jp-shuffle-off:hover
     border-bottom: 1px dotted #c1c2c2;
 }
 
+.portal-padrao-collection-portlet .portlet-collection-item:last-child
+{
+    border-bottom: 1px solid #c1c2c2;
+}
+
 .portal-padrao-collection-portlet .portlet-collection-image
 {
     margin-bottom: .5em;
@@ -1086,6 +1091,16 @@ a.jp-shuffle-off:hover
 .contraste .portal-padrao-collection-portlet .portletItem
 {
     background: #000;
+}
+
+.contraste .portal-padrao-collection-portlet .portlet-collection-item
+{
+    border-bottom: 1px dotted #fff;
+}
+
+.contraste .portal-padrao-collection-portlet .portlet-collection-item:last-child
+{
+    border-bottom: 1px solid #fff;
 }
 
 .contraste .portal-padrao-collection-portlet .portletHeader a span,
