@@ -48,7 +48,7 @@ msgstr "Editar Portlet Portal Padrão Audio"
 
 #: ../portlets/audiogallery.py:237
 msgid "Edit Portlet Portal Padrao Audio Gallery"
-msgstr "Este portlet mostra uma Galeria de Áudios."
+msgstr "Editar Portlet Portal Padrão Galeria de Áudios"
 
 #: ../portlets/collection.py:329
 msgid "Edit Portlet Portal Padrao Collection"

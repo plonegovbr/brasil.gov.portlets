@@ -550,7 +550,7 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-audiogallery-portlet .audiogallery-items-container .audiogallery-item
 {
-    font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+    font-family: 'open_sansbold', Arial, Helvetica, sans-serif;
     font-size: .7em;
 
     display: block;
@@ -870,9 +870,6 @@ a.jp-shuffle-off:hover
 
 #portal-column-one .portal-padrao-videogallery-portlet .portlet-videogallery-active-title
 {
-    font-size: .73em;
-    line-height: 1.22em;
-
     height: inherit;
     margin-bottom: .5em;
     padding: 0 .71em .95em .71em;
@@ -986,7 +983,7 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-collection-portlet .portlet-collection-image
 {
-    margin-bottom: .5em;
+    margin-bottom: .8em;
 }
 
 .portal-padrao-collection-portlet .portlet-collection-image a
@@ -1021,7 +1018,7 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-collection-portlet .portlet-collection-title
 {
-    margin-bottom: .1em;
+    margin-bottom: .4em;
 }
 
 .portal-padrao-collection-portlet .portlet-collection-title a
@@ -1150,7 +1147,7 @@ a.jp-shuffle-off:hover
 {
     display: block;
 
-    margin: 0 .33em .5em .33em;
+    margin-bottom: .5em;
 
     background: #000;
 }
