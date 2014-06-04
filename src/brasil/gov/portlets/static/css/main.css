@@ -776,10 +776,11 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-videogallery-portlet .portlet-videogallery-description
 {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: .9em;
     line-height: 1.16em;
 
-    color: #617cae;
+    color: #d1e1ff;
 }
 
 .portal-padrao-videogallery-portlet .cycle-pager-active
