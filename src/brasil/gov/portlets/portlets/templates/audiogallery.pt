@@ -101,7 +101,7 @@
                                         <tal:update-message i18n:translate="update-flash-2">
                                             To play the sound is necessary to update to the last version of
                                         </tal:update-message>
-                                        <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash</a>
+                                        <a href="http://get.adobe.com/flashplayer/">Flash</a>
                                         <tal:update-message i18n:translate="update-flash-3">
                                             plugin.
                                         </tal:update-message>
