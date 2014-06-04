@@ -973,7 +973,7 @@ a.jp-shuffle-off:hover
 
 .portal-padrao-collection-portlet .portlet-collection-item
 {
-    padding: .6em .4em;
+    padding: .75em .4em;
 
     border-bottom: 1px dotted #c1c2c2;
 }
@@ -1048,7 +1048,7 @@ a.jp-shuffle-off:hover
     float: left;
 
     width: 100%;
-    padding: .71em 0;
+    padding: .3em 0 .35em 0;
 
     text-align: right;
 
@@ -1072,7 +1072,7 @@ a.jp-shuffle-off:hover
 }
 
 /* contrast */
-.contraste .portletCollection
+.contraste .portal-padrao-collection-portlet
 {
     border: 1px solid #fff;
     background: #000 !important;
@@ -1081,6 +1081,11 @@ a.jp-shuffle-off:hover
 .contraste .portal-padrao-collection-portlet .portletHeader
 {
     border-radius: 5px 5px 0 0;
+}
+
+.contraste .portal-padrao-collection-portlet .portletItem
+{
+    background: #000;
 }
 
 .contraste .portal-padrao-collection-portlet .portletHeader a span,
