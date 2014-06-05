@@ -243,7 +243,7 @@ class Renderer(base.Renderer):
             thumb = scales.scale('image', width=100, height=70)
             return {
                 'src': thumb.url,
-                'alt': item.Description(),
+                'alt': item.Description() or item.Title(),
             }
 
 

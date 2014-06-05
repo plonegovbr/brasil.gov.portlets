@@ -238,7 +238,7 @@ class Renderer(base.Renderer):
             thumb = scales.scale('image', width=45, height=36)
             return {
                 'src': thumb.url,
-                'alt': item.Description(),
+                'alt': item.Description() or item.Title(),
             }
 
     def scale(self, item):
@@ -247,7 +247,7 @@ class Renderer(base.Renderer):
             thumb = scales.scale('image', width=242, height=166)
             return {
                 'src': thumb.url,
-                'alt': item.Description(),
+                'alt': item.Description() or item.Title(),
             }
 
 
