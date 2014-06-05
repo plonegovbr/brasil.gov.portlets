@@ -60,7 +60,7 @@ class ICollectionPortlet(IPortletDataProvider):
                 default=u'Show Image'),
         description=_(u'show_image_description',
                       default=u'If enabled, shows the image.'),
-        required=True,
+        required=False,
         default=False)
 
     image_size = schema.Choice(
@@ -91,7 +91,7 @@ class ICollectionPortlet(IPortletDataProvider):
                 default=u'Show footer'),
         description=_(u'show_footer_description',
                       default=u'If enabled, shows the footer.'),
-        required=True,
+        required=False,
         default=False)
 
     footer = schema.TextLine(
@@ -122,7 +122,7 @@ class ICollectionPortlet(IPortletDataProvider):
                 default=u'Show date'),
         description=_(u'show_date_description',
                       default=u'If enabled, shows the date.'),
-        required=True,
+        required=False,
         default=False)
 
     show_time = schema.Bool(
@@ -130,7 +130,7 @@ class ICollectionPortlet(IPortletDataProvider):
                 default=u'Show time'),
         description=_(u'show_time_description',
                       default=u'If enabled, shows the time.'),
-        required=True,
+        required=False,
         default=False)
 
     collection = schema.Choice(

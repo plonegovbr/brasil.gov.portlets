@@ -27,7 +27,7 @@ class IMediaCarouselPortlet(IPortletDataProvider):
                 default=u'Show header'),
         description=_(u'show_header_description',
                       default=u'If enabled, shows the header.'),
-        required=True,
+        required=False,
         default=False)
 
     header = schema.TextLine(
@@ -56,7 +56,7 @@ class IMediaCarouselPortlet(IPortletDataProvider):
                 default=u'Show title'),
         description=_(u'show_title_description',
                       default=u'If enabled, shows the title.'),
-        required=True,
+        required=False,
         default=False)
 
     show_description = schema.Bool(
@@ -64,7 +64,7 @@ class IMediaCarouselPortlet(IPortletDataProvider):
                 default=u'Show description'),
         description=_(u'show_description_description',
                       default=u'If enabled, shows the description.'),
-        required=True,
+        required=False,
         default=False)
 
     show_footer = schema.Bool(
@@ -72,7 +72,7 @@ class IMediaCarouselPortlet(IPortletDataProvider):
                 default=u'Show footer'),
         description=_(u'show_footer_description',
                       default=u'If enabled, shows the footer.'),
-        required=True,
+        required=False,
         default=False)
 
     footer = schema.TextLine(
@@ -94,7 +94,7 @@ class IMediaCarouselPortlet(IPortletDataProvider):
                 default=u'Show rights'),
         description=_(u'show_rights_description',
                       default=u'If enabled, shows the rights.'),
-        required=True,
+        required=False,
         default=False)
 
     limit = schema.Int(

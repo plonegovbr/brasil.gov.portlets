@@ -25,7 +25,7 @@ class IVideoPortlet(IPortletDataProvider):
                 default=u'Show title'),
         description=_(u'show_title_description',
                       default=u'If enabled, shows the title.'),
-        required=True,
+        required=False,
         default=False)
 
     header = schema.TextLine(

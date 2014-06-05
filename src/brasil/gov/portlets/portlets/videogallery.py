@@ -28,7 +28,7 @@ class IVideoGalleryPortlet(IPortletDataProvider):
                 default=u'Show header'),
         description=_(u'show_header_description',
                       default=u'If enabled, shows the header.'),
-        required=True,
+        required=False,
         default=False)
 
     header = schema.TextLine(
@@ -57,7 +57,7 @@ class IVideoGalleryPortlet(IPortletDataProvider):
                 default=u'Show active title'),
         description=_(u'show_active_title_description',
                       default=u'If enabled, shows the active title.'),
-        required=True,
+        required=False,
         default=False)
 
     show_inactive_title = schema.Bool(
@@ -65,7 +65,7 @@ class IVideoGalleryPortlet(IPortletDataProvider):
                 default=u'Show inactive title'),
         description=_(u'show_inactive_title_description',
                       default=u'If enabled, shows the inactive title.'),
-        required=True,
+        required=False,
         default=False)
 
     show_description = schema.Bool(
@@ -73,7 +73,7 @@ class IVideoGalleryPortlet(IPortletDataProvider):
                 default=u'Show description'),
         description=_(u'show_description_description',
                       default=u'If enabled, shows the description.'),
-        required=True,
+        required=False,
         default=False)
 
     show_footer = schema.Bool(
@@ -81,7 +81,7 @@ class IVideoGalleryPortlet(IPortletDataProvider):
                 default=u'Show footer'),
         description=_(u'show_footer_description',
                       default=u'If enabled, shows the footer.'),
-        required=True,
+        required=False,
         default=False)
 
     footer = schema.TextLine(
