@@ -3,6 +3,8 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* QA Acessibilidade. (closes `#t_77`_).
+  [rodfersou]
 * QA Frontend. (closes `#t_76`_).
   [rodfersou]
 * Frontend do portlet de galeria de áudios. (closes `#t_67`_).
@@ -61,3 +63,4 @@ Changelog
 .. _`#t_73`: https://grupotv1.codebasehq.com/projects/secom/tickets/73
 .. _`#t_74`: https://grupotv1.codebasehq.com/projects/secom/tickets/74
 .. _`#t_76`: https://grupotv1.codebasehq.com/projects/secom/tickets/76
+.. _`#t_77`: https://grupotv1.codebasehq.com/projects/secom/tickets/77
