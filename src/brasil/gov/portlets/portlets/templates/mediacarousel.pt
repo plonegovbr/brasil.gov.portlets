@@ -47,8 +47,14 @@
                                 </div>
                             </div><!-- cycle-1 -->
                             <div class="cycle-hover">
-                                <a href="#" class="cycle-prev" i18n:translate="previous">&laquo; Previous</a>
-                                <a href="#" class="cycle-next" i18n:translate="next">Next &raquo;</a>
+                                <ul>
+                                    <li>
+                                        <a href="#" class="cycle-prev" i18n:translate="previous">&laquo; Previous</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="cycle-next" i18n:translate="next">Next &raquo;</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div><!-- player -->
                     </tal:player>
@@ -72,8 +78,14 @@
                                 </div>
                             </div><!-- cycle-2 -->
                             <div class="cycle-nagivation">
-                                <a href="#" class="cycle-prev" i18n:translate="previous">&laquo; Previous</a>
-                                <a href="#" class="cycle-next" i18n:translate="next">Next &raquo;</a>
+                                <ul>
+                                    <li>
+                                        <a href="#" class="cycle-prev" i18n:translate="previous">&laquo; Previous</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="cycle-next" i18n:translate="next">Next &raquo;</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div><!-- carrossel -->
                     </tal:carrossel>
