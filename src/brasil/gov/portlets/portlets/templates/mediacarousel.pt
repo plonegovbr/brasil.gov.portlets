@@ -33,7 +33,9 @@
                                         </a>
                                         <div class="portlet-mediacarousel-title"
                                              tal:condition="view/data/show_title">
-                                            ${item/Title}
+                                             <a href="${item/absolute_url}/view">
+                                                ${item/Title}
+                                            </a>
                                         </div>
                                         <div class="portlet-mediacarousel-description"
                                              tal:condition="view/data/show_description">

@@ -1152,6 +1152,15 @@ a.jp-shuffle-off:hover
     background: #000;
 }
 
+.portal-padrao-mediacarousel-portlet .cycle-player .portlet-mediacarousel-title a
+{
+    margin-bottom: 0em;
+
+    background: transparent;
+
+    color: #454545;
+}
+
 .portal-padrao-mediacarousel-portlet .cycle-player img
 {
     display: block;
@@ -1394,4 +1403,53 @@ a.jp-shuffle-off:hover
 .contraste .portal-padrao-mediacarousel-portlet .portletFooter a
 {
     background-image: url('++resource++brasil.gov.portlets/img/footer-arrow-contrast.png');
+}
+
+
+/* ==========================================================================
+   Portlets Multimidia
+   ========================================================================== */
+
+/* Estilo de titulos dos portlets
+   ========================================================================== */
+
+.portletPortalPadraoMediaCarousel .portletHeader h1,
+.portletPortalPadraoMediaCarousel .portletHeader h2,
+.portletPortalPadraoMediaCarousel .portletHeader h3,
+.portletPortalPadraoMediaCarousel .portletHeader h4,
+.portletPortalPadraoMediaCarousel .portletHeader h5,
+.portal-padrao-audio-portlet .portletHeader h1,
+.portal-padrao-audio-portlet .portletHeader h2,
+.portal-padrao-audio-portlet .portletHeader h3,
+.portal-padrao-audio-portlet .portletHeader h4,
+.portal-padrao-audio-portlet .portletHeader h5,
+.portal-padrao-audiogallery-portlet .portletHeader h1,
+.portal-padrao-audiogallery-portlet .portletHeader h2,
+.portal-padrao-audiogallery-portlet .portletHeader h3,
+.portal-padrao-audiogallery-portlet .portletHeader h4,
+.portal-padrao-audiogallery-portlet .portletHeader h5,
+.portal-padrao-videogallery-portlet .portletHeader h1,
+.portal-padrao-videogallery-portlet .portletHeader h2,
+.portal-padrao-videogallery-portlet .portletHeader h3,
+.portal-padrao-videogallery-portlet .portletHeader h4,
+.portal-padrao-videogallery-portlet .portletHeader h5 {
+    font-size: 1.0em;
+    letter-spacing: 0em;
+    margin-top: 0em;
+    line-height: 1.3em;
+}
+.portal-padrao-collection-portlet .portletHeader a span {
+    font-size: 1.1em !important;
+}
+.portal-padrao-collection-portlet .portletItem h1,
+.portal-padrao-collection-portlet .portletItem h2,
+.portal-padrao-collection-portlet .portletItem h3,
+.portal-padrao-collection-portlet .portletItem h4,
+.portal-padrao-collection-portlet .portletItem h5 {
+    margin-top: 0.5em;
+    font-size: 1.3em;
+    letter-spacing: 0.00em;
+}
+.portal-padrao-collection-portlet .portletItem .portlet-collection-description {
+    font-size: 0.85em;
 }
