@@ -3,6 +3,10 @@ Changelog
 
 0.1 (unreleased)
 ----------------
+* Padronização de estilos dos títulos dos portlets.
+  [dbarbato]
+* Adiciona link no título de portlet de Media Carousel.
+  [dbarbato]
 * QA Acessibilidade. (closes `#t_77`_).
   [rodfersou]
 * QA Frontend. (closes `#t_76`_).
