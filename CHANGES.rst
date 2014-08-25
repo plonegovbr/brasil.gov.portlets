@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1 (unreleased)
+1.0 (2014-08-25)
 ----------------
 * Padronização de estilos dos títulos dos portlets.
   [dbarbato]

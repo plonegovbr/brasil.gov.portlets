@@ -3,7 +3,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '0.1'
+version = '1.0'
 description = 'Portlets para Portal Padrão'
 long_description = (
     open('README.rst').read() + '\n' +
