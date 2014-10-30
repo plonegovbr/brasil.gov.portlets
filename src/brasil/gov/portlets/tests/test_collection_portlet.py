@@ -272,8 +272,15 @@ class CollectionPortletTestCase(unittest.TestCase):
         self.assertEqual(dates, ['01/05/2014', '02/05/2014', '03/05/2014'])
 
         dates = [r2.date(o) for o in r2.results()]
-        self.assertEqual(dates, [
-            '01/05/2014 | 14:23',
-            '02/05/2014 | 14:23',
-            '03/05/2014 | 14:23'
-        ])
+        r2List = [
+            '01/05/2014 | 17:23',
+            '02/05/2014 | 17:23',
+            '03/05/2014 | 17:23'
+        ]
+        if ('01/05/2014 | 14:23' in dates):
+            r2List = [
+                '01/05/2014 | 14:23',
+                '02/05/2014 | 14:23',
+                '03/05/2014 | 14:23'
+            ]
+        self.assertEqual(dates, r2List)
