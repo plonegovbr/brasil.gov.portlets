@@ -1,4 +1,4 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 from brasil.gov.portlets.config import PROJECTNAME
 from plone.app.portlets.portlets.base import Renderer
 

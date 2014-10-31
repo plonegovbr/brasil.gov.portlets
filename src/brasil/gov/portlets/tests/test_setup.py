@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-
+from Products.GenericSetup.upgrade import listUpgradeSteps
 from brasil.gov.portlets.config import PROJECTNAME
 from brasil.gov.portlets.interfaces import IBrowserLayer
 from brasil.gov.portlets.testing import FUNCTIONAL_TESTING
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from plone.browserlayer.utils import registered_layers
-from Products.GenericSetup.upgrade import listUpgradeSteps
+
 
 import unittest2 as unittest
 

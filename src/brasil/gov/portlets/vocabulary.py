@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
 from zope.interface import implements
 from zope.schema.interfaces import IVocabularyFactory

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from AccessControl import getSecurityManager
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
@@ -8,7 +8,6 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
