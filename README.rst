@@ -51,4 +51,4 @@ buildout:
 3. Reinicie o Plone
 
 4. Acesse o painel de controle e instale o produto
-**.gov.br: Busca Multiportlets: Instalação do Pacote**.
+**brasil.gov.portlets: Instalação do Pacote**.
