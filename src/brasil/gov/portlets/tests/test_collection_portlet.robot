@@ -8,7 +8,7 @@ Suite Teardown  Close all browsers
 
 *** Variables ***
 
-${portletname_sample}  Portal Padrao Colecao
+${portletname_sample}  Portal Padrao Collection
 ${title_field_id}  form.header
 ${titleurl_field_id}  form.header_url
 ${titleurl_sample}  http://www.plone.org

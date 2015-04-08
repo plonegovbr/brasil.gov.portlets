@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
+
 from Products.GenericSetup.upgrade import listUpgradeSteps
 from brasil.gov.portlets.config import PROJECTNAME
 from brasil.gov.portlets.interfaces import IBrowserLayer
 from brasil.gov.portlets.testing import FUNCTIONAL_TESTING
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from plone.browserlayer.utils import registered_layers
+from plone.portlets.interfaces import IPortletManager
+from zope.component import getUtility
 
 
 import unittest2 as unittest
@@ -42,22 +45,87 @@ class TestInstall(BaseTestCase):
     def test_version(self):
         self.assertEqual(
             self.st.getLastVersionForProfile(self.profile),
-            (u'1000',)
+            (u'1001',)
         )
 
 
 class TestUpgrade(BaseTestCase):
     """Ensure product upgrades work."""
 
-    def test_to1000_available(self):
-
+    def list_upgrades(self, source, destination):
         upgradeSteps = listUpgradeSteps(self.st,
                                         self.profile,
-                                        'unknown')
+                                        source)
+        if source == '0':
+            source = (source, '0')
+        else:
+            source = (source, )
+
         step = [step for step in upgradeSteps
-                if (step[0]['dest'] == ('1000',))
-                and (step[0]['source'] == ('unknown',))]
+                if (step[0]['dest'] == (destination,))
+                and (step[0]['source'] == source)]
+        return step
+
+    def execute_upgrade(self, source, destination):
+        # Setamos o profile para versao source
+        self.st.setLastVersionForProfile(self.profile, source)
+
+        # Pegamos os upgrade steps
+        upgradeSteps = listUpgradeSteps(self.st,
+                                        self.profile,
+                                        source)
+        if source == '0':
+            source = (source, '0')
+        else:
+            source = (source, )
+        steps = [step for step in upgradeSteps
+                 if (step[0]['dest'] == (destination,))
+                 and (step[0]['source'] == source)][0]
+        # Os executamos
+        for step in steps:
+            step['step'].doStep(self.st)
+
+    def test_to1000_available(self):
+        step = self.list_upgrades(u'unknown', u'1000')
         self.assertEqual(len(step), 1)
+
+    def test_to1001_available(self):
+        step = self.list_upgrades(u'1000', u'1001')
+        self.assertEqual(len(step), 1)
+
+    def test_to1001_execution(self):
+        self.execute_upgrade(u'1000', u'1001')
+
+        for column in ['plone.leftcolumn', 'plone.rightcolumn']:
+            manager = getUtility(IPortletManager, name=column)
+            addable_portlet_types = [a.title
+                                     for a in manager.getAddablePortletTypes()]
+
+        new_strings = [u'Portal Padrao Collection',
+                       u'Portal Padrao Audio Gallery',
+                       u'Portal Padrao Audio',
+                       u'Portal Padrao Video',
+                       u'Portal Padrao Video Gallery',
+                       u'Portal Padrao Media Carousel']
+
+        self.assertTrue(all([string in addable_portlet_types
+                             for string in new_strings]))
+
+    def test_ultimo_upgrade_igual_metadata_xml_filesystem(self):
+        """
+        Testa se o número do último upgradeStep disponível é o mesmo do
+        metadata.xml do profile.
+        É também útil para garantir que para toda alteração feita no version
+        do metadata.xml tenha um upgradeStep associado.
+        Esse teste parte da premissa que o número dos upgradeSteps é sempre
+        sequencial.
+        """
+        upgrade_info = self.qi.upgradeInfo(PROJECTNAME)
+        upgradeSteps = listUpgradeSteps(self.st, self.profile, '')
+        upgrades = [upgrade[0]['dest'][0] for upgrade in upgradeSteps]
+        last_upgrade = sorted(upgrades, key=int)[-1]
+        self.assertEqual(upgrade_info['installedVersion'],
+                         last_upgrade)
 
 
 class TestUninstall(BaseTestCase):
