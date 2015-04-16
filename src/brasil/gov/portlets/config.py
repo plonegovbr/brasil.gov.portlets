@@ -12,8 +12,8 @@ class HiddenProducts(object):
 
     def getNonInstallableProducts(self):
         return [
-            'brasil.gov.portlets.upgrades.v1000',
-            'brasil.gov.portlets.upgrades.v1001'
+            u'brasil.gov.portlets.upgrades.v1000',
+            u'brasil.gov.portlets.upgrades.v1001'
         ]
 
 
@@ -22,7 +22,7 @@ class HiddenProfiles(object):
 
     def getNonInstallableProfiles(self):
         return [
-            'brasil.gov.portlets:uninstall',
-            'brasil.gov.portlets.upgrades.v1000:default',
-            'brasil.gov.portlets.upgrades.v1001:default'
+            u'brasil.gov.portlets:uninstall',
+            u'brasil.gov.portlets.upgrades.v1000:default',
+            u'brasil.gov.portlets.upgrades.v1001:default'
         ]

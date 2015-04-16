@@ -53,17 +53,17 @@ class TestUpgrade(BaseTestCase):
     """Ensure product upgrades work."""
 
     def list_upgrades(self, source, destination):
-        upgradeSteps = listUpgradeSteps(self.st,
-                                        self.profile,
-                                        source)
+        upgradeSteps = listUpgradeSteps(self.st, self.profile, source)
         if source == '0':
             source = (source, '0')
         else:
             source = (source, )
 
-        step = [step for step in upgradeSteps
-                if (step[0]['dest'] == (destination,))
-                and (step[0]['source'] == source)]
+        step = [
+            step for step in upgradeSteps
+            if (step[0]['dest'] == (destination,))
+            and (step[0]['source'] == source)
+        ]
         return step
 
     def execute_upgrade(self, source, destination):
@@ -71,16 +71,16 @@ class TestUpgrade(BaseTestCase):
         self.st.setLastVersionForProfile(self.profile, source)
 
         # Pegamos os upgrade steps
-        upgradeSteps = listUpgradeSteps(self.st,
-                                        self.profile,
-                                        source)
+        upgradeSteps = listUpgradeSteps(self.st, self.profile, source)
         if source == '0':
             source = (source, '0')
         else:
             source = (source, )
-        steps = [step for step in upgradeSteps
-                 if (step[0]['dest'] == (destination,))
-                 and (step[0]['source'] == source)][0]
+        steps = [
+            step for step in upgradeSteps
+            if (step[0]['dest'] == (destination,))
+            and (step[0]['source'] == source)
+        ][0]
         # Os executamos
         for step in steps:
             step['step'].doStep(self.st)
@@ -98,18 +98,22 @@ class TestUpgrade(BaseTestCase):
 
         for column in ['plone.leftcolumn', 'plone.rightcolumn']:
             manager = getUtility(IPortletManager, name=column)
-            addable_portlet_types = [a.title
-                                     for a in manager.getAddablePortletTypes()]
+            addable_portlet_types = [
+                a.title for a in manager.getAddablePortletTypes()
+            ]
 
-        new_strings = [u'Portal Padrao Collection',
-                       u'Portal Padrao Audio Gallery',
-                       u'Portal Padrao Audio',
-                       u'Portal Padrao Video',
-                       u'Portal Padrao Video Gallery',
-                       u'Portal Padrao Media Carousel']
+        new_strings = [
+            u'Portal Padrao Collection',
+            u'Portal Padrao Audio Gallery',
+            u'Portal Padrao Audio',
+            u'Portal Padrao Video',
+            u'Portal Padrao Video Gallery',
+            u'Portal Padrao Media Carousel'
+        ]
 
-        self.assertTrue(all([string in addable_portlet_types
-                             for string in new_strings]))
+        self.assertTrue(
+            all([string in addable_portlet_types for string in new_strings])
+        )
 
     def test_ultimo_upgrade_igual_metadata_xml_filesystem(self):
         """
@@ -124,8 +128,7 @@ class TestUpgrade(BaseTestCase):
         upgradeSteps = listUpgradeSteps(self.st, self.profile, '')
         upgrades = [upgrade[0]['dest'][0] for upgrade in upgradeSteps]
         last_upgrade = sorted(upgrades, key=int)[-1]
-        self.assertEqual(upgrade_info['installedVersion'],
-                         last_upgrade)
+        self.assertEqual(upgrade_info['installedVersion'], last_upgrade)
 
 
 class TestUninstall(BaseTestCase):
