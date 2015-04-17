@@ -8,7 +8,7 @@ Suite Teardown  Close all browsers
 
 *** Variables ***
 
-${portletname_sample}  Portal Padrao Carrossel de Imagens
+${portletname_sample}  Portal Padrao Media Carousel
 ${headercheck_field_id}  form.show_header
 ${header_field_id}  form.header
 ${headertype_field_id}  form.header_type
