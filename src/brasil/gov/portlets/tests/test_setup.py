@@ -9,8 +9,7 @@ from plone.browserlayer.utils import registered_layers
 from plone.portlets.interfaces import IPortletManager
 from zope.component import getUtility
 
-
-import unittest2 as unittest
+import unittest
 
 
 class Plone43TestCase(unittest.TestCase):

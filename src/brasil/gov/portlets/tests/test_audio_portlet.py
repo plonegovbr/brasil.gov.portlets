@@ -12,7 +12,6 @@ from plone.portlets.interfaces import IPortletType
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 
-
 import unittest
 
 
