@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from AccessControl import getSecurityManager
 from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
 from lxml import html
 from lxml.html import builder as E
+from plone import api
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
@@ -24,7 +24,7 @@ from zope.schema.interfaces import IContextAwareDefaultFactory
 @provider(IContextAwareDefaultFactory)
 def default_image_scale(context):
     image_scale = None
-    properties_tool = getToolByName(context, 'portal_properties')
+    properties_tool = api.portal.get_tool(name='portal_properties')
     imagescales_properties = getattr(properties_tool,
                                      'imaging_properties',
                                      None)
