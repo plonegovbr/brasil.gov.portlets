@@ -20,16 +20,18 @@ Estado deste pacote
 ===================
 
 O **brasil.gov.portlets** tem testes automatizados e, a cada alteração em seu
-código os testes são executados pelo serviço Travis. 
+código os testes são executados pelo serviço Travis.
 
 O estado atual dos testes pode ser visto nas imagens a seguir:
 
-.. image:: https://secure.travis-ci.org/plonegovbr/brasil.gov.portlets.png?branch=master
+.. image:: http://img.shields.io/pypi/v/brasil.gov.portlets.svg
+    :target: https://pypi.python.org/pypi/brasil.gov.portlets
+
+.. image:: https://img.shields.io/travis/plonegovbr/brasil.gov.portlets/master.svg
     :target: http://travis-ci.org/plonegovbr/brasil.gov.portlets
 
-.. image:: https://coveralls.io/repos/plonegovbr/brasil.gov.portlets/badge.png?branch=master
+.. image:: https://img.shields.io/coveralls/plonegovbr/brasil.gov.portlets/master.svg
     :target: https://coveralls.io/r/plonegovbr/brasil.gov.portlets
-
 
 Instalação
 ==========
