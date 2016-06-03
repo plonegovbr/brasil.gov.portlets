@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from Products.GenericSetup.utils import _getDottedName
 from brasil.gov.portlets.portlets import collection
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from plone.app.imaging.interfaces import IImageScale
-from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
 from plone.portlets.interfaces import IPortletAssignment
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.portlets.interfaces import IPortletManager
 from plone.portlets.interfaces import IPortletRenderer
 from plone.portlets.interfaces import IPortletType
+from Products.GenericSetup.utils import _getDottedName
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from brasil.gov.portlets.config import PROJECTNAME
 from plone.app.portlets.portlets.base import Renderer
+from Products.CMFPlone.utils import safe_hasattr
 
 import logging
 
@@ -14,9 +15,9 @@ def portlet_renderer():
         :param obj: [required]
         :type obj: content object
         """
-        if hasattr(obj, 'image'):  # Dexterity
+        if safe_hasattr(obj, 'image'):  # Dexterity
             return True
-        elif hasattr(obj, 'Schema'):  # Archetypes
+        elif safe_hasattr(obj, 'Schema'):  # Archetypes
             return 'image' in obj.Schema().keys()
         else:
             return False

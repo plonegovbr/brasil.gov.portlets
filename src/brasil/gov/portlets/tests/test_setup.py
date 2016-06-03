@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from Products.GenericSetup.upgrade import listUpgradeSteps
 from brasil.gov.portlets.config import PROJECTNAME
 from brasil.gov.portlets.interfaces import IBrowserLayer
 from brasil.gov.portlets.testing import FUNCTIONAL_TESTING
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
 from plone.browserlayer.utils import registered_layers
 from plone.portlets.interfaces import IPortletManager
+from Products.GenericSetup.upgrade import listUpgradeSteps
 from zope.component import getUtility
 
 import unittest
@@ -35,8 +35,10 @@ class TestInstall(BaseTestCase):
     """Ensure product is properly installed."""
 
     def test_installed(self):
-        self.assertTrue(self.qi.isProductInstalled(PROJECTNAME),
-                        '%s not installed' % PROJECTNAME)
+        self.assertTrue(
+            self.qi.isProductInstalled(PROJECTNAME),
+            '{0} not installed'.format(PROJECTNAME)
+        )
 
     def test_browser_layer_installed(self):
         self.assertIn(IBrowserLayer, registered_layers())

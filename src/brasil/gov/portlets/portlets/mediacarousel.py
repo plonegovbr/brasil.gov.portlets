@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
-from AccessControl import getSecurityManager
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
 from lxml import html
 from lxml.html import builder as E
+from plone import api
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class IMediaCarouselPortlet(IPortletDataProvider):
@@ -117,9 +117,8 @@ class IMediaCarouselPortlet(IPortletDataProvider):
             default_query='path:'))
 
 
+@implementer(IMediaCarouselPortlet)
 class Assignment(base.Assignment):
-
-    implements(IMediaCarouselPortlet)
 
     show_header = False
     header = _(u'title_portlet_mediacarousel',
@@ -175,7 +174,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-mediacarousel-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-mediacarousel-{0}'.format(normalizer.normalize(header))
 
     @memoize
     def results(self):
@@ -217,8 +216,7 @@ class Renderer(base.Renderer):
 
         result = portal.unrestrictedTraverse(collection_path, default=None)
         if result is not None:
-            sm = getSecurityManager()
-            if not sm.checkPermission('View', result):
+            if not api.user.has_permission('View', obj=result):
                 result = None
         return result
 

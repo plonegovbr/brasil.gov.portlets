@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
-from AccessControl import getSecurityManager
-from DateTime import DateTime
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
+from DateTime import DateTime
 from lxml import html
 from lxml.html import builder as E
 from plone import api
@@ -12,11 +10,12 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
-from zope.interface import implements
+from zope.interface import implementer
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
@@ -144,9 +143,8 @@ class ICollectionPortlet(IPortletDataProvider):
             default_query='path:'))
 
 
+@implementer(ICollectionPortlet)
 class Assignment(base.Assignment):
-
-    implements(ICollectionPortlet)
 
     header = _(u'title_portlet_collection',
                default=u'Portal Padrao Collection')
@@ -205,7 +203,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-collection-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-collection-{0}'.format(normalizer.normalize(header))
 
     def _collection_type_criteria(self, collection):
         type_criteria = u''
@@ -259,8 +257,7 @@ class Renderer(base.Renderer):
 
         result = portal.unrestrictedTraverse(collection_path, default=None)
         if result is not None:
-            sm = getSecurityManager()
-            if not sm.checkPermission('View', result):
+            if not api.user.has_permission('View', obj=result):
                 result = None
         return result
 
