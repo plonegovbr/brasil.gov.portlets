@@ -3,8 +3,8 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '1.0b2.dev1'
-description = 'Portlets para Portal Padrão'
+version = '1.0rc1'
+description = 'Portlets para Portal PadrĂŁo'
 long_description = (
     open('README.rst').read() + '\n' +
     open('CONTRIBUTORS.rst').read() + '\n' +

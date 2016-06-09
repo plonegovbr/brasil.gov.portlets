@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
-------------------
+1.0rc1 (2016-06-09)
+-------------------
 
 - A lista de dependências do pacote foi atualizada.
   [hvelarde]
