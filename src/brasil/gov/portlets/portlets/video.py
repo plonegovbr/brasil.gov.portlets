@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-from AccessControl import getSecurityManager
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
+from plone import api
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class IVideoPortlet(IPortletDataProvider):
@@ -45,9 +45,8 @@ class IVideoPortlet(IPortletDataProvider):
             default_query='path:'))
 
 
+@implementer(IVideoPortlet)
 class Assignment(base.Assignment):
-
-    implements(IVideoPortlet)
 
     show_header = False
     header = _(u'title_portlet_video',
@@ -79,7 +78,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-video-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-video-{0}'.format(normalizer.normalize(header))
 
     @memoize
     def video(self):
@@ -102,8 +101,7 @@ class Renderer(base.Renderer):
 
         result = portal.unrestrictedTraverse(video_path, default=None)
         if result is not None:
-            sm = getSecurityManager()
-            if not sm.checkPermission('View', result):
+            if not api.user.has_permission('View', obj=result):
                 result = None
         return result
 

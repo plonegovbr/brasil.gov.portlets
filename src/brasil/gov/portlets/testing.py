@@ -2,7 +2,6 @@
 from App.Common import package_home
 from DateTime import DateTime
 from PIL import Image
-from StringIO import StringIO
 from plone import api
 from plone.app.robotframework.testing import AUTOLOGIN_LIBRARY_FIXTURE
 from plone.app.testing import FunctionalTesting
@@ -12,7 +11,7 @@ from plone.app.testing import PloneSandboxLayer
 from plone.namedfile.file import NamedBlobFile
 from plone.namedfile.file import NamedBlobImage
 from plone.testing import z2
-
+from StringIO import StringIO
 
 import os
 import random

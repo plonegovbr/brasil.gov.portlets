@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-from AccessControl import getSecurityManager
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
 from lxml import html
 from lxml.html import builder as E
+from plone import api
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
@@ -11,11 +10,12 @@ from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
 from plone.uuid.interfaces import IUUID
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class IVideoGalleryPortlet(IPortletDataProvider):
@@ -118,9 +118,8 @@ class IVideoGalleryPortlet(IPortletDataProvider):
             default_query='path:'))
 
 
+@implementer(IVideoGalleryPortlet)
 class Assignment(base.Assignment):
-
-    implements(IVideoGalleryPortlet)
 
     show_header = False
     header = _(u'title_portlet_videogallery',
@@ -176,7 +175,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-videogallery-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-videogallery-{0}'.format(normalizer.normalize(header))
 
     def get_uid(self, obj):
         return IUUID(obj)
@@ -221,8 +220,7 @@ class Renderer(base.Renderer):
 
         result = portal.unrestrictedTraverse(collection_path, default=None)
         if result is not None:
-            sm = getSecurityManager()
-            if not sm.checkPermission('View', result):
+            if not api.user.has_permission('View', obj=result):
                 result = None
         return result
 

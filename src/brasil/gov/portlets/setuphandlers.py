@@ -36,5 +36,5 @@ def setup_site(context):
     # Executado apenas se o estivermos no Profile correto
     if context.readDataFile('brasil.gov.portlets.txt') is None:
         return
-    site = context.getSite()
+    site = api.portal.get()
     register_vendor_js(site)

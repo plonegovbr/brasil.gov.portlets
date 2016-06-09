@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-from AccessControl import getSecurityManager
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from brasil.gov.portlets import _
+from plone import api
 from plone.app.form.widgets.uberselectionwidget import UberSelectionWidget
 from plone.app.portlets.portlets import base
 from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.formlib import form
-from zope.interface import implements
+from zope.interface import implementer
 
 
 class IAudioPortlet(IPortletDataProvider):
@@ -37,9 +37,8 @@ class IAudioPortlet(IPortletDataProvider):
             default_query='path:'))
 
 
+@implementer(IAudioPortlet)
 class Assignment(base.Assignment):
-
-    implements(IAudioPortlet)
 
     header = _(u'title_portlet_audio',
                default=u'Portal Padrao Audio')
@@ -68,7 +67,7 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-audio-%s' % normalizer.normalize(header)
+        return 'brasil-gov-portlets-audio-{0}'.format(normalizer.normalize(header))
 
     @memoize
     def audio(self):
@@ -91,8 +90,7 @@ class Renderer(base.Renderer):
 
         result = portal.unrestrictedTraverse(audio_path, default=None)
         if result is not None:
-            sm = getSecurityManager()
-            if not sm.checkPermission('View', result):
+            if not api.user.has_permission('View', obj=result):
                 result = None
         return result
 
