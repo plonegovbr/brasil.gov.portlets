@@ -174,7 +174,8 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-videogallery-{0}'.format(normalizer.normalize(header))
+        return 'brasil-gov-portlets-videogallery-{0}'\
+            .format(normalizer.normalize(header))
 
     def get_uid(self, obj):
         return api.content.get_uuid(obj)
@@ -229,8 +230,8 @@ class Renderer(base.Renderer):
             ${Header}
         </HX>
         '''
-        hx = getattr(E, self.data.header_type)(E.CLASS('portlet-videogallery-header'),
-                                               self.data.header)
+        hx = getattr(E, self.data.header_type)(
+            E.CLASS('portlet-videogallery-header'), self.data.header)
         return html.tostring(hx)
 
     def thumbnail(self, item):
