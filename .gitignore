@@ -1,20 +1,38 @@
+.coverage
 *.egg-info
 *.log
 *.mo
-*.pyc
-*~
-.*project
-.installed.cfg
-.mr.developer.cfg
+*.py?
+*.swp
+# dirs
 .settings
 bin/
-coverage/
+buildout-cache/
 develop-eggs/
-downloads/
 eggs/
+htmlcov/
 include/
 lib/
-local.cfg
+local/
 parts/
+src/*
+test.plone_addon/
 var/
-dist/
+# files
+.*project
+.coverage
+.installed.cfg
+.mr.developer.cfg
+lib64
+log.html
+output.xml
+pip-selfcheck.json
+report.html
+# excludes
+!.coveragerc
+!.editorconfig
+!.gitattributes
+!.gitignore
+!.gitkeep
+!.travis.yml
+!src/brasil.gov.portlets
