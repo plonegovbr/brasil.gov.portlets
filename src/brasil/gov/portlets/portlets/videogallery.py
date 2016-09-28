@@ -9,7 +9,6 @@ from plone.app.vocabularies.catalog import SearchableTextSourceBinder
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.memoize.instance import memoize
 from plone.portlets.interfaces import IPortletDataProvider
-from plone.uuid.interfaces import IUUID
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope import schema
 from zope.component import getMultiAdapter
@@ -175,10 +174,11 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-videogallery-{0}'.format(normalizer.normalize(header))
+        return 'brasil-gov-portlets-videogallery-{0}'\
+            .format(normalizer.normalize(header))
 
     def get_uid(self, obj):
-        return IUUID(obj)
+        return api.content.get_uuid(obj)
 
     @memoize
     def results(self):
@@ -230,8 +230,8 @@ class Renderer(base.Renderer):
             ${Header}
         </HX>
         '''
-        hx = getattr(E, self.data.header_type)(E.CLASS('portlet-videogallery-header'),
-                                               self.data.header)
+        hx = getattr(E, self.data.header_type)(
+            E.CLASS('portlet-videogallery-header'), self.data.header)
         return html.tostring(hx)
 
     def thumbnail(self, item):
