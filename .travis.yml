@@ -27,7 +27,7 @@ script:
 - bin/test
 after_success:
 - bin/createcoverage -t "--layer=!Acceptance"
-- pip install coveralls
+- pip install -q coveralls
 - coveralls
 notifications:
   irc: irc.freenode.org#plonegovbr
