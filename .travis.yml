@@ -5,9 +5,16 @@ cache:
   directories:
   - eggs
   - parts/node
+env:
+  matrix:
+    - MASTER=true
+    - PENDING_RELEASE=true
 matrix:
+  allow_failures:
+    - env: MASTER=true
   fast_finish: true
 install:
+- test $MASTER && sed -ie '/https:\/\/raw\.githubusercontent\.com\/plonegovbr\/portal\.buildout\/master\/buildout\.d\/versions\.cfg/d' buildout.cfg || true
 - python bootstrap.py
 - bin/buildout annotate
 - bin/buildout
@@ -20,7 +27,7 @@ script:
 - bin/test
 after_success:
 - bin/createcoverage -t "--layer=!Acceptance"
-- pip install coveralls
+- pip install -q coveralls
 - coveralls
 notifications:
   irc: irc.freenode.org#plonegovbr
