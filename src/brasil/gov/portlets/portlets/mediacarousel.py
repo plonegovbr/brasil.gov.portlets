@@ -174,7 +174,8 @@ class Renderer(base.Renderer):
     def css_class(self):
         header = self.data.header
         normalizer = getUtility(IIDNormalizer)
-        return 'brasil-gov-portlets-mediacarousel-{0}'.format(normalizer.normalize(header))
+        return 'brasil-gov-portlets-mediacarousel-{0}'.format(
+            normalizer.normalize(header))
 
     @memoize
     def results(self):
@@ -193,7 +194,12 @@ class Renderer(base.Renderer):
                 results = collection.queryCatalog(**query)
             if limit and limit > 0:
                 results = results[:limit]
-        return [b.getObject() for b in results]
+        list_results = []
+        for result in results:
+            obj = result.getObject()
+            if self.thumbnail(obj):  # somente retorna conteúdos com imagens
+                list_results.append(obj)
+        return list_results
 
     @memoize
     def collection(self):
@@ -229,23 +235,26 @@ class Renderer(base.Renderer):
         hx = getattr(E, self.data.header_type)(self.data.header)
         return html.tostring(hx)
 
+    @memoize
     def thumbnail(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
             thumb = scales.scale('image', width=45, height=36)
-            return {
-                'src': thumb.url,
-                'alt': item.Description() or item.Title(),
-            }
+            if thumb:  # conteúdo possui imagem
+                return {
+                    'src': thumb.url,
+                    'alt': item.Description() or item.Title(),
+                }
 
     def scale(self, item):
         if self._has_image_field(item):
             scales = item.restrictedTraverse('@@images')
             thumb = scales.scale('image', width=242, height=166)
-            return {
-                'src': thumb.url,
-                'alt': item.Description() or item.Title(),
-            }
+            if thumb:  # conteúdo possui imagem
+                return {
+                    'src': thumb.url,
+                    'alt': item.Description() or item.Title(),
+                }
 
 
 class AddForm(base.AddForm):

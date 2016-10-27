@@ -18,7 +18,7 @@ import random
 
 
 class CreateTestContent(object):
-    test_date_order = [3, 1, 2]
+    test_date_order = [3, 1, 2, 4]
     test_startdate_order = [3, 2, 1]
     YOUTUBE_EMBED = """
 <iframe width="459" height="344" \
@@ -79,7 +79,7 @@ frameborder="0" allowfullscreen></iframe>
             title='News Folder',
             container=self.portal
         )
-        for i in xrange(1, 4):
+        for i in xrange(1, 5):
             o = api.content.create(
                 type='News Item',
                 title='New {0}'.format(i),
@@ -96,7 +96,8 @@ frameborder="0" allowfullscreen></iframe>
                 '2014/05/0{0} 14:23:38.334118 GMT-3'
                 .format(self.test_date_order[i - 1])
             ))
-            o.setImage(self._generate_jpeg(50, 50))
+            if i != 4:  # Cria notícia sem imagem
+                o.setImage(self._generate_jpeg(50, 50))
         api.content.create(
             type='Collection',
             title='News Collection',

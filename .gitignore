@@ -3,6 +3,7 @@
 *.log
 *.mo
 *.py?
+*.pyc
 *.swp
 # dirs
 .settings
@@ -15,7 +16,6 @@ include/
 lib/
 local/
 parts/
-src/*
 test.plone_addon/
 var/
 # files
@@ -35,4 +35,3 @@ report.html
 !.gitignore
 !.gitkeep
 !.travis.yml
-!src/brasil.gov.portlets

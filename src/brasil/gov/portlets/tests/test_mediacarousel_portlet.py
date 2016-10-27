@@ -25,14 +25,24 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
 
         self.images = {}
-        self.images['collection'] = self.portal['images-folder']['images-collection']
-        self.images['path'] = '/' + '/'.join(self.images['collection'].getPhysicalPath()[2:])
+        self.images['collection'] = \
+            self.portal['images-folder']['images-collection']
+        self.images['path'] = '/' + '/'.join(
+            self.images['collection'].getPhysicalPath()[2:])
         self.images['url'] = self.images['collection'].absolute_url()
 
         self.files = {}
-        self.files['collection'] = self.portal['files-folder']['files-collection']
-        self.files['path'] = '/' + '/'.join(self.files['collection'].getPhysicalPath()[2:])
+        self.files['collection'] = \
+            self.portal['files-folder']['files-collection']
+        self.files['path'] = '/' + '/'.join(
+            self.files['collection'].getPhysicalPath()[2:])
         self.files['url'] = self.files['collection'].absolute_url()
+
+        self.news = {}
+        self.news['collection'] = self.portal['news-folder']['news-collection']
+        self.news['path'] = '/' + '/'.join(
+            self.news['collection'].getPhysicalPath()[2:])
+        self.news['url'] = self.news['collection'].absolute_url()
 
     def _renderer(self, context=None, request=None, view=None, manager=None,
                   assignment=None):
@@ -56,7 +66,7 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
             footer=u'Mais...',
             footer_url=col['url'],
             show_rights=True,
-            limit=3,
+            limit=4,
             collection=col['path']
         )
         r = self._renderer(context=self.portal,
@@ -66,11 +76,13 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         return r
 
     def test_portlet_type_registered(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
+        portlet = getUtility(IPortletType,
+                             name='brasil.gov.portlets.mediacarousel')
         self.assertEqual(portlet.addview, 'brasil.gov.portlets.mediacarousel')
 
     def test_registered_interfaces(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
+        portlet = getUtility(IPortletType,
+                             name='brasil.gov.portlets.mediacarousel')
         registered_interfaces = [_getDottedName(i) for i in portlet.for_]
         registered_interfaces.sort()
         self.assertEqual(
@@ -85,19 +97,24 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         self.assertTrue(IPortletDataProvider.providedBy(portlet.data))
 
     def test_invoke_addview(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
-        mapping = self.portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
+        portlet = getUtility(IPortletType,
+                             name='brasil.gov.portlets.mediacarousel')
+        mapping = self.portal.restrictedTraverse(
+            '++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
             del mapping[m]
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
         addview.createAndAdd(data={})
 
         self.assertEqual(len(mapping), 1)
-        self.assertTrue(isinstance(mapping.values()[0], mediacarousel.Assignment))
+        self.assertTrue(isinstance(mapping.values()[0],
+                                   mediacarousel.Assignment))
 
     def test_portlet_properties(self):
-        portlet = getUtility(IPortletType, name='brasil.gov.portlets.mediacarousel')
-        mapping = self.portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
+        portlet = getUtility(IPortletType,
+                             name='brasil.gov.portlets.mediacarousel')
+        mapping = self.portal.restrictedTraverse(
+            '++contextportlets++plone.leftcolumn')
         for m in mapping.keys():
             del mapping[m]
         addview = mapping.restrictedTraverse('+/' + portlet.addview)
@@ -157,13 +174,20 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         r1 = self._assigned_renderer(self.images)
 
         self.assertEqual(r1.css_class(),
-                         'brasil-gov-portlets-mediacarousel-portal-padrao-carrossel-de-imagens')
+                         'brasil-gov-portlets-mediacarousel-portal'
+                         '-padrao-carrossel-de-imagens')
 
     def test_renderer_results(self):
         r = self._assigned_renderer(self.images)
 
         results = [b.id for b in r.results()]
         self.assertEqual(results, ['image-2', 'image-3', 'image-1'])
+
+    def test_renderer_results_col_news_without_img(self):
+        r = self._assigned_renderer(self.news)
+
+        results = [b.id for b in r.results()]
+        self.assertEqual(results, ['new-2', 'new-3', 'new-1'])
 
     def test_renderer_collection(self):
         r = self._assigned_renderer(self.images)
@@ -173,14 +197,15 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
     def test_renderer_header(self):
         r = self._assigned_renderer(self.images)
 
-        self.assertEqual(r.header(), u'<h2>Portal Padr&#227;o Carrossel de Imagens</h2>')
+        self.assertEqual(r.header(),
+                         u'<h2>Portal Padr&#227;o Carrossel de Imagens</h2>')
 
     def test_renderer_thumbnail(self):
         r1 = self._assigned_renderer(self.files)
         r2 = self._assigned_renderer(self.images)
 
         images = [r1.thumbnail(o) for o in r1.results()]
-        self.assertEqual(images, [None, None, None])
+        self.assertEqual(images, [])
 
         images = [r2.thumbnail(o) for o in r2.results()]
         img_order = [2, 3, 1]
@@ -189,8 +214,8 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
             self.assertTrue(img['src'])
             self.assertIn('alt', img)
             self.assertEqual(img['alt'],
-                             ('Image {0} description - Lorem ipsum dolor sit ' +
-                              'amet, consectetur adipiscing elit. Donec ' +
+                             ('Image {0} description - Lorem ipsum dolor ' +
+                              'sit amet, consectetur adipiscing elit. Donec ' +
                               'eleifend hendrerit interdum.')
                              .format(img_order[i]))
 
@@ -199,7 +224,7 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
         r2 = self._assigned_renderer(self.images)
 
         images = [r1.scale(o) for o in r1.results()]
-        self.assertEqual(images, [None, None, None])
+        self.assertEqual(images, [])
 
         images = [r2.scale(o) for o in r2.results()]
         img_order = [2, 3, 1]
@@ -208,7 +233,21 @@ class MediaCarouselPortletTestCase(unittest.TestCase):
             self.assertTrue(img['src'])
             self.assertIn('alt', img)
             self.assertEqual(img['alt'],
-                             ('Image {0} description - Lorem ipsum dolor sit ' +
-                              'amet, consectetur adipiscing elit. Donec ' +
+                             ('Image {0} description - Lorem ipsum dolor ' +
+                              'sit amet, consectetur adipiscing elit. Donec ' +
                               'eleifend hendrerit interdum.')
                              .format(img_order[i]))
+
+    def test_renderer_thumbnail_news_without_img(self):
+        r1 = self._assigned_renderer(self.news)
+
+        news_without_img = self.portal['news-folder']['new-4']
+        thumbnail = r1.thumbnail(news_without_img)
+        self.assertIsNone(thumbnail)
+
+    def test_renderer_scale_news_without_img(self):
+        r1 = self._assigned_renderer(self.news)
+
+        news_without_img = self.portal['news-folder']['new-4']
+        scale = r1.scale(news_without_img)
+        self.assertIsNone(scale)

@@ -4,7 +4,8 @@ Changelog
 1.0rc2 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Exibe somente conteúdos com imagens no portlet de carrossel de imagens (closes `#8`_).
+  [idgserpro]
 
 
 1.0rc1 (2016-06-09)
@@ -20,3 +21,6 @@ Changelog
 ------------------
 
 - Versão inicial.
+
+
+.. _`#8`: https://github.com/plonegovbr/brasil.gov.portlets/issues/8
