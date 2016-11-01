@@ -40,6 +40,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'brasil.gov.portal',
+        'brasil.gov.tiles',
         'five.pt',
         'lxml',
         'plone.api',

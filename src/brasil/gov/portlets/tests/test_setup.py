@@ -4,9 +4,11 @@ from brasil.gov.portlets.config import PROJECTNAME
 from brasil.gov.portlets.interfaces import IBrowserLayer
 from brasil.gov.portlets.testing import FUNCTIONAL_TESTING
 from brasil.gov.portlets.testing import INTEGRATION_TESTING
+from plone import api
 from plone.browserlayer.utils import registered_layers
 from plone.portlets.interfaces import IPortletManager
 from Products.GenericSetup.upgrade import listUpgradeSteps
+from Products.ResourceRegistries.config import JSTOOLNAME
 from zope.component import getUtility
 
 import unittest
@@ -46,7 +48,7 @@ class TestInstall(BaseTestCase):
     def test_version(self):
         self.assertEqual(
             self.st.getLastVersionForProfile(self.profile),
-            (u'1001',)
+            (u'1002',)
         )
 
 
@@ -94,6 +96,10 @@ class TestUpgrade(BaseTestCase):
         step = self.list_upgrades(u'1000', u'1001')
         self.assertEqual(len(step), 1)
 
+    def test_to1002_available(self):
+        step = self.list_upgrades(u'1001', u'1002')
+        self.assertEqual(len(step), 1)
+
     def test_to1001_execution(self):
         self.execute_upgrade(u'1000', u'1001')
 
@@ -115,6 +121,22 @@ class TestUpgrade(BaseTestCase):
         self.assertTrue(
             all([string in addable_portlet_types for string in new_strings])
         )
+
+    def test_to1002_execution(self):
+        js_tool = api.portal.get_tool(JSTOOLNAME)
+        js_register = ['++resource++brasil.gov.portlets/js/jquery.cycle2.js',
+                       '++resource++brasil.gov.portlets/js/jquery.cycle2.carousel.js',
+                       '++resource++brasil.gov.portlets/js/jquery.jplayer.min.js']
+
+        # simulando a versão 1001
+        for id in js_register:
+            js_tool.registerResource(id)
+            self.assertIn(id, js_tool.getResourceIds())
+
+        # validando a atualização
+        self.execute_upgrade(u'1001', u'1002')
+        for id in js_register:
+            self.assertNotIn(id, js_tool.getResourceIds())
 
     def test_ultimo_upgrade_igual_metadata_xml_filesystem(self):
         """

@@ -4,6 +4,8 @@ Changelog
 1.0rc2 (unreleased)
 -------------------
 
+- Não registra novamente os javascrips inclusos no brasil.gov.tiles (closes `#287`_).
+  [claytonc]
 - Exibe somente conteúdos com imagens no portlet de carrossel de imagens (closes `#8`_).
   [idgserpro]
 
@@ -22,5 +24,5 @@ Changelog
 
 - Versão inicial.
 
-
+.. _`#287`: https://github.com/plonegovbr/brasil.gov.portal/issues/287
 .. _`#8`: https://github.com/plonegovbr/brasil.gov.portlets/issues/8

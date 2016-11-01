@@ -32,14 +32,6 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <gs:importStep
-      name="brasil.gov.portlets_setup_site"
-      handler="brasil.gov.portlets.setuphandlers.setup_site"
-      title="Configura Brasil.gov.portlets"
-      description="Finaliza configuracao do produto de portlets">
-    <depends name="typeinfo"/>
-  </gs:importStep>
-
   <!-- Oculta products -->
   <utility
       factory=".config.HiddenProducts"
