@@ -24,5 +24,5 @@ Changelog
 
 - Versão inicial.
 
-.. _`#287`: https://github.com/plonegovbr/brasil.gov.portal/issues/287
 .. _`#8`: https://github.com/plonegovbr/brasil.gov.portlets/issues/8
+.. _`#287`: https://github.com/plonegovbr/brasil.gov.portal/issues/287
