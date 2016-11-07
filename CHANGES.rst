@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0rc2 (unreleased)
+1.0rc2 (2016-11-07)
 -------------------
 
 - Não registra novamente os javascrips inclusos no brasil.gov.tiles (closes `#287`_).
