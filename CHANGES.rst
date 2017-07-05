@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0 (unreleased)
+1.0 (2017-07-05)
 ----------------
 
 - Remove dependência desnecessária no plone.app.contenttypes.
@@ -13,6 +13,7 @@ Changelog
 
 - Não registra novamente os javascrips inclusos no brasil.gov.tiles (closes `#287`_).
   [claytonc]
+
 - Exibe somente conteúdos com imagens no portlet de carrossel de imagens (closes `#8`_).
   [idgserpro]
 
