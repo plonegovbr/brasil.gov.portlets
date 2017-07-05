@@ -4,7 +4,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 version = '1.0.dev0'
-description = 'Portlets para Portal PadrÄĹo'
+description = 'Portlets para Portal Padrao'
 long_description = (
     open('README.rst').read() + '\n' +
     open('CONTRIBUTORS.rst').read() + '\n' +
@@ -61,7 +61,6 @@ setup(
     ],
     extras_require={
         'test': [
-            'plone.app.contenttypes<1.1a1',
             'plone.app.robotframework',
             'plone.app.testing [robot] >=4.2.2',
             'plone.browserlayer',

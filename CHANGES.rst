@@ -4,7 +4,8 @@ Changelog
 1.0 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Remove dependência desnecessária no plone.app.contenttypes.
+  [idgserpro]
 
 
 1.0rc2 (2016-11-07)
