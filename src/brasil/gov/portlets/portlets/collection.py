@@ -34,8 +34,8 @@ def default_image_scale(context):
 
 
 class ICollectionPortlet(IPortletDataProvider):
-    '''Portal Padrao: Collection Portlet.
-    '''
+    """Portal Padrao: Collection Portlet.
+    """
 
     header = schema.TextLine(
         title=_(u'title_text',
@@ -276,14 +276,14 @@ class Renderer(base.Renderer):
             return scales.scale('image', scale)
 
     def title(self, item):
-        '''Generate html part with following structure
+        """Generate html part with following structure
         <HX>
             <a href='${item/absolute_url}'
                title='${item/Description}'>
                 ${item/Title}
             </a>
         </HX>
-        '''
+        """
         hx = getattr(E, self.data.title_type)(E.CLASS('portlet-collection-title'))
         hx.append(
             E.A(item.Title().decode('utf-8'),

@@ -16,8 +16,8 @@ from zope.interface import implementer
 
 
 class IVideoPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de vídeo.
-    '''
+    """Portal Padrão: Portlet de vídeo.
+    """
 
     show_header = schema.Bool(
         title=_(u'show_title',

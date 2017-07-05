@@ -16,8 +16,8 @@ from zope.interface import implementer
 
 
 class IAudioPortlet(IPortletDataProvider):
-    '''Portal Padrao: Audio Portlet.
-    '''
+    """Portal Padrao: Audio Portlet.
+    """
 
     header = schema.TextLine(
         title=_(u'title_text',

@@ -18,8 +18,8 @@ from zope.interface import implementer
 
 
 class IAudioGalleryPortlet(IPortletDataProvider):
-    '''Portal Padrao: Audio Gallery Portlet.
-    '''
+    """Portal Padrao: Audio Gallery Portlet.
+    """
 
     show_header = schema.Bool(
         title=_(u'show_title',
@@ -189,11 +189,11 @@ class Renderer(base.Renderer):
         return result
 
     def title(self):
-        '''Generate html part with following structure
+        """Generate html part with following structure
         <HX>
             ${Title}
         </HX>
-        '''
+        """
         hx = getattr(E, self.data.header_type)(E.CLASS('portlet-audiogallery-title'),
                                                self.data.header)
         return html.tostring(hx)

@@ -18,8 +18,8 @@ from zope.interface import implementer
 
 
 class IMediaCarouselPortlet(IPortletDataProvider):
-    '''Portal Padrão: Portlet de carrossel de imagens.
-    '''
+    """Portal Padrão: Portlet de carrossel de imagens.
+    """
 
     show_header = schema.Bool(
         title=_(u'show_header',
@@ -227,11 +227,11 @@ class Renderer(base.Renderer):
         return result
 
     def header(self):
-        '''Generate html part with following structure
+        """Generate html part with following structure
         <HX>
             ${Header}
         </HX>
-        '''
+        """
         hx = getattr(E, self.data.header_type)(self.data.header)
         return html.tostring(hx)
 
