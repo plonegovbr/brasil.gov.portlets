@@ -64,8 +64,7 @@ class TestUpgrade(BaseTestCase):
 
         step = [
             step for step in upgradeSteps
-            if (step[0]['dest'] == (destination,))
-            and (step[0]['source'] == source)
+            if (step[0]['dest'] == (destination,)) and (step[0]['source'] == source)  # noqa: E501
         ]
         return step
 
@@ -81,8 +80,7 @@ class TestUpgrade(BaseTestCase):
             source = (source, )
         steps = [
             step for step in upgradeSteps
-            if (step[0]['dest'] == (destination,))
-            and (step[0]['source'] == source)
+            if (step[0]['dest'] == (destination,)) and (step[0]['source'] == source)  # noqa: E501
         ][0]
         # Os executamos
         for step in steps:

@@ -24,4 +24,5 @@ class ImageScaleVocabulary(object):
                     image_scales[name] = (splits[0], )
         return SimpleVocabulary.fromValues(image_scales)
 
+
 ImageScaleVocabularyFactory = ImageScaleVocabulary()
