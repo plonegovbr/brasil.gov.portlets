@@ -17,9 +17,10 @@ Changelog
     Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery e Portal Padrao Collection.
     Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection e Portal Padrao Media Carousel.
     Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel e Portal Padrao Video.
+    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel, Portal Padrao Video e Portal Padrao Video Gallery.
     Remova manualmente todos os portlets antes de atualizar.
 
-- Inabilita o uso do portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel e Portal Padrao Video.
+- Inabilita o uso do portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel, Portal Padrao Video e Portal Padrao Video Gallery.
   [hvelarde]
 
 
