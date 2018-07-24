@@ -14,9 +14,10 @@ Changelog
 - Remove upgrade steps do branch 1.x.
     Esta versão inabilita o uso do portlet Portal Padrao Audio.
     Esta versão inabilita o uso dos portlets Portal Padrao Audio e Portal Padrao Audio Gallery.
+    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery e Portal Padrao Collection.
     Remova manualmente todos os portlets antes de atualizar.
 
-- Inabilita o uso do portlets Portal Padrao Audio e Portal Padrao Audio Gallery.
+- Inabilita o uso do portlets Portal Padrao Audio, Portal Padrao Audio Gallery e Portal Padrao Collection.
   [hvelarde]
 
 
