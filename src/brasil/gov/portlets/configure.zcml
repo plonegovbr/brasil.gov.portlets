@@ -24,9 +24,4 @@
       directory="static"
       />
 
-  <utility
-      component=".vocabulary.ImageScaleVocabularyFactory"
-      name="brasil.image.scales"
-      />
-
 </configure>
