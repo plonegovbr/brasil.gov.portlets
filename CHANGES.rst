@@ -1,10 +1,15 @@
 Changelog
 =========
 
-1.1 (unreleased)
-----------------
+2.0a1 (unreleased)
+------------------
 
-- Nothing changed yet.
+.. Warning::
+    Esta versão remove todos os upgrade steps do branch 1.x.
+    Atualizações só serão suportadas da versão mais recente desse branch.
+
+- Remove upgrade steps do branch 1.x.
+  [hvelarde]
 
 
 1.0 (2017-07-05)

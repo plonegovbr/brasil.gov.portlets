@@ -55,6 +55,15 @@ buildout:
 4. Acesse o painel de controle e instale o produto
 **brasil.gov.portlets: Instalação do Pacote**.
 
+Atualização de 1.x a 2.x
+------------------------
+
+.. Warning::
+    Só atualize para a versão 2.x do pacote depois de atualizar à versão mais recente da branch 1.x.
+
+As atualizações da versão 1.x à 2.x só são suportadas das versões mais recentes de cada branch.
+Antes de atualizar confira que você está efetivamente utilizando a última versão da branch 1.x e que não existem upgrade steps pendentes de serem aplicados.
+
 Rodando o buildout de uma tag antiga do pacote
 ----------------------------------------------
 
@@ -77,5 +86,5 @@ Exemplo: você clonou o repositório do brasil.gov.portal na sua máquina, e deu
         https://raw.githubusercontent.com/plonegovbr/portal.buildout/master/buildout.d/versions.cfg
         https://raw.githubusercontent.com/plone/plone.app.robotframework/master/versions.cfg
         https://raw.githubusercontent.com/plonegovbr/portalpadrao.release/master/1.0.5/versions.cfg
-        
+
 Para saber qual arquivo de versões é compatível, no caso do brasil.gov.portal, é simples pois é a mesma versão (no máximo um bug fix, por exemplo, brasil.gov.portal é 1.1.3 e o arquivo de versão é 1.1.3.1). Para os demais pacotes, recomendamos comparar a data da tag do pacote e a data nos changelog entre uma versão e outra para adivinhar a versão compatível.

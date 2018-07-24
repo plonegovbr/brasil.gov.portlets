@@ -2,7 +2,6 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
-    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="brasil.gov.portlets">
 
   <!-- Profiles -->
@@ -32,15 +31,18 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- Oculta products -->
   <utility
-      factory=".config.HiddenProducts"
-      name="brasil.gov.portlets" />
+      factory=".setuphandlers.NonInstallable"
+      name="brasil.gov.portlets"
+      provides="Products.CMFPlone.interfaces.INonInstallable"
+      />
 
-  <!-- Oculta profile -->
+  <!-- BBB: Plone 4.3 -->
   <utility
-      factory=".config.HiddenProfiles"
-      name="brasil.gov.portlets" />
+      factory=".setuphandlers.NonInstallable"
+      name="brasil.gov.portlets"
+      provides="Products.CMFQuickInstallerTool.interfaces.INonInstallable"
+      />
 
   <!-- Upgrades -->
   <include package=".upgrades" />

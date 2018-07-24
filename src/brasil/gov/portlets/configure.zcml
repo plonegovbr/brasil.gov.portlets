@@ -25,14 +25,6 @@
       />
 
   <utility
-      factory=".config.HiddenProducts"
-      name="brasil.gov.portlets" />
-
-  <utility
-      factory=".config.HiddenProfiles"
-      name="brasil.gov.portlets" />
-
-  <utility
       component=".vocabulary.ImageScaleVocabularyFactory"
       name="brasil.image.scales"
       />
