@@ -5,22 +5,18 @@ Changelog
 ------------------
 
 .. Warning::
-    Esta versão remove todos os upgrade steps do branch 1.x.
+    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel, Portal Padrao Video e Portal Padrao Video Gallery.
+    Remova manualmente todos os portlets antes de atualizar.
+    Esta versão também remove todos os upgrade steps do branch 1.x.
     Atualizações só serão suportadas da versão mais recente desse branch.
 
 - Corrige dependências do pacote.
   [hvelarde]
 
-- Remove upgrade steps do branch 1.x.
-    Esta versão inabilita o uso do portlet Portal Padrao Audio.
-    Esta versão inabilita o uso dos portlets Portal Padrao Audio e Portal Padrao Audio Gallery.
-    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery e Portal Padrao Collection.
-    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection e Portal Padrao Media Carousel.
-    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel e Portal Padrao Video.
-    Esta versão inabilita o uso dos portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel, Portal Padrao Video e Portal Padrao Video Gallery.
-    Remova manualmente todos os portlets antes de atualizar.
-
 - Inabilita o uso do portlets Portal Padrao Audio, Portal Padrao Audio Gallery, Portal Padrao Collection, Portal Padrao Media Carousel, Portal Padrao Video e Portal Padrao Video Gallery.
+  [hvelarde]
+
+- Remove upgrade steps do branch 1.x.
   [hvelarde]
 
 
