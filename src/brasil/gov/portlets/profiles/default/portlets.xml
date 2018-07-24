@@ -22,15 +22,6 @@
     <for interface="plone.app.portlets.interfaces.IDashboard" />
   </portlet>
   <portlet
-      addview="brasil.gov.portlets.audio"
-      title="Portal Padrao Audio"
-      description="Portal Padrao Audio."
-      i18n:attributes="title;
-                       description">
-    <for interface="plone.app.portlets.interfaces.IColumn" />
-    <for interface="plone.app.portlets.interfaces.IDashboard" />
-  </portlet>
-  <portlet
       addview="brasil.gov.portlets.video"
       title="Portal Padrao Video"
       description="Portal Padrao Video."

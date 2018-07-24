@@ -12,6 +12,10 @@ Changelog
   [hvelarde]
 
 - Remove upgrade steps do branch 1.x.
+    Esta versão inabilita o uso do portlet Portal Padrao Audio.
+    Remova manualmente todos os portlets antes de atualizar.
+
+- Inabilita o uso do portlet de Portal Padrao Audio.
   [hvelarde]
 
 
