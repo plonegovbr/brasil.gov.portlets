@@ -21,13 +21,4 @@
     <for interface="plone.app.portlets.interfaces.IColumn" />
     <for interface="plone.app.portlets.interfaces.IDashboard" />
   </portlet>
-  <portlet
-      addview="brasil.gov.portlets.mediacarousel"
-      title="Portal Padrao Media Carousel"
-      description="Portal Padrao Media Carousel."
-      i18n:attributes="title;
-                       description">
-    <for interface="plone.app.portlets.interfaces.IColumn" />
-    <for interface="plone.app.portlets.interfaces.IDashboard" />
-  </portlet>
 </portlets>
