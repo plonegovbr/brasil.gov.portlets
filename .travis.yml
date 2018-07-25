@@ -3,6 +3,7 @@ python: 2.7
 sudo: false
 cache:
   directories:
+  - $HOME/.pylint.d
   - eggs
   - parts/node
 addons:
@@ -27,6 +28,7 @@ before_script:
 script:
 - bin/code-analysis
 - bin/test
+- bin/pylint --py3k --disable=no-absolute-import src/brasil/gov/portlets || true
 after_success:
 - pip install coverage
 - coverage run bin/test --layer=\!Robot
