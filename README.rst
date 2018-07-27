@@ -33,6 +33,9 @@ O estado atual dos testes pode ser visto nas imagens a seguir:
 .. image:: https://img.shields.io/coveralls/plonegovbr/brasil.gov.portlets/master.svg
     :target: https://coveralls.io/r/plonegovbr/brasil.gov.portlets
 
+.. image:: https://img.shields.io/codacy/grade/c1342164adf3406ca0e905932c4347d8.svg
+    :target: https://www.codacy.com/project/plonegovbr/brasil.gov.portlets/dashboard
+
 Instalação
 ==========
 
