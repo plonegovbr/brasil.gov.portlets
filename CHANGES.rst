@@ -8,6 +8,9 @@ Changelog
     Esta versão remove todos os upgrade steps do branch 1.x.
     Atualizações só serão suportadas da versão mais recente desse branch.
 
+- Corrige dependências do pacote.
+  [hvelarde]
+
 - Remove upgrade steps do branch 1.x.
   [hvelarde]
 

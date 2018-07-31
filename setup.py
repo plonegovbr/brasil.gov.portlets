@@ -39,14 +39,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'brasil.gov.portal',
         'brasil.gov.tiles',
-        'five.pt',
         'lxml',
         'plone.api',
-        'plone.app.dexterity',
         'plone.app.portlets',
-        'plone.app.upgrade',
         'plone.memoize',
         'plone.portlets',
         'Products.CMFPlone >=4.3',
@@ -61,8 +57,10 @@ setup(
     ],
     extras_require={
         'test': [
+            'brasil.gov.portal',
+            'plone.app.dexterity',
             'plone.app.robotframework',
-            'plone.app.testing [robot] >=4.2.2',
+            'plone.app.testing [robot]',
             'plone.browserlayer',
             'plone.namedfile',
             'plone.testing',
