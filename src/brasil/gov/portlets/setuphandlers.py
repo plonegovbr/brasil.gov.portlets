@@ -18,6 +18,5 @@ class NonInstallable(object):  # pragma: no cover
     def getNonInstallableProfiles():
         """Hide at site creation."""
         return [
-            u'brasil.gov.portlets:testfixture',
             u'brasil.gov.portlets:uninstall',
         ]

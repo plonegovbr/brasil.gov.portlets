@@ -8,6 +8,9 @@
 Introdução
 ==========
 
+.. Warning::
+    O uso de este complemento está descontinuado no IDGv2.
+
 Este pacote provê a instalação de produto com pacote de portlets multimídia seguindo padrão de estilização do Portal Padrão.
 
 Requisitos

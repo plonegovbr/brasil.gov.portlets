@@ -4,7 +4,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 version = '1.1.dev0'
-description = 'Portlets para Portal Padrao'
+description = '.gov.br: Portlets'
 long_description = (
     open('README.rst').read() + '\n' +
     open('CONTRIBUTORS.rst').read() + '\n' +
@@ -39,30 +39,21 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'brasil.gov.tiles',
-        'lxml',
         'plone.api',
         'plone.app.portlets',
-        'plone.memoize',
         'plone.portlets',
         'Products.CMFPlone >=4.3',
         'Products.CMFQuickInstallerTool',
         'Products.GenericSetup',
-        'sc.embedder',
         'setuptools',
-        'zope.component',
         'zope.i18nmessageid',
         'zope.interface',
-        'zope.schema',
     ],
     extras_require={
         'test': [
-            'brasil.gov.portal',
-            'plone.app.dexterity',
             'plone.app.robotframework',
             'plone.app.testing [robot]',
             'plone.browserlayer',
-            'plone.namedfile',
             'plone.testing',
             'robotsuite',
         ],

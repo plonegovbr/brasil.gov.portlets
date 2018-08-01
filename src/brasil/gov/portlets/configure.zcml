@@ -6,11 +6,6 @@
 
   <includeDependencies package="." />
 
-  <permission
-      id="brasil.gov.portlets.AddExample"
-      title="brasil.gov.portlets: Add Example"
-      />
-
   <!-- Suporte ao Generic Setup-->
   <include file="profiles.zcml" />
 
