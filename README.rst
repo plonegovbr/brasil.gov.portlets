@@ -1,6 +1,6 @@
-***************************************************************
-.gov.br: Pacote de Portlets
-***************************************************************
+*****************
+.gov.br: Portlets
+*****************
 
 .. contents:: Conteúdo
    :depth: 2
@@ -11,21 +11,21 @@ Introdução
 .. Warning::
     O uso de este complemento está descontinuado no IDGv2.
 
-Este pacote provê a instalação de produto com pacote de portlets multimídia seguindo padrão de estilização do Portal Padrão.
+Este complemento provê a instalação de produto com complemento de portlets multimídia seguindo padrão de estilização do Portal Padrão.
 
 Requisitos
 ==========
 
-Este pacote foi desenvolvido especificadamente para o Portal Padrão, dessa forma, para uso sem erros de funcionalidades e estilização é indicado que seja utilizado como complemento ao Portal Padrão.
+Este complemento foi desenvolvido especificadamente para o Portal Padrão, dessa forma, para uso sem erros de funcionalidades e estilização é indicado que seja utilizado como complemento ao Portal Padrão.
 
 
-Estado deste pacote
-===================
+Estado deste complemento
+========================
 
 O **brasil.gov.portlets** tem testes automatizados e, a cada alteração em seu
 código os testes são executados pelo serviço Travis.
 
-O estado atual dos testes pode ser visto nas imagens a seguir:
+O estado atual do complemento pode ser visto nas imagens a seguir:
 
 .. image:: http://img.shields.io/pypi/v/brasil.gov.portlets.svg
     :target: https://pypi.python.org/pypi/brasil.gov.portlets
@@ -42,38 +42,37 @@ O estado atual dos testes pode ser visto nas imagens a seguir:
 Instalação
 ==========
 
-Para habilitar a instalação deste produto em um ambiente que utilize o
-buildout:
+Para habilitar a instalação deste produto em um ambiente que utilize o buildout:
 
-1. Editar o arquivo buildout.cfg (ou outro arquivo de configuração) e
-   adicionar o pacote ``brasil.gov.portlets`` à lista de eggs da instalação::
+1. Editar o arquivo buildout.cfg (ou outro arquivo de configuração) e adicionar o complemento ``brasil.gov.portlets`` à lista de eggs da instalação:
 
-        [buildout]
-        ...
-        eggs =
-            brasil.gov.portlets
+.. code-block:: cfg
+
+      [buildout]
+      ...
+      eggs =
+          brasil.gov.portlets
 
 2. Após alterar o arquivo de configuração é necessário executar
    ''bin/buildout'', que atualizará sua instalação.
 
 3. Reinicie o Plone
 
-4. Acesse o painel de controle e instale o produto
-**brasil.gov.portlets: Instalação do Pacote**.
+4. Acesse o painel de controle e instale o complemento **.gov.br: Portlets**.
 
 Atualização de 1.x a 2.x
 ------------------------
 
 .. Warning::
-    Só atualize para a versão 2.x do pacote depois de atualizar à versão mais recente da branch 1.x.
+    Só atualize para a versão 2.x do complemento depois de atualizar à versão mais recente da branch 1.x.
 
 As atualizações da versão 1.x à 2.x só são suportadas das versões mais recentes de cada branch.
 Antes de atualizar confira que você está efetivamente utilizando a última versão da branch 1.x e que não existem upgrade steps pendentes de serem aplicados.
 
-Rodando o buildout de uma tag antiga do pacote
-----------------------------------------------
+Rodando o buildout de uma tag antiga do complemento
+---------------------------------------------------
 
-Para atender ao relato de ter vários jobs de integração contínua em pacotes brasil.gov.* (ver https://github.com/plonegovbr/portalpadrao.release/issues/11), no fim da seção extends do buildout.cfg de todos os pacotes brasil.gov.* temos a seguinte linha:
+Para atender ao relato de ter vários jobs de integração contínua em complementos brasil.gov.* (ver https://github.com/plonegovbr/portalpadrao.release/issues/11), no fim da seção extends do buildout.cfg de todos os complementos brasil.gov.* temos a seguinte linha:
 
 .. code-block:: cfg
 
@@ -93,4 +92,5 @@ Exemplo: você clonou o repositório do brasil.gov.portal na sua máquina, e deu
         https://raw.githubusercontent.com/plone/plone.app.robotframework/master/versions.cfg
         https://raw.githubusercontent.com/plonegovbr/portalpadrao.release/master/1.0.5/versions.cfg
 
-Para saber qual arquivo de versões é compatível, no caso do brasil.gov.portal, é simples pois é a mesma versão (no máximo um bug fix, por exemplo, brasil.gov.portal é 1.1.3 e o arquivo de versão é 1.1.3.1). Para os demais pacotes, recomendamos comparar a data da tag do pacote e a data nos changelog entre uma versão e outra para adivinhar a versão compatível.
+Para saber qual arquivo de versões é compatível, no caso do brasil.gov.portal, é simples pois é a mesma versão (no máximo um bug fix, por exemplo, brasil.gov.portal é 1.1.3 e o arquivo de versão é 1.1.3.1).
+Para os demais complementos, recomendamos comparar a data da tag do complemento e a data nos changelog entre uma versão e outra para adivinhar a versão compatível.

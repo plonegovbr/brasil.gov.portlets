@@ -8,7 +8,7 @@
       name="default"
       title=".gov.br: Portlets"
       directory="profiles/default"
-      description="O uso de este complemento está descontinuado no IDGv2."
+      description="O uso deste complemento está descontinuado no IDGv2."
       provides="Products.GenericSetup.interfaces.EXTENSION"
       i18n:attributes="title; description"
       />
