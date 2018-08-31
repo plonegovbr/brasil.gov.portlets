@@ -3,7 +3,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '1.1.dev0'
+version = '2.0a1'
 description = '.gov.br: Portlets'
 long_description = (
     open('README.rst').read() + '\n' +
